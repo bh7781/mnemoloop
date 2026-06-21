@@ -102,7 +102,7 @@ Based on what you learn, adjust your prompts, add examples to show Claude what g
 
 ### Example: Using Claude for data analysis
 
-The video above is taken from our AI Fluency for nonprofits course, but the example is relevant for anyone working with data in AI. To evaluate how Claude might work with your data:
+To evaluate how Claude might work with your data:
 
 - Find a dataset you've manually analyzed
 - Create prompts that request Claude to do the analysis on your behalf

@@ -16,10 +16,6 @@ By the end of this lesson, you will be able to:
 - Write effective project instructions to guide Claude's behavior
 - Share projects with teammates (for Claude for Work (Team and Enterprise plan) users)
 
-## Video
-
-[Video: Introduction to Projects - Getting started with projects in Claude.ai]
-
 ## Key takeaways
 
 - Projects are self-contained workspaces with their own memory, chat histories, knowledge bases, and customized instructions. Think of them as dedicated environments for specific work streams.

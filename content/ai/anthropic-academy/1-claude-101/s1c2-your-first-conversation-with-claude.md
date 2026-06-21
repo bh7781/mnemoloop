@@ -15,8 +15,6 @@ By the end of this lesson, you will be able to:
 - Upload files and images to provide Claude with additional context
 - Use follow-up messages to iterate and refine Claude's responses
 
-## Video: Getting started with Claude.ai
-
 ## Key takeaways
 
 - Claude is a powerful, intelligent collaborator that amplifies your capabilities across all of your work. Claude brings AI intelligence, but you bring the context and expertise that makes the work meaningful.
