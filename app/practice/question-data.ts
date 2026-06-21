@@ -1,6 +1,6 @@
 import "server-only";
 
-import { access, readFile } from "node:fs/promises";
+import { access, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import type { QuizData } from "./page";
 
@@ -10,8 +10,18 @@ const questionsDirectory = path.join(
   "questions",
 );
 
-export const sampleQuestionRelativePath =
-  "ai/anthropic-academy/1-claude-101/s1c1-what-is-claude.questions.json";
+export type QuestionBankSummary = {
+  chapterTitle: string;
+  course: string;
+  difficultyMix: {
+    difficult: number;
+    easy: number;
+    moderate: number;
+  };
+  provider: string;
+  questionCount: number;
+  relativePath: string;
+};
 
 function getSafeQuestionPath(relativeQuestionPath: string) {
   const segments = relativeQuestionPath.split("/");
@@ -47,7 +57,11 @@ export async function questionFileExists(relativeQuestionPath: string) {
   }
 }
 
-export async function getQuiz(relativeQuestionPath = sampleQuestionRelativePath) {
+export async function getQuiz(relativeQuestionPath: string | undefined) {
+  if (!relativeQuestionPath) {
+    return null;
+  }
+
   const questionPath = getSafeQuestionPath(relativeQuestionPath);
 
   if (!questionPath) {
@@ -61,6 +75,93 @@ export async function getQuiz(relativeQuestionPath = sampleQuestionRelativePath)
   } catch {
     return null;
   }
+}
+
+export async function getQuestionBanks() {
+  const questionPaths = await findQuestionFiles(questionsDirectory);
+  const summaries = await Promise.all(
+    questionPaths.map(async (questionPath) => {
+      try {
+        const file = await readFile(questionPath, "utf8");
+        const quiz = normalizeQuiz(JSON.parse(file));
+        const relativePath = path
+          .relative(questionsDirectory, questionPath)
+          .split(path.sep)
+          .join("/");
+
+        return {
+          chapterTitle: quiz.chapterTitle,
+          course: quiz.course,
+          difficultyMix: getDifficultyMix(quiz),
+          provider: quiz.provider,
+          questionCount: quiz.questions.length,
+          relativePath,
+        } satisfies QuestionBankSummary;
+      } catch {
+        return null;
+      }
+    }),
+  );
+
+  return summaries
+    .filter((summary): summary is QuestionBankSummary => summary !== null)
+    .sort((left, right) => {
+      const courseComparison = left.course.localeCompare(right.course);
+
+      if (courseComparison !== 0) {
+        return courseComparison;
+      }
+
+      return left.chapterTitle.localeCompare(right.chapterTitle);
+    });
+}
+
+async function findQuestionFiles(directory: string): Promise<string[]> {
+  let entries;
+
+  try {
+    entries = await readdir(directory, { withFileTypes: true });
+  } catch {
+    return [];
+  }
+
+  const questionPaths = await Promise.all(
+    entries.map(async (entry) => {
+      const entryPath = path.join(directory, entry.name);
+
+      if (entry.isDirectory()) {
+        return findQuestionFiles(entryPath);
+      }
+
+      if (entry.isFile() && entry.name.endsWith(".questions.json")) {
+        return [entryPath];
+      }
+
+      return [];
+    }),
+  );
+
+  return questionPaths.flat();
+}
+
+function getDifficultyMix(quiz: QuizData) {
+  const difficultyMix = {
+    difficult: 0,
+    easy: 0,
+    moderate: 0,
+  };
+
+  for (const question of quiz.questions) {
+    if (
+      question.difficulty === "easy" ||
+      question.difficulty === "moderate" ||
+      question.difficulty === "difficult"
+    ) {
+      difficultyMix[question.difficulty] += 1;
+    }
+  }
+
+  return difficultyMix;
 }
 
 type RawQuizQuestion = Omit<QuizData["questions"][number], "correctOptionIndexes"> & {
