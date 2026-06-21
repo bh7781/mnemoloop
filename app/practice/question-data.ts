@@ -13,6 +13,7 @@ const questionsDirectory = path.join(
 export type QuestionBankSummary = {
   chapterTitle: string;
   course: string;
+  courseKey: string;
   difficultyMix: {
     difficult: number;
     easy: number;
@@ -71,10 +72,50 @@ export async function getQuiz(relativeQuestionPath: string | undefined) {
   try {
     const file = await readFile(questionPath, "utf8");
 
-    return normalizeQuiz(JSON.parse(file));
+    return {
+      ...normalizeQuiz(JSON.parse(file)),
+      practiceMode: "chapter" as const,
+    };
   } catch {
     return null;
   }
+}
+
+export async function getCourseQuiz(courseKey: string | undefined) {
+  if (!courseKey) {
+    return null;
+  }
+
+  const questionBanks = await getQuestionBanks();
+  const courseQuestionBanks = questionBanks.filter(
+    (questionBank) => questionBank.courseKey === courseKey,
+  );
+
+  if (courseQuestionBanks.length === 0) {
+    return null;
+  }
+
+  const quizzes = await Promise.all(
+    courseQuestionBanks.map((questionBank) => getQuiz(questionBank.relativePath)),
+  );
+  const validQuizzes = quizzes.filter(
+    (quiz): quiz is NonNullable<(typeof quizzes)[number]> => quiz !== null,
+  );
+
+  if (validQuizzes.length === 0) {
+    return null;
+  }
+
+  const firstQuiz = validQuizzes[0];
+
+  return {
+    chapterId: `${courseKey}-course-test`,
+    chapterTitle: "Course Test",
+    course: firstQuiz.course,
+    practiceMode: "course" as const,
+    provider: firstQuiz.provider,
+    questions: validQuizzes.flatMap((quiz) => quiz.questions),
+  };
 }
 
 export async function getQuestionBanks() {
@@ -92,6 +133,7 @@ export async function getQuestionBanks() {
         return {
           chapterTitle: quiz.chapterTitle,
           course: quiz.course,
+          courseKey: getCourseKey(relativePath),
           difficultyMix: getDifficultyMix(quiz),
           provider: quiz.provider,
           questionCount: quiz.questions.length,
@@ -114,6 +156,12 @@ export async function getQuestionBanks() {
 
       return left.chapterTitle.localeCompare(right.chapterTitle);
     });
+}
+
+function getCourseKey(relativeQuestionPath: string) {
+  const segments = relativeQuestionPath.split("/");
+
+  return segments.slice(0, 3).join("/");
 }
 
 async function findQuestionFiles(directory: string): Promise<string[]> {

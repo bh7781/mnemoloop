@@ -212,9 +212,9 @@ export default function Quiz({ quiz }: QuizProps) {
         <div className="mt-5 rounded-md border border-slate-200 bg-slate-50 p-4">
           <div className="flex items-end justify-between gap-3">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700">
-                Practice test
-              </p>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700">
+              {quiz.practiceMode === "course" ? "Course Test" : "Chapter Practice"}
+            </p>
               <p className="mt-1 text-2xl font-semibold tracking-normal text-slate-950">
                 {quiz.questions.length}
               </p>
@@ -604,7 +604,7 @@ function QuizHeader({
   return (
     <header>
       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">
-        {quiz.provider}
+        {quiz.practiceMode === "course" ? "Course Test" : "Chapter Practice"}
       </p>
       <p className="mt-3 text-sm font-medium text-slate-500">{quiz.course}</p>
       <h2
@@ -615,6 +615,9 @@ function QuizHeader({
       >
         {quiz.chapterTitle}
       </h2>
+      {quiz.practiceMode !== "course" ? (
+        <p className="mt-2 text-sm font-medium text-slate-500">{quiz.provider}</p>
+      ) : null}
     </header>
   );
 }

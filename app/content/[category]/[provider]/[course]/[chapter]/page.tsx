@@ -36,7 +36,7 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
   )}`;
 
   return (
-    <main className="min-h-screen bg-white px-6 py-16 text-slate-950">
+    <main className="min-h-screen bg-white px-6 pb-16 pt-32 text-slate-950 dark:bg-slate-950 dark:text-white">
       <article className="mx-auto w-full max-w-3xl">
         <Link
           href={courseHref}
@@ -54,7 +54,7 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
           <p className="mt-4 text-sm font-medium text-slate-500">
             {chapterDetail.course.title}
           </p>
-          <h1 className="mt-3 text-4xl font-semibold tracking-normal sm:text-5xl">
+          <h1 className="mt-3 text-4xl font-semibold tracking-normal text-slate-950 dark:text-white sm:text-5xl">
             {chapterDetail.title}
           </h1>
           <div className="mt-6">

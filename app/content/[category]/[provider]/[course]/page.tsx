@@ -22,7 +22,7 @@ export default async function CoursePage({ params }: CoursePageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-white px-6 py-16 text-slate-950">
+    <main className="min-h-screen bg-white px-6 pb-16 pt-32 text-slate-950 dark:bg-slate-950 dark:text-white">
       <section className="mx-auto w-full max-w-4xl">
         <Link
           href="/content"
@@ -38,7 +38,7 @@ export default async function CoursePage({ params }: CoursePageProps) {
               <span className="text-slate-300">/</span>
               <span>{course.provider}</span>
             </div>
-            <h1 className="mt-4 text-4xl font-semibold tracking-normal sm:text-5xl">
+            <h1 className="mt-4 text-4xl font-semibold tracking-normal text-slate-950 dark:text-white sm:text-5xl">
               {course.title}
             </h1>
           </div>
@@ -48,17 +48,17 @@ export default async function CoursePage({ params }: CoursePageProps) {
           </p>
         </div>
 
-        <ol className="mt-10 divide-y divide-slate-200 rounded-lg border border-slate-200 bg-white shadow-sm">
+        <ol className="mt-10 divide-y divide-slate-200 rounded-lg border border-slate-200 bg-white shadow-sm dark:divide-slate-800 dark:border-slate-800 dark:bg-slate-900">
           {course.chapters.map((chapter, index) => (
             <li key={chapter.slug}>
               <Link
                 href={`/content/${coursePath.join("/")}/${chapter.slug}`}
-                className="block p-5 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-inset"
+                className="block p-5 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-inset dark:hover:bg-slate-800"
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
                   Chapter {index + 1}
                 </p>
-                <h2 className="mt-1 text-lg font-semibold text-slate-950">
+                <h2 className="mt-1 text-lg font-semibold text-slate-950 dark:text-white">
                   {chapter.title}
                 </h2>
               </Link>
