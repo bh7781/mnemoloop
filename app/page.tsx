@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-white px-6 py-16 text-slate-950">
@@ -12,12 +14,15 @@ export default function Home() {
           Mnemoloop helps learners retain knowledge through active recall,
           spaced repetition, and AI-powered reinforcement.
         </p>
-        <button
-          type="button"
+        <Link
+          href="/content"
           className="mt-10 rounded-md bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2"
         >
-          Coming Soon
-        </button>
+          Open Content Library
+        </Link>
+        <p className="mt-4 text-sm font-medium text-slate-500">
+          Browse notes and practice generated questions
+        </p>
       </section>
     </main>
   );
