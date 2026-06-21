@@ -39,6 +39,101 @@
         "active-recall",
         "knowledge-retention"
       ]
+    },
+    {
+      "id": "claude-101-s1c1-q003",
+      "question": "Which statements accurately describe Claude's role as an AI assistant?",
+      "options": [
+        "Claude can help draft, revise, and analyze text-based work",
+        "Claude guarantees that every answer is factually correct without verification",
+        "Claude can support coding, reasoning, and summarization tasks",
+        "Claude permanently remembers all details from every user conversation by default"
+      ],
+      "correctOptionIndexes": [0, 2],
+      "explanation": "Claude is useful for language, reasoning, coding, analysis, and summarization tasks. However, users should still verify important outputs, and Claude does not permanently remember every conversation by default.",
+      "difficulty": "moderate",
+      "questionType": "conceptual",
+      "concepts": [
+        "capabilities",
+        "limitations",
+        "ai-assistant"
+      ]
+    },
+    {
+      "id": "claude-101-s1c1-q004",
+      "question": "A learner asks Claude to explain a confusing technical paragraph, then compares the explanation against the source material. What is the strongest reason this is a good use of Claude?",
+      "options": [
+        "Claude should be treated as the final authority, so comparison is unnecessary",
+        "Claude can help transform dense information into a clearer form while the learner keeps responsibility for checking accuracy",
+        "Claude works best when users avoid giving it source material",
+        "Claude is only useful for creative writing, not technical learning"
+      ],
+      "correctOptionIndexes": [1],
+      "explanation": "Claude can make complex material easier to understand, but the learner should still compare the result with the original source when accuracy matters. This combines AI assistance with active judgment.",
+      "difficulty": "moderate",
+      "questionType": "application",
+      "concepts": [
+        "learning-support",
+        "verification",
+        "source-grounding"
+      ]
+    },
+    {
+      "id": "claude-101-s1c1-q005",
+      "question": "Which behaviors would most improve the quality of Claude's response to a study-related prompt?",
+      "options": [
+        "Give Claude the relevant context and specify the target outcome",
+        "Ask a broad question with no details and expect a perfectly tailored answer",
+        "Request a useful format, such as a summary, comparison table, or practice quiz",
+        "Ignore any uncertainty in the answer because AI output does not need review"
+      ],
+      "correctOptionIndexes": [0, 2],
+      "explanation": "Claude generally performs better when the user provides context, defines the desired outcome, and asks for a suitable response format. Broad prompts and unreviewed outputs make the result less reliable for learning.",
+      "difficulty": "moderate",
+      "questionType": "application",
+      "concepts": [
+        "prompting",
+        "context",
+        "response-format"
+      ]
+    },
+    {
+      "id": "claude-101-s1c1-q006",
+      "question": "Why is Claude better understood as a collaborator than as an automatic source of truth?",
+      "options": [
+        "Because Claude can assist with reasoning and generation, but users still need to evaluate important claims and decisions",
+        "Because Claude cannot produce useful language-based work",
+        "Because Claude only answers questions that have exactly one possible response",
+        "Because Claude prevents users from editing or challenging its output"
+      ],
+      "correctOptionIndexes": [0],
+      "explanation": "Claude can be a strong collaborator for drafting, reasoning, and analysis, but its outputs still need human evaluation, especially for factual, technical, legal, medical, or high-impact decisions.",
+      "difficulty": "difficult",
+      "questionType": "conceptual",
+      "concepts": [
+        "collaboration",
+        "evaluation",
+        "limitations"
+      ]
+    },
+    {
+      "id": "claude-101-s1c1-q007",
+      "question": "A student wants to use Claude while preparing for an exam. Which workflow best aligns with active recall rather than passive review?",
+      "options": [
+        "Ask Claude to generate practice questions, answer them without notes, review mistakes, and retry weak topics later",
+        "Ask Claude for a summary, read it once, and mark the chapter as mastered",
+        "Ask Claude to rewrite every paragraph in simpler words without ever testing memory",
+        "Ask Claude to choose answers automatically so the student can skip retrieval practice"
+      ],
+      "correctOptionIndexes": [0],
+      "explanation": "Active recall requires retrieving information from memory and using feedback to improve. Generating practice questions, attempting them without notes, reviewing mistakes, and revisiting weak areas supports that process.",
+      "difficulty": "difficult",
+      "questionType": "application",
+      "concepts": [
+        "active-recall",
+        "retrieval-practice",
+        "feedback-loop"
+      ]
     }
   ]
 }
