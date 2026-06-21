@@ -1,0 +1,261 @@
+{
+  "chapterId": "claude-code-101-s3c3",
+  "chapterTitle": "Code Review",
+  "course": "Claude Code 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-code-101-s3c3-q001",
+      "question": "What is the primary advantage of using a subagent for code review rather than having the main agent review its own code?",
+      "options": [
+        "The subagent has access to more tools and can make edits during review",
+        "The subagent operates with fresh eyes in its own context window without the bias of the main agent",
+        "The subagent can review code faster because it doesn't need to understand the original implementation",
+        "The subagent automatically fixes all identified issues before reporting them"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "A subagent provides an unbiased review because it operates in its own context window without the bias that the main agent develops while writing the code. This fresh perspective is valuable for catching issues the original author might overlook. The subagent should be restricted to read-only tools and should flag issues rather than edit files.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "code review",
+        "subagent",
+        "unbiased review"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c3-q002",
+      "question": "When configuring a code-reviewer subagent, what type of tool access should it have?",
+      "options": [
+        "Full access to all tools including file editing capabilities",
+        "Read-only tools to flag issues without editing files",
+        "Access only to git-related tools",
+        "No tool access; it should only provide text-based feedback"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "A code-reviewer subagent should be restricted to read-only tools. This ensures the reviewer can identify and flag issues without making unauthorized changes to the codebase. The reviewer's role is to report problems, not to edit files.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "subagent configuration",
+        "code review",
+        "tool restrictions"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c3-q003",
+      "question": "What does the `/commit-push-pr` skill do?",
+      "options": [
+        "It creates a PR but requires manual commit and push steps",
+        "It handles commit, push, and PR creation all in one step",
+        "It only pushes code to the remote repository",
+        "It reviews code before allowing a commit"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The `/commit-push-pr` skill is a convenience feature that automates the entire workflow of committing changes, pushing them to the remote repository, and creating a pull request—all in a single command. This reduces friction by eliminating the need to run these steps manually.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "/commit-push-pr skill",
+        "workflow automation",
+        "PR creation"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c3-q004",
+      "question": "If you have a Slack MCP server configured with channels listed in your `CLAUDE.md`, what happens when you use the `/commit-push-pr` skill?",
+      "options": [
+        "The PR link is automatically posted to your team's Slack channel",
+        "A Slack notification is sent only to the PR author",
+        "The skill requires manual approval in Slack before proceeding",
+        "The PR is created but Slack integration is disabled"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "When a Slack MCP server is configured with channels listed in your `CLAUDE.md`, the `/commit-push-pr` skill automatically posts the PR link to your team's channel. This keeps the team informed about new PRs without requiring manual notification.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Slack integration",
+        "/commit-push-pr skill",
+        "MCP server"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c3-q005",
+      "question": "What is the purpose of the `--from-pr` command?",
+      "options": [
+        "To create a new PR from an existing branch",
+        "To resume work on a PR later by picking up where you left off",
+        "To view the history of all PRs in the repository",
+        "To automatically merge a PR into the main branch"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The `--from-pr` command allows you to resume work on a specific PR by linking your session back to that PR. This is useful when you need to address review comments or fix a failing build. You run `claude --from-pr <PR_NUMBER>` to continue from where you left off.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "session linking",
+        "--from-pr command",
+        "PR workflow"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c3-q006",
+      "question": "Why should a code-reviewer subagent configuration be checked into the repository?",
+      "options": [
+        "To ensure the subagent has access to all repository secrets",
+        "To allow the entire team to use the same reviewer configuration",
+        "To prevent other teams from using the same reviewer",
+        "To automatically update the reviewer whenever the repository is cloned"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Checking the subagent configuration into the repository ensures consistency across the team. When the configuration is version-controlled, all team members use the same reviewer setup, which maintains uniform code review standards and expectations.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "subagent configuration",
+        "team consistency",
+        "repository management"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c3-q007",
+      "question": "When does the session linking to a PR occur automatically?",
+      "options": [
+        "When you run the `--from-pr` command",
+        "When Claude creates a PR through `gh pr create`",
+        "When the PR is merged into the main branch",
+        "When a code review is requested from a team member"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Session linking happens automatically when Claude creates a PR using `gh pr create`. This automatic linking allows you to later resume the session using `--from-pr` if you need to make changes or address feedback.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "session linking",
+        "PR creation",
+        "gh pr create"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c3-q008",
+      "question": "In a typical workflow, at what point should you ask Claude to use a subagent for code review?",
+      "options": [
+        "After the PR has been merged into the main branch",
+        "Before you push a PR",
+        "During the initial code writing phase",
+        "Only when a team member requests a review"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The subagent review should occur before you push a PR. This allows you to catch and address issues early, before the code is submitted for team review. Catching problems at this stage reduces the number of review cycles needed.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "code review workflow",
+        "subagent timing",
+        "PR process"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c3-q009",
+      "question": "What is a key difference between the role of a code-reviewer subagent and the role of the main agent during development?",
+      "options": [
+        "The subagent has more computational power than the main agent",
+        "The subagent flags issues without editing files, while the main agent writes and modifies code",
+        "The subagent can access external APIs while the main agent cannot",
+        "The subagent is only used for security reviews while the main agent handles all other reviews"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The subagent's role is fundamentally different from the main agent's role. The main agent writes and modifies code during development, while the subagent is restricted to read-only tools and serves only to identify and flag issues. This separation of concerns ensures objective, unbiased feedback.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "subagent role",
+        "code review",
+        "tool restrictions"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c3-q010",
+      "question": "Consider a scenario where you've addressed review comments on a PR and need to make additional changes. Which command would you use to resume your session, and why would this be preferable to starting a new session?",
+      "options": [
+        "Use `claude --new-session` to start fresh with a clear context",
+        "Use `claude --from-pr <PR_NUMBER>` to maintain context and continue from where you left off",
+        "Use `claude --review-pr <PR_NUMBER>` to automatically apply all suggested changes",
+        "Use `claude --merge-pr <PR_NUMBER>` to finalize the changes"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The `--from-pr` command resumes your session with the context of the PR you were working on. This is preferable to starting a new session because it preserves the context of your work, allowing Claude to understand the changes you've already made and the feedback you've received. Starting fresh would lose this valuable context.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "session linking",
+        "--from-pr command",
+        "workflow efficiency"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c3-q011",
+      "question": "How would you design a code review workflow that leverages both the subagent review and the `/commit-push-pr` skill to minimize friction while maintaining code quality?",
+      "options": [
+        "Use the subagent to review code, then use `/commit-push-pr` to push changes directly without addressing subagent feedback",
+        "Skip the subagent review and use `/commit-push-pr` immediately to save time",
+        "Use the subagent to review code and identify issues, address the feedback, then use `/commit-push-pr` to commit, push, and create the PR in one step",
+        "Use `/commit-push-pr` first to create the PR, then ask the subagent to review the PR after it's been pushed"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The optimal workflow combines both features: first use the subagent for an unbiased review before pushing, address any issues it identifies, then use `/commit-push-pr` to handle the entire commit-to-PR flow in one step. This approach catches issues early while automating the final steps, reducing friction without sacrificing quality.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "workflow design",
+        "code review",
+        "automation",
+        "quality assurance"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c3-q012",
+      "question": "What potential challenges might arise if a code-reviewer subagent configuration is not checked into the repository, and how would this affect team collaboration?",
+      "options": [
+        "Different team members might use different reviewer configurations, leading to inconsistent code review standards and making it difficult to maintain uniform quality expectations",
+        "The subagent would be unable to access the repository and would refuse to perform reviews",
+        "The repository would automatically reject all PRs created without a checked-in configuration",
+        "Team members would be unable to use the `/commit-push-pr` skill without a configuration file"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Without a checked-in configuration, team members might create or use different subagent setups, leading to inconsistent review standards. This inconsistency undermines code quality goals and makes it harder for the team to maintain shared expectations about what constitutes acceptable code. Checking the configuration into the repository ensures everyone uses the same reviewer setup.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "team collaboration",
+        "configuration management",
+        "code quality standards"
+      ]
+    }
+  ]
+}

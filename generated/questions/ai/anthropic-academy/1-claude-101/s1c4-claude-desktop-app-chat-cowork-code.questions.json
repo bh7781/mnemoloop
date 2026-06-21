@@ -1,0 +1,256 @@
+{
+  "chapterId": "claude-101-s1c4",
+  "chapterTitle": "Claude desktop app: Chat, Cowork, Code",
+  "course": "Claude 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-101-s1c4-q001",
+      "question": "Which Claude desktop app mode is designed primarily for quick questions, brainstorming, and iterative back-and-forth dialogue?",
+      "options": [
+        "Chat",
+        "Cowork",
+        "Code",
+        "Dispatch"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Chat is optimized for quicker exchanges where you explore ideas, draft iteratively, get quick answers, and learn through dialogue. It works the same way as claude.ai but with additional native desktop features like quick entry, screenshots, and dictation.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Chat mode",
+        "Claude desktop app modes"
+      ]
+    },
+    {
+      "id": "claude-101-s1c4-q002",
+      "question": "What is the primary purpose of the Code tab in the Claude desktop app?",
+      "options": [
+        "To manage scheduled tasks and recurring work",
+        "To build software by reading, writing, and modifying code with visual diffs and git integration",
+        "To conduct research across multiple sources and produce finished documents",
+        "To capture screenshots and share windows for quick analysis"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The Code tab provides a full development environment for building software. Claude works directly in your codebase, showing visual diffs of changes, providing a built-in terminal, and tracking versions with git so you can roll back if needed.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Code mode",
+        "software development"
+      ]
+    },
+    {
+      "id": "claude-101-s1c4-q003",
+      "question": "Which feature allows you to quickly access Claude by double-tapping the Option key on Mac?",
+      "options": [
+        "Dictation",
+        "Quick entry",
+        "Desktop connectors",
+        "Scheduled tasks"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Quick entry is a Chat mode feature that lets you double-tap the Option key on Mac to pull up Claude in a compact overlay window that stays on top as you switch between apps. This allows you to ask questions without leaving your current work.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Chat mode features",
+        "quick entry"
+      ]
+    },
+    {
+      "id": "claude-101-s1c4-q004",
+      "question": "What underlying engine powers both Cowork and Code modes?",
+      "options": [
+        "The same engine as Chat mode",
+        "Claude Code, running locally on your machine",
+        "A cloud-based processing system",
+        "A hybrid system that switches between local and remote processing"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Cowork and Code run on the same engine called Claude Code, which runs locally on your machine. This allows both modes to work independently, handle complex tasks, spin up sub-agents, and sustain long-running work without relying on cloud processing.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Cowork mode",
+        "Code mode",
+        "Claude Code engine"
+      ]
+    },
+    {
+      "id": "claude-101-s1c4-q005",
+      "question": "In Cowork mode, what does the 'Plan' feature allow you to do before Claude starts working?",
+      "options": [
+        "Schedule when the task should run automatically",
+        "Review Claude's full approach and strategy before it touches any files",
+        "Assign different parts of the task to specific subagents",
+        "Connect to remote repositories and cloud environments"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "In Cowork mode, Claude often asks clarifying questions and builds a plan you can review in the sidebar. This allows you to understand the full approach before work begins, giving you control over the strategy.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Cowork mode",
+        "task planning"
+      ]
+    },
+    {
+      "id": "claude-101-s1c4-q006",
+      "question": "Which of the following is a capability unique to Cowork mode that allows Claude to handle parts of a task in parallel?",
+      "options": [
+        "Visual diffs",
+        "Subagents",
+        "Git integration",
+        "Ask/Code/Plan modes"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Subagents are background workers that Claude spins up in Cowork mode to handle parts of a task in parallel. For complex work like research briefs pulling from multiple sources, Claude breaks it into subtasks, assigns each to a subagent with its own context, and coordinates the results into one finished deliverable.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Cowork mode",
+        "subagents",
+        "parallel processing"
+      ]
+    },
+    {
+      "id": "claude-101-s1c4-q007",
+      "question": "What is the key difference between how Code mode handles local versus remote development?",
+      "options": [
+        "Local development uses Ask mode while remote uses Code mode",
+        "Local development works directly with files on your computer, while remote connects to a GitHub repository and runs in a cloud environment where sessions continue even if you close the app",
+        "Remote development has access to your file system and terminal, while local development is restricted to a protected environment",
+        "Local development requires git integration while remote development does not"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "In Code mode, local development means Claude works directly with a folder on your computer and can access local tools and run a development server. Remote development connects to a GitHub repository and runs in a cloud environment, allowing sessions to continue even if you close the app—useful for larger codebases or keeping development off your local machine.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Code mode",
+        "local development",
+        "remote development"
+      ]
+    },
+    {
+      "id": "claude-101-s1c4-q008",
+      "question": "In Cowork mode, what is the purpose of the 'protected environment' design?",
+      "options": [
+        "To prevent Claude from accessing any external tools or connectors",
+        "To allow Claude to read, create, and edit files only within folders you share, while preventing access to anything outside them",
+        "To encrypt all files that Claude works with",
+        "To require approval before Claude can run any terminal commands"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Cowork runs in a contained space on your computer. The protected environment design means Claude can read, create, and edit files within the folders you explicitly share, but cannot access anything outside those designated folders. This provides security and control over what Claude can access.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Cowork mode",
+        "protected environment",
+        "security"
+      ]
+    },
+    {
+      "id": "claude-101-s1c4-q009",
+      "question": "Which feature in Cowork mode allows you to continue work from your mobile phone?",
+      "options": [
+        "Projects",
+        "Scheduled tasks",
+        "Dispatch",
+        "Browser use"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Dispatch is a persistent conversation thread that allows you to continue Cowork conversations from your phone using the Claude mobile app. You can hand Claude tasks that use everything on your computer—files, connectors, plugins, and desktop apps. Both the desktop and mobile apps are required, and your computer must be awake with the desktop app open.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Cowork mode",
+        "Dispatch",
+        "mobile integration"
+      ]
+    },
+    {
+      "id": "claude-101-s1c4-q010",
+      "question": "When choosing between Chat, Cowork, and Code modes for a task that involves reading 50+ project documents including contracts and financial reports to produce a summary memo, which mode would be most appropriate and why?",
+      "options": [
+        "Chat mode, because it excels at quick analysis and iterative dialogue",
+        "Code mode, because it has access to the full file system and can process large volumes of data",
+        "Cowork mode, because it can read every document, cross-reference across the full set, and extract patterns that emerge from reading all of them, producing a finished deliverable",
+        "All three modes equally, since they all have access to local files"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Cowork is optimized for complex, sustained work that requires pulling information from many sources and producing finished documents. It can read every page of 50+ documents, cross-reference across the full set, and identify patterns that only emerge from comprehensive analysis. While Chat is for quick exchanges and Code is for software development, Cowork is specifically designed for this type of thorough research and analysis work.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "mode selection",
+        "Cowork capabilities",
+        "document analysis"
+      ]
+    },
+    {
+      "id": "claude-101-s1c4-q011",
+      "question": "In Code mode, Claude follows a priority order when deciding which tool to use for a task. What is the correct sequence of this priority?",
+      "options": [
+        "Screen interaction first, then Chrome, then connectors",
+        "Connectors first, then Chrome, then screen interaction",
+        "Chrome first, then connectors, then screen interaction",
+        "Screen interaction first, then connectors, then Chrome"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude follows a priority order to pick the fastest and most reliable path: connectors first (most efficient), then Chrome (for web interaction), then screen interaction (computer use as a fallback). This ensures Claude uses the most appropriate tool for each task, with permission prompts shown before accessing each app and the ability to set up blocklists for restricted access.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Code mode",
+        "computer use",
+        "tool priority"
+      ]
+    },
+    {
+      "id": "claude-101-s1c4-q012",
+      "question": "Which of the following scenarios would benefit from using Cowork's scheduled tasks feature, and what makes it particularly valuable in that context?",
+      "options": [
+        "Writing a one-time research brief about a new market, because scheduled tasks allow you to pause and resume work",
+        "A daily briefing that pulls from your Slack and calendar, a weekly roundup of shipped items, or morning inbox triage, because Claude handles recurring work automatically each time the app is open and catches up if your computer was closed when the task was due",
+        "Building a new software feature, because scheduled tasks integrate with git version control",
+        "Asking quick questions about unfamiliar dashboards, because scheduled tasks allow you to use voice dictation"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Scheduled tasks in Cowork are designed for recurring work that happens on a schedule. You define the task and when it should run, and Claude handles it automatically each time the app is open. If your computer or app was closed when a task was due, it catches up when you're back. This is valuable for repetitive administrative work like daily briefings, weekly roundups, or morning inbox triage—work that would otherwise consume time every day but can be automated once set up.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Cowork mode",
+        "scheduled tasks",
+        "automation"
+      ]
+    }
+  ]
+}

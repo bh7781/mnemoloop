@@ -1,0 +1,250 @@
+{
+  "chapterId": "claude-code-101-s4c1",
+  "chapterTitle": "The CLAUDE.md File",
+  "course": "Claude Code 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-code-101-s4c1-q001",
+      "question": "What is the primary purpose of a CLAUDE.md file in Claude Code?",
+      "options": [
+        "To provide persistent memory about your project that Claude Code reads automatically",
+        "To store all your project's source code in a single markdown file",
+        "To replace the need for a package.json or configuration files",
+        "To document bugs that Claude Code should avoid"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The CLAUDE.md file serves as persistent memory for Claude Code. It is read automatically at the start of each session and appended to the prompt, allowing Claude to understand your project structure, dependencies, and conventions without having to re-explore the codebase each time.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "CLAUDE.md purpose",
+        "persistent memory"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c1-q002",
+      "question": "Where should a project-level CLAUDE.md file be located?",
+      "options": [
+        "In the .git directory",
+        "In the root directory of your project",
+        "In the node_modules folder",
+        "In your home directory configuration folder"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "A project-level CLAUDE.md file lives in the root directory of your project and is shared with the team through version control. This is different from a user-level CLAUDE.md, which lives in your configuration folder and applies only to you across all projects.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "CLAUDE.md location",
+        "project-level configuration"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c1-q003",
+      "question": "What happens when you open Claude Code without a CLAUDE.md file?",
+      "options": [
+        "Claude Code automatically creates one for you",
+        "It starts fresh every time and must re-explore your codebase",
+        "It uses a default CLAUDE.md from Anthropic",
+        "It refuses to work until you create one"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Without a CLAUDE.md file, Claude Code has no persistent memory of your project. It must re-explore the codebase, figure out dependencies, and understand existing features each session, which can lead to repeated corrections and inefficient workflows.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "CLAUDE.md absence",
+        "session context"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c1-q004",
+      "question": "What information should typically be included in a CLAUDE.md file?",
+      "options": [
+        "Only the project name and description",
+        "Stack details, commands, and code style conventions",
+        "Every line of code in your project",
+        "Only the names of team members"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "An effective CLAUDE.md file includes your tech stack (like Next.js, Tailwind, Drizzle ORM), development commands (dev server, tests, linting), and code style preferences (indentation, export patterns, directory conventions). This gives Claude the context it needs to make appropriate decisions without constant correction.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "CLAUDE.md content",
+        "project context"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c1-q005",
+      "question": "Why should you commit your CLAUDE.md file to version control?",
+      "options": [
+        "To ensure your team benefits from the same project context and conventions",
+        "To prevent other developers from modifying the codebase",
+        "To automatically deploy your project to production",
+        "To reduce the size of your repository"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Committing CLAUDE.md to version control makes it a shared resource. When team members clone the project and use Claude Code, they automatically get the same project context, conventions, and commands, ensuring consistent behavior across the team.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "version control",
+        "team collaboration"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c1-q006",
+      "question": "What is the difference between a project-level and user-level CLAUDE.md file?",
+      "options": [
+        "Project-level is in the root directory and shared with the team; user-level is in your configuration folder and personal to you",
+        "Project-level is for small projects; user-level is for large projects",
+        "Project-level uses YAML format; user-level uses Markdown format",
+        "There is no difference; they are the same file"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "A project-level CLAUDE.md in the root directory is committed to version control and shared with the team, containing project-specific conventions. A user-level CLAUDE.md in your configuration folder applies across all your projects and contains only your personal preferences, not shared with others.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "CLAUDE.md hierarchy",
+        "personal vs. shared configuration"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c1-q007",
+      "question": "According to the recommended workflow, when should you create a CLAUDE.md file?",
+      "options": [
+        "Before starting any work on the project",
+        "Only after the project is completely finished",
+        "After you notice yourself repeatedly correcting Claude on the same issues",
+        "Never; it is optional and not recommended"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The recommendation is to start without a CLAUDE.md file so you can identify where you constantly have to course-correct Claude. This keeps your CLAUDE.md compact and focused on only necessary information. Once you've identified patterns, you can run `/init` to generate one or manually add the rules you've discovered.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "CLAUDE.md creation strategy",
+        "iterative approach"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c1-q008",
+      "question": "How can you reference external documentation in your CLAUDE.md file?",
+      "options": [
+        "By using the `#` symbol followed by the file path",
+        "By using the `@` symbol with the file path",
+        "By copying the entire documentation into CLAUDE.md",
+        "By creating a separate docs.md file"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "You can reference project documentation using the `@` symbol with the file path. For example, `@README.md` tells Claude to reference that file when needed. This keeps your CLAUDE.md concise while still directing Claude to relevant documentation.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "documentation references",
+        "CLAUDE.md syntax"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c1-q009",
+      "question": "What should you do if you find yourself repeatedly correcting Claude on the same coding rule?",
+      "options": [
+        "Accept that Claude will never learn and stop using Claude Code",
+        "Explicitly ask Claude to save that rule to the CLAUDE.md file",
+        "Create a separate configuration file outside the project",
+        "Assume the rule is not important enough to document"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When you notice a pattern of repeated corrections, you should explicitly ask Claude to save that rule to CLAUDE.md. This ensures that the rule persists across sessions and becomes part of the project's shared context, eliminating the need for repeated corrections.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "memory management",
+        "iterative improvement"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c1-q010",
+      "question": "How does the CLAUDE.md file improve Claude Code's decision-making when generating code?",
+      "options": [
+        "It eliminates the need for Claude to understand your project structure",
+        "It provides context about your stack, conventions, and preferences so Claude makes decisions aligned with your project without constant correction",
+        "It guarantees that Claude will never make mistakes",
+        "It replaces the need for code reviews"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "By providing upfront context about your tech stack, code style, and conventions, CLAUDE.md allows Claude to make informed decisions that align with your project. For example, if your CLAUDE.md specifies to use server actions instead of API routes, Claude will follow that pattern without needing repeated corrections. This reduces friction and makes sessions more productive.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "context provision",
+        "decision alignment",
+        "productivity"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c1-q011",
+      "question": "Why is starting a project without a CLAUDE.md file and building it incrementally considered a best practice?",
+      "options": [
+        "Because CLAUDE.md files are not actually useful",
+        "Because it allows you to identify genuine pain points and keep the file focused on necessary information rather than speculating about what Claude might need",
+        "Because it forces Claude to learn your project structure on its own",
+        "Because it reduces the total number of files in your project"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Starting without a CLAUDE.md file lets you observe where Claude actually struggles with your project. This empirical approach ensures your CLAUDE.md contains only rules and context that genuinely solve problems, rather than unnecessary information. Once you've identified patterns, you can add them to CLAUDE.md, making it a lean and effective tool.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "iterative development",
+        "pragmatic documentation"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c1-q012",
+      "question": "In a team environment, how do project-level and user-level CLAUDE.md files work together?",
+      "options": [
+        "Only the project-level file is used; the user-level file is ignored",
+        "Only the user-level file is used; the project-level file is ignored",
+        "The project-level file provides shared team conventions while the user-level file allows individuals to add personal preferences across all their projects",
+        "They conflict with each other and cannot be used simultaneously"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The two CLAUDE.md files serve complementary purposes. The project-level file (in the root, committed to version control) ensures all team members follow the same conventions and understand the shared project context. The user-level file (in your configuration folder) allows you to maintain personal preferences and coding styles across all projects you work on. Together, they create a layered context system that balances team consistency with individual flexibility.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "CLAUDE.md hierarchy",
+        "team collaboration",
+        "personal preferences"
+      ]
+    }
+  ]
+}

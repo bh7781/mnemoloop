@@ -1,0 +1,250 @@
+{
+  "chapterId": "claude-code-101-s1c1",
+  "chapterTitle": "What is Claude Code?",
+  "course": "Claude Code 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-code-101-s1c1-q001",
+      "question": "What is the primary capability that distinguishes Claude Code from Claude.ai?",
+      "options": [
+        "Claude Code has direct access to your files, terminal, and codebase without requiring copy-paste",
+        "Claude Code can only be used in the terminal",
+        "Claude Code is free while Claude.ai requires a subscription",
+        "Claude Code can access the internet while Claude.ai cannot"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Claude Code's key differentiator is that it operates as an AI Agent with direct access to your files, terminal, and entire codebase, eliminating the need for manual copy-paste workflows. This direct integration is what sets it apart from Claude.ai, which requires manual code sharing.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude Code capabilities",
+        "Agent-based interaction"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c1-q002",
+      "question": "In which of the following environments can Claude Code be used?",
+      "options": [
+        "Terminal, Visual Studio Code, Claude Desktop app, web, and JetBrains IDEs",
+        "Only in the terminal and Visual Studio Code",
+        "Only in the Claude Desktop app and on the web",
+        "Only in JetBrains IDEs and the terminal"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Claude Code is available across multiple platforms: your terminal, Visual Studio Code, the Claude Desktop app, on the web, and in JetBrains IDEs. This broad availability makes it accessible regardless of your preferred development environment.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude Code availability",
+        "Platform support"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c1-q003",
+      "question": "What is an AI Agent?",
+      "options": [
+        "Software that can interact with its environment and perform actions to complete a defined goal",
+        "A tool that only reads code without making any changes",
+        "A service that requires human intervention for every single action",
+        "A program that can only work with text files"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "An AI Agent is software designed to interact with its environment and perform actions autonomously to achieve a defined goal. It operates through a large language model in a loop and can access tools, external services, or other agents to accomplish its objectives.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "AI Agent definition",
+        "Agent-based systems"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c1-q004",
+      "question": "Which of the following actions can Claude Code perform on your codebase?",
+      "options": [
+        "Read and understand code, edit files, run terminal commands, and search the web",
+        "Only read code and provide explanations",
+        "Only edit files without understanding the context",
+        "Only run terminal commands without reading files"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Claude Code can perform multiple integrated actions: read and understand your codebase, edit files across your project, run terminal commands, and search the web for documentation. This combination of capabilities enables it to work autonomously on complex tasks.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude Code capabilities",
+        "Practical applications"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c1-q005",
+      "question": "What does Claude Code do before running commands or making changes to your files by default?",
+      "options": [
+        "It asks for your permission first",
+        "It makes changes immediately without notification",
+        "It creates a backup and then proceeds automatically",
+        "It sends the changes to a review queue"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "By default, Claude Code asks for permission before running commands or making changes. This design ensures you remain in control and can choose between a hands-on or hands-off approach, maintaining oversight of the tool's actions.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "User control",
+        "Safety and permissions"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c1-q006",
+      "question": "How does Claude Code handle the limitation of its context window when working with large codebases?",
+      "options": [
+        "It uses agentic strategies to locate answers within the codebase without loading everything into context at once",
+        "It requires you to manually select which files to include",
+        "It automatically deletes files that don't fit in the context window",
+        "It splits the codebase into separate projects"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Claude Code's agentic nature allows it to work strategically within its context window limitations. Rather than loading an entire codebase at once, it finds intelligent ways to locate and access the information it needs, making efficient use of its working memory.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Context window management",
+        "Agent strategy"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c1-q007",
+      "question": "What is a potential limitation of Claude Code that users should be aware of?",
+      "options": [
+        "It can make mistakes such as misunderstanding intent, introducing bugs, or over-engineering solutions",
+        "It cannot edit files in any circumstance",
+        "It always requires an internet connection to function",
+        "It can only work with Python code"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Like any tool, Claude Code is not perfect. It may misunderstand your intent, introduce bugs, or create overly complex solutions. Staying engaged in the process helps catch these errors early, which is why maintaining oversight is important.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Tool limitations",
+        "Error detection"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c1-q008",
+      "question": "How does Claude Code's approach to refactoring differ from traditional manual refactoring?",
+      "options": [
+        "Claude Code can refactor a function and automatically update all files that reference it in one operation",
+        "Claude Code can only refactor one file at a time",
+        "Claude Code requires you to manually update all references after refactoring",
+        "Claude Code cannot perform refactoring tasks"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Claude Code can refactor a function and update every file that references it across your project in a single operation. This capability demonstrates its advantage over manual refactoring, where developers must track down and update all references individually.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Code refactoring",
+        "Multi-file operations"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c1-q009",
+      "question": "What role does the loop mechanism play in how Claude Code operates as an AI Agent?",
+      "options": [
+        "It allows the large language model to operate in real time, taking actions and responding to results iteratively",
+        "It prevents Claude Code from making any changes to files",
+        "It limits Claude Code to reading files only",
+        "It ensures that all operations happen simultaneously without waiting"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The core of an AI Agent is a large language model operating in a loop in real time. This loop mechanism enables Claude Code to take an action, observe the result, and then decide on the next step—creating an iterative, responsive workflow that adapts to changing conditions.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Agent loop mechanism",
+        "Real-time operation"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c1-q010",
+      "question": "How does Claude Code's ability to run terminal commands and use their output inform its subsequent actions?",
+      "options": [
+        "It executes commands, analyzes the output, and uses that information to determine what to do next",
+        "It runs commands but ignores the output",
+        "It can only run commands that produce no output",
+        "It requires manual interpretation of all command outputs"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Claude Code can execute terminal commands (like build scripts or tests) and use the output to inform its next decisions. This feedback loop is central to its agentic behavior—it observes results and adapts its approach accordingly, enabling autonomous problem-solving.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Agent feedback loops",
+        "Command execution and analysis"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c1-q011",
+      "question": "Which of the following best explains why staying in the loop with Claude Code is important for effective use?",
+      "options": [
+        "Claude Code can make mistakes, and user oversight helps catch errors early before they compound",
+        "Claude Code cannot function without constant human direction for every action",
+        "The context window requires manual management by the user at all times",
+        "Claude Code needs permission for every single keystroke it makes"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "While Claude Code operates autonomously as an agent, it is not infallible. Staying engaged allows you to catch misunderstandings, bugs, or over-engineered solutions early. This balance between automation and oversight is key to using the tool effectively and safely.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "User oversight",
+        "Error prevention",
+        "Effective tool usage"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c1-q012",
+      "question": "How does Claude Code's access to external tools and services enhance its ability to function as an AI Agent?",
+      "options": [
+        "It can leverage tools, external services, and other agents to reach its goals beyond what it could do alone",
+        "External tools replace the need for Claude Code to understand your codebase",
+        "Access to external services means Claude Code no longer needs permission from users",
+        "External tools eliminate the possibility of Claude Code making mistakes"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "An AI Agent's power comes partly from its ability to access tools, external services, and other agents. Claude Code can search the web for documentation, integrate with your developer tools, and use other resources to accomplish goals more effectively than it could in isolation. This extensibility is a core strength of the agentic approach.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Agent extensibility",
+        "Tool integration",
+        "External resources"
+      ]
+    }
+  ]
+}

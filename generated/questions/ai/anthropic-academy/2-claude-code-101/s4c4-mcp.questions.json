@@ -1,0 +1,257 @@
+{
+  "chapterId": "claude-code-101-s4c4",
+  "chapterTitle": "MCP",
+  "course": "Claude Code 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-code-101-s4c4-q001",
+      "question": "What is the primary purpose of Model Context Protocol (MCP)?",
+      "options": [
+        "To allow Claude Code to connect to external tools and data sources",
+        "To replace the need for writing custom code in your projects",
+        "To automatically fix bugs in your codebase",
+        "To manage version control across multiple repositories"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "MCP is an open standard that enables Claude Code to connect to external tools and data sources, bridging the gap between your codebase and context that lives outside it, such as databases, productivity apps, or public repositories.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP fundamentals",
+        "external tools integration"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c4-q002",
+      "question": "Which command is used to add an MCP server in Claude Code?",
+      "options": [
+        "`claude mcp add`",
+        "`claude server connect`",
+        "`claude tools install`",
+        "`claude integrate mcp`"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The `claude mcp add` command is the standard way to add MCP servers to Claude Code. This command works for both HTTP servers (remote services) and stdio servers (local processes).",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP server management",
+        "CLI commands"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c4-q003",
+      "question": "What are the two main types of MCP servers?",
+      "options": [
+        "HTTP servers and Stdio servers",
+        "Local servers and Cloud servers",
+        "Public servers and Private servers",
+        "Database servers and API servers"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "MCP servers come in two main types: HTTP servers for remote services hosted by the service provider that connect over the network, and Stdio servers for local processes that run on your machine.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP server types",
+        "HTTP and Stdio servers"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c4-q004",
+      "question": "You want to ensure that all team members working on a project automatically get the same MCP servers configured. Which scoping option should you use?",
+      "options": [
+        "Local scope, which applies only to your machine",
+        "User scope, which applies across all your projects",
+        "Project scope, using a `.mcp.json` file checked into version control",
+        "Global scope, which applies to all Claude Code installations"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Project scope uses a `.mcp.json` file that you check into version control, ensuring that anyone on the codebase gets the exact same servers automatically. Local scope is only for you, and User scope applies across your projects but not to teammates.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP server scoping",
+        "team collaboration",
+        "version control"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c4-q005",
+      "question": "How do MCP servers affect your context window usage?",
+      "options": [
+        "They have no impact on context usage",
+        "They add tool definitions to your context window even when not actively using them",
+        "They only consume context when you explicitly call a tool",
+        "They automatically compress context to reduce usage"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "MCP servers add tool definitions to your context window persistently, even when you're not actively using them. This means having many servers configured can eat into your available context, which is why it's important to disable servers you're not actively using.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "context window management",
+        "MCP performance"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c4-q006",
+      "question": "You have configured multiple MCP servers and notice your context usage is becoming a concern. What are the recommended alternatives to reduce context consumption?",
+      "options": [
+        "Increase your token limit by upgrading your subscription",
+        "Use CLI equivalents if available, or consider using Skills instead of MCP servers",
+        "Disable all MCP servers and manually provide tool information",
+        "Switch to a different AI model that has larger context windows"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "If a tool has a CLI equivalent (like `gh` for GitHub or `aws` for AWS), the CLI is more context-efficient because it doesn't add persistent tool definitions. Skills are also an alternative—they have a name and description loaded into context, and Claude only loads the full skill contents when needed.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "context optimization",
+        "alternative tools",
+        "Skills"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c4-q007",
+      "question": "What happens when MCP tool definitions exceed 10% of your context window?",
+      "options": [
+        "Claude Code automatically disables all MCP servers",
+        "Claude Code switches to tool search mode, which discovers the right tools on demand",
+        "An error is thrown and you must manually reduce the number of servers",
+        "The context window is automatically expanded to accommodate the tools"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When MCP tools exceed 10% of your context window, Claude Code automatically switches to tool search mode, which discovers the right tools on demand. However, this mode may not work as reliably as having tools pre-loaded in context.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "context management",
+        "tool search mode",
+        "performance optimization"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c4-q008",
+      "question": "You want to add a Linear MCP server to retrieve issue details for your project management. Which type of MCP server would this be?",
+      "options": [
+        "A Stdio server running a local Python script",
+        "An HTTP server hosted by Linear and connecting over the network",
+        "A Project-scoped server that only works with version control",
+        "A User-scoped server that applies across all projects"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Linear is a remote service hosted by the service provider, so it would be an HTTP server that connects over the network. Stdio servers are for local processes running on your machine, not for remote services.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP server types",
+        "HTTP servers",
+        "remote services"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c4-q009",
+      "question": "What command can you use inside a Claude Code session to manage and monitor your connected MCP servers?",
+      "options": [
+        "`/status` to check server health",
+        "`/mcp` to see what's connected, check status, and disable servers",
+        "`/servers` to list all available MCP servers",
+        "`/config` to modify server settings"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The `/mcp` command is used inside a Claude Code session to manage your servers. It allows you to see what's connected, check status, and disable servers you don't need. The `/mcp` command also provides a detail view with options to view tools, reconnect, or disable a server.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP management",
+        "session commands",
+        "server monitoring"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c4-q010",
+      "question": "Your team is deciding between using an AWS CLI tool directly versus adding an AWS MCP server. What is the primary trade-off to consider?",
+      "options": [
+        "The CLI tool is more powerful but requires manual configuration for each team member",
+        "The MCP server is more context-efficient but the CLI tool provides more reliable tool discovery",
+        "The CLI tool is more context-efficient but the MCP server provides better integration with Claude Code",
+        "The MCP server is faster but the CLI tool is more secure"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "CLI tools like `aws` are more context-efficient because they don't add persistent tool definitions to your context window. However, MCP servers provide better integration with Claude Code and allow Claude to automatically understand when to use the tools. The choice depends on whether you prioritize context efficiency or seamless integration.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "context efficiency",
+        "tool integration",
+        "architectural decisions"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c4-q011",
+      "question": "You're architecting MCP server usage for a large team with multiple projects. Some projects need documentation lookups, others need issue tracking, and some need database access. How should you structure your MCP server configuration to balance team efficiency and context usage?",
+      "options": [
+        "Add all servers at User scope so everyone has access to everything",
+        "Add all servers at Local scope so each developer manages their own configuration",
+        "Use Project scope for project-specific servers via `.mcp.json`, User scope for commonly-used servers, and consider Skills or CLI tools for context-heavy tools",
+        "Use only HTTP servers and avoid Stdio servers to reduce complexity"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "A balanced approach uses Project scope (`.mcp.json`) for servers specific to individual projects, User scope for tools used across multiple projects, and considers Skills or CLI alternatives for tools that would consume significant context. This ensures team consistency while managing context efficiently and avoiding unnecessary tool definitions.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP architecture",
+        "team scaling",
+        "context optimization",
+        "scoping strategy"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c4-q012",
+      "question": "When Claude Code automatically switches to tool search mode due to high context usage, what is the primary trade-off compared to having tools pre-loaded in context?",
+      "options": [
+        "Tool search mode is faster but less secure",
+        "Tool search mode discovers tools on demand but may not work as reliably",
+        "Tool search mode requires manual tool selection but uses less context",
+        "Tool search mode is more reliable but consumes more context"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Tool search mode discovers the right tools on demand, which saves context space when tools exceed 10% of your context window. However, this on-demand discovery may not work as reliably as having tool definitions pre-loaded in context, where Claude can immediately understand what tools are available and when to use them.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool search mode",
+        "context management",
+        "reliability trade-offs"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "chapterId": "claude-code-101-s2c1",
+  "chapterTitle": "Installing Claude Code",
+  "course": "Claude Code 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-code-101-s2c1-q001",
+      "question": "On macOS and Linux, what is the primary method to install Claude Code in one go?",
+      "options": [
+        "Using the curl command",
+        "Using Homebrew with brew install",
+        "Using the winget command",
+        "Using the Invoke-RestMethod command"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The curl command is the primary method for installing Claude Code on macOS, Linux, and WSL in one go. While Homebrew is mentioned as an alternative, it does not support auto-updates. The other options are specific to Windows environments.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Terminal installation",
+        "macOS and Linux setup"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c1-q002",
+      "question": "After installing Claude Code in the terminal, what command do you run to start it?",
+      "options": [
+        "claude-start",
+        "claude",
+        "claude-init",
+        "claude-run"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The command to start Claude Code in the terminal is simply `claude`. This command is run from your project directory and gives Claude Code access to that directory and all of its subfolders.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Terminal usage",
+        "Claude Code startup"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c1-q003",
+      "question": "In VS Code, how do you open Claude Code after installation?",
+      "options": [
+        "Run the `claude` command in the integrated terminal",
+        "Use the command palette with Ctrl/Cmd + Shift + P and search for 'Claude Code Open in New Tab'",
+        "Restart VS Code and wait for automatic activation",
+        "Install a separate VS Code extension pack"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "After installing the Claude Code extension in VS Code, you open it by using the command palette (Ctrl/Cmd + Shift + P) and searching for 'Claude Code Open in New Tab.' You can also click the Claude logo in the sidebar if it's visible. The other options are either incorrect or incomplete.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "VS Code integration",
+        "Extension usage"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c1-q004",
+      "question": "What is a key limitation of using Homebrew or winget to install Claude Code?",
+      "options": [
+        "They only work on Windows systems",
+        "They do not support auto-updates",
+        "They require manual authentication each time",
+        "They cannot access project subdirectories"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Both Homebrew (on macOS/Linux) and winget (on Windows) do not support auto-updates for Claude Code. This is why the curl command is recommended as the primary installation method, as it enables automatic updates. The other options are not supported by the source material.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Installation methods",
+        "Auto-update support"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c1-q005",
+      "question": "On Windows, which of the following are valid methods to install Claude Code in the terminal?",
+      "options": [
+        "PowerShell with Invoke-RestMethod and CMD with curl only",
+        "CMD with curl and winget only",
+        "Invoke-RestMethod in PowerShell, curl in CMD, and winget",
+        "Homebrew and Invoke-RestMethod only"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "On Windows, there are three installation options: Invoke-RestMethod in PowerShell, curl in CMD, and winget. All three are valid methods, though winget (like Homebrew) does not support auto-updates. Homebrew is not available on Windows.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Windows installation",
+        "Multiple installation paths"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c1-q006",
+      "question": "During initial setup in the terminal, what authentication options are available for Claude Code?",
+      "options": [
+        "Only Claude account subscription (Pro or Max)",
+        "Claude account subscription, API key, or third-party platform",
+        "Only API key authentication",
+        "GitHub authentication only"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "During initial setup, users can choose between signing in with a Claude account (Pro, Max, or Enterprise) or using an API key. Third-party platform authentication is also available. Enterprise users should select the Claude Enterprise account option if their organization has one.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Authentication methods",
+        "Account setup"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c1-q007",
+      "question": "What is the scope of file access when you run Claude Code from a specific directory?",
+      "options": [
+        "Only files in that directory, excluding subdirectories",
+        "That directory and all of its subfolders",
+        "All files on the system",
+        "Only files with specific extensions"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When you run Claude Code in a directory, it has access to that directory and all of its subfolders. This means you can work with the entire project structure from the point where you launch the command.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "File access scope",
+        "Directory permissions"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c1-q008",
+      "question": "In the JetBrains IDE, how do you access Claude Code after installation?",
+      "options": [
+        "Click the Claude logo to open a pane with the terminal experience",
+        "Use the command palette to search for Claude Code",
+        "Install a separate marketplace plugin",
+        "Run a terminal command within the IDE"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "After installing the Claude Code plugin from the JetBrains Marketplace and restarting the IDE, you click the Claude logo to open a pane that provides the terminal experience. This pane works alongside your editor, allowing you to use Claude Code without leaving your IDE.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "JetBrains integration",
+        "IDE plugin usage"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c1-q009",
+      "question": "What distinguishes the Claude Desktop Code experience from the web version?",
+      "options": [
+        "Desktop supports cloud environments while web does not",
+        "Web version supports all repositories while desktop is limited to GitHub",
+        "Desktop allows working in specific folders and changing permissions, while web is restricted to GitHub repositories",
+        "Desktop requires internet connection while web works offline"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The Claude Desktop Code experience allows you to work in a specific folder, change permissions, and even work in cloud environments. In contrast, the web version (accessed at claude.ai/code) is restricted to working with GitHub repositories. Both require internet connectivity.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Desktop vs web",
+        "Feature comparison"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c1-q010",
+      "question": "If you want to ensure you have access to the latest Claude Code features as soon as they are released, which installation method should you prioritize?",
+      "options": [
+        "JetBrains IDE integration for the most stable experience",
+        "Web version for cross-platform compatibility",
+        "Terminal installation for cutting-edge feature access",
+        "Desktop application for background operation"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The terminal is the best choice for staying on the cutting edge because features ship there first. While IDE integrations and desktop provide nearly identical experiences, they may lag behind the terminal in feature releases. The web version is more limited in scope.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Feature release timing",
+        "Installation strategy"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c1-q011",
+      "question": "You need to work on a project remotely using GitHub repositories while maintaining a lightweight setup. Which Claude Code installation method best fits this scenario?",
+      "options": [
+        "Terminal installation with SSH access to remote servers",
+        "JetBrains IDE integration for remote development",
+        "Web version at claude.ai/code for GitHub repository access",
+        "Desktop application with cloud environment support"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The web version at claude.ai/code is specifically designed for remote work on projects through GitHub repositories. While the desktop supports cloud environments, the web version is the most straightforward solution for GitHub-based remote work. Terminal and IDE integrations are better suited for local development.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Use case selection",
+        "Remote development"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c1-q012",
+      "question": "An organization with a Claude Enterprise account wants to ensure all developers use the correct authentication method during terminal setup. What should they instruct their team to do?",
+      "options": [
+        "Use API key authentication for consistency across all developers",
+        "Select the Claude Enterprise account option during initial setup",
+        "Use individual Pro or Max subscriptions for flexibility",
+        "Avoid terminal installation and use only IDE integrations"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Organizations with a Claude Enterprise account should instruct their team to select the Claude Enterprise account option during initial setup. This ensures proper authentication and access control at the organizational level. While API keys are an option, using the Enterprise account option is the recommended approach for enterprise deployments.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Enterprise setup",
+        "Authentication best practices"
+      ]
+    }
+  ]
+}

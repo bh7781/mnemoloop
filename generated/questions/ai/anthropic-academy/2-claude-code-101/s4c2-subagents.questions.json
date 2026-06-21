@@ -1,0 +1,253 @@
+{
+  "chapterId": "claude-code-101-s4c2",
+  "chapterTitle": "Subagents",
+  "course": "Claude Code 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-code-101-s4c2-q001",
+      "question": "What is the primary benefit of using subagents in Claude Code?",
+      "options": [
+        "They allow tasks to be broken down and run in parallel while keeping the main context window clean",
+        "They eliminate the need for tool calls entirely",
+        "They automatically fix bugs in your codebase",
+        "They reduce the cost of API calls by half"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Subagents operate in isolated context windows and handle exploratory work in parallel, returning only summaries to the main context. This prevents the journey of exploration from cluttering your primary context window, which is the core benefit described. The other options misrepresent or overstate what subagents do.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "subagent purpose",
+        "context management",
+        "parallel execution"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c2-q002",
+      "question": "How do you create a new subagent in Claude Code?",
+      "options": [
+        "Run the /agents command and select 'Create new agent'",
+        "Write Python code to instantiate a new agent class",
+        "Upload a JSON configuration file to your workspace",
+        "Use the Claude API directly with agent parameters"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The /agents command is the documented way to create subagents in Claude Code. Running this command walks you through steps to define scope, purpose, tools, and appearance. The other options are not supported methods for creating subagents.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "subagent creation",
+        "Claude Code interface"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c2-q003",
+      "question": "In what format are subagents defined?",
+      "options": [
+        "Markdown files with YAML frontmatter",
+        "Python modules with class definitions",
+        "JSON configuration files",
+        "XML schema documents"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Subagents are defined in Markdown files with YAML frontmatter. This is the standard format used in Claude Code for subagent definitions. The other formats are not used for this purpose.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "subagent definition",
+        "file format"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c2-q004",
+      "question": "When you create a subagent through the /agents command, which of the following are automatically generated?",
+      "options": [
+        "Only the subagent name",
+        "The name, description, and prompt for the subagent",
+        "The name, description, prompt, and all required tools",
+        "Only the prompt and tool configuration"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude automatically generates a name, description, and prompt for the subagent when you create one through the /agents interface. The prompt helps Claude understand when to call the subagent. While you select tools during creation, they are not automatically generated—you choose them. The description and prompt are key outputs of the generation process.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "subagent creation",
+        "automatic generation"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c2-q005",
+      "question": "How does a subagent's context window differ from the main Claude conversation context?",
+      "options": [
+        "The subagent's context is smaller and shared with other subagents",
+        "The subagent operates in its own isolated context window separate from the main conversation",
+        "The subagent's context is unlimited and never fills up",
+        "The subagent's context is identical to the main context but runs faster"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Each subagent operates in its own isolated context window, separate from the main Claude conversation. This isolation is what allows subagents to do exploratory work without cluttering the main context. The other options mischaracterize the relationship between subagent and main contexts.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "context isolation",
+        "subagent architecture"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c2-q006",
+      "question": "What is the purpose of persistent memory in subagents?",
+      "options": [
+        "To store all tool call results permanently in a database",
+        "To allow the subagent to retain memory across conversations, which is useful for consistent work on the same projects",
+        "To prevent the subagent from forgetting its name and description",
+        "To cache API responses and reduce latency"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Persistent memory allows subagents to retain information across multiple conversations, making them effective for ongoing work on the same projects. This is particularly valuable when you use a subagent repeatedly for similar tasks. The other options describe different features or misrepresent the purpose of persistent memory.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "persistent memory",
+        "subagent customization"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c2-q007",
+      "question": "How do skills behave differently when loaded into a subagent compared to the main conversation?",
+      "options": [
+        "Skills in subagents are limited to read-only operations",
+        "The entire skill is loaded into the subagent's context, unlike in the main conversation where only parts may be loaded",
+        "Skills cannot be used in subagents at all",
+        "Skills in subagents automatically execute without requiring Claude's approval"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When you preload skills into subagents, the entire skill is loaded into the subagent's context. This differs from the main conversation where only relevant portions might be loaded. This full loading ensures the subagent has complete access to the skill's functionality. The other options misrepresent how skills work in subagents.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "skills in subagents",
+        "context loading"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c2-q008",
+      "question": "A developer is exploring a large codebase to understand its architecture before implementing a new feature. Why would using a subagent be beneficial in this scenario?",
+      "options": [
+        "The subagent can explore the codebase in parallel and return only a summary, keeping the main context clean for feature development",
+        "The subagent can prevent the developer from making mistakes in the codebase",
+        "The subagent can automatically implement the new feature without developer input",
+        "The subagent can reduce the total time spent on the project by half"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "This scenario directly illustrates the core benefit of subagents: they handle exploratory work (like codebase exploration) in their own context window and return only the summary findings. This prevents the exploration journey from consuming the main context window, leaving it clean for the actual feature development work. The other options either misrepresent subagent capabilities or make unsupported claims.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "subagent use case",
+        "context management",
+        "practical application"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c2-q009",
+      "question": "When creating a subagent through the /agents command, you are asked to select tools for the subagent. What is the significance of this step?",
+      "options": [
+        "It determines which tools the subagent can use to complete its assigned tasks",
+        "It automatically grants the subagent access to all tools in your workspace",
+        "It prevents the main conversation from using those tools",
+        "It ensures the subagent will never need to call the main Claude instance"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Selecting tools during subagent creation determines which tools that specific subagent has access to for completing its tasks. This is a customization step that tailors the subagent's capabilities to its intended purpose. The other options either overstate the effect or misrepresent how tool access works between subagents and the main conversation.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "subagent tools",
+        "subagent configuration"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c2-q010",
+      "question": "Consider a scenario where you have multiple subagents handling different tasks (codebase exploration, web research, and documentation review). How does the subagent architecture support this multi-agent approach?",
+      "options": [
+        "Each subagent shares a single context window to coordinate their work",
+        "Each subagent operates in its own isolated context window, allowing parallel execution without context interference",
+        "Only one subagent can run at a time, and they must queue their requests",
+        "Subagents automatically merge their context windows to share findings"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The architecture explicitly supports multiple subagents by giving each one its own isolated context window. This isolation allows them to run in parallel without their exploratory work interfering with each other or the main context. This is a key architectural advantage that enables efficient delegation of multiple tasks. The other options either contradict the parallel execution capability or misrepresent how context isolation works.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "subagent architecture",
+        "parallel execution",
+        "context isolation"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c2-q011",
+      "question": "A developer is concerned about context window efficiency. They need to run web searches for research, explore a codebase, and develop a new feature—all within the same session. How would subagents help optimize this workflow?",
+      "options": [
+        "Subagents would eliminate the need for web searches and codebase exploration",
+        "Subagents would delegate the research and exploration to separate isolated contexts, returning only summaries to the main context, which remains available for feature development",
+        "Subagents would automatically combine all three tasks into a single optimized process",
+        "Subagents would require the developer to switch between different conversation windows for each task"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "This scenario demonstrates the practical efficiency gain from subagents. By delegating research and exploration to subagents with their own context windows, the main context stays clean and available for the actual feature development work. The subagents handle the heavy lifting (web searches, codebase exploration) and return only the relevant findings, preventing context bloat. The other options either misrepresent subagent capabilities or contradict the efficiency benefits.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "context efficiency",
+        "subagent delegation",
+        "workflow optimization"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c2-q012",
+      "question": "When customizing a subagent with persistent memory and preloaded skills, what is the trade-off you should consider?",
+      "options": [
+        "Persistent memory increases subagent cost, while preloaded skills decrease it",
+        "Persistent memory allows cross-conversation retention but may increase context usage, while preloading entire skills consumes context space but ensures complete skill access",
+        "Preloaded skills eliminate the need for persistent memory",
+        "Both features have no trade-offs and should always be enabled together"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Both customization features provide benefits but consume resources. Persistent memory enables the subagent to remember information across conversations, which is valuable for ongoing projects but uses storage and context space. Preloading entire skills ensures the subagent has complete access to skill functionality, but loading the entire skill into context uses context window space. Understanding this trade-off helps you decide which customizations are worth the cost for your specific use case. The other options either misrepresent the trade-offs or claim there are none.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "subagent customization",
+        "context trade-offs",
+        "resource management"
+      ]
+    }
+  ]
+}

@@ -6,7 +6,6 @@ import path from "node:path";
 
 const DEFAULT_MODEL = "claude-haiku-4-5";
 const REQUIRED_QUESTION_COUNT = 12;
-const MIN_MULTIPLE_CORRECT_QUESTIONS = 2;
 
 const contentDirectory = path.join(process.cwd(), "content");
 const questionsDirectory = path.join(process.cwd(), "generated", "questions");
@@ -20,6 +19,7 @@ const questionGenerationSkillPath = path.join(
 type CliOptions = {
   generate: boolean;
   chapter?: string;
+  limit?: number;
 };
 
 type QuestionBankStatus = {
@@ -35,6 +35,17 @@ type ChapterMetadata = {
   provider: string;
 };
 
+type GenerationContext = {
+  anthropic: Anthropic;
+  questionGenerationRules: string;
+};
+
+type GenerateChapterOptions = {
+  allowOverwrite: boolean;
+  context: GenerationContext;
+  markdownPath: string;
+};
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
 
@@ -43,13 +54,23 @@ async function main() {
     return;
   }
 
-  if (!options.chapter) {
-    throw new Error(
-      "Generation mode requires --chapter content/path/to/chapter.md",
-    );
+  if (options.chapter && options.limit !== undefined) {
+    throw new Error("Use either --chapter or --limit, not both.");
   }
 
-  await generateQuestionsForChapter(options.chapter);
+  if (options.chapter) {
+    await generateQuestionsForChapter(options.chapter);
+    return;
+  }
+
+  if (options.limit !== undefined) {
+    await generateMissingQuestionBanks(options.limit);
+    return;
+  }
+
+  throw new Error(
+    "Generation mode requires --chapter content/path/to/chapter.md or --limit <number>.",
+  );
 }
 
 function parseArgs(args: string[]): CliOptions {
@@ -73,42 +94,140 @@ function parseArgs(args: string[]): CliOptions {
       continue;
     }
 
+    if (arg === "--limit") {
+      const limitValue = args[index + 1];
+      if (!limitValue) {
+        throw new Error("--limit requires a positive number.");
+      }
+
+      options.limit = parseLimit(limitValue);
+      index += 1;
+      continue;
+    }
+
     throw new Error(`Unknown argument: ${arg}`);
   }
 
   return options;
 }
 
+function parseLimit(limitValue: string) {
+  const limit = Number(limitValue);
+
+  if (!Number.isInteger(limit) || limit < 1) {
+    throw new Error("--limit must be a positive integer.");
+  }
+
+  return limit;
+}
+
 async function runDryRun() {
-  const markdownPaths = await findMarkdownChapters(contentDirectory);
-  const statuses = await Promise.all(
-    markdownPaths.map(async (markdownPath) => {
-      const questionPath = getQuestionBankPath(markdownPath);
-
-      return {
-        markdownPath,
-        questionPath,
-        exists: await fileExists(questionPath),
-      };
-    }),
-  );
-
+  const statuses = await getQuestionBankStatuses();
   printSummary(statuses);
 }
 
 async function generateQuestionsForChapter(chapterArg: string) {
   const markdownPath = getSafeMarkdownPath(chapterArg);
-  const markdown = await readFile(markdownPath, "utf8");
+  const context = await createGenerationContext();
+
+  await generateQuestionBankForMarkdown({
+    allowOverwrite: true,
+    context,
+    markdownPath,
+  });
+}
+
+async function generateMissingQuestionBanks(limit: number) {
+  const statuses = await getQuestionBankStatuses();
+  const existing = statuses.filter((status) => status.exists);
+  const missing = statuses.filter((status) => !status.exists);
+  const selected = missing.slice(0, limit);
+
+  console.log("Question generation batch");
+  console.log("");
+  console.log(`Total markdown chapters found: ${statuses.length}`);
+  console.log(`Question banks already existing: ${existing.length}`);
+  console.log(`Question banks missing: ${missing.length}`);
+  console.log(`Generation limit: ${limit}`);
+  console.log("");
+
+  if (selected.length === 0) {
+    console.log("No missing question banks to generate.");
+    return;
+  }
+
+  console.log("Chapters selected for generation:");
+  for (const status of selected) {
+    console.log(`- ${toProjectRelativePath(status.markdownPath)}`);
+  }
+  console.log("");
+
+  const context = await createGenerationContext();
+  let successCount = 0;
+  let failureCount = 0;
+
+  for (const [index, status] of selected.entries()) {
+    console.log(
+      `[${index + 1}/${selected.length}] Generating ${toProjectRelativePath(
+        status.markdownPath,
+      )}`,
+    );
+
+    try {
+      await generateQuestionBankForMarkdown({
+        allowOverwrite: false,
+        context,
+        markdownPath: status.markdownPath,
+      });
+      successCount += 1;
+      console.log(
+        `[success] ${toProjectRelativePath(status.questionPath)}`,
+      );
+    } catch (error) {
+      failureCount += 1;
+      console.error(
+        `[failed] ${toProjectRelativePath(status.markdownPath)}`,
+      );
+      console.error(error instanceof Error ? error.message : error);
+    }
+
+    console.log("");
+  }
+
+  console.log("Batch generation complete");
+  console.log(`Successful: ${successCount}`);
+  console.log(`Failed: ${failureCount}`);
+}
+
+async function createGenerationContext(): Promise<GenerationContext> {
   const questionGenerationRules = await readQuestionGenerationSkill();
-  const sourceMarkdownPath = toProjectRelativePath(markdownPath);
-  const parsedMarkdown = matter(markdown);
-  const metadata = getChapterMetadata(markdownPath, parsedMarkdown.data);
-  const outputPath = getQuestionBankPath(markdownPath);
   config({ path: path.join(process.cwd(), ".env.local"), quiet: true });
   const apiKey = process.env.ANTHROPIC_API_KEY;
 
   if (!apiKey) {
     throw new Error("ANTHROPIC_API_KEY was not found in .env.local.");
+  }
+
+  return {
+    anthropic: new Anthropic({ apiKey }),
+    questionGenerationRules,
+  };
+}
+
+async function generateQuestionBankForMarkdown({
+  allowOverwrite,
+  context,
+  markdownPath,
+}: GenerateChapterOptions) {
+  const markdown = await readFile(markdownPath, "utf8");
+  const sourceMarkdownPath = toProjectRelativePath(markdownPath);
+  const parsedMarkdown = matter(markdown);
+  const metadata = getChapterMetadata(markdownPath, parsedMarkdown.data);
+  const outputPath = getQuestionBankPath(markdownPath);
+
+  if (!allowOverwrite && (await fileExists(outputPath))) {
+    console.log(`Skipped existing question bank: ${toProjectRelativePath(outputPath)}`);
+    return;
   }
 
   console.log("Generating question bank");
@@ -118,8 +237,7 @@ async function generateQuestionsForChapter(chapterArg: string) {
   console.log("Using question generation skill: skills/question-generation/SKILL.md");
   console.log("");
 
-  const anthropic = new Anthropic({ apiKey });
-  const response = await anthropic.messages.create({
+  const response = await context.anthropic.messages.create({
     model: DEFAULT_MODEL,
     max_tokens: 6000,
     temperature: 0.2,
@@ -130,7 +248,7 @@ async function generateQuestionsForChapter(chapterArg: string) {
         content: getUserPrompt(
           metadata,
           parsedMarkdown.content,
-          questionGenerationRules,
+          context.questionGenerationRules,
           sourceMarkdownPath,
         ),
       },
@@ -145,12 +263,12 @@ async function generateQuestionsForChapter(chapterArg: string) {
   const validationErrors = validateGeneratedQuiz(generatedQuiz, metadata);
 
   if (validationErrors.length > 0) {
-    console.error("Generated JSON failed validation. Existing file was not overwritten.");
-    for (const error of validationErrors) {
-      console.error(`- ${error}`);
-    }
-    process.exitCode = 1;
-    return;
+    throw new Error(
+      [
+        "Generated JSON failed validation. Existing file was not overwritten.",
+        ...validationErrors.map((error) => `- ${error}`),
+      ].join("\n"),
+    );
   }
 
   await mkdir(path.dirname(outputPath), { recursive: true });
@@ -168,6 +286,22 @@ async function readQuestionGenerationSkill() {
       "Question generation skill file is missing: skills/question-generation/SKILL.md",
     );
   }
+}
+
+async function getQuestionBankStatuses() {
+  const markdownPaths = await findMarkdownChapters(contentDirectory);
+
+  return Promise.all(
+    markdownPaths.map(async (markdownPath) => {
+      const questionPath = getQuestionBankPath(markdownPath);
+
+      return {
+        markdownPath,
+        questionPath,
+        exists: await fileExists(questionPath),
+      };
+    }),
+  );
 }
 
 async function findMarkdownChapters(directory: string): Promise<string[]> {
@@ -310,7 +444,7 @@ Question requirements:
   - Questions 4-9 must have difficulty "moderate"
   - Questions 10-12 must have difficulty "difficult"
 - Do not use "medium"; only use "moderate".
-- At least ${MIN_MULTIPLE_CORRECT_QUESTIONS} questions must be multiple-correct when naturally supported by the chapter content; do not force them artificially.
+- Use multiple-correct questions only when the concept naturally supports multiple correct answers; do not require a fixed minimum count.
 - Every question must be based only on the source markdown content below.
 - Do not include Mnemoloop-specific questions.
 - Do not include questions unrelated to this chapter.
@@ -414,7 +548,6 @@ function validateGeneratedQuiz(
     errors.push(`questions must contain exactly ${REQUIRED_QUESTION_COUNT} items.`);
   }
 
-  let multipleCorrectCount = 0;
   const difficultyCounts = getDifficultyCounts(value.questions);
 
   value.questions.forEach((question, questionIndex) => {
@@ -425,21 +558,7 @@ function validateGeneratedQuiz(
 
     validateQuestion(question, questionIndex, errors);
 
-    if (
-      question.questionType === "multiple-correct" &&
-      Array.isArray(question.correctOptionIndexes) &&
-      question.correctOptionIndexes.length >= 2
-    ) {
-      multipleCorrectCount += 1;
-    }
-
   });
-
-  if (multipleCorrectCount < MIN_MULTIPLE_CORRECT_QUESTIONS) {
-    errors.push(
-      `questions must include at least ${MIN_MULTIPLE_CORRECT_QUESTIONS} multiple-correct questions.`,
-    );
-  }
 
   if (difficultyCounts.easy !== 3) {
     errors.push("questions must include exactly 3 easy questions.");

@@ -1,0 +1,260 @@
+{
+  "chapterId": "claude-code-101-s4c5",
+  "chapterTitle": "Hooks",
+  "course": "Claude Code 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-code-101-s4c5-q001",
+      "question": "What is the primary characteristic that distinguishes hooks from other Claude Code features?",
+      "options": [
+        "Hooks are deterministic and always run at their specified lifecycle points",
+        "Hooks can only be configured through the /hooks command",
+        "Hooks are stored in the CLAUDE.md file",
+        "Hooks require manual intervention to execute"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Hooks are deterministic, meaning they always run without exception at their specified lifecycle points. This is the key difference from other features like instructions in CLAUDE.md, which may not always execute. The other options describe incorrect characteristics or configuration methods.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "hook determinism",
+        "lifecycle control"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c5-q002",
+      "question": "Which hook event fires when you submit a prompt to Claude Code?",
+      "options": [
+        "PreToolUse",
+        "UserPromptSubmit",
+        "PostToolUse",
+        "Stop"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "UserPromptSubmit runs when you submit a prompt, before Claude processes it. PreToolUse runs before a tool call, PostToolUse runs after a tool completes, and Stop runs when Claude finishes responding. Each hook fires at a different point in the workflow.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "hook events",
+        "lifecycle timing"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c5-q003",
+      "question": "Where are hooks configured in Claude Code?",
+      "options": [
+        "In the CLAUDE.md file at the project root",
+        "In the settings.json file inside the .claude directory",
+        "In environment variables only",
+        "In a hooks.config file in the project root"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Hooks are configured in the settings.json file inside the .claude directory. You can configure them either through the /hooks command inside Claude Code or by editing settings.json directly. The other options describe incorrect configuration locations.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "hook configuration",
+        "settings.json"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c5-q004",
+      "question": "You want to automatically run Prettier after Claude modifies a TypeScript file. Which hook event and matcher combination should you use?",
+      "options": [
+        "PreToolUse hook with matcher 'Prettier'",
+        "PostToolUse hook with matcher 'Edit|MultiEdit|Write'",
+        "UserPromptSubmit hook with matcher 'TypeScript'",
+        "Stop hook with matcher 'Format'"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "PostToolUse fires after a tool call completes, making it ideal for auto-formatting. The matcher 'Edit|MultiEdit|Write' targets the tools that modify files. PreToolUse runs before tool execution (not after), UserPromptSubmit runs on prompt submission (not after edits), and Stop runs when Claude finishes responding (too late for per-file formatting).",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "PostToolUse",
+        "auto-formatting",
+        "matchers"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c5-q005",
+      "question": "A PreToolUse hook script exits with code 2. What happens?",
+      "options": [
+        "The tool call proceeds normally and the script output is logged",
+        "The tool call is blocked and the stderr message is sent to Claude as feedback",
+        "The tool call proceeds but a warning is shown to the user",
+        "The hook is disabled and must be reconfigured"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Exit code 2 from a PreToolUse hook blocks the action, and the stderr message is fed back to Claude so it understands why it was blocked and can adjust. Exit code 0 allows the tool to proceed normally. Any other exit code produces a non-blocking error shown to the user but doesn't stop execution.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "PreToolUse",
+        "exit codes",
+        "blocking behavior"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c5-q006",
+      "question": "Your team wants to prevent Claude from running `rm -rf` commands. Which hook type and exit code strategy should you implement?",
+      "options": [
+        "PostToolUse hook that logs the command and exits with code 0",
+        "PreToolUse hook that detects the pattern and exits with code 2",
+        "UserPromptSubmit hook that filters dangerous prompts with exit code 1",
+        "Stop hook that reviews all executed commands with exit code 0"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "PreToolUse hooks can block tool calls before execution by exiting with code 2. This allows you to inspect the tool input (including bash commands) and prevent dangerous operations. PostToolUse runs after execution (too late to block), UserPromptSubmit doesn't have access to tool details, and Stop runs after Claude finishes (also too late). Exit code 2 is the blocking exit code.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "PreToolUse",
+        "blocking",
+        "security enforcement"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c5-q007",
+      "question": "You want to log all commands Claude executes for compliance purposes. Which hook event is most appropriate?",
+      "options": [
+        "PreToolUse to log before execution",
+        "PostToolUse to log after execution completes",
+        "UserPromptSubmit to log user requests",
+        "Notification to log Claude's responses"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "PostToolUse fires after a tool call completes, making it ideal for logging executed commands. PreToolUse runs before execution and is better suited for blocking or validation. UserPromptSubmit logs user input (not executed commands), and Notification logs Claude's notifications (not command execution). For compliance logging of what actually ran, PostToolUse is the right choice.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "PostToolUse",
+        "logging",
+        "compliance"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c5-q008",
+      "question": "Your project has hooks configured in .claude/settings.json. How can you ensure these hooks work correctly when scripts are stored in your project repository?",
+      "options": [
+        "Use absolute file paths in hook commands",
+        "Use the CLAUDE_PROJECT_DIR environment variable to reference project scripts",
+        "Copy scripts to Claude's working directory before running hooks",
+        "Configure hooks to run from the project root only"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The CLAUDE_PROJECT_DIR environment variable should be used in hook commands to reference scripts stored in your project. This ensures hooks work regardless of Claude's current working directory. Absolute paths are fragile across different machines, copying scripts is inefficient, and restricting to the project root limits flexibility.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "CLAUDE_PROJECT_DIR",
+        "team sharing",
+        "hook configuration"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c5-q009",
+      "question": "You want to send yourself a notification when Claude finishes a task. Which hook event should you use?",
+      "options": [
+        "Stop hook",
+        "Notification hook",
+        "PostToolUse hook",
+        "UserPromptSubmit hook"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The Notification hook runs when Claude sends a notification, making it appropriate for triggering custom notifications. The Stop hook runs when Claude finishes responding (which could be used, but Notification is more directly aligned with the goal). PostToolUse runs after individual tool calls, and UserPromptSubmit runs on prompt submission—neither is designed for task completion notifications.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Notification hook",
+        "task completion",
+        "hook events"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c5-q010",
+      "question": "A PreToolUse hook script exits with code 1. What is the expected behavior, and why might this be useful?",
+      "options": [
+        "The tool call is blocked and Claude receives feedback about the error",
+        "The tool call proceeds normally and a non-blocking error is shown to the user",
+        "The hook is disabled and must be manually re-enabled",
+        "The tool call is queued for later execution"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Exit code 1 (or any exit code other than 0 or 2) from a PreToolUse hook produces a non-blocking error that is shown to the user but does not stop the tool execution. This is useful for warnings or validation checks that should alert the user without preventing the action. Exit code 0 allows normal execution, and exit code 2 blocks the action entirely.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "exit codes",
+        "non-blocking errors",
+        "PreToolUse behavior"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c5-q011",
+      "question": "Your team needs to enforce that commits only go to feature branches, not to main. You also want to auto-format code after every file edit. Which hooks and events should you configure?",
+      "options": [
+        "PreToolUse for commits and PostToolUse for formatting",
+        "UserPromptSubmit for both checks",
+        "Stop hook for commits and PreToolUse for formatting",
+        "Notification hooks for both actions"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "PreToolUse hooks can block dangerous operations like commits to main by inspecting the tool input and exiting with code 2. PostToolUse hooks run after tool execution, making them ideal for auto-formatting after file edits. UserPromptSubmit runs on prompt submission (not tool execution), Stop runs when Claude finishes (too late for per-file formatting), and Notification hooks are for notifications, not enforcement or formatting.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "PreToolUse",
+        "PostToolUse",
+        "blocking",
+        "auto-formatting",
+        "team enforcement"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c5-q012",
+      "question": "You have a PostToolUse hook that runs a formatter, but you want it to only apply to TypeScript and Go files, not to all file types. How should you configure this?",
+      "options": [
+        "Add a matcher parameter to the hook that specifies file extensions",
+        "Use the CLAUDE_PROJECT_DIR variable to filter files in your formatter script",
+        "Create separate hooks for each file type with different matchers",
+        "Configure the hook to run only after Edit tool calls, then check file types in the script"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Hooks support matchers that determine which tools the hook applies to. You can set a matcher to target specific tools (like 'Edit|MultiEdit|Write'), and your formatter script can check file extensions and run the appropriate formatter (Prettier for TypeScript, gofmt for Go). While you could create separate hooks or check file types in the script, using matchers is the intended configuration approach. CLAUDE_PROJECT_DIR is for referencing project scripts, not for filtering file types.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "matchers",
+        "PostToolUse",
+        "selective hook application",
+        "configuration"
+      ]
+    }
+  ]
+}

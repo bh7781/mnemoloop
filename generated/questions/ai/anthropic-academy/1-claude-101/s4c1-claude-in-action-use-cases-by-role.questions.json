@@ -1,0 +1,260 @@
+{
+  "chapterId": "claude-101-s4c1",
+  "chapterTitle": "Claude in action: use-cases by role",
+  "course": "Claude 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-101-s4c1-q001",
+      "question": "Which of the following is a use case that applies across many professional roles and industries?",
+      "options": [
+        "Generating project status reports",
+        "Building a battle card library",
+        "Drafting investment memos",
+        "Planning a literature review"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Generating project status reports is listed under general professional use cases that apply across many roles and industries. The other options are specific to sales (battle cards), finance (investment memos), and research (literature reviews) respectively.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "general professional use cases",
+        "cross-role applications"
+      ]
+    },
+    {
+      "id": "claude-101-s4c1-q002",
+      "question": "What is one way marketing professionals can use Claude to improve content efficiency?",
+      "options": [
+        "Adapt content across platforms for different channels and audiences",
+        "Create new hire onboarding guides",
+        "Build financial models",
+        "Organize case timelines"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Adapting content across platforms is a specific marketing use case that allows marketers to efficiently repurpose content for different channels and audiences. The other options belong to HR, finance, and legal roles respectively.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "marketing use cases",
+        "content repurposing"
+      ]
+    },
+    {
+      "id": "claude-101-s4c1-q003",
+      "question": "Which role would benefit most from Claude's ability to track discovery timelines and analyze patterns?",
+      "options": [
+        "Sales professionals",
+        "Legal professionals",
+        "Finance professionals",
+        "Marketing professionals"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Legal professionals specifically use Claude to track discovery timelines and analyze patterns in legal documents. This is a core function in legal work where managing complex case information is essential.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "legal use cases",
+        "role-specific applications"
+      ]
+    },
+    {
+      "id": "claude-101-s4c1-q004",
+      "question": "A sales manager wants to help the team prepare for upcoming client meetings. Which Claude use case would be most appropriate?",
+      "options": [
+        "Analyze campaign performance data",
+        "Prepare for sales deals by researching prospects and organizing talking points",
+        "Create new hire onboarding guides",
+        "Verify statistics from raw data"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Preparing for sales deals by researching prospects and organizing talking points directly supports sales professionals in getting ready for important meetings. The other options serve marketing, HR, and research roles respectively.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "sales use cases",
+        "deal preparation",
+        "prospect research"
+      ]
+    },
+    {
+      "id": "claude-101-s4c1-q005",
+      "question": "A finance team needs to understand a complex spreadsheet that was created by a departing employee. Which Claude use case addresses this need?",
+      "options": [
+        "Build financial models",
+        "Draft investment memos",
+        "Understand and extend an inherited spreadsheet",
+        "Analyze patterns in user feedback"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Understanding and extending an inherited spreadsheet is specifically designed to help finance professionals decode complex spreadsheets and add new functionality. This directly addresses the scenario of inheriting unfamiliar spreadsheet work.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "finance use cases",
+        "spreadsheet analysis",
+        "knowledge transfer"
+      ]
+    },
+    {
+      "id": "claude-101-s4c1-q006",
+      "question": "Which of the following best describes how Claude can support competitive positioning in sales?",
+      "options": [
+        "By creating comprehensive onboarding materials for new sales hires",
+        "By building a battle card library that serves as competitive intelligence resources",
+        "By analyzing campaign performance metrics across channels",
+        "By organizing case timelines and legal documents"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Building a battle card library creates competitive intelligence resources that help sales teams win deals by understanding competitive positioning. This is a sales-specific use case for competitive advantage, distinct from onboarding, marketing analytics, or legal work.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "sales use cases",
+        "competitive intelligence",
+        "battle cards"
+      ]
+    },
+    {
+      "id": "claude-101-s4c1-q007",
+      "question": "An HR director wants to improve the experience for new employees joining different departments. What Claude capability would be most valuable?",
+      "options": [
+        "Creating new hire onboarding guides tailored to different roles",
+        "Analyzing patterns in user feedback from exit surveys",
+        "Building financial models for headcount planning",
+        "Tracking discovery timelines for compliance documentation"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Creating new hire onboarding guides tailored to different roles directly supports HR's goal of developing comprehensive, role-specific onboarding materials. While feedback analysis could inform improvements, the primary HR use case for new employee experience is structured onboarding guide creation.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "HR use cases",
+        "onboarding",
+        "employee experience"
+      ]
+    },
+    {
+      "id": "claude-101-s4c1-q008",
+      "question": "A researcher is concerned about the accuracy of statistical calculations in their analysis. Which Claude use case would help address this concern?",
+      "options": [
+        "Plan your literature review",
+        "Verify statistics from raw data",
+        "Analyze campaign performance",
+        "Build financial models"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Verifying statistics from raw data allows researchers to double-check calculations and statistical analyses for accuracy. This directly addresses quality assurance in research work, whereas literature review planning is about organizing sources rather than validating calculations.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "research use cases",
+        "data verification",
+        "statistical analysis"
+      ]
+    },
+    {
+      "id": "claude-101-s4c1-q009",
+      "question": "A marketing director needs to understand why a recent campaign underperformed and wants to make data-driven decisions for the next campaign. Which use case is most relevant?",
+      "options": [
+        "Adapt content across platforms",
+        "Analyze campaign performance to extract insights from campaign metrics",
+        "Generate project status reports",
+        "Create sales reports from pipeline data"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Analyzing campaign performance extracts insights from campaign metrics to inform strategy, which directly supports understanding underperformance and making data-driven decisions. While content adaptation is a marketing use case, it addresses distribution rather than performance analysis.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "marketing use cases",
+        "performance analysis",
+        "data-driven decision making"
+      ]
+    },
+    {
+      "id": "claude-101-s4c1-q010",
+      "question": "A finance professional wants to create a reusable tool that applies company-specific financial standards and methodologies to multiple projects. Which approach would best leverage Claude's capabilities?",
+      "options": [
+        "Build individual financial models for each project separately",
+        "Draft investment memos for each analysis",
+        "Package financial standards in a Claude skill that can be reused across projects",
+        "Understand and extend inherited spreadsheets"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "While the source mentions packaging brand guidelines in a skill as a general professional use case, this same principle applies to finance—creating a reusable Claude skill that applies company-specific standards ensures consistency and efficiency across multiple projects. This is more scalable than building individual models or memos for each project.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude skills",
+        "reusable tools",
+        "standardization",
+        "scalability"
+      ]
+    },
+    {
+      "id": "claude-101-s4c1-q011",
+      "question": "A legal team is managing a complex case with multiple documents and needs to identify key patterns and relationships between events. Which combination of Claude capabilities would be most effective?",
+      "options": [
+        "Track discovery timelines and analyze patterns in legal documents",
+        "Analyze patterns in user feedback and generate status reports",
+        "Build financial models and draft investment memos",
+        "Adapt content across platforms and create onboarding guides"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Tracking discovery timelines and analyzing patterns directly addresses the legal team's need to organize complex case information and identify key relationships. The other combinations mix unrelated use cases from different professional domains that would not serve legal discovery work.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "legal use cases",
+        "discovery management",
+        "pattern analysis",
+        "case complexity"
+      ]
+    },
+    {
+      "id": "claude-101-s4c1-q012",
+      "question": "An organization wants to implement Claude across multiple departments to improve efficiency. Which strategy would ensure the most relevant and impactful adoption?",
+      "options": [
+        "Deploy the same use cases uniformly across all departments regardless of their function",
+        "Identify role-specific use cases that align with each department's core responsibilities and workflows",
+        "Focus exclusively on general professional use cases that apply across all roles",
+        "Implement only the most technically complex use cases to maximize Claude's capabilities"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Identifying role-specific use cases ensures that Claude implementation aligns with each department's actual needs and workflows, maximizing adoption and impact. While general professional use cases provide baseline value, role-specific applications (sales battle cards, finance models, legal timeline tracking, etc.) deliver the most relevant benefits. Uniform deployment or focusing only on general cases would miss significant opportunities for departmental efficiency gains.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "organizational adoption",
+        "role-specific applications",
+        "implementation strategy",
+        "use case alignment"
+      ]
+    }
+  ]
+}

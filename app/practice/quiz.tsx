@@ -206,14 +206,34 @@ export default function Quiz({ quiz }: QuizProps) {
   }
 
   return (
-    <section className="mx-auto grid w-full max-w-6xl gap-6 rounded-lg border border-slate-200 bg-white p-6 shadow-sm lg:grid-cols-[220px_1fr] lg:p-8">
-      <aside className="lg:border-r lg:border-slate-200 lg:pr-6">
-        <QuizHeader quiz={quiz} />
-        <div className="mt-6 border-t border-slate-200 pt-6">
-          <p className="text-sm font-semibold text-slate-700">
-            {quiz.questions.length} questions
-          </p>
-          <div className="mt-4 grid grid-cols-6 gap-2 lg:grid-cols-4">
+    <section className="mx-auto grid w-full max-w-7xl gap-5 lg:h-[min(760px,calc(100vh-7rem))] lg:min-h-[620px] lg:grid-cols-[280px_1fr]">
+      <aside className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm lg:flex lg:min-h-0 lg:flex-col">
+        <QuizHeader quiz={quiz} compact />
+        <div className="mt-5 rounded-md border border-slate-200 bg-slate-50 p-4">
+          <div className="flex items-end justify-between gap-3">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700">
+                Practice test
+              </p>
+              <p className="mt-1 text-2xl font-semibold tracking-normal text-slate-950">
+                {quiz.questions.length}
+              </p>
+            </div>
+            <p className="pb-1 text-sm font-medium text-slate-500">
+              total questions
+            </p>
+          </div>
+        </div>
+        <div className="mt-5 flex-1 border-t border-slate-200 pt-5 lg:min-h-0">
+          <div className="flex items-center justify-between gap-3">
+            <p className="text-sm font-semibold text-slate-800">
+              Question navigator
+            </p>
+            <p className="text-xs font-medium text-slate-500">
+              {currentQuestionIndex + 1} / {quiz.questions.length}
+            </p>
+          </div>
+          <div className="mt-4 grid grid-cols-6 gap-2 lg:max-h-[360px] lg:grid-cols-5 lg:overflow-y-auto lg:pr-1">
             {quiz.questions.map((question, questionIndex) => {
               const isCurrent = questionIndex === currentQuestionIndex;
               const isAnswered =
@@ -238,7 +258,7 @@ export default function Quiz({ quiz }: QuizProps) {
               );
             })}
           </div>
-          <div className="mt-5 grid gap-2 text-xs font-medium text-slate-600">
+          <div className="mt-5 grid grid-cols-3 gap-2 text-xs font-medium text-slate-600 lg:grid-cols-1">
             <LegendItem className="border-slate-950 bg-slate-950" label="Current" />
             <LegendItem className="border-teal-600 bg-teal-100" label="Answered" />
             <LegendItem className="border-amber-500 bg-amber-100" label="Marked" />
@@ -246,60 +266,79 @@ export default function Quiz({ quiz }: QuizProps) {
         </div>
       </aside>
 
-      <div>
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <div>
-            <p className="text-sm font-medium text-slate-500">
+      <div className="rounded-lg border border-slate-200 bg-white shadow-sm lg:flex lg:min-h-0 lg:flex-col">
+        <div className="border-b border-slate-200 px-6 py-4">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p className="text-sm font-semibold text-slate-700">
               Question {currentQuestionIndex + 1} of {quiz.questions.length}
             </p>
-            <h1 className="mt-3 text-2xl font-semibold tracking-normal text-slate-950 sm:text-3xl">
-              {currentQuestion.question}
-            </h1>
-            <p className="mt-3 text-sm font-medium text-slate-500">
-              {isMultipleAnswer ? "Select all that apply." : "Select one answer."}
+            <p className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+              {isMultipleAnswer ? "Multiple answer" : "Single answer"}
             </p>
           </div>
+        </div>
+
+        <div className="flex-1 px-6 py-6 lg:min-h-0 lg:overflow-y-auto">
+          <h1 className="text-2xl font-semibold leading-snug tracking-normal text-slate-950 lg:text-[1.7rem]">
+            {currentQuestion.question}
+          </h1>
+          <p className="mt-3 text-sm font-medium text-slate-500">
+            {isMultipleAnswer ? "Select all that apply." : "Select one answer."}
+          </p>
+
+          <div className="mt-7 grid gap-3">
+            {currentQuestion.options.map((option, optionIndex) => {
+              const isSelected = selectedOptionIndexes.includes(optionIndex);
+
+              return (
+                <button
+                  key={`${option}-${optionIndex}`}
+                  type="button"
+                  onClick={() => selectOption(optionIndex)}
+                  aria-pressed={isSelected}
+                  className={[
+                    "grid min-h-[64px] grid-cols-[2.25rem_1fr] items-center gap-3 rounded-md border px-4 py-3 text-left text-sm font-medium shadow-sm transition focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 sm:text-base",
+                    getOptionClassName({ isSelected }),
+                  ].join(" ")}
+                >
+                  <span
+                    className={[
+                      "flex h-8 w-8 items-center justify-center rounded-full border text-sm font-semibold",
+                      isSelected
+                        ? "border-teal-700 bg-teal-700 text-white"
+                        : "border-slate-300 bg-white text-slate-600",
+                    ].join(" ")}
+                  >
+                    {String.fromCharCode(65 + optionIndex)}
+                  </span>
+                  <span className="leading-6">{option}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="grid min-h-[88px] gap-3 border-t border-slate-200 bg-slate-50 px-6 py-4 sm:grid-cols-[180px_1fr_160px] sm:items-center">
           <button
             type="button"
             onClick={toggleMarkedForReview}
             className={[
-              "w-fit rounded-md border px-4 py-2 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2",
+              "h-12 w-full rounded-md border px-4 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2",
               isCurrentQuestionMarked
-                ? "border-amber-500 bg-amber-100 text-amber-950"
-                : "border-slate-300 bg-white text-slate-700 hover:bg-slate-50",
+                ? "border-amber-500 bg-amber-100 text-amber-950 hover:bg-amber-200"
+                : "border-slate-300 bg-white text-slate-700 hover:bg-slate-100",
             ].join(" ")}
           >
-            {isCurrentQuestionMarked ? "Marked for review" : "Mark for review"}
+            {isCurrentQuestionMarked ? "Marked" : "Mark for review"}
           </button>
-        </div>
-
-        <div className="mt-8 grid gap-3">
-          {currentQuestion.options.map((option, optionIndex) => {
-            const isSelected = selectedOptionIndexes.includes(optionIndex);
-
-            return (
-              <button
-                key={`${option}-${optionIndex}`}
-                type="button"
-                onClick={() => selectOption(optionIndex)}
-                aria-pressed={isSelected}
-                className={[
-                  "rounded-md border px-4 py-3 text-left text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 sm:text-base",
-                  getOptionClassName({ isSelected }),
-                ].join(" ")}
-              >
-                {option}
-              </button>
-            );
-          })}
-        </div>
-
-        <div className="mt-8 flex flex-wrap justify-end gap-3 border-t border-slate-200 pt-6">
+          <div className="hidden text-center text-sm font-medium text-slate-500 sm:block">
+            Answers are saved as you move through the test.
+          </div>
           {isLastQuestion ? (
             <button
               type="button"
               onClick={submitTest}
-              className="rounded-md bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2"
+              className="h-12 w-full rounded-md bg-slate-950 px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2"
             >
               Submit Test
             </button>
@@ -307,7 +346,7 @@ export default function Quiz({ quiz }: QuizProps) {
             <button
               type="button"
               onClick={goToNextQuestion}
-              className="rounded-md bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2"
+              className="h-12 w-full rounded-md bg-slate-950 px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2"
             >
               Next
             </button>
@@ -558,14 +597,22 @@ function LegendItem({ className, label }: { className: string; label: string }) 
   );
 }
 
-function QuizHeader({ quiz }: QuizProps) {
+function QuizHeader({
+  compact = false,
+  quiz,
+}: QuizProps & { compact?: boolean }) {
   return (
     <header>
       <p className="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">
         {quiz.provider}
       </p>
       <p className="mt-3 text-sm font-medium text-slate-500">{quiz.course}</p>
-      <h2 className="mt-2 text-3xl font-semibold tracking-normal text-slate-950 sm:text-4xl lg:text-3xl">
+      <h2
+        className={[
+          "mt-2 font-semibold tracking-normal text-slate-950",
+          compact ? "text-2xl leading-tight" : "text-3xl sm:text-4xl lg:text-3xl",
+        ].join(" ")}
+      >
         {quiz.chapterTitle}
       </h2>
     </header>
@@ -582,30 +629,30 @@ function getQuestionNavClassName({
   isMarked: boolean;
 }) {
   if (isCurrent && isMarked) {
-    return "rounded-md border border-amber-500 bg-slate-950 px-3 py-2 text-sm font-semibold text-white ring-2 ring-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2";
+    return "flex h-10 w-full items-center justify-center rounded-md border border-amber-500 bg-slate-950 text-sm font-semibold text-white ring-2 ring-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2";
   }
 
   if (isCurrent) {
-    return "rounded-md border border-slate-950 bg-slate-950 px-3 py-2 text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2";
+    return "flex h-10 w-full items-center justify-center rounded-md border border-slate-950 bg-slate-950 text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2";
   }
 
   if (isMarked) {
-    return "rounded-md border border-amber-500 bg-amber-100 px-3 py-2 text-sm font-semibold text-amber-950 transition hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2";
+    return "flex h-10 w-full items-center justify-center rounded-md border border-amber-500 bg-amber-100 text-sm font-semibold text-amber-950 transition hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2";
   }
 
   if (isAnswered) {
-    return "rounded-md border border-teal-600 bg-teal-100 px-3 py-2 text-sm font-semibold text-teal-950 transition hover:bg-teal-200 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2";
+    return "flex h-10 w-full items-center justify-center rounded-md border border-teal-600 bg-teal-100 text-sm font-semibold text-teal-950 transition hover:bg-teal-200 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2";
   }
 
-  return "rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2";
+  return "flex h-10 w-full items-center justify-center rounded-md border border-slate-300 bg-white text-sm font-semibold text-slate-700 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2";
 }
 
 function getOptionClassName({ isSelected }: { isSelected: boolean }) {
   if (isSelected) {
-    return "border-teal-700 bg-teal-50 text-teal-950";
+    return "border-teal-700 bg-teal-50 text-teal-950 shadow-md";
   }
 
-  return "border-slate-200 bg-white text-slate-800 hover:border-teal-700 hover:bg-teal-50";
+  return "border-slate-200 bg-white text-slate-800 hover:border-teal-500 hover:bg-slate-50";
 }
 
 function getNextSelectedOptionIndexes({

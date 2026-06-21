@@ -1,0 +1,249 @@
+{
+  "chapterId": "claude-101-s2c3",
+  "chapterTitle": "Working with skills",
+  "course": "Claude 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-101-s2c3-q001",
+      "question": "What are Skills in Claude?",
+      "options": [
+        "Folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks",
+        "Permanent modifications to Claude's core language model that improve its capabilities",
+        "Pre-written prompts that users can select from a dropdown menu",
+        "Training datasets that Claude uses to learn new information"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Skills are expertise packages—folders containing instructions, scripts, and resources that Claude loads dynamically for specialized tasks. They are not permanent model modifications, pre-written prompts, or training datasets. Skills enable Claude to perform repeatable tasks consistently, such as document creation or custom workflows.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Skills definition",
+        "Skills functionality"
+      ]
+    },
+    {
+      "id": "claude-101-s2c3-q002",
+      "question": "Which of the following is an example of an Anthropic Skill?",
+      "options": [
+        "A custom skill for applying your company's brand guidelines to presentations",
+        "Enhanced document creation capabilities for Excel spreadsheets",
+        "A skill you create to structure meeting notes in a specific format",
+        "A workflow skill for executing your organization's data analysis methodology"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Anthropic Skills are created and maintained by Anthropic and include enhanced document creation capabilities for Excel, Word, PowerPoint, and PDF files. These are available to all paid users and invoked automatically. The other options describe custom Skills, which are created by users or organizations for specialized workflows.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Anthropic Skills",
+        "Types of Skills"
+      ]
+    },
+    {
+      "id": "claude-101-s2c3-q003",
+      "question": "On which plan types are Skills currently available as a feature preview?",
+      "options": [
+        "Free and Pro plans only",
+        "Pro, Max, Team, and Enterprise plans",
+        "Enterprise plans only",
+        "Max and Enterprise plans only"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Skills are currently a feature preview for Pro, Max, Team, and Enterprise plans. Free plan users cannot access Skills, though they can read about the concept. This is an important distinction for understanding who can use this functionality.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Skills availability",
+        "Plan requirements"
+      ]
+    },
+    {
+      "id": "claude-101-s2c3-q004",
+      "question": "What prerequisites must be enabled before you can use Skills?",
+      "options": [
+        "Only file creation needs to be enabled in settings",
+        "Code execution and file creation must both be enabled, as Skills require Claude's secure sandboxed computing environment",
+        "Only code execution needs to be enabled in settings",
+        "Internet access and API keys must be configured"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Skills require both Code execution and file creation to be enabled because they depend on Claude's secure sandboxed computing environment to function. Simply enabling one or the other is insufficient. These settings are found in Settings > Capabilities.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Skills prerequisites",
+        "Skills setup"
+      ]
+    },
+    {
+      "id": "claude-101-s2c3-q005",
+      "question": "How does Claude typically handle Skill selection when you make a request?",
+      "options": [
+        "You must manually specify which Skill to use in your prompt",
+        "Claude handles Skill selection automatically based on your request without requiring manual intervention",
+        "You need to enable each Skill individually before every use",
+        "Skills are only invoked if you explicitly ask Claude to use them"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The beauty of Skills is that you typically don't need to think about them—Claude handles Skill selection automatically based on your request. For example, if you ask Claude to create an Excel spreadsheet, it will automatically invoke the relevant Skill without you needing to specify it. This automatic invocation is a key design feature that makes Skills seamless to use.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Skills usage",
+        "Automatic Skill invocation"
+      ]
+    },
+    {
+      "id": "claude-101-s2c3-q006",
+      "question": "What is the primary difference between Projects and Skills?",
+      "options": [
+        "Projects are for document creation while Skills are for data analysis",
+        "Projects store knowledge Claude references, while Skills define processes Claude executes",
+        "Skills are only available on Enterprise plans while Projects are available to all users",
+        "Projects are temporary while Skills are permanent"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Projects and Skills serve complementary but distinct purposes. Projects are knowledge hubs that store reference materials Claude draws from across conversations. Skills are procedural machines that encode how Claude should execute tasks with specific steps and methodology. A skill might reference knowledge stored in a project—the project provides the 'what' (information) while the skill provides the 'how' (process).",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Skills vs Projects",
+        "Feature comparison"
+      ]
+    },
+    {
+      "id": "claude-101-s2c3-q007",
+      "question": "For Enterprise plans, who must enable Code execution and Skills before individual members can access them?",
+      "options": [
+        "Individual team members must enable these features in their own settings",
+        "The IT department must configure these settings in the company's infrastructure",
+        "Organization Owners must first enable both features in Admin settings",
+        "Anthropic support must manually enable these features for the organization"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "For Enterprise plans, organization Owners have the responsibility to enable both Code execution and Skills in Admin settings before individual members can access them. This is different from other plan types where users can enable these features individually. This governance structure reflects the administrative control needed for Enterprise deployments.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Enterprise Skills setup",
+        "Admin permissions"
+      ]
+    },
+    {
+      "id": "claude-101-s2c3-q008",
+      "question": "What is the recommended approach for creating a custom Skill?",
+      "options": [
+        "Write code manually and upload it to Claude's server",
+        "Use a conversation with Claude itself, where Claude interviews you about your workflow and generates the properly structured skill",
+        "Download a Skill template from Anthropic's website and fill in the required fields",
+        "Contact Anthropic support to have them create the Skill for you"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The easiest way to create a custom Skill is through conversation with Claude itself. You don't need to write code or manually create files—Claude handles the technical structure for you. Claude will interview you about your workflow, ask clarifying questions, and help you upload reference materials. When finished, Claude generates a properly structured skill file that you save and use.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Custom Skill creation",
+        "Skill development process"
+      ]
+    },
+    {
+      "id": "claude-101-s2c3-q009",
+      "question": "What should you do before installing a custom Skill from an external source?",
+      "options": [
+        "Install it immediately to test its functionality",
+        "Ask Anthropic to verify it first",
+        "Review its contents before use to understand what it does",
+        "Install it only if it comes with a warranty"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Because Skills can include executable code, it's important to review the contents of custom Skills from external sources before installation to understand what they do. This is a critical security consideration. In contrast, Anthropic's built-in Skills are tested and maintained by Anthropic, so they don't require this review. Custom Skills you upload are private to your individual account, but external Skills pose potential security risks if not vetted.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Skills security",
+        "Custom Skill safety"
+      ]
+    },
+    {
+      "id": "claude-101-s2c3-q010",
+      "question": "How can you improve and iterate on a custom Skill after it has been created?",
+      "options": [
+        "You must delete the Skill and create a new one from scratch",
+        "Ask Claude to edit the Skill and it will update the files for you",
+        "Manually edit the Skill files in a text editor and re-upload them",
+        "Custom Skills cannot be modified once they are created"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Custom Skills can be improved through iteration by asking Claude to edit a Skill, and Claude will update the files for you. This allows for continuous refinement of your Skills without needing to recreate them from scratch or manually edit files. You can also find and edit Skills in the Customize tab in the left sidebar, either manually or by chatting with Claude.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Skill iteration",
+        "Skill management"
+      ]
+    },
+    {
+      "id": "claude-101-s2c3-q011",
+      "question": "Which scenario best demonstrates when a custom Skill would be more appropriate than a Project?",
+      "options": [
+        "You need to store customer profiles and meeting notes for reference across multiple conversations",
+        "You want Claude to follow your company's specific brand guidelines and apply them consistently to every presentation it creates",
+        "You're gathering research documents and background information about a new market",
+        "You're building a knowledge base of industry best practices for your team to reference"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "A custom Skill is appropriate when you have repeatable workflows and processes you want Claude to execute consistently. The scenario of applying brand guidelines to presentations is a procedural task—the 'how' of executing a process. Projects are better for storing knowledge and reference materials (the 'what'). While the other options involve storing information, the brand guidelines scenario involves encoding a specific process that should be followed every time, which is exactly what Skills are designed for.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Skills vs Projects",
+        "Appropriate use cases"
+      ]
+    },
+    {
+      "id": "claude-101-s2c3-q012",
+      "question": "What is the relationship between Skills and file execution capabilities in Claude?",
+      "options": [
+        "Skills and file execution are completely separate features with no connection",
+        "File execution is only available when using Anthropic Skills, not custom Skills",
+        "Skills leverage Claude's secure sandboxed computing environment to work with files, and file execution is a prerequisite for Skills to function",
+        "File execution allows you to run Skills on your local computer rather than in Claude's environment"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Skills depend on Claude's secure sandboxed computing environment, which is the same environment that enables file execution. This is why both Code execution and file creation must be enabled as prerequisites for using Skills. Skills can work with your actual files (within the contained environment) to create updated versions—for example, uploading slides or spreadsheets and having Claude create modified versions. The sandboxed environment is fundamental to how both Skills and file execution operate securely.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Skills architecture",
+        "Sandboxed computing",
+        "File execution"
+      ]
+    }
+  ]
+}

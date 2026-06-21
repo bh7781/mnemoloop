@@ -1,0 +1,259 @@
+{
+  "chapterId": "claude-101-s1c2",
+  "chapterTitle": "Your first conversation with Claude",
+  "course": "Claude 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-101-s1c2-q001",
+      "question": "When you open Claude.ai, where is the text input area located?",
+      "options": [
+        "At the bottom of the screen",
+        "At the top of the screen",
+        "On the left sidebar",
+        "In a floating window"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The interface has a clean design with the text input area positioned at the bottom of the screen, making it easily accessible for entering prompts.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude interface",
+        "prompt entry"
+      ]
+    },
+    {
+      "id": "claude-101-s1c2-q002",
+      "question": "What are the three key elements to consider before writing a prompt to Claude?",
+      "options": [
+        "Setting the stage, defining the task, and specifying rules",
+        "Asking questions, providing feedback, and editing messages",
+        "Uploading files, using memory, and customizing styles",
+        "Starting conversations, iterating responses, and personalizing Claude"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The framework for effective prompts consists of three components: setting the stage (role, objectives, context), defining the task (what action you want Claude to take), and specifying rules (style, tone, examples).",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "prompt structure",
+        "effective communication"
+      ]
+    },
+    {
+      "id": "claude-101-s1c2-q003",
+      "question": "Which file formats does Claude support for analysis?",
+      "options": [
+        "PDF, DOCX, CSV, TXT, and common image formats like PNG and JPEG",
+        "Only PDF and DOCX files",
+        "Only image files like PNG and JPEG",
+        "PDF, DOCX, and video files only"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Claude can analyze text and visual elements in multiple file formats including PDF, DOCX, CSV, TXT, and common image formats such as PNG and JPEG.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "file uploads",
+        "supported formats"
+      ]
+    },
+    {
+      "id": "claude-101-s1c2-q004",
+      "question": "You want Claude to write a product description for an e-commerce site. Which approach best demonstrates the three-element prompt framework?",
+      "options": [
+        "Write a product description for my website",
+        "I manage an online store selling eco-friendly home goods. I need a product description for our bamboo cutting board that appeals to environmentally conscious customers. Use a friendly, conversational tone and keep it under 150 words.",
+        "Create a description that sells the product",
+        "Write something about a bamboo cutting board"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The second option includes all three elements: setting the stage (managing an eco-friendly store), defining the task (write a product description for a specific item), and specifying rules (friendly tone, under 150 words, target audience). The other options lack one or more of these essential components.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "prompt framework",
+        "setting the stage",
+        "defining tasks",
+        "specifying rules"
+      ]
+    },
+    {
+      "id": "claude-101-s1c2-q005",
+      "question": "What is the primary benefit of uploading documents or background information to Claude?",
+      "options": [
+        "It allows Claude to store your files permanently in the cloud",
+        "It serves as a shortcut so Claude can understand your needs without you having to explain everything",
+        "It automatically generates follow-up questions for you",
+        "It enables Claude to share your documents with other users"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Uploading relevant documents and background information gives Claude context about your work, functioning as a shortcut so it can better understand what you need without requiring extensive explanation in your prompt.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "file uploads",
+        "context provision",
+        "prompt efficiency"
+      ]
+    },
+    {
+      "id": "claude-101-s1c2-q006",
+      "question": "When Claude's response doesn't meet your expectations, which of the following are valid ways to improve the outcome?",
+      "options": [
+        "Only restart the conversation in a new chat",
+        "Ask follow-up questions, provide feedback, or redirect the conversation",
+        "Delete the response and wait for Claude to try again automatically",
+        "Edit Claude's response directly in the chat window"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Conversations with Claude are iterative. You can ask follow-up questions for more detail, provide feedback about tone or style, or redirect Claude if it misunderstood your intent. While restarting in a new chat is an option, it's not the only or primary approach.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "iteration",
+        "feedback",
+        "conversation refinement"
+      ]
+    },
+    {
+      "id": "claude-101-s1c2-q007",
+      "question": "What is the purpose of the pencil icon feature in Claude conversations?",
+      "options": [
+        "To delete messages from the conversation history",
+        "To edit and resubmit your own prompt without adding a new message",
+        "To mark important messages for later reference",
+        "To share your conversation with other users"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The pencil icon allows you to edit your messages and resubmit them, which is useful when you want to refine your request rather than add a new follow-up message to the conversation.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "prompt editing",
+        "conversation refinement"
+      ]
+    },
+    {
+      "id": "claude-101-s1c2-q008",
+      "question": "How does Claude's Memory feature enhance your interactions over time?",
+      "options": [
+        "It stores all your conversations permanently and makes them searchable",
+        "It automatically saves key context like your role, preferences, and working style so you don't have to repeat yourself",
+        "It creates automatic backups of your files",
+        "It allows Claude to access your personal calendar and schedule"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Memory automatically saves important context from conversations—such as your role, preferences, past decisions, and working style—across chats. This means you don't have to reestablish context every time you start a new conversation. You can review, edit, or delete memories in Settings.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Memory feature",
+        "personalization",
+        "context retention"
+      ]
+    },
+    {
+      "id": "claude-101-s1c2-q009",
+      "question": "What is the relationship between the Styles feature and your communication with Claude?",
+      "options": [
+        "Styles only apply to the current conversation and must be reset for each new chat",
+        "Styles let you customize how Claude communicates by choosing presets or creating custom styles that apply across all conversations",
+        "Styles are used to format the appearance of Claude's interface",
+        "Styles determine which file types Claude can analyze"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Styles allow you to customize Claude's communication approach by selecting from preset options (concise, formal, explanatory) or creating a custom style. Once set, your chosen style automatically applies across all conversations, ensuring consistent communication preferences.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Styles feature",
+        "personalization",
+        "communication preferences"
+      ]
+    },
+    {
+      "id": "claude-101-s1c2-q010",
+      "question": "A data analyst needs Claude to review a spreadsheet of quarterly sales data and identify trends. Which combination of features would most effectively support this task?",
+      "options": [
+        "Using Memory to store the analyst's role and uploading the CSV file with a prompt asking for trend analysis",
+        "Creating a custom Style and asking Claude to analyze the data in a new conversation",
+        "Editing previous prompts and restarting the conversation multiple times",
+        "Using only follow-up questions without uploading the actual data"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Uploading the CSV file provides Claude with the actual data to analyze, while Memory can retain the analyst's role and context for future conversations. This combination leverages both file upload capability and personalization features to efficiently support the task. The other options either lack the necessary data context or use features ineffectively for this scenario.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "file uploads",
+        "Memory feature",
+        "task optimization",
+        "context provision"
+      ]
+    },
+    {
+      "id": "claude-101-s1c2-q011",
+      "question": "How does the principle of treating Claude like a coworker relate to the three-element prompt framework?",
+      "options": [
+        "It means you should use formal business language in all prompts",
+        "It suggests that natural, concise, conversational communication combined with clear stage-setting, task definition, and rule specification creates more effective collaboration",
+        "It implies that Claude should make decisions independently without your input",
+        "It requires you to upload documents for every interaction"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Treating Claude like a coworker means communicating naturally and conversationally while still being clear and specific. The three-element framework (setting the stage, defining the task, specifying rules) operationalizes this principle by ensuring you provide the context and clarity a coworker would need to understand your request and deliver what you want.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "communication style",
+        "prompt framework",
+        "collaboration philosophy"
+      ]
+    },
+    {
+      "id": "claude-101-s1c2-q012",
+      "question": "Why does the source material emphasize that 'the real power of Claude comes with continued and frequent communication, not just one-off prompts'?",
+      "options": [
+        "Because Claude requires multiple conversations to learn how to process information",
+        "Because iterative dialogue, combined with features like Memory and Styles, allows Claude to build on context and increasingly understand your needs, preferences, and working style over time",
+        "Because each conversation costs more money than the previous one",
+        "Because Claude can only access files that have been uploaded in previous conversations"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Ongoing communication enables Claude to leverage Memory (which saves your role, preferences, and decisions), Styles (which apply your communication preferences), and iterative refinement (where follow-up questions and feedback guide responses). This cumulative context makes Claude increasingly effective as a collaborator. One-off prompts lack this depth of understanding and personalization.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "iterative communication",
+        "Memory feature",
+        "personalization",
+        "collaboration philosophy"
+      ]
+    }
+  ]
+}

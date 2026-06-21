@@ -1,0 +1,259 @@
+{
+  "chapterId": "claude-code-101-s1c2",
+  "chapterTitle": "How Claude Code Works",
+  "course": "Claude Code 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-code-101-s1c2-q001",
+      "question": "What is the primary purpose of the verification step in Claude Code's agentic loop?",
+      "options": [
+        "To determine whether the results achieve the goal set out in the prompt",
+        "To automatically fix any errors that occurred during execution",
+        "To compress the context window to save memory",
+        "To request permission from the user before taking action"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The verification step checks whether the actions taken have successfully completed the task. If verification shows the results don't meet the goal, Claude Code loops back and tries again. This is what enables Claude Code to iteratively work toward a solution rather than simply executing once and stopping.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "agentic loop",
+        "verification"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c2-q002",
+      "question": "In Claude Code's agentic loop, what happens if the verification step determines that results are incomplete?",
+      "options": [
+        "The loop terminates and waits for the next user prompt",
+        "The loop returns to gather context and try again",
+        "Claude Code automatically requests additional permissions",
+        "The context window is automatically compacted"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When verification shows that the results don't achieve the goal, Claude Code loops back to the beginning of the agentic loop to gather context again and attempt another iteration. This iterative process continues until the results are complete and verifiable.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "agentic loop",
+        "iteration"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c2-q003",
+      "question": "What is a tool in the context of Claude Code?",
+      "options": [
+        "A permission setting that controls whether Claude Code can edit files",
+        "A capability that allows Claude Code to execute code and interact with the system to complete tasks",
+        "A feature that compresses conversation history when the context window is full",
+        "A setting that determines how much conversation Claude Code can store"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Tools are capabilities that enable Claude Code to take action beyond generating text. Examples include file-reading tools, web search tools, and shell command execution. Tools are what differentiate Claude Code from a simple text-based chat application by allowing it to interact with the system.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "tools",
+        "agent capabilities"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c2-q004",
+      "question": "How does Claude Code use semantic understanding when working with tools?",
+      "options": [
+        "It translates user prompts into multiple languages before executing tools",
+        "It determines when to call a tool and how to use the output based on meaning and context",
+        "It automatically compresses tool outputs to fit within the context window",
+        "It requests explicit permission before interpreting tool results"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude Code uses semantic understanding to intelligently decide which tool to call at the right time and how to interpret and use the results. This is more sophisticated than simply executing tools on command—it requires understanding the task goal and determining the appropriate tool usage strategy.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "tools",
+        "semantic understanding",
+        "agent decision-making"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c2-q005",
+      "question": "What is the default permission behavior in Claude Code?",
+      "options": [
+        "All file edits and shell commands execute automatically without asking",
+        "Claude Code asks for explicit permission before editing files or running shell commands",
+        "File edits are automatic, but shell commands require approval",
+        "All actions require approval through a plan mode first"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The default behavior requires Claude Code to ask for explicit permission before making changes. This safety-first approach helps prevent unintended modifications. Other permission modes like auto-accept and plan mode are available but require explicit configuration.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "permissions",
+        "safety",
+        "default behavior"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c2-q006",
+      "question": "What is the primary advantage of plan mode in Claude Code's permission system?",
+      "options": [
+        "It allows all commands to execute without requiring approval",
+        "It uses read-only tools to develop a plan before taking any actions",
+        "It automatically compacts the context window before executing commands",
+        "It eliminates the need for user interruption during the agentic loop"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Plan mode uses read-only tools to compile a plan of action before Claude Code starts making changes. This allows you to review the intended approach before any modifications occur, providing a safety checkpoint while still allowing automation.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "permissions",
+        "plan mode",
+        "safety"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c2-q007",
+      "question": "How does Claude Code manage its context window when it reaches capacity?",
+      "options": [
+        "It stops accepting new prompts until the user manually clears the conversation",
+        "It automatically compacts the conversation by determining what can be removed or summarized",
+        "It deletes the oldest messages without any summarization",
+        "It requests permission from the user before removing any information"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude Code automatically manages context window overflow by intelligently compacting the conversation. It determines what information can be safely removed or summarized to bring the context window back to a usable size, allowing the agentic loop to continue functioning effectively.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "context window",
+        "context management"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c2-q008",
+      "question": "During the agentic loop, at which points can a user intervene to guide Claude Code?",
+      "options": [
+        "Only after the verification step completes",
+        "Only before the initial prompt is entered",
+        "At any point by adding context, interrupting, or steering the model",
+        "Only during the tool execution phase"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The agentic loop is designed to be interactive. Users can add context, interrupt execution, or steer the model toward their goal at any point in the loop. This flexibility allows for course correction and refinement as Claude Code works through the task.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "agentic loop",
+        "user control",
+        "interactivity"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c2-q009",
+      "question": "What distinguishes Claude Code from typical chat applications?",
+      "options": [
+        "It uses a larger context window than other AI assistants",
+        "It combines an agentic loop, managed context, tools, and configurable permissions to read codebases, take action, and verify work",
+        "It only works with shell commands and file editing",
+        "It requires explicit permission for every single interaction"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude Code is fundamentally different because it operates as an agent with a complete loop: gathering context, taking action, and verifying results. Combined with tool capabilities and permission controls, this makes it more than a chat interface—it's an autonomous agent that can work toward goals iteratively.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "agentic loop",
+        "agent architecture",
+        "differentiation"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c2-q010",
+      "question": "Consider a scenario where Claude Code is editing a configuration file, and the verification step detects that the edit didn't achieve the intended outcome. Which of the following best describes what happens next?",
+      "options": [
+        "Claude Code terminates and reports the failure to the user",
+        "Claude Code automatically reverts the change and waits for user input",
+        "Claude Code loops back through the agentic cycle, gathers context about the failure, and attempts a different approach",
+        "Claude Code requests additional permissions before trying again"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The agentic loop is designed for iterative problem-solving. When verification fails, Claude Code doesn't give up—it loops back to gather context (which now includes information about the failed attempt), and tries again with a different approach. This iterative nature is what enables Claude Code to handle complex tasks that might require multiple attempts.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "agentic loop",
+        "iteration",
+        "verification",
+        "problem-solving"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c2-q011",
+      "question": "A developer is concerned about accidentally running a destructive command through Claude Code. Which permission configuration would best address this concern while still allowing Claude Code to work efficiently?",
+      "options": [
+        "Default behavior, which requires explicit permission for all commands",
+        "Auto-accept mode, which speeds up file editing",
+        "Plan mode, which uses read-only tools to show the intended approach before execution",
+        "Disabling all tools to prevent any command execution"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Plan mode provides the best balance of safety and efficiency. It allows Claude Code to develop and present a plan using read-only tools before taking any actions, giving the developer visibility into what will happen without requiring approval for every single step. This is more protective than default behavior while more practical than disabling tools entirely.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "permissions",
+        "plan mode",
+        "risk management",
+        "safety"
+      ]
+    },
+    {
+      "id": "claude-code-101-s1c2-q012",
+      "question": "How do the context window management and the agentic loop work together to enable Claude Code to handle long, complex tasks?",
+      "options": [
+        "The context window stores all conversation history indefinitely, allowing the agentic loop to reference any previous step",
+        "The agentic loop iterates through tasks while the context window automatically compacts information, keeping only what's necessary for the current and future iterations",
+        "The context window prevents the agentic loop from iterating more than once per task",
+        "They operate independently; the context window only affects chat history, not the agentic loop's execution"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "These two systems work synergistically. The agentic loop enables iterative problem-solving through multiple cycles of gathering context, taking action, and verifying results. Meanwhile, the context window management ensures that as the conversation grows, Claude Code intelligently compacts information—removing or summarizing what's no longer needed—so the loop can continue functioning effectively without hitting memory limits. This allows Claude Code to tackle complex, multi-step tasks that would otherwise exceed capacity.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "agentic loop",
+        "context window",
+        "context management",
+        "system integration"
+      ]
+    }
+  ]
+}

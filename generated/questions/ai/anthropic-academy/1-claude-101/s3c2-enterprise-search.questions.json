@@ -1,0 +1,252 @@
+{
+  "chapterId": "claude-101-s3c2",
+  "chapterTitle": "Enterprise search",
+  "course": "Claude 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-101-s3c2-q001",
+      "question": "What is the primary purpose of Enterprise Search?",
+      "options": [
+        "To provide a dedicated organizational knowledge base that synthesizes information across company tools and data sources",
+        "To replace all regular chat conversations with a single unified interface",
+        "To automatically back up all company documents to Anthropic's servers",
+        "To monitor employee activity across all connected applications"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Enterprise Search is designed as a pre-built project for your entire organization, allowing you to find and synthesize knowledge buried across company tools and data sources. It is not a replacement for regular chats, does not involve backing up documents to external servers, and does not monitor employee activity.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Enterprise Search purpose",
+        "organizational knowledge base"
+      ]
+    },
+    {
+      "id": "claude-101-s3c2-q002",
+      "question": "On which plan types is Enterprise Search available?",
+      "options": [
+        "Free and Pro plans only",
+        "Team and Enterprise plans only",
+        "All plans including Free, Pro, Max, Team, and Enterprise",
+        "Enterprise plans only"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Enterprise Search is available on Team and Enterprise plans only. It is not available on Free, Pro, or Max plans, and must be enabled by a workspace admin.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Enterprise Search availability",
+        "plan requirements"
+      ]
+    },
+    {
+      "id": "claude-101-s3c2-q003",
+      "question": "What appears in the sidebar when Enterprise Search is enabled?",
+      "options": [
+        "A generic 'Search' button that opens a new window",
+        "A dedicated 'Ask {Your Org Name}' option",
+        "Multiple separate project folders for each connected tool",
+        "An admin control panel for managing permissions"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Enterprise Search adds a dedicated 'Ask {Your Org Name}' option to the sidebar, where {Your Org Name} is customized by the admin during setup. This is a single unified interface, not multiple folders or an admin panel.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Enterprise Search interface",
+        "sidebar integration"
+      ]
+    },
+    {
+      "id": "claude-101-s3c2-q004",
+      "question": "Which of the following is a valid use case for Enterprise Search?",
+      "options": [
+        "Asking about company remote work policy and time-off procedures",
+        "Requesting real-time stock market data for investment decisions",
+        "Accessing personal email accounts of other employees",
+        "Generating new company policies without human review"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Enterprise Search is designed for questions about organizational policies, processes, and knowledge—such as remote work policies and time-off procedures. It does not provide real-time external data, does not grant access to others' personal accounts, and is not a policy-creation tool.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Enterprise Search use cases",
+        "policy and process questions"
+      ]
+    },
+    {
+      "id": "claude-101-s3c2-q005",
+      "question": "What is the first step an admin must take to set up Enterprise Search for their organization?",
+      "options": [
+        "Ask all employees to authenticate with their personal accounts",
+        "Click 'Ask Your Org' in the left sidebar and then click 'Set up for your org'",
+        "Connect all available tools before customizing the project name",
+        "Disable the feature temporarily to configure security settings"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The first step for admins is to click 'Ask Your Org' in the sidebar and then click 'Set up for your org' to begin the configuration process. User authentication happens after admin setup is complete, and tool connection comes after initiating setup.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Enterprise Search setup",
+        "admin configuration"
+      ]
+    },
+    {
+      "id": "claude-101-s3c2-q006",
+      "question": "Which connectors are required during Enterprise Search admin setup?",
+      "options": [
+        "Documents and Chat connectors; Email is optional",
+        "Chat and Email connectors; Documents is optional",
+        "All connectors must be enabled before setup can be completed",
+        "Only the Documents connector is required; all others are optional"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "During admin setup, a Documents connector (like Google Drive or SharePoint) and a Chat connector (like Slack or Microsoft Teams) are required. Email is recommended but optional. Additional tools can be added later.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Enterprise Search connectors",
+        "required vs optional tools"
+      ]
+    },
+    {
+      "id": "claude-101-s3c2-q007",
+      "question": "How does Enterprise Search differ from a regular chat with connectors enabled?",
+      "options": [
+        "Enterprise Search uses different AI models while regular chats use older models",
+        "Enterprise Search is specifically designed for information gathering with custom instructions configured by Anthropic, whereas regular chats with connectors are general-purpose",
+        "Enterprise Search requires manual setup of each conversation while regular chats are automatic",
+        "Enterprise Search can only access documents while regular chats can access all data types"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Enterprise Search is specifically designed for information gathering with custom instructions configured by the Anthropic team, making it distinct from general-purpose chats that happen to have connectors enabled. It is not about different AI models, setup complexity, or data type restrictions.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Enterprise Search design",
+        "comparison with regular chats"
+      ]
+    },
+    {
+      "id": "claude-101-s3c2-q008",
+      "question": "What happens to user conversations and connected data in Enterprise Search?",
+      "options": [
+        "Conversations are stored on Anthropic servers and data is indexed for faster searching",
+        "Conversations remain private and connected data is not indexed or stored separately",
+        "Both conversations and data are shared with all organization members for transparency",
+        "Data is automatically deleted after 30 days to comply with privacy regulations"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Enterprise Search maintains privacy by keeping conversations private and not indexing or storing connected data separately. This is a key security feature that distinguishes it from other data management approaches.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Enterprise Search security",
+        "data privacy",
+        "conversation privacy"
+      ]
+    },
+    {
+      "id": "claude-101-s3c2-q009",
+      "question": "What determines what information Enterprise Search can show you?",
+      "options": [
+        "Only information that Anthropic has pre-approved for your organization",
+        "All information stored in connected tools, regardless of your individual permissions",
+        "Only information you already have permission to access in the original connected tools",
+        "Information based on your job title and department, as configured by admins"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Enterprise Search respects your existing permissions in the original tools. It only shows what you already have permission to access in those tools—it does not grant new access or bypass existing restrictions.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Enterprise Search security",
+        "permission model"
+      ]
+    },
+    {
+      "id": "claude-101-s3c2-q010",
+      "question": "An organization has connected SharePoint, Slack, Gmail, and Google Drive to Enterprise Search. A user wants to maximize the comprehensiveness of their search results. What should they do?",
+      "options": [
+        "Authenticate with only the most frequently used tool to avoid overwhelming the system",
+        "Ask the admin to disable some connectors to improve search accuracy",
+        "Enable authentication with each service they want to search to maximize coverage",
+        "Wait for the admin to automatically sync all tools to their account"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The more connectors a user enables by authenticating with each service, the more comprehensive their search results will be. Users can add more connectors later through the project's Instructions section. Disabling connectors or waiting for automatic sync would reduce rather than maximize comprehensiveness.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Enterprise Search user setup",
+        "connector authentication",
+        "search comprehensiveness"
+      ]
+    },
+    {
+      "id": "claude-101-s3c2-q011",
+      "question": "An admin is setting up Enterprise Search and needs to decide which tools to connect. The organization uses Slack for chat, Google Drive for documents, and Gmail for email. Based on the setup requirements, which configuration would be valid?",
+      "options": [
+        "Connect only Slack and Google Drive, skip Email since it is optional",
+        "Connect Slack, Google Drive, and Gmail, then add more tools later if needed",
+        "Connect only Google Drive and Gmail, since Slack is not a required connector",
+        "Connect all available tools simultaneously before customizing the project name"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The setup requires a Documents connector (Google Drive) and a Chat connector (Slack). Email (Gmail) is recommended but optional. This configuration meets the requirements and allows for adding more tools later. The other options either skip required connectors or misunderstand the requirement structure.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Enterprise Search admin setup",
+        "connector requirements",
+        "setup workflow"
+      ]
+    },
+    {
+      "id": "claude-101-s3c2-q012",
+      "question": "A new employee joins an organization that has Enterprise Search enabled. They see 'Ask CompanyName' in their sidebar but receive limited search results when asking questions. What is the most likely reason?",
+      "options": [
+        "The admin has not finished the initial setup process for Enterprise Search",
+        "The employee has not yet authenticated with the services they want to search",
+        "The organization's data sources are too large for Enterprise Search to index",
+        "The employee's account does not have the correct plan type for Enterprise Search"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "If the project appears in the sidebar, admin setup is complete. Limited results indicate the user has not authenticated with all relevant services. The user setup process requires individual authentication with each service (Slack, Google, Microsoft 365, etc.) to enable searching those sources. Without authentication, those services cannot be searched.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Enterprise Search user onboarding",
+        "authentication",
+        "troubleshooting"
+      ]
+    }
+  ]
+}

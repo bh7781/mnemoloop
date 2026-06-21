@@ -1,0 +1,253 @@
+{
+  "chapterId": "claude-code-101-s3c2",
+  "chapterTitle": "Context Management",
+  "course": "Claude Code 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-code-101-s3c2-q001",
+      "question": "What does the context window represent in Claude Code?",
+      "options": [
+        "Claude's working memory that stores all inputs, file reads, commands, and tool results",
+        "A visual display showing the number of tokens used in the current session",
+        "The maximum number of files that can be opened simultaneously",
+        "A temporary storage area that automatically deletes data after each message"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The context window is Claude's working memory where everything—prompts, files read, commands run, and tool results—takes up space. It has a finite capacity, making it important to manage efficiently. The other options describe different concepts or misunderstand the purpose of the context window.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "context window",
+        "working memory"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c2-q002",
+      "question": "What does the `/clear` command do?",
+      "options": [
+        "Removes all context and starts a completely fresh session with no memory of previous work",
+        "Deletes only the most recent message from the conversation",
+        "Compacts the context while preserving a summary of previous work",
+        "Clears only the tool call results while keeping the conversation history"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The `/clear` command removes everything and starts from scratch with no memory of the previous session. This is different from `/compact`, which summarizes and preserves important details. Use `/clear` when starting a new feature to avoid bias from previous conversations.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "/clear command",
+        "context management"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c2-q003",
+      "question": "Which command allows you to check the current state of your context usage?",
+      "options": [
+        "/context",
+        "/status",
+        "/check",
+        "/analyze"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The `/context` command provides a high-level overview of context size, shows which categories are consuming the most space, and displays a visual breakdown of context usage. This helps you understand what's taking up space in your context window.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "/context command",
+        "context monitoring"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c2-q004",
+      "question": "What happens automatically when the context window approaches its limit?",
+      "options": [
+        "The oldest messages are permanently deleted without any summary",
+        "The context window is automatically compacted, which summarizes important details and removes unnecessary tool call results",
+        "Claude stops accepting new input until the user manually clears the context",
+        "All tool calls are disabled to free up space for conversation"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When the context window fills up, automatic compaction occurs. This process summarizes important details and removes unnecessary tool call results to free up space. However, this automatic compaction can potentially lose details, which is why manual management with `/compact` or `/clear` is sometimes preferable.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "context compaction",
+        "automatic context management"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c2-q005",
+      "question": "When should you use the `/compact` command instead of `/clear`?",
+      "options": [
+        "When you want to start a new feature and avoid bias from previous conversations",
+        "When you're working on a specific feature, running up against the context limit, but need to continue working while keeping context relevant to that feature",
+        "When you want to delete all tool call results permanently",
+        "When you need to reset your MCP server configurations"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Use `/compact` when you're actively working on a specific feature and approaching the context limit but need to continue. It preserves a summary of your work while freeing up space. In contrast, `/clear` is for starting completely fresh on a new feature. The key difference is that `/compact` maintains continuity for your current task.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "/compact command",
+        "context management strategy"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c2-q006",
+      "question": "Why does being specific with your prompts help save context space?",
+      "options": [
+        "Specific prompts are shorter and therefore use fewer tokens",
+        "Specific prompts reduce the need for Claude to explore your codebase extensively and do its own reasoning, which would consume far more context space than a detailed prompt",
+        "Specific prompts automatically trigger context compaction",
+        "Specific prompts disable MCP servers, freeing up context"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "While vague prompts might seem smaller, they actually cost more context in the long run. Without clear instructions, Claude must explore your codebase more thoroughly and perform additional reasoning—both of which consume significantly more context space than providing detailed, specific instructions upfront. This is a counterintuitive but important principle in context management.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "prompt specificity",
+        "context efficiency"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c2-q007",
+      "question": "What is the purpose of storing information in a `CLAUDE.md` file?",
+      "options": [
+        "To provide a backup of your conversation history in case the context window fills up",
+        "To ensure Claude remembers important information across sessions without having to rediscover it from scratch",
+        "To automatically trigger context compaction when the file is updated",
+        "To disable MCP servers and reduce context usage"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "A `CLAUDE.md` file serves as persistent memory across sessions. By storing commands, important notes, and architecture information there, you ensure Claude can access this information without rediscovering it, which saves context space and maintains continuity across different sessions. This is especially useful when starting fresh with `/clear` on a new feature.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "CLAUDE.md file",
+        "persistent memory",
+        "cross-session continuity"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c2-q008",
+      "question": "How do MCP servers affect context usage by default?",
+      "options": [
+        "They load only the tools you actively use into context",
+        "They load all of their available tools into context by default, even when you're not using them",
+        "They automatically compress context to reduce space consumption",
+        "They have no impact on context usage"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "MCP servers load all of their available tools into context by default, regardless of whether you're currently using them. If you have servers configured for unrelated tasks, this wastes context space. You can manage this by turning off servers you don't need or using Skills as an alternative, which don't load everything into context upfront.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP servers",
+        "context consumption"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c2-q009",
+      "question": "What advantage do subagents provide for context management?",
+      "options": [
+        "They automatically compact the context window after each task",
+        "They run in parallel with your main agent but have a completely separate context window, allowing them to handle tasks and return only a summary to keep your primary context clean",
+        "They eliminate the need for the `/compact` and `/clear` commands",
+        "They prevent MCP servers from loading tools into context"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Subagents operate with their own separate context window and run in parallel with your main agent. For tasks where you only need the result (like finding authentication endpoints), a subagent can do the work and return just a summary, keeping your primary context focused and clean. This is a powerful technique for delegating work without cluttering your main context.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "subagents",
+        "context delegation",
+        "parallel processing"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c2-q010",
+      "question": "You're working on implementing a new authentication feature and have been iterating for several hours. Your context is nearly full, but you need to continue working on this feature. You also have notes about your project architecture and important configuration commands. What is the best approach?",
+      "options": [
+        "Run `/clear` to start fresh, then manually re-enter all your architecture notes and configuration commands",
+        "Run `/compact` to summarize your work so far, keeping the context relevant to your authentication feature, while your architecture notes are already stored in `CLAUDE.md`",
+        "Continue working without managing context, as automatic compaction will handle it",
+        "Run `/clear` and use subagents to handle all future work on this feature"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "This scenario calls for `/compact` because you're actively working on a specific feature (authentication) and need to continue. Compacting summarizes your progress while freeing space. Since your architecture notes and configuration commands are in `CLAUDE.md`, they're already available without cluttering your current context. `/clear` would be inappropriate here because you'd lose your current work context, and automatic compaction alone doesn't give you control over what's preserved.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "context management strategy",
+        "practical application",
+        "/compact vs /clear"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c2-q011",
+      "question": "You have multiple MCP servers configured: one for database operations (which you're actively using), one for email services (which you're not using), and one for analytics (which you might use later). You're running low on context space. What should you consider?",
+      "options": [
+        "Turn off all MCP servers and use Skills instead, as Skills never consume context",
+        "Keep all servers running since they might be useful later, and instead use `/clear` to free up space",
+        "Turn off the email services MCP server since you're not using it, and consider turning off the analytics server if it's not critical to your current work",
+        "Use subagents to handle all MCP server operations, which will completely eliminate context consumption"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Since MCP servers load all their tools into context by default, turning off servers you're not actively using (like email services) is a practical way to save space. The analytics server could also be disabled if it's not essential to your current work. You can always re-enable them later. This is more efficient than clearing your entire context or trying to eliminate MCP servers entirely, as the database server is actively needed. Subagents don't eliminate MCP context consumption; they just provide an alternative way to delegate work.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP server management",
+        "context optimization",
+        "practical decision-making"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c2-q012",
+      "question": "You need to find where authentication endpoints are defined in a large codebase, and you're already near your context limit. You also have a complex feature you're actively developing that requires your full attention. Which approach best balances efficiency and context management?",
+      "options": [
+        "Ask Claude to search the entire codebase for authentication endpoints in your main context, accepting that it will consume significant context space",
+        "Use a subagent to search for the authentication endpoints and return only the summary to your main context, keeping your primary context focused on your feature development",
+        "Run `/clear` to free up space, then search for the endpoints, then `/compact` before returning to feature development",
+        "Disable all MCP servers to free up context, then manually search the codebase yourself"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "This is an ideal use case for subagents. Since you only need the answer (where the endpoints are), a subagent can perform the search in its own context window and return just a summary. This keeps your primary context clean and focused on your active feature development without the overhead of exploring the codebase yourself. Option A would waste your main context, option C would interrupt your workflow unnecessarily, and option D shifts the burden to manual work.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "subagent delegation",
+        "context efficiency",
+        "task prioritization"
+      ]
+    }
+  ]
+}

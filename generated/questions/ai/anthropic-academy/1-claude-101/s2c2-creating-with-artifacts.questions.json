@@ -1,0 +1,247 @@
+{
+  "chapterId": "claude-101-s2c2",
+  "chapterTitle": "Creating with artifacts",
+  "course": "Claude 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-101-s2c2-q001",
+      "question": "What is the primary purpose of artifacts in Claude?",
+      "options": [
+        "To display standalone, interactive outputs in a dedicated window separate from the conversation",
+        "To store conversation history for future reference",
+        "To limit the amount of text Claude can generate in responses",
+        "To automatically save all user inputs to a database"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Artifacts are designed to present significant, self-contained content in a dedicated window alongside your conversation, making it easy to view, edit, and use the output without it being buried in chat messages. The other options describe features that artifacts do not provide.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "artifact definition",
+        "artifact purpose"
+      ]
+    },
+    {
+      "id": "claude-101-s2c2-q002",
+      "question": "Which of the following is NOT a common artifact type that Claude can create?",
+      "options": [
+        "Email templates",
+        "HTML pages",
+        "React components",
+        "SVG images"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The source lists documents, code snippets, HTML pages, SVG images, Mermaid diagrams, and React components as common artifact types. Email templates are not mentioned as a standard artifact type, though documents could potentially include email content.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "artifact types"
+      ]
+    },
+    {
+      "id": "claude-101-s2c2-q003",
+      "question": "What happens to your chat when you publish an artifact publicly?",
+      "options": [
+        "Your entire conversation becomes public and searchable",
+        "Only the selected artifact version becomes public; your chat remains private",
+        "The artifact is shared only with people in your organization",
+        "Your chat is automatically deleted after publishing"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When you publish an artifact, only that specific version becomes publicly accessible via a link. Your original conversation and chat history remain private. This separation allows you to share specific outputs without exposing your entire discussion.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "artifact publishing",
+        "privacy"
+      ]
+    },
+    {
+      "id": "claude-101-s2c2-q004",
+      "question": "Under what conditions does Claude automatically create an artifact?",
+      "options": [
+        "Whenever you ask for any code or document, regardless of length",
+        "Only when content is significant and self-contained, typically over 15 lines, and something you're likely to edit or reuse",
+        "Only for HTML pages and React components",
+        "When you explicitly request it, but never automatically"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude uses specific criteria to decide when to create artifacts: the content must be significant and self-contained (typically over 15 lines), something you're likely to want to edit or iterate on, complex enough to stand alone, and something you'll want to reference later. Claude doesn't create artifacts for every request, nor does it require explicit requests for all artifact-worthy content.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "artifact creation criteria"
+      ]
+    },
+    {
+      "id": "claude-101-s2c2-q005",
+      "question": "You ask Claude to 'Create a flowchart showing our customer onboarding process.' What artifact type would Claude most likely create?",
+      "options": [
+        "A React component with interactive elements",
+        "A Mermaid diagram or HTML visualization",
+        "A plain text document with step descriptions",
+        "An SVG image file only"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "For a flowchart, Claude would use either a Mermaid diagram (which is specifically designed for flowcharts, sequence diagrams, and similar visualizations) or HTML with visual rendering. A React component would be unnecessary for a static flowchart, plain text wouldn't provide visual clarity, and SVG alone wouldn't be the primary choice for a process flowchart.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "artifact types",
+        "artifact selection"
+      ]
+    },
+    {
+      "id": "claude-101-s2c2-q006",
+      "question": "What is the advantage of describing the end user when requesting an artifact?",
+      "options": [
+        "It allows Claude to charge different prices based on user type",
+        "It helps Claude make appropriate design choices tailored to that audience",
+        "It restricts who can access the artifact after publishing",
+        "It automatically generates multiple versions for different user groups"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Providing context about who will use the artifact helps Claude make design decisions that are appropriate for that specific audience. For example, a flowchart for new employees would be designed differently than one for the engineering team. This doesn't affect pricing, access restrictions, or automatic version generation.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "artifact creation best practices"
+      ]
+    },
+    {
+      "id": "claude-101-s2c2-q007",
+      "question": "Which sharing option is available to all Claude users (free, Pro, and Max)?",
+      "options": [
+        "Sharing artifacts only within your organization",
+        "Publishing artifacts publicly with a shareable link",
+        "Sharing artifacts only with Team and Enterprise users",
+        "Exporting artifacts to a private cloud storage service"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The source states that free, Pro, and Max users can publish artifacts publicly. Organizational sharing is limited to Team and Enterprise users (Claude for Work). The other options are not mentioned as available features.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "artifact sharing",
+        "user tiers"
+      ]
+    },
+    {
+      "id": "claude-101-s2c2-q008",
+      "question": "What should you do if Claude responds with code in the chat instead of creating an artifact when you expected one?",
+      "options": [
+        "Accept the response and manually copy the code into a separate file",
+        "Start a new conversation and ask the same question differently",
+        "Explicitly ask Claude to create it as an artifact",
+        "Assume Claude determined an artifact was not necessary for your request"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The source explicitly states that if Claude doesn't automatically create an artifact when you expect one, you can ask: 'Create this as an artifact' or 'Show me this in an artifact.' This is a straightforward way to get the output in the format you want without starting over.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "artifact creation",
+        "user control"
+      ]
+    },
+    {
+      "id": "claude-101-s2c2-q009",
+      "question": "When iterating on an artifact, why is it recommended to ask for one feature or change at a time?",
+      "options": [
+        "To ensure Claude charges you less for each iteration",
+        "To make it easier to identify what's working and catch issues early",
+        "To prevent the artifact from becoming too large to display",
+        "To comply with organizational policies on artifact modifications"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Incremental iteration helps you track which changes are effective and makes it easier to spot problems as they arise. Making multiple changes at once can make it difficult to determine which change caused an issue or whether all changes worked as intended.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "artifact iteration",
+        "best practices"
+      ]
+    },
+    {
+      "id": "claude-101-s2c2-q010",
+      "question": "A colleague asks you to share a React component you created in Claude that calculates investment returns. You want them to be able to modify it for their own use. Which sharing approach would be most appropriate?",
+      "options": [
+        "Share it only within your organization if you're on Claude for Work",
+        "Publish it publicly so they can remix it in their own Claude conversation",
+        "Download it and email the file directly to them",
+        "Keep it private and manually recreate it for them in a new conversation"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Publishing the artifact allows your colleague to access it via a link and 'remix' it—opening it in their own Claude conversation to modify and build upon it. This is the most efficient approach for sharing something you want others to adapt. Organizational sharing would only work if you're both on Claude for Work. Downloading and emailing, or recreating it manually, would be less efficient.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "artifact sharing",
+        "remix feature",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "claude-101-s2c2-q011",
+      "question": "You're creating a landing page artifact for a new SaaS product. Which of the following requests would be most effective in helping Claude create an appropriate artifact?",
+      "options": [
+        "Create a landing page for a SaaS product",
+        "Create a landing page with HTML and CSS for a project management SaaS tool aimed at small teams, including a hero section with a call-to-action button, a features section with three key benefits, and a pricing table",
+        "Create a landing page that looks professional",
+        "Create a landing page similar to other SaaS landing pages you've seen"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The most effective request is specific about the product type, target audience, and desired components. This level of detail helps Claude make appropriate design choices and include relevant functionality. Vague requests like 'professional' or comparative references to other pages don't provide enough concrete guidance for Claude to create exactly what you need.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "artifact creation best practices",
+        "specificity"
+      ]
+    },
+    {
+      "id": "claude-101-s2c2-q012",
+      "question": "You publish an interactive budget tracker artifact that becomes popular. A user reports that they found it through a Google search. What does this indicate about your published artifact?",
+      "options": [
+        "Your artifact was indexed by search engines despite the documentation stating otherwise",
+        "The user likely shared the direct link with others, and it was discovered through a referral rather than search engine indexing",
+        "Published artifacts are automatically indexed by search engines",
+        "Your artifact was shared on social media and discovered that way"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The source explicitly states that published artifacts are not indexed by search engines and won't appear in Google results. If a user found it through a search, they likely obtained the direct link from another source (referral, social media, etc.) rather than discovering it through Google. This is an important distinction for understanding the privacy and discoverability of published artifacts.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "artifact publishing",
+        "search engine indexing",
+        "privacy"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "chapterId": "claude-101-s4c2",
+  "chapterTitle": "Other ways to work with Claude",
+  "course": "Claude 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-101-s4c2-q001",
+      "question": "Which tool would you use if you want to summarize articles and web pages while browsing the internet?",
+      "options": [
+        "Claude Code",
+        "Claude for Chrome",
+        "Claude for Excel",
+        "Claude for PowerPoint"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude for Chrome is a browser extension that allows you to summarize articles, research papers, and web pages while browsing. It runs as a sidebar in Google Chrome and maintains context as you move between tabs and tasks.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude for Chrome",
+        "web research"
+      ]
+    },
+    {
+      "id": "claude-101-s4c2-q002",
+      "question": "What is Claude Code designed to do in your development workflow?",
+      "options": [
+        "Create presentations from code documentation",
+        "Understand your codebase, execute commands, and handle development workflows through natural language",
+        "Automatically deploy code to production servers",
+        "Convert spreadsheet data into code"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude Code is an agentic coding tool that understands your codebase, executes commands, and handles entire development workflows through natural language. It can write code, run tests, create commits, debug issues, and automate tedious development tasks.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude Code",
+        "software development"
+      ]
+    },
+    {
+      "id": "claude-101-s4c2-q003",
+      "question": "Which Claude tool integrates directly into Microsoft Excel?",
+      "options": [
+        "Claude for PowerPoint",
+        "Claude for Chrome",
+        "Claude for Excel",
+        "Claude Code"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Claude for Excel brings Claude directly into Microsoft Excel through a sidebar, allowing you to analyze, understand, and modify spreadsheets through conversation. You can debug errors, update formulas, and create visualizations without leaving Excel.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude for Excel",
+        "spreadsheet analysis"
+      ]
+    },
+    {
+      "id": "claude-101-s4c2-q004",
+      "question": "You need to debug a #REF! error in a complex multi-tab Excel workbook and trace it to its source. Which tool is best suited for this task?",
+      "options": [
+        "Claude for PowerPoint",
+        "Claude for Chrome",
+        "Claude Code",
+        "Claude for Excel"
+      ],
+      "correctOptionIndexes": [
+        3
+      ],
+      "explanation": "Claude for Excel is specifically designed for debugging spreadsheet errors like #REF!, #VALUE!, and circular references. It can trace errors to their source and suggest fixes while maintaining formula dependencies across multiple sheets.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude for Excel",
+        "formula debugging"
+      ]
+    },
+    {
+      "id": "claude-101-s4c2-q005",
+      "question": "Your team is discussing a feature request in a Slack channel, and you want to spin up a coding session with Claude to start implementation. What should you do?",
+      "options": [
+        "Copy the Slack message and paste it into Claude.ai separately",
+        "Tag @Claude in the Slack thread to hand off the task and spin up a Claude Code session with surrounding context",
+        "Export the Slack conversation to a file and upload it to Claude Code",
+        "Manually recreate the feature request in Claude for Chrome"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude in Slack allows you to hand off coding tasks directly from a bug report or feature discussion by tagging @Claude. This creates a Claude Code session using the surrounding Slack context, eliminating the need to manually copy and paste information.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude in Slack",
+        "Claude Code integration"
+      ]
+    },
+    {
+      "id": "claude-101-s4c2-q006",
+      "question": "You're onboarding to a new team and want to understand ongoing projects by reviewing channel history. Which tool would be most helpful?",
+      "options": [
+        "Claude Code",
+        "Claude for Excel",
+        "Claude in Slack",
+        "Claude for PowerPoint"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Claude in Slack is ideal for onboarding scenarios where you need help understanding ongoing projects by reviewing channel history. It can pull together relevant conversations and shared documents from your workspace to help you get up to speed.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude in Slack",
+        "team collaboration"
+      ]
+    },
+    {
+      "id": "claude-101-s4c2-q007",
+      "question": "You have an outline and a set of notes that you need to turn into a presentation quickly. Which tool allows you to create a first-draft slide deck while preserving your existing template and brand styling?",
+      "options": [
+        "Claude Code",
+        "Claude for PowerPoint",
+        "Claude for Chrome",
+        "Claude for Excel"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude for PowerPoint is designed to turn outlines, documents, or notes into first-draft slide decks without building each slide by hand. It integrates as a sidebar in PowerPoint and maintains your existing template and brand styling throughout the process.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude for PowerPoint",
+        "presentation creation"
+      ]
+    },
+    {
+      "id": "claude-101-s4c2-q008",
+      "question": "You're navigating an unfamiliar codebase and want to understand how different parts work together. Which tool is best for this scenario?",
+      "options": [
+        "Claude for Excel",
+        "Claude for PowerPoint",
+        "Claude Code",
+        "Claude for Chrome"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Claude Code is designed for navigating unfamiliar codebases. You can ask questions about how different parts work together, and Claude will analyze your codebase to provide explanations and insights about the code structure and relationships.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude Code",
+        "codebase navigation"
+      ]
+    },
+    {
+      "id": "claude-101-s4c2-q009",
+      "question": "You want to automate filling out repetitive forms while browsing the web. Which tool would be most appropriate for this task?",
+      "options": [
+        "Claude Code",
+        "Claude for Excel",
+        "Claude for Chrome",
+        "Claude in Slack"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Claude for Chrome is a browser extension that can automate repetitive form-filling tasks. It can observe what you're working on and take actions directly within your browser, making it ideal for automating multi-step workflows and form completion.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude for Chrome",
+        "browser automation"
+      ]
+    },
+    {
+      "id": "claude-101-s4c2-q010",
+      "question": "You need to update assumptions across a complex financial model while preserving formula dependencies and relationships. Which tool is specifically designed to handle this scenario?",
+      "options": [
+        "Claude Code",
+        "Claude for Excel",
+        "Claude for PowerPoint",
+        "Claude for Chrome"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude for Excel is specifically designed for updating assumptions or inputs across complex models while preserving formula dependencies and relationships. This is a key use case for financial modeling and spreadsheet analysis where maintaining formula integrity is critical.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude for Excel",
+        "financial modeling"
+      ]
+    },
+    {
+      "id": "claude-101-s4c2-q011",
+      "question": "You're preparing for a meeting and need to pull together relevant conversations and shared documents from your Slack workspace. Additionally, you want to draft responses to messages without leaving Slack. Which capabilities does Claude in Slack provide for this scenario?",
+      "options": [
+        "Only the ability to draft responses to messages",
+        "Only the ability to prepare for meetings by pulling together conversations and documents",
+        "Both the ability to draft responses and prepare for meetings by gathering workspace context",
+        "Neither capability; you must use Claude.ai for these tasks"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Claude in Slack provides both capabilities: you can draft responses to messages and summarize lengthy threads without leaving Slack, and you can prepare for meetings by having Claude pull together relevant conversations and shared documents from your workspace. These are complementary features that keep you productive within your existing workflow.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude in Slack",
+        "meeting preparation",
+        "team collaboration"
+      ]
+    },
+    {
+      "id": "claude-101-s4c2-q012",
+      "question": "Claude for Chrome is currently in research preview. What does Anthropic recommend regarding its use, and what safety measures are in place?",
+      "options": [
+        "Use it for all tasks; no safety measures are needed since it's a browser extension",
+        "Use it only for low-risk tasks on trusted websites; it asks for permission before high-risk actions and blocks certain website categories by default",
+        "Use it only for research purposes and never on production systems",
+        "Avoid using it entirely until it exits research preview"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Anthropic recommends using Claude for Chrome for low-risk tasks on trusted websites. The extension includes safety measures: it asks for permission before taking high-risk actions like purchasing or sharing personal data, and certain categories of websites (financial services, adult content) are blocked by default. This balanced approach allows users to benefit from the tool while maintaining security.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude for Chrome",
+        "research preview",
+        "safety considerations"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "chapterId": "claude-code-101-s2c2",
+  "chapterTitle": "Your First Prompt",
+  "course": "Claude Code 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-code-101-s2c2-q001",
+      "question": "What keyboard shortcut do you use to cycle between different modes in Claude Code?",
+      "options": [
+        "Shift + Tab",
+        "Ctrl + Alt + M",
+        "Cmd + Option + P",
+        "Alt + Enter"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Shift + Tab is the keyboard shortcut used to cycle between modes in Claude Code, including switching between Approval mode, Auto-accept mode, and Plan Mode.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude Code interface",
+        "keyboard shortcuts",
+        "mode switching"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c2-q002",
+      "question": "In Auto-accept mode, which type of action still requires your explicit permission?",
+      "options": [
+        "File edits",
+        "Commands",
+        "Directory reads",
+        "Code analysis"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "In Auto-accept mode, file edits are automatically approved without requiring permission, but commands still require your explicit permission before they execute.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Auto-accept mode",
+        "command execution",
+        "file editing"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c2-q003",
+      "question": "What is the primary purpose of Plan Mode in Claude Code?",
+      "options": [
+        "To automatically fix all syntax errors in your code",
+        "To analyze your codebase and research implementation before executing changes",
+        "To delete unnecessary files from your project",
+        "To compile and run your application"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Plan Mode uses read-only tools to analyze your codebase and research your suggested implementation, asking clarifying questions before returning a detailed plan for execution. This is particularly useful for complex changes and code reviews.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Plan Mode",
+        "codebase analysis",
+        "implementation planning"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c2-q004",
+      "question": "When should you use Plan Mode instead of regular mode?",
+      "options": [
+        "When you want Claude to make changes as quickly as possible without any planning",
+        "When implementing simple, single-line code fixes",
+        "When planning complex changes or conducting a safe code review",
+        "When you want to skip the approval process entirely"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Plan Mode excels at handling multi-step implementations and complex changes. It's designed for situations where you want Claude to thoroughly analyze your codebase before making changes, making it ideal for complex features and code reviews.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Plan Mode use cases",
+        "complex implementations",
+        "code review"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c2-q005",
+      "question": "What is the key difference between Approval mode and Auto-accept mode?",
+      "options": [
+        "Approval mode is faster because it skips all permission checks",
+        "Auto-accept mode automatically approves file edits, while Approval mode requires permission for each change",
+        "Approval mode only works with Python files",
+        "Auto-accept mode is only available in Plan Mode"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The fundamental difference is that Auto-accept mode automatically approves file edits without asking, while Approval mode asks for explicit permission each time Claude wants to edit a file or run a command. Both modes still require permission for command execution in Auto-accept mode.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Approval mode",
+        "Auto-accept mode",
+        "permission handling"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c2-q006",
+      "question": "In the dark mode toggle example, why would Plan Mode be particularly useful?",
+      "options": [
+        "Because dark mode is a simple feature that doesn't require planning",
+        "Because the task involves analyzing the existing codebase, understanding the light theme, and planning a multi-step implementation across the entire app",
+        "Because Plan Mode automatically generates color palettes",
+        "Because it eliminates the need to review Claude's work"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The dark mode implementation is a multi-step task that requires understanding the existing codebase, analyzing the current light theme colors, and planning changes across multiple files. Plan Mode excels in these scenarios by analyzing the codebase first and asking clarifying questions before execution.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Plan Mode application",
+        "multi-step implementation",
+        "codebase analysis"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c2-q007",
+      "question": "What does the source recommend as a best practice when writing prompts for Claude Code?",
+      "options": [
+        "Keep prompts as short as possible to save time",
+        "Use technical jargon exclusively to ensure precision",
+        "Be as descriptive as possible with your prompt",
+        "Avoid mentioning specific UI elements like buttons or toggles"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The source explicitly recommends being as descriptive as possible when writing prompts for Claude Code. This helps Claude understand your requirements more clearly and produce better results.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "prompt writing",
+        "best practices",
+        "descriptive prompts"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c2-q008",
+      "question": "How does Plan Mode help you stay in control when working with Claude Code?",
+      "options": [
+        "It prevents Claude from making any changes to your code",
+        "It allows you to review Claude's plan before execution and then approve changes at each step",
+        "It automatically reverts all changes if you're not satisfied",
+        "It requires you to write all code manually while Claude provides suggestions"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Plan Mode allows you to review Claude's detailed plan before any execution happens, and then you can choose to accept the plan and have Claude ask for approval at each step. This gives you visibility and control throughout the process.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Plan Mode workflow",
+        "approval process",
+        "control and visibility"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c2-q009",
+      "question": "When using Claude Code, what should you consider before entering a prompt?",
+      "options": [
+        "Only the programming language you're using",
+        "Things that can both protect you and make things easier",
+        "The time of day you're working",
+        "Whether your internet connection is stable"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The source states that when entering your prompt, you should consider things that can both protect you and make things easier. This includes choosing between Approval and Auto-accept modes, and deciding whether to use Plan Mode for complex tasks.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "prompt preparation",
+        "safety considerations",
+        "workflow optimization"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c2-q010",
+      "question": "In the dark mode example, what specific challenge does Claude need to address when implementing the feature?",
+      "options": [
+        "Finding a dark mode library that works with any framework",
+        "Finding a good contrast color that works based on the existing light theme",
+        "Automatically detecting the user's system preferences",
+        "Creating a new database schema for theme preferences"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The prompt specifically asks Claude to 'find a good contrast color that works based on my existing light theme.' This requires Claude to analyze the existing color scheme and ensure the dark mode colors provide adequate contrast while maintaining visual consistency with the light theme.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "feature implementation",
+        "design consistency",
+        "color contrast"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c2-q011",
+      "question": "How would you structure your workflow if you wanted maximum visibility into Claude's decision-making process for a complex multi-file refactoring task?",
+      "options": [
+        "Use Auto-accept mode to speed up the process and review changes afterward",
+        "Use Plan Mode to let Claude analyze the codebase first, then accept the plan and approve changes at each step",
+        "Skip Plan Mode and provide very brief prompts to keep things simple",
+        "Use Approval mode without Plan Mode to get quick feedback on each change"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "For maximum visibility into Claude's decision-making on complex tasks, Plan Mode is ideal because it first analyzes your codebase and creates a detailed plan before execution. Combined with approving changes at each step, this gives you complete visibility into the reasoning and implementation process.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "workflow design",
+        "Plan Mode strategy",
+        "visibility and control"
+      ]
+    },
+    {
+      "id": "claude-code-101-s2c2-q012",
+      "question": "What can you infer about the relationship between descriptive prompts and Plan Mode effectiveness?",
+      "options": [
+        "Descriptive prompts are unnecessary when using Plan Mode because Claude will figure out your intent",
+        "Plan Mode works best with vague prompts to allow Claude maximum flexibility",
+        "Descriptive prompts enable Plan Mode to ask better clarifying questions and create more accurate implementation plans",
+        "Plan Mode and prompt quality are independent; one doesn't affect the other"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The source recommends being descriptive with prompts and highlights that Plan Mode asks clarifying questions along the way. These two recommendations work together: descriptive prompts give Claude better context to analyze your codebase and ask more targeted clarifying questions, resulting in more accurate and relevant implementation plans.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "prompt quality",
+        "Plan Mode effectiveness",
+        "codebase analysis",
+        "clarifying questions"
+      ]
+    }
+  ]
+}

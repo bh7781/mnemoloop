@@ -1,0 +1,255 @@
+{
+  "chapterId": "claude-101-s2c1",
+  "chapterTitle": "Introduction to projects",
+  "course": "Claude 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-101-s2c1-q001",
+      "question": "What is the primary purpose of a project in Claude?",
+      "options": [
+        "A self-contained workspace with its own memory, chat histories, knowledge bases, and customized instructions",
+        "A temporary storage location for files that are automatically deleted after 30 days",
+        "A feature that allows you to create multiple Claude accounts under one email address",
+        "A tool for converting documents into different file formats"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Projects are dedicated environments designed to organize work around specific topics or workflows. They maintain persistent context including chat histories, uploaded documents, and custom instructions that apply across all conversations within that project. The other options describe features that projects do not provide.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "project definition",
+        "project purpose"
+      ]
+    },
+    {
+      "id": "claude-101-s2c1-q002",
+      "question": "Which of the following is NOT a typical reason to create a project?",
+      "options": [
+        "You have reference materials you'll use repeatedly across multiple conversations",
+        "You need consistent requirements for how Claude should respond",
+        "You want to ask Claude a single one-off question that you'll never need to revisit",
+        "You're collaborating with team members who need access to the same shared context"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Projects are designed for ongoing work, not one-off questions. They provide value when you have recurring needs, persistent context, and repeated interactions. A single question that you won't revisit would not benefit from the project structure—you could simply ask Claude directly in a regular chat.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "when to use projects",
+        "project use cases"
+      ]
+    },
+    {
+      "id": "claude-101-s2c1-q003",
+      "question": "What file types can you upload to a project's knowledge base?",
+      "options": [
+        "Only PDF and DOCX files",
+        "PDF, DOCX, CSV, TXT, HTML, and other file types, plus Google Drive integration",
+        "Only text-based files like TXT and CSV",
+        "Any file type without limitations on size or format"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Projects support multiple file formats including PDF, DOCX, CSV, TXT, and HTML. Additionally, you can connect to Google Drive to link documents directly. This flexibility allows you to upload various types of reference materials, from structured data to formatted documents.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "knowledge base",
+        "file uploads"
+      ]
+    },
+    {
+      "id": "claude-101-s2c1-q004",
+      "question": "How do project instructions affect Claude's behavior?",
+      "options": [
+        "They apply only to the first conversation in a project and must be re-entered for subsequent chats",
+        "They guide Claude's behavior across all conversations within the project and work alongside user preferences",
+        "They override any system-level settings but cannot be customized per conversation",
+        "They are optional and have no impact if you don't explicitly reference them in your prompts"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Project instructions are persistent guidelines that apply to every conversation within that project. They work in conjunction with your user preferences and styles to shape Claude's responses. This means you don't need to repeat instructions in each chat—they're automatically applied, making your interactions more consistent and efficient.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "project instructions",
+        "instruction scope"
+      ]
+    },
+    {
+      "id": "claude-101-s2c1-q005",
+      "question": "What is Retrieval Augmented Generation (RAG) and when does it activate in projects?",
+      "options": [
+        "A feature that randomly selects documents from your knowledge base to include in responses",
+        "An automatic process that activates when your project knowledge approaches context limits, allowing Claude to intelligently search and retrieve only the most relevant information, expanding capacity by up to 10x",
+        "A manual setting you must enable to allow Claude to access any documents in your project",
+        "A security feature that encrypts your project documents to prevent unauthorized access"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "RAG is an intelligent retrieval mechanism that activates automatically when your project's knowledge base approaches the context window limit. Instead of loading all content at once, Claude searches for and retrieves only the most relevant information needed to answer your questions. This seamless scaling expands your project's effective capacity by up to 10x while maintaining response quality, and you'll see a visual indicator when it's enabled.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "RAG",
+        "knowledge base scaling",
+        "context limits"
+      ]
+    },
+    {
+      "id": "claude-101-s2c1-q006",
+      "question": "Why is naming your project files descriptively important?",
+      "options": [
+        "It makes the files easier to find in your computer's file system",
+        "Claude uses file names to understand and retrieve the right information, so descriptive names help it locate relevant content",
+        "It is required by Claude's system and files with generic names will not upload",
+        "It allows you to organize files alphabetically without needing to use folders"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Descriptive file names serve as metadata that helps Claude understand the content and retrieve the appropriate information when answering questions. For example, 'Q4-2024-Brand-Guidelines.pdf' is more useful than 'document1.pdf' because Claude can use the name to identify the file's purpose and relevance. This improves the accuracy of Claude's responses when it searches your knowledge base.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "file naming",
+        "knowledge base organization"
+      ]
+    },
+    {
+      "id": "claude-101-s2c1-q007",
+      "question": "What are the three permission levels available when sharing a project on Claude for Work?",
+      "options": [
+        "Read, Write, and Admin",
+        "Viewer, Editor, and Owner",
+        "Can view, Can edit, and Owner",
+        "Collaborator, Manager, and Administrator"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The three permission levels for sharing projects are: 'Can view' (read-only access with discussion rights), 'Can edit' (full collaboration power to modify instructions and knowledge), and 'Owner' (complete control including sharing decisions). These levels allow you to granularly control who can do what within your shared project.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "collaboration",
+        "permission levels",
+        "sharing"
+      ]
+    },
+    {
+      "id": "claude-101-s2c1-q008",
+      "question": "Which of the following best describes what happens when you share a project with 'Everyone at [your organization]'?",
+      "options": [
+        "The project becomes visible only to people you explicitly invite via email",
+        "The project is automatically shared with all current and future employees in your organization",
+        "The project becomes discoverable within the Team tab and team members can find it in their 'Shared with me' section",
+        "The project is converted to a public project that anyone on the internet can access"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "When you share a project with 'Everyone at [your organization]', it becomes discoverable within the Team tab, allowing team members to find it in their 'Shared with me' section. This is different from explicit individual sharing and provides organization-wide visibility while maintaining control over who can access it. It does not make the project public to the internet.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "sharing",
+        "organization-wide sharing",
+        "discoverability"
+      ]
+    },
+    {
+      "id": "claude-101-s2c1-q009",
+      "question": "What is a best practice when building a project's knowledge base?",
+      "options": [
+        "Upload as many documents as possible at once to maximize Claude's knowledge",
+        "Start focused with a specific use case, keep documents current, use descriptive file names, and group related files together",
+        "Upload only the most recent versions of documents and delete older versions to save space",
+        "Create separate projects for each document type to keep your workspace organized"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Effective project knowledge base management involves starting with a focused use case rather than trying to include everything, maintaining current documents to avoid outdated responses, using descriptive naming conventions so Claude can identify relevant files, and grouping related files together. These practices ensure Claude can efficiently retrieve and use the right information when responding to your questions.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "best practices",
+        "knowledge base management"
+      ]
+    },
+    {
+      "id": "claude-101-s2c1-q010",
+      "question": "How would you optimize Claude's document retrieval if you have a large project knowledge base with many related documents?",
+      "options": [
+        "Upload all documents with single-letter file names to reduce processing time",
+        "Use descriptive file names, group related files together, and reference specific documents by name in your questions to help Claude focus its search",
+        "Divide your project into multiple smaller projects so Claude only searches within one project at a time",
+        "Request that Claude ignore certain documents and only use others, which must be done before each conversation"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "To optimize retrieval in a large knowledge base, use descriptive file names that clearly indicate content, organize related files together so Claude understands relationships, and mention specific documents in your questions (e.g., 'Based on our Q3 report, what were the top customer concerns?'). This helps Claude's retrieval mechanism focus on the most relevant information without needing to search through irrelevant content, improving both speed and accuracy.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "knowledge base optimization",
+        "document retrieval",
+        "search strategy"
+      ]
+    },
+    {
+      "id": "claude-101-s2c1-q011",
+      "question": "A team member with 'Can view' permission on a shared project wants to update the project instructions to match a new company policy. What will happen?",
+      "options": [
+        "They can update the instructions, but the changes will only apply to their own conversations within the project",
+        "They cannot modify the instructions because 'Can view' permission is read-only with discussion rights only",
+        "They can update the instructions, and the changes will apply to all team members' conversations",
+        "They must request the project owner to make the changes, but they can suggest edits in a comment"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "'Can view' permission provides read-only access with discussion rights, meaning members can see project contents, access knowledge, and chat, but cannot make changes. Modifying project instructions requires 'Can edit' or 'Owner' permission. The team member would need to contact the project owner or someone with edit permissions to update the instructions.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "permission levels",
+        "access control",
+        "collaboration limitations"
+      ]
+    },
+    {
+      "id": "claude-101-s2c1-q012",
+      "question": "You're designing project instructions for a client account hub that will be shared with your team. Which combination of instruction elements would be most effective?",
+      "options": [
+        "Only tone preferences, since Claude will automatically understand client context from uploaded documents",
+        "Context about the client, process instructions for how to create deliverables, tone and style preferences matching the client's brand, and specific requirements like referencing their communication history",
+        "Generic instructions that apply to all clients, with the understanding that team members will customize them per conversation",
+        "Detailed step-by-step instructions for every possible task, since the project will be shared with multiple team members"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Effective project instructions for a shared client account hub should include context about what you're working on (the client and their needs), process instructions for how to approach deliverables, tone and style preferences that match the client's brand, and specific requirements like always referencing their communication history. This comprehensive approach ensures all team members work consistently with the client's context and expectations, while automating the workflow so Claude behaves appropriately without requiring manual customization in each conversation.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "project instructions",
+        "instruction design",
+        "collaboration",
+        "workflow automation"
+      ]
+    }
+  ]
+}

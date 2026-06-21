@@ -1,0 +1,260 @@
+{
+  "chapterId": "claude-code-101-s3c1",
+  "chapterTitle": "The Explore → Plan → Code → Commit Workflow",
+  "course": "Claude Code 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-code-101-s3c1-q001",
+      "question": "What is the primary purpose of Plan Mode in Claude Code?",
+      "options": [
+        "To allow Claude to read files and create a plan without editing them",
+        "To automatically write and commit code changes",
+        "To generate test cases for your codebase",
+        "To run web searches and deploy applications"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Plan Mode allows Claude to gather information by reading files and understanding the codebase structure, then propose a plan of action without making any edits. This is the key benefit—you can review and course-correct before any code is written, which is much faster than fixing problems after implementation.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Plan Mode",
+        "Explore phase",
+        "course-correction"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c1-q002",
+      "question": "How do you activate Plan Mode in Claude Code?",
+      "options": [
+        "Click the 'Plan' button in the toolbar",
+        "Press Shift + Tab until you see 'Plan Mode' under the text input",
+        "Type 'plan' at the beginning of your prompt",
+        "Select 'Plan Mode' from the settings menu"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Plan Mode is activated by pressing Shift + Tab repeatedly until 'Plan Mode' appears under the text input field. This is the standard keyboard shortcut for cycling through different modes in Claude Code.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Plan Mode",
+        "user interface",
+        "keyboard shortcuts"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c1-q003",
+      "question": "Which workflow step should come immediately after approving a plan in Claude Code?",
+      "options": [
+        "Commit the changes to version control",
+        "Code—executing the plan items and making edits",
+        "Explore the codebase again for new context",
+        "Run a code reviewer subagent"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "After approving a plan, the next step in the workflow is the Code phase, where Claude works through the list items in the plan and makes the necessary edits. The Commit phase comes later, after testing is complete.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "workflow sequence",
+        "Code phase",
+        "plan approval"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c1-q004",
+      "question": "Why is Plan Mode considered the best place to course-correct in the Claude Code workflow?",
+      "options": [
+        "Because Claude can write code faster in plan mode",
+        "Because it occurs before any code is written, making corrections cheaper and easier",
+        "Because the code reviewer subagent is most accurate at this stage",
+        "Because test suites are automatically generated in plan mode"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Plan Mode is the optimal point for course-correction because it happens before Claude makes any actual code changes. Fixing the plan at this stage is much faster and less costly than discovering problems after code has been written and needs to be rewritten.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Plan Mode",
+        "course-correction",
+        "efficiency"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c1-q005",
+      "question": "What is the primary benefit of having context about how you arrived at results during the Code phase?",
+      "options": [
+        "It allows you to skip the Commit phase entirely",
+        "It helps guide Claude's next decisions when troubleshooting or making adjustments",
+        "It automatically generates commit messages",
+        "It eliminates the need for test suites"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Understanding the path Claude took to reach its results provides valuable context that helps guide future decisions. When Claude needs to troubleshoot or make adjustments, having this context allows it to make more informed choices rather than starting from scratch.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Code phase",
+        "context",
+        "troubleshooting"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c1-q006",
+      "question": "According to best practices for the Code phase, what should you do before handing off work to Claude?",
+      "options": [
+        "Write all the code yourself first",
+        "Ensure your test suite is a reliable source of truth and avoid false positives",
+        "Delete all existing code to start fresh",
+        "Disable the Claude in Chrome extension"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Before relying on Claude to validate work against a test suite, you must ensure the tests themselves are reliable and won't produce false positives. This is critical because Claude uses tests to measure success and confidence in its results.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Code phase",
+        "test suites",
+        "success criteria"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c1-q007",
+      "question": "What is the purpose of running a code-reviewer subagent before committing?",
+      "options": [
+        "To automatically fix all bugs in the code",
+        "To provide a fresh perspective on the changes without the bias the main agent might have from the session",
+        "To generate documentation for the codebase",
+        "To deploy the code to production"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "A code-reviewer subagent offers an independent review because it hasn't been involved in the session and doesn't carry the same biases as the main agent. This fresh perspective helps catch issues that might have been overlooked during development.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Commit phase",
+        "code review",
+        "subagents"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c1-q008",
+      "question": "Which of the following is a recommended tool to add for building web UIs in Claude Code?",
+      "options": [
+        "The Claude in Chrome extension",
+        "A custom JavaScript framework",
+        "A database migration tool",
+        "A containerization platform"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The Claude in Chrome extension allows Claude Code to control a browser tab and test the UI directly, which removes a lot of back-and-forth during development. This tool is specifically recommended for web UI projects.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Code phase",
+        "tools",
+        "web UI development"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c1-q009",
+      "question": "What should you do if Claude keeps running into the same issues during the Code phase?",
+      "options": [
+        "Start the entire workflow over from the Explore phase",
+        "Ask Claude to save the solution to its CLAUDE.md file",
+        "Immediately commit the code and move to the next feature",
+        "Disable Plan Mode and work directly with code"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "If Claude encounters recurring issues, saving the solution to a CLAUDE.md file creates a reference that Claude can consult in future iterations. This helps prevent the same problems from happening again by giving Claude persistent context about solutions.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Code phase",
+        "troubleshooting",
+        "CLAUDE.md"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c1-q010",
+      "question": "How does defining explicit success criteria in the Plan phase improve the Code phase?",
+      "options": [
+        "It eliminates the need for testing altogether",
+        "It allows Claude to be more confident in its results by having a clear understanding of what 'correct' looks like",
+        "It automatically generates all necessary code",
+        "It removes the requirement for code review"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When you explicitly define success criteria during planning, Claude has a measurable target to work toward. This clarity helps Claude validate its own work more effectively and reduces ambiguity about what constitutes a successful implementation, leading to fewer iterations and better results.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Plan phase",
+        "success criteria",
+        "Code phase"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c1-q011",
+      "question": "Why might jumping straight to asking Claude to write code without using the Explore and Plan phases result in more course-correcting?",
+      "options": [
+        "Because Claude writes code faster without planning",
+        "Because without understanding the codebase structure and creating a plan first, problems are discovered late when they're more expensive to fix",
+        "Because the Commit phase is skipped entirely",
+        "Because test suites are not available without planning"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Skipping Explore and Plan means Claude lacks context about the codebase and has no agreed-upon approach. Problems discovered during or after coding require rework, whereas catching issues in the Plan phase is much cheaper. The workflow exists to minimize expensive course-corrections.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "workflow",
+        "efficiency",
+        "course-correction"
+      ]
+    },
+    {
+      "id": "claude-code-101-s3c1-q012",
+      "question": "What is the relationship between the Explore subagent and Plan Mode in Claude Code?",
+      "options": [
+        "They are identical and can be used interchangeably",
+        "The Explore subagent can be run independently for a general codebase summary without intending to make changes, while Plan Mode is used when you want a plan for implementation",
+        "Plan Mode is only used for exploring, while the Explore subagent is only used for planning",
+        "The Explore subagent is deprecated and should not be used with Plan Mode"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "While Plan Mode gathers information to create an implementation plan, the Explore subagent can be run separately if you just want a general understanding of your codebase without planning changes. They serve related but distinct purposes—Plan Mode is more focused on implementation planning, while Explore can be used for general context gathering.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Explore phase",
+        "Plan Mode",
+        "subagents"
+      ]
+    }
+  ]
+}

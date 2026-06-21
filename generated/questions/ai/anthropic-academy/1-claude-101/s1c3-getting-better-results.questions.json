@@ -1,0 +1,264 @@
+{
+  "chapterId": "claude-101-s1c3",
+  "chapterTitle": "Getting better results",
+  "course": "Claude 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-101-s1c3-q001",
+      "question": "When Claude's response is too generic, what is the primary issue with the original prompt?",
+      "options": [
+        "The prompt did not include enough context about the specific situation",
+        "Claude lacks the ability to understand detailed requests",
+        "The prompt was written in a language Claude doesn't support",
+        "The user asked for too many different things at once"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Generic responses typically result from prompts that lack sufficient context. Adding details about your audience, role, constraints, and specific circumstances helps Claude tailor its response to your actual needs rather than providing a one-size-fits-all answer.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "prompt clarity",
+        "context provision",
+        "troubleshooting"
+      ]
+    },
+    {
+      "id": "claude-101-s1c3-q002",
+      "question": "What should you do if Claude generates confident-sounding information that turns out to be incorrect?",
+      "options": [
+        "Stop using Claude for any fact-based work",
+        "For high-stakes work, verify key facts independently and consider asking Claude to cite sources or enable web search",
+        "Always assume Claude is wrong and manually verify everything",
+        "Report the error to Anthropic immediately"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude can occasionally generate plausible but incorrect information, especially with specific facts or niche topics. The appropriate response is to verify critical information independently for high-stakes work, ask Claude to cite sources, indicate confidence levels, or enable web search to ground responses in current information.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "accuracy verification",
+        "responsible AI use",
+        "discernment"
+      ]
+    },
+    {
+      "id": "claude-101-s1c3-q003",
+      "question": "According to the iteration mindset, what should you treat your initial prompt as?",
+      "options": [
+        "A final request that should produce perfect results immediately",
+        "A one-shot request that either works or doesn't",
+        "The start of a conversation, not a one-shot request",
+        "A test to see if Claude is capable of the task"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The iteration mindset recognizes that first prompts rarely produce perfect results. Effective Claude users treat initial prompts as starting points for a conversation, review what Claude produces, identify what's working and what isn't, then refine accordingly.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "iteration mindset",
+        "prompt refinement",
+        "collaborative approach"
+      ]
+    },
+    {
+      "id": "claude-101-s1c3-q004",
+      "question": "When Claude's response is too long or too short, what is the most effective way to address this?",
+      "options": [
+        "Ask Claude to rewrite the response without specifying length constraints",
+        "Be explicit about length requirements using specific measurements or descriptions",
+        "Accept the length and adjust your expectations",
+        "Use a different AI tool that better understands length preferences"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude is guessing at appropriate length when no explicit guidance is provided. Being specific—such as 'Give me a two-paragraph summary,' 'Keep this under 100 words,' or 'I need a comprehensive analysis—length isn't a concern'—helps Claude understand your actual length requirements.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "explicit instructions",
+        "output specification",
+        "troubleshooting"
+      ]
+    },
+    {
+      "id": "claude-101-s1c3-q005",
+      "question": "What does the Description competency in the 4D Framework for AI Fluency primarily involve?",
+      "options": [
+        "Deciding which tasks should be done by humans versus AI",
+        "Evaluating the quality and accuracy of AI outputs",
+        "Effectively communicating with AI systems and specifying desired behaviors",
+        "Using AI responsibly and maintaining transparency"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Description is about effectively communicating with AI systems, including clearly defining outputs, guiding AI processes, and specifying desired AI behaviors and interactions. The prompt framework from earlier lessons (setting the stage, defining the task, specifying rules) is rooted in Description.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "AI Fluency",
+        "4D Framework",
+        "Description competency"
+      ]
+    },
+    {
+      "id": "claude-101-s1c3-q006",
+      "question": "When Claude's tone doesn't match your needs, what approach is most effective?",
+      "options": [
+        "Accept Claude's default professional tone as unchangeable",
+        "Describe the tone in plain language and provide an example of writing in the style you want",
+        "Use multiple follow-up prompts to gradually shift the tone",
+        "Switch to a different AI tool with better tone customization"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude defaults to helpful and professional, which may not match your needs. The most effective approach is to describe the tone in plain language ('Make this more conversational' or 'This should sound authoritative and formal') and provide an example of writing in the style you want.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "tone adjustment",
+        "explicit guidance",
+        "troubleshooting"
+      ]
+    },
+    {
+      "id": "claude-101-s1c3-q007",
+      "question": "What is the primary purpose of running evals on Claude for your specific workflows?",
+      "options": [
+        "To prove that Claude is better than human workers",
+        "To understand where Claude adds value in your workflow and identify tasks needing more context",
+        "To replace all human decision-making with AI",
+        "To test Claude's general capabilities across all possible tasks"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Evals help you develop intuition for assessing Claude's outputs on tasks that matter to you. They help you understand where Claude adds the most value in your workflow, identify tasks where you'll need to provide more context or examples, and build confidence in Claude's outputs for recurring tasks.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "evals",
+        "discernment",
+        "workflow integration"
+      ]
+    },
+    {
+      "id": "claude-101-s1c3-q008",
+      "question": "In the simple eval approach, what should you do after comparing Claude's outputs to your examples?",
+      "options": [
+        "Stop using Claude if any differences are found",
+        "Accept Claude's outputs without further modification",
+        "Adjust your prompts, add examples, or identify where human review is essential based on what you learned",
+        "Repeat the same prompts without changes to ensure consistency"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The eval process is iterative. After comparing Claude's responses to your examples and asking yourself whether Claude captures key information, uses appropriate tone and style, and what's missing, you should refine your approach by adjusting prompts, adding examples to show Claude what good looks like, or identifying where human review is essential.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "evals",
+        "refinement",
+        "iteration"
+      ]
+    },
+    {
+      "id": "claude-101-s1c3-q009",
+      "question": "Which of the following best describes the relationship between the prompt framework from Lesson 2 and the 4D Framework for AI Fluency?",
+      "options": [
+        "They are completely unrelated concepts",
+        "The prompt framework (setting the stage, defining the task, specifying rules) is rooted in the Description competency of the 4D Framework",
+        "The 4D Framework is a simplified version of the prompt framework",
+        "The prompt framework replaces the need for understanding the 4D Framework"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The prompt framework taught earlier—setting the stage, defining the task, and specifying rules—is explicitly rooted in the Description competency of the 4D Framework. This shows how practical prompting techniques connect to the broader concept of AI Fluency.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "AI Fluency",
+        "4D Framework",
+        "prompt framework",
+        "Description"
+      ]
+    },
+    {
+      "id": "claude-101-s1c3-q010",
+      "question": "When Claude doesn't follow your desired format, why does simply telling Claude the format often fail, and what should you do instead?",
+      "options": [
+        "Claude cannot understand format instructions; you should use a different tool",
+        "Claude understands what you want but not how you want it presented; you should show an example or describe the structure explicitly",
+        "Format instructions are too complex for AI to process; you should manually reformat Claude's output",
+        "Claude deliberately ignores format requests; you should accept whatever format it provides"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude may understand your intent but not grasp the specific presentation format you need. Rather than just telling Claude the format, showing an example or describing the structure explicitly (such as 'Use bullet points with bold headers for each section') is more effective because it provides concrete guidance rather than abstract instructions.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "format specification",
+        "show vs. tell",
+        "troubleshooting"
+      ]
+    },
+    {
+      "id": "claude-101-s1c3-q011",
+      "question": "How do the Discernment and Diligence competencies from the 4D Framework apply to the troubleshooting techniques presented in this lesson?",
+      "options": [
+        "They are unrelated to troubleshooting and only apply to advanced users",
+        "Discernment and Diligence are only relevant for evaluating Claude, not for fixing common challenges",
+        "The troubleshooting techniques draw on Discernment (evaluating outputs) and Diligence (using AI responsibly and ethically)",
+        "Troubleshooting requires only Delegation and Description competencies"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The troubleshooting techniques presented—such as verifying facts independently, asking Claude to cite sources, and making thoughtful choices about when to use AI—draw directly on Discernment (thoughtfully evaluating AI outputs and determining areas for improvement) and Diligence (using AI responsibly and ethically, maintaining transparency, and taking accountability).",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "AI Fluency",
+        "4D Framework",
+        "Discernment",
+        "Diligence",
+        "troubleshooting"
+      ]
+    },
+    {
+      "id": "claude-101-s1c3-q012",
+      "question": "Based on the eval approach described, why is it important to gather examples from your own work rather than using generic test cases?",
+      "options": [
+        "Generic test cases are always more reliable than real work examples",
+        "Your work is unique, and Claude might excel at some tasks while needing more guidance for others in your specific domain; evals help you understand this variation",
+        "Real work examples are too complicated for Claude to process",
+        "Generic test cases save time and are sufficient for all evaluation purposes"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The lesson explicitly states that 'Your work is unique. Claude might excel at drafting marketing copy but need more guidance for technical documentation in your specific domain.' Using examples from your own work helps you understand where Claude adds the most value in your specific workflow and identify tasks where you'll need to provide more context or examples, rather than getting generic results that may not apply to your situation.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "evals",
+        "workflow-specific evaluation",
+        "discernment",
+        "practical application"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "chapterId": "claude-code-101-s4c3",
+  "chapterTitle": "Skills",
+  "course": "Claude Code 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-code-101-s4c3-q001",
+      "question": "What is the primary purpose of agent skills in Claude-based applications?",
+      "options": [
+        "To enable agents to perform specific tasks and interact with external systems",
+        "To replace the need for Claude's core language capabilities",
+        "To limit the types of requests an agent can handle",
+        "To increase the computational cost of running Claude models"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Agent skills are designed to extend Claude's capabilities by allowing agents to perform specific tasks and interact with external systems. They don't replace Claude's core abilities, but rather augment them. Skills are not meant to limit functionality or increase costs unnecessarily.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "agent skills",
+        "agent capabilities",
+        "external system integration"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c3-q002",
+      "question": "Which of the following best describes how skills relate to agent functionality?",
+      "options": [
+        "Skills are optional add-ons that can enhance what an agent can accomplish",
+        "Skills are mandatory components that every agent must have",
+        "Skills are only used for debugging agent behavior",
+        "Skills are deprecated features no longer supported in modern Claude applications"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Skills function as optional enhancements that extend agent capabilities. They allow agents to accomplish more complex tasks, but are not mandatory for basic agent operation. Skills are active features in current Claude applications, not deprecated.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "agent skills",
+        "optional capabilities",
+        "agent enhancement"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c3-q003",
+      "question": "What is a key benefit of implementing skills in an agent-based system?",
+      "options": [
+        "Skills allow agents to extend their functionality beyond their base language model capabilities",
+        "Skills eliminate the need for any human oversight of agent actions",
+        "Skills guarantee that agents will never make mistakes",
+        "Skills reduce the amount of training data needed for Claude models"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Skills enable agents to perform actions and access capabilities beyond what the base language model can do alone, such as calling APIs, accessing databases, or executing code. While skills are powerful, they don't eliminate the need for oversight, guarantee error-free operation, or affect model training data requirements.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "agent skills",
+        "capability extension",
+        "agent functionality"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c3-q004",
+      "question": "When designing skills for an agent, what should be a primary consideration?",
+      "options": [
+        "The skill should be narrowly scoped to perform a specific, well-defined task",
+        "The skill should attempt to handle as many different use cases as possible",
+        "The skill should bypass security checks to improve performance",
+        "The skill should require minimal documentation to reduce development time"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Well-designed skills are typically narrowly scoped and focused on specific, well-defined tasks. This makes them easier to test, maintain, and reason about. Overly broad skills are harder to manage and more prone to unexpected behavior. Security and documentation are also important considerations that should not be bypassed.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "skill design",
+        "scope management",
+        "agent architecture"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c3-q005",
+      "question": "How should an agent determine which skill to use when responding to a user request?",
+      "options": [
+        "The agent should analyze the request and select the skill whose purpose best matches the user's intent",
+        "The agent should randomly select from available skills to ensure variety",
+        "The agent should always use the most recently added skill",
+        "The agent should use all available skills simultaneously regardless of relevance"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "An agent should intelligently match user requests to appropriate skills by understanding the user's intent and selecting the skill that best addresses that intent. Random selection, using the most recent skill, or using all skills indiscriminately would lead to poor performance and irrelevant responses.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "skill selection",
+        "intent matching",
+        "agent reasoning"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c3-q006",
+      "question": "What is a critical aspect of skill implementation that affects agent reliability?",
+      "options": [
+        "Clear error handling and appropriate feedback when a skill fails or encounters unexpected input",
+        "Ensuring skills execute as quickly as possible without validation",
+        "Allowing skills to modify system-level configurations without restrictions",
+        "Minimizing the amount of information returned by skills to reduce response size"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Robust error handling and meaningful feedback are essential for reliable agent operation. When skills fail or receive unexpected input, they should provide clear error messages that help the agent understand what went wrong and potentially recover. Skipping validation, allowing unrestricted system modifications, and minimizing useful information all undermine reliability.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "error handling",
+        "skill reliability",
+        "agent robustness"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c3-q007",
+      "question": "In what scenario would implementing multiple related skills be preferable to implementing a single complex skill?",
+      "options": [
+        "When different tasks require different logic, parameters, or error handling, making them easier to manage and test separately",
+        "When you want to reduce the total number of skills available to the agent",
+        "When all tasks share identical implementation requirements",
+        "When you want to ensure the agent uses only one skill per request"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Multiple focused skills are preferable to one complex skill when tasks have different requirements. This separation of concerns makes each skill easier to understand, test, maintain, and debug. It also allows the agent to compose skills in different ways. If tasks share identical requirements, a single skill might be more appropriate.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "skill composition",
+        "separation of concerns",
+        "skill design patterns"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c3-q008",
+      "question": "How should skill parameters be designed to minimize errors and improve usability?",
+      "options": [
+        "Parameters should be clearly defined with specific types, required vs. optional status, and validation rules",
+        "Parameters should be flexible and accept any data type to maximize compatibility",
+        "Parameters should be kept to a minimum, even if it means the skill is less capable",
+        "Parameters should be documented only in external wikis, not in the skill definition itself"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Well-designed parameters include clear type definitions, specification of which parameters are required versus optional, and validation rules. This helps prevent misuse and makes it easier for agents to call skills correctly. Overly flexible parameters can lead to errors, and documentation should be accessible where developers work with the skill.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "parameter design",
+        "skill interface",
+        "input validation"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c3-q009",
+      "question": "What consideration is important when a skill needs to interact with external APIs or services?",
+      "options": [
+        "The skill should handle authentication, rate limiting, timeouts, and gracefully manage API failures",
+        "The skill should assume the external service is always available and responsive",
+        "The skill should embed credentials directly in the skill code for convenience",
+        "The skill should retry failed requests indefinitely without any backoff strategy"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Skills that interact with external systems must be resilient and secure. This includes proper authentication handling, respecting rate limits, managing timeouts, and gracefully handling failures. Assuming availability, embedding credentials, and infinite retries are all problematic practices that can cause security issues or poor user experience.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "external integration",
+        "API interaction",
+        "resilience patterns"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c3-q010",
+      "question": "How should an agent be designed to handle situations where multiple skills could potentially address a user request?",
+      "options": [
+        "The agent should evaluate the context and user intent to select the most appropriate skill, potentially using multiple skills in sequence if needed",
+        "The agent should always use the first skill that could theoretically handle the request",
+        "The agent should ask the user to specify which skill to use before proceeding",
+        "The agent should execute all potentially relevant skills and combine their results"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Intelligent agents should reason about which skill best matches the user's intent and context. Sometimes a sequence of skills may be needed to fully address a request. Simply using the first available skill ignores context, asking users to specify skills defeats the purpose of having an intelligent agent, and executing all relevant skills wastes resources and may produce conflicting results.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "skill orchestration",
+        "agent reasoning",
+        "multi-skill workflows"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c3-q011",
+      "question": "What architectural pattern should be considered when designing skills to ensure they remain maintainable as the agent system grows?",
+      "options": [
+        "Skills should be loosely coupled, independently deployable, and have clear interfaces that don't expose internal implementation details",
+        "All skills should share a common codebase to ensure consistency",
+        "Skills should be tightly integrated with the agent's core logic to improve performance",
+        "Skills should be designed to handle multiple unrelated domains to reduce the total number of skills"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "As systems grow, loose coupling and clear interfaces become critical. Skills should be independently deployable and testable, with well-defined contracts that don't expose implementation details. This allows teams to develop and update skills without affecting others. Shared codebases, tight integration, and overly broad skills all create maintenance challenges and reduce flexibility.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "system architecture",
+        "skill modularity",
+        "scalability patterns"
+      ]
+    },
+    {
+      "id": "claude-code-101-s4c3-q012",
+      "question": "When implementing skills that perform sensitive operations, what security and governance measures should be considered?",
+      "options": [
+        "Skills should include access controls, audit logging, input validation, and mechanisms to prevent unauthorized or harmful operations",
+        "Security measures are unnecessary if the agent is running in a trusted environment",
+        "All users should have equal access to all skills regardless of their role or permissions",
+        "Sensitive operations should be performed without logging to protect user privacy"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Sensitive operations require multiple layers of protection: access controls to restrict who can use the skill, audit logging to track what was done and by whom, input validation to prevent injection attacks, and safeguards against harmful operations. Trust in the environment doesn't eliminate the need for security, role-based access control is essential, and audit logging is critical for security and compliance, not a privacy violation.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "security",
+        "access control",
+        "audit logging",
+        "governance"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "chapterId": "claude-101-s3c3",
+  "chapterTitle": "Research mode for deep dives",
+  "course": "Claude 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-101-s3c3-q001",
+      "question": "What is the primary function of Research when enabled in Claude?",
+      "options": [
+        "It transforms Claude into a systematic investigator that explores questions from multiple angles and synthesizes information from multiple sources",
+        "It allows Claude to access real-time stock prices and company addresses instantly",
+        "It enables Claude to perform mathematical calculations faster than normal processing",
+        "It converts text responses into video format automatically"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Research is designed to transform Claude from a conversational assistant into a systematic investigator that explores questions from multiple angles and synthesizes information from across the web and connected integrations. The other options describe different capabilities or misunderstandings of what Research does.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Research capability",
+        "Claude features"
+      ]
+    },
+    {
+      "id": "claude-101-s3c3-q002",
+      "question": "Which feature is automatically enabled when you activate Research?",
+      "options": [
+        "Web search only",
+        "Extended thinking",
+        "Video generation",
+        "Real-time translation"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Extended thinking is automatically enabled with Research. This powerful combination lets Claude both plan its approach thoughtfully and gather comprehensive information, breaking complex requests into manageable pieces.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Research features",
+        "Extended thinking"
+      ]
+    },
+    {
+      "id": "claude-101-s3c3-q003",
+      "question": "What is a key advantage of Research reports regarding source verification?",
+      "options": [
+        "Sources are hidden to protect proprietary information",
+        "Every claim links back to its source with citations, making it easy to verify information",
+        "Sources are automatically aggregated into a single database",
+        "Verification is handled automatically without user involvement"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Research provides citations that make verification easy. Every claim in Research reports links back to its source, so you can trust Claude's findings and quickly verify sources yourself.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Research citations",
+        "Source verification"
+      ]
+    },
+    {
+      "id": "claude-101-s3c3-q004",
+      "question": "When should you choose web search over Research?",
+      "options": [
+        "When you need comprehensive reports synthesizing multiple sources",
+        "When you need a quick, specific fact and the answer requires only one or two sources",
+        "When you need in-depth analysis across multiple sources",
+        "When you need comparative analysis of competitors"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Web search is more appropriate when you need a quick, specific fact (like today's stock price or a company's address) where the answer requires only one or two sources and speed matters more than comprehensiveness. Research is better suited for comprehensive, multi-source investigations.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Research vs web search",
+        "Tool selection"
+      ]
+    },
+    {
+      "id": "claude-101-s3c3-q005",
+      "question": "How does Claude determine what to search for next when Research is enabled?",
+      "options": [
+        "It follows a predetermined list of searches specified by the user",
+        "It autonomously decides based on what it has already found, pursuing leads and filling gaps",
+        "It searches for the same terms repeatedly to ensure accuracy",
+        "It waits for user instructions after each search"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When Research is enabled, Claude operates agentically—it autonomously decides what to search next based on what it has already found, pursuing leads and filling gaps without you needing to direct each step. This multi-step process allows Claude to conduct searches that build on each other.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Research process",
+        "Agentic behavior"
+      ]
+    },
+    {
+      "id": "claude-101-s3c3-q006",
+      "question": "What is the typical time range for Research to complete a report?",
+      "options": [
+        "30 seconds to 2 minutes",
+        "5 to 15 minutes for most reports, though more complex investigations may take up to 45 minutes",
+        "1 to 3 hours minimum",
+        "Instantaneous, like a regular web search"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Research delivers comprehensive answers in minutes. Most reports complete in 5 to 15 minutes, though more complex investigations may take up to 45 minutes—work that would typically require hours of manual research.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Research timeline",
+        "Performance expectations"
+      ]
+    },
+    {
+      "id": "claude-101-s3c3-q007",
+      "question": "Which scenario best demonstrates when to use Research instead of extended thinking?",
+      "options": [
+        "Debugging a complex software issue that requires deep logical analysis",
+        "Solving a mathematical proof that doesn't require external information",
+        "Analyzing the electric vehicle battery market to identify key players, technology trends, and supply chain challenges",
+        "Working through a logical reasoning problem step by step"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Research is ideal when you need comprehensive reports synthesizing information from multiple sources and external investigation. Extended thinking is better for deep reasoning on complex problems that don't require external information, like mathematical problems, code debugging, or logical analysis. The EV market analysis requires gathering current information from multiple sources, making Research the appropriate choice.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Research use cases",
+        "Tool selection",
+        "Extended thinking comparison"
+      ]
+    },
+    {
+      "id": "claude-101-s3c3-q008",
+      "question": "What is a recommended strategy for crafting effective Research prompts?",
+      "options": [
+        "Keep prompts vague to allow Claude maximum flexibility",
+        "Ask broad questions without any constraints or structure",
+        "Be specific about goals and specify the sections or structure you want in the report",
+        "Provide only a single keyword for Claude to research"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Since Research can take 5 to 45 minutes depending on complexity, investing time in crafting your prompt pays off. Effective strategies include being specific about your goals, specifying the sections or structure you want, and including relevant constraints like budget ranges, timelines, and geographic requirements. This helps Claude focus its research on relevant options.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Research prompts",
+        "Prompt engineering"
+      ]
+    },
+    {
+      "id": "claude-101-s3c3-q009",
+      "question": "When using Research with Google Workspace integrations, what additional capability becomes available?",
+      "options": [
+        "Research can only access public web information",
+        "Claude can pull context from emails, calendar, and documents alongside web research",
+        "Integration automatically deletes sensitive information",
+        "Research speed increases by 10x"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When you have Google Workspace or other integrations connected, Research becomes even more powerful. Claude can pull context from your emails, calendar, and documents alongside web research, enabling more comprehensive investigations that combine internal organizational knowledge with external research.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Research integrations",
+        "Google Workspace",
+        "Connected tools"
+      ]
+    },
+    {
+      "id": "claude-101-s3c3-q010",
+      "question": "How does the four-step Research process enable Claude to deliver comprehensive reports?",
+      "options": [
+        "It conducts a single search and immediately formats the results",
+        "It plans its approach, conducts multiple interconnected searches, synthesizes findings, and provides citations—allowing Claude to explore different angles systematically and fill information gaps",
+        "It repeats the same search four times to verify accuracy",
+        "It delegates research tasks to external services without internal processing"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The four-step Research process works as follows: Step 1 involves planning the approach using extended thinking; Step 2 involves conducting multiple searches that build on each other; Step 3 involves synthesizing findings from multiple sources into a comprehensive report; Step 4 involves providing citations. This systematic approach allows Claude to explore different angles of your question automatically and work through open questions systematically, delivering thorough reports that would typically require hours of manual research.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Research process",
+        "Research methodology"
+      ]
+    },
+    {
+      "id": "claude-101-s3c3-q011",
+      "question": "What is the distinction between using Research for external web research versus internal-only research with connected integrations?",
+      "options": [
+        "Internal-only research is faster but less accurate than web research",
+        "Web research requires more setup than internal-only research",
+        "You can turn off web search to do internal-only research across connected tools for questions specific to your organization, while web research pulls from public sources",
+        "Internal-only research cannot access any external information whatsoever"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Research can operate in two modes: with web search enabled for comprehensive external research, or with web search disabled for internal-only research across connected tools. The internal-only mode is particularly valuable for questions specific to your company, such as 'What did our team discuss about the Q3 launch across Slack and Docs?' This distinction allows you to choose whether you need public web information, internal organizational knowledge, or both.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Research modes",
+        "Web search",
+        "Internal research"
+      ]
+    },
+    {
+      "id": "claude-101-s3c3-q012",
+      "question": "How does Research's agentic approach to multiple searches differ from traditional web search, and what advantage does this provide?",
+      "options": [
+        "Research conducts searches in parallel while traditional search is sequential, making Research slower",
+        "Research determines what to investigate next based on previous findings, pursuing leads and filling gaps autonomously, whereas traditional search executes a single predetermined query",
+        "Research and traditional search are functionally identical; the difference is only in presentation",
+        "Research requires manual direction between each search while traditional search is fully automated"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The key distinction is that Research operates agentically—Claude autonomously decides what to search next based on what it has already found, conducting multiple searches that build on each other while pursuing promising leads and filling information gaps. Traditional web search typically executes a single query. This agentic approach enables Research to explore different angles of your question automatically and systematically work through open questions, delivering comprehensive reports that would require hours of manual research. The autonomy to adapt the investigation based on findings is what makes Research fundamentally different from a simple search.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Research methodology",
+        "Agentic behavior",
+        "Multi-source investigation"
+      ]
+    }
+  ]
+}

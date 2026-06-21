@@ -1,0 +1,262 @@
+{
+  "chapterId": "claude-101-s3c1",
+  "chapterTitle": "Connecting your tools",
+  "course": "Claude 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-101-s3c1-q001",
+      "question": "What is the primary purpose of connectors in Claude?",
+      "options": [
+        "To transform Claude from an assistant into an informed collaborator by giving it access to your tools, data, and context",
+        "To replace the need for the Claude Desktop app",
+        "To automatically delete files from your connected services",
+        "To limit Claude's ability to access sensitive information"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Connectors enable Claude to access the same tools, data, and context you use daily, transforming it from a general assistant into a collaborator that understands your specific work environment. This allows Claude to work directly with your actual information rather than requiring you to provide context manually in each conversation.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "connectors",
+        "purpose",
+        "collaboration"
+      ]
+    },
+    {
+      "id": "claude-101-s3c1-q002",
+      "question": "Which of the following is an example of a web connector?",
+      "options": [
+        "Local file access on your computer",
+        "Google Drive",
+        "Browser control for automated web tasks",
+        "Native application integration with Figma"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Web connectors link Claude to cloud services. Google Drive is a cloud-based service and therefore a web connector. Local file access, browser control, and native application integration are desktop extensions that run locally through the Claude Desktop app, not web connectors.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "web connectors",
+        "cloud services",
+        "connector types"
+      ]
+    },
+    {
+      "id": "claude-101-s3c1-q003",
+      "question": "What does MCP stand for in the context of Claude connectors?",
+      "options": [
+        "Multi-Cloud Protocol",
+        "Model Context Protocol",
+        "Machine Communication Platform",
+        "Modular Connector Package"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "MCP stands for Model Context Protocol. It is described as a universal standard that allows Claude to connect to many different applications through a single, consistent interface, similar to how USB-C works as a universal standard for hardware connections.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP",
+        "Model Context Protocol",
+        "standards"
+      ]
+    },
+    {
+      "id": "claude-101-s3c1-q004",
+      "question": "What is the key difference between web connectors and desktop extensions?",
+      "options": [
+        "Web connectors are more secure than desktop extensions",
+        "Web connectors link to cloud services, while desktop extensions run locally on your computer through the Claude Desktop app",
+        "Desktop extensions can only be used with Figma",
+        "Web connectors require the Claude Desktop app to function"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Web connectors connect Claude to cloud-based services like Google Drive and Notion, while desktop extensions run locally on your computer through the Claude Desktop app and provide access to local files and native applications. This distinction affects where the connector operates and what resources it can access.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "web connectors",
+        "desktop extensions",
+        "connector types"
+      ]
+    },
+    {
+      "id": "claude-101-s3c1-q005",
+      "question": "When you connect Claude to your work email through Gmail, what data can Claude access?",
+      "options": [
+        "All emails in your organization's email system",
+        "Only the emails you personally have access to",
+        "Your CEO's inbox and all company-wide communications",
+        "Emails from all users in your domain"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude can only access data you have access to. Connecting your work email doesn't grant Claude access to other people's inboxes or company-wide communications you don't have permission to view. This principle ensures that connectors respect existing access controls and permissions.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "security",
+        "permissions",
+        "scoped access"
+      ]
+    },
+    {
+      "id": "claude-101-s3c1-q006",
+      "question": "Which step comes immediately after authenticating a web connector?",
+      "options": [
+        "Test the connection by asking Claude a simple question",
+        "Grant permissions for Claude to access the service",
+        "Download the Claude Desktop app",
+        "Disconnect the service from your account"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The setup process for web connectors follows this order: Find the connector, Click Connect, Authenticate (sign in), Grant permissions, and then Test the connection. After you authenticate with your credentials, the next step is to review and authorize the specific permissions Claude is requesting.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "web connector setup",
+        "authentication",
+        "permissions"
+      ]
+    },
+    {
+      "id": "claude-101-s3c1-q007",
+      "question": "You want to use Claude to help manage your project timeline in Asana. Which type of connector would you use?",
+      "options": [
+        "A desktop extension for local file access",
+        "A web connector, since Asana is a cloud service",
+        "A browser control extension",
+        "A native application integration"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Asana is a cloud-based project management service, so you would use a web connector to connect it to Claude. Web connectors are designed for cloud services and applications, while desktop extensions are for local tools and applications that run on your computer.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "web connectors",
+        "project management",
+        "connector selection"
+      ]
+    },
+    {
+      "id": "claude-101-s3c1-q008",
+      "question": "What can you do if you want to limit Claude's access to specific data within a connected service?",
+      "options": [
+        "You cannot modify permissions once a connector is installed",
+        "You must disconnect the service entirely",
+        "You can toggle individual permissions on and off within each application's menu",
+        "You need to contact Anthropic support to adjust permissions"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Permissions are scoped and specific to what the connector needs. You have the ability to toggle individual permissions on and off within each application's menu, giving you granular control over what Claude can access without needing to disconnect the entire service.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "permissions",
+        "scoped access",
+        "security"
+      ]
+    },
+    {
+      "id": "claude-101-s3c1-q009",
+      "question": "You need Claude to help organize your local documents and files on your computer. What would you need to install?",
+      "options": [
+        "A web connector from claude.ai/directory",
+        "A desktop extension through the Claude Desktop app",
+        "A custom connector from an untrusted source",
+        "A browser control extension"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Local file access is a desktop extension feature, not a web connector. Desktop extensions run locally on your computer through the Claude Desktop app and provide access to your file system and local applications. To use this capability, you need to download the Claude Desktop app and install the extension through Settings > Extensions.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "desktop extensions",
+        "local file access",
+        "Claude Desktop app"
+      ]
+    },
+    {
+      "id": "claude-101-s3c1-q010",
+      "question": "A user has connected Claude to both Notion and Google Drive. They ask Claude: 'Summarize the meeting notes from last week's product review and compare them to the Q4 budget proposal.' What capability does this demonstrate?",
+      "options": [
+        "Claude can only access one connector at a time, so this request would fail",
+        "Claude can combine data from multiple connected sources to fulfill complex requests",
+        "This request requires manual copying and pasting between services",
+        "Desktop extensions are required to access multiple connectors simultaneously"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Once connectors are set up, Claude considers them when responding to requests and can work with data from multiple connected sources. This request demonstrates how connectors enable workflows that would otherwise require manually gathering information from different services. Claude can access both Notion (for meeting notes) and Google Drive (for the budget proposal) to complete this task.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "multiple connectors",
+        "workflow automation",
+        "data integration"
+      ]
+    },
+    {
+      "id": "claude-101-s3c1-q011",
+      "question": "You're considering connecting Claude to several business tools including Stripe, Salesforce, and your internal Slack workspace. What security principle should guide your decision about which connectors to install?",
+      "options": [
+        "Install all available connectors to maximize Claude's capabilities",
+        "Only install connectors from trusted sources and grant only the permissions Claude actually needs",
+        "Web connectors are always more secure than desktop extensions, so prioritize those",
+        "Permissions cannot be revoked, so carefully consider each connector before installing"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The source emphasizes exercising caution when installing connectors—only install from trusted sources. Additionally, permissions are scoped to what the connector needs, and you can toggle individual permissions on and off. This principle of least privilege means you should only connect the tools you actually need and grant only the specific permissions required for your use case.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "security",
+        "trusted sources",
+        "least privilege",
+        "permissions"
+      ]
+    },
+    {
+      "id": "claude-101-s3c1-q012",
+      "question": "A developer wants to create a custom connector for a proprietary internal tool that their company uses. Based on the architecture described, what would enable this custom connector to work seamlessly with Claude?",
+      "options": [
+        "The connector would need to be built specifically for Claude's proprietary API",
+        "The Model Context Protocol (MCP) provides a universal standard that allows custom connectors to work with Claude",
+        "Custom connectors can only be built as desktop extensions, not web connectors",
+        "The connector would require direct access to Claude's source code"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "MCP is described as a universal standard—like USB-C for AI—that allows developers to build connectors for any tool, and those connectors work seamlessly with Claude. This open standard means a custom connector built to the MCP specification would integrate with Claude without requiring proprietary APIs or source code access. This is what enables the ecosystem of both official and custom connectors.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP",
+        "custom connectors",
+        "open standards",
+        "extensibility"
+      ]
+    }
+  ]
+}
