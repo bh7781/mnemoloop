@@ -6,133 +6,249 @@
   "questions": [
     {
       "id": "claude-101-s1c1-q001",
-      "question": "What is the main purpose of Claude?",
+      "question": "What is the primary design philosophy that guides Claude's behavior?",
       "options": [
-        "To replace all software development tools",
-        "To act as an AI assistant that helps with tasks such as writing, reasoning, coding, and analysis",
-        "To store files permanently in the cloud",
-        "To create databases automatically"
+        "Constitutional AI, which trains Claude to align with human values and operate transparently",
+        "Maximizing response speed regardless of accuracy",
+        "Providing answers without considering ethical implications",
+        "Mimicking human conversation patterns exactly"
       ],
-      "correctOptionIndexes": [1],
-      "explanation": "Claude is an AI assistant designed to help users with language, reasoning, coding, analysis, and related knowledge work tasks.",
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Claude is guided by Constitutional AI principles that help it be helpful, harmless, and honest. This approach ensures Claude avoids toxic outputs, refuses to help with illegal or unethical activities, and operates transparently. The other options contradict Claude's core design principles.",
       "difficulty": "easy",
-      "questionType": "conceptual",
+      "questionType": "single-correct",
       "concepts": [
-        "claude",
-        "ai-assistant"
+        "Constitutional AI",
+        "Claude design principles"
       ]
     },
     {
       "id": "claude-101-s1c1-q002",
-      "question": "Which learning activity best matches the purpose of Mnemoloop?",
+      "question": "Which of the following best describes how Claude differs from a simple chatbot?",
       "options": [
-        "Reading notes once and moving on",
-        "Saving files without reviewing them",
-        "Practicing recall repeatedly so knowledge becomes easier to remember",
-        "Only highlighting important sentences"
+        "Claude can only answer factual questions",
+        "Claude is a thought partner capable of complex tasks like summarization, coding, creative writing, and problem-solving",
+        "Claude cannot be customized for different tones or personalities",
+        "Claude requires separate applications for each type of task"
       ],
-      "correctOptionIndexes": [2],
-      "explanation": "Mnemoloop is built around active recall and reinforcement, so repeated practice is more important than passive reading.",
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude is designed as more than a chatbot—it functions as a thinking partner capable of handling diverse tasks including summarization, search, creative and collaborative writing, Q&A, coding, and complex problem-solving. A simple chatbot typically handles only basic question-and-answer interactions, whereas Claude maintains reliability and predictability across varied applications.",
       "difficulty": "easy",
-      "questionType": "application",
+      "questionType": "single-correct",
       "concepts": [
-        "active-recall",
-        "knowledge-retention"
+        "Claude capabilities",
+        "Claude vs chatbot"
       ]
     },
     {
       "id": "claude-101-s1c1-q003",
-      "question": "Which statements accurately describe Claude's role as an AI assistant?",
+      "question": "On which platforms can you access Claude?",
       "options": [
-        "Claude can help draft, revise, and analyze text-based work",
-        "Claude guarantees that every answer is factually correct without verification",
-        "Claude can support coding, reasoning, and summarization tasks",
-        "Claude permanently remembers all details from every user conversation by default"
+        "Web and desktop only",
+        "Web, desktop, and mobile apps",
+        "Mobile app only",
+        "Through Slack integration exclusively"
       ],
-      "correctOptionIndexes": [0, 2],
-      "explanation": "Claude is useful for language, reasoning, coding, analysis, and summarization tasks. However, users should still verify important outputs, and Claude does not permanently remember every conversation by default.",
-      "difficulty": "moderate",
-      "questionType": "conceptual",
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude is available across web, desktop, and mobile apps. Your conversations, projects, memory, and preferences sync across all devices when you're signed in. While Claude also integrates with Slack and Excel, these are additional interfaces beyond the primary web, desktop, and mobile access points.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
       "concepts": [
-        "capabilities",
-        "limitations",
-        "ai-assistant"
+        "Claude access methods",
+        "Claude platforms"
       ]
     },
     {
       "id": "claude-101-s1c1-q004",
-      "question": "A learner asks Claude to explain a confusing technical paragraph, then compares the explanation against the source material. What is the strongest reason this is a good use of Claude?",
+      "question": "What is Claude's context window capacity, and how does this benefit users?",
       "options": [
-        "Claude should be treated as the final authority, so comparison is unnecessary",
-        "Claude can help transform dense information into a clearer form while the learner keeps responsibility for checking accuracy",
-        "Claude works best when users avoid giving it source material",
-        "Claude is only useful for creative writing, not technical learning"
+        "Claude can process 50K tokens, allowing it to review short documents only",
+        "Claude can ingest 200K+ tokens (about 500 pages of text or more), with up to 1M tokens available on Pro, Max, Team, and Enterprise plans, enabling analysis of extensive materials in a single conversation",
+        "Claude's context window is limited to 10K tokens regardless of plan type",
+        "Claude requires multiple conversations to process documents longer than 100 pages"
       ],
-      "correctOptionIndexes": [1],
-      "explanation": "Claude can make complex material easier to understand, but the learner should still compare the result with the original source when accuracy matters. This combines AI assistance with active judgment.",
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude's large context window allows it to process 200K+ tokens (approximately 500 pages of text or more) in standard configurations, with up to 1M tokens available on higher-tier plans. This capability enables Claude to consider extensive materials in a single conversation, making it particularly effective for research, analysis, and document review tasks. The other options underestimate Claude's actual capacity.",
       "difficulty": "moderate",
-      "questionType": "application",
+      "questionType": "single-correct",
       "concepts": [
-        "learning-support",
-        "verification",
-        "source-grounding"
+        "Claude context window",
+        "document processing"
       ]
     },
     {
       "id": "claude-101-s1c1-q005",
-      "question": "Which behaviors would most improve the quality of Claude's response to a study-related prompt?",
+      "question": "Which of the following are core strengths of Claude? (Select all that apply)",
       "options": [
-        "Give Claude the relevant context and specify the target outcome",
-        "Ask a broad question with no details and expect a perfectly tailored answer",
-        "Request a useful format, such as a summary, comparison table, or practice quiz",
-        "Ignore any uncertainty in the answer because AI output does not need review"
+        "Writing and content creation with customizable tone and personality",
+        "Coding assistance across multiple programming languages",
+        "Guaranteed 100% accuracy on all mathematical problems",
+        "Research and analysis with the ability to process large documents"
       ],
-      "correctOptionIndexes": [0, 2],
-      "explanation": "Claude generally performs better when the user provides context, defines the desired outcome, and asks for a suitable response format. Broad prompts and unreviewed outputs make the result less reliable for learning.",
+      "correctOptionIndexes": [
+        0,
+        1,
+        3
+      ],
+      "explanation": "Claude excels at writing and content creation (with steerable tone and personality), coding assistance (described as one of its greatest strengths), and research and analysis (enabled by its large context window). However, Claude cannot guarantee 100% accuracy on all tasks—no AI system can. While Claude handles mathematical problems well, claiming guaranteed accuracy would be misleading and unrealistic.",
       "difficulty": "moderate",
-      "questionType": "application",
+      "questionType": "multiple-correct",
       "concepts": [
-        "prompting",
-        "context",
-        "response-format"
+        "Claude capabilities",
+        "Claude strengths"
       ]
     },
     {
       "id": "claude-101-s1c1-q006",
-      "question": "Why is Claude better understood as a collaborator than as an automatic source of truth?",
+      "question": "What is the primary purpose of Claude's Learning Mode?",
       "options": [
-        "Because Claude can assist with reasoning and generation, but users still need to evaluate important claims and decisions",
-        "Because Claude cannot produce useful language-based work",
-        "Because Claude only answers questions that have exactly one possible response",
-        "Because Claude prevents users from editing or challenging its output"
+        "To provide immediate answers to all questions without explanation",
+        "To guide your reasoning process rather than providing answers, helping develop critical thinking skills",
+        "To restrict Claude's capabilities for beginners",
+        "To replace human instruction entirely"
       ],
-      "correctOptionIndexes": [0],
-      "explanation": "Claude can be a strong collaborator for drafting, reasoning, and analysis, but its outputs still need human evaluation, especially for factual, technical, legal, medical, or high-impact decisions.",
-      "difficulty": "difficult",
-      "questionType": "conceptual",
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Learning Mode is designed to guide your reasoning process rather than simply providing answers. This approach helps develop critical thinking skills by encouraging you to work through problems thoughtfully. It's particularly useful when you're learning new skills or exploring unfamiliar domains, as it adapts to your learning style and pace.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
       "concepts": [
-        "collaboration",
-        "evaluation",
-        "limitations"
+        "Learning Mode",
+        "Claude features"
       ]
     },
     {
       "id": "claude-101-s1c1-q007",
-      "question": "A student wants to use Claude while preparing for an exam. Which workflow best aligns with active recall rather than passive review?",
+      "question": "How does Claude's Extended Thinking capability enhance its problem-solving abilities?",
       "options": [
-        "Ask Claude to generate practice questions, answer them without notes, review mistakes, and retry weak topics later",
-        "Ask Claude for a summary, read it once, and mark the chapter as mastered",
-        "Ask Claude to rewrite every paragraph in simpler words without ever testing memory",
-        "Ask Claude to choose answers automatically so the student can skip retrieval practice"
+        "It allows Claude to process information faster by skipping intermediate steps",
+        "It enables Claude to work through problems step-by-step, making it well-suited for tasks requiring careful analysis",
+        "It prevents Claude from making mistakes by limiting its responses",
+        "It requires users to provide all reasoning steps before Claude responds"
       ],
-      "correctOptionIndexes": [0],
-      "explanation": "Active recall requires retrieving information from memory and using feedback to improve. Generating practice questions, attempting them without notes, reviewing mistakes, and revisiting weak areas supports that process.",
-      "difficulty": "difficult",
-      "questionType": "application",
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude's Extended Thinking (available through Opus and Sonnet hybrid models) allows Claude to work through problems step-by-step, making it particularly well-suited for tasks that require careful analysis and deeper reasoning. This capability supports complex cognitive tasks, mathematical problems, and strategic thinking by enabling more thorough problem exploration rather than rushing to quick answers.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
       "concepts": [
-        "active-recall",
-        "retrieval-practice",
-        "feedback-loop"
+        "Extended Thinking",
+        "Claude reasoning"
+      ]
+    },
+    {
+      "id": "claude-101-s1c1-q008",
+      "question": "Which Claude interface is specifically designed for developers to manipulate files on their desktop?",
+      "options": [
+        "Claude.ai",
+        "Claude for Excel",
+        "Claude Code",
+        "Claude and Slack"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Claude Code is an agentic coding tool designed for developers (though usable for all kinds of file manipulation) that can directly edit files, run commands, and create commits on your desktop. While Claude.ai is the primary interface for most users, Claude Code serves the specific need for file manipulation and development workflows.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude Code",
+        "Claude interfaces"
+      ]
+    },
+    {
+      "id": "claude-101-s1c1-q009",
+      "question": "What capabilities does Claude for Excel provide? (Select all that apply)",
+      "options": [
+        "Model analysis and assumption updates",
+        "Error debugging and formula explanations",
+        "Direct file editing and command execution on your desktop",
+        "Multi-tab navigation and template population"
+      ],
+      "correctOptionIndexes": [
+        0,
+        1,
+        3
+      ],
+      "explanation": "Claude for Excel enables model analysis, assumption updates, error debugging, template population, formula explanations, and multi-tab navigation. These capabilities allow Claude to work directly within Excel to read, analyze, modify, and create workbooks. Direct file editing and command execution are features of Claude Code, not Claude for Excel, which operates within the Excel sidebar interface.",
+      "difficulty": "moderate",
+      "questionType": "multiple-correct",
+      "concepts": [
+        "Claude for Excel",
+        "Claude interfaces"
+      ]
+    },
+    {
+      "id": "claude-101-s1c1-q010",
+      "question": "How does Claude's steerable and collaborative design impact user experience compared to other AI systems?",
+      "options": [
+        "It makes Claude less capable of handling complex tasks",
+        "It allows users to customize personality and tone, resulting in fewer harmful outputs and easier conversation with less effort to achieve desired results",
+        "It requires users to provide extremely detailed instructions for every interaction",
+        "It limits Claude to only one communication style regardless of user preference"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude's steerable and collaborative design means it can take direction on personality, tone, and behavior. Customers report that this approach results in Claude being much less likely to produce harmful outputs, easier to converse with, and more steerable overall—enabling users to get desired outputs with less effort. This is a key differentiator that enhances the user experience by allowing customization and reducing the need for extensive prompt engineering.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude design",
+        "steerable AI",
+        "collaborative AI"
+      ]
+    },
+    {
+      "id": "claude-101-s1c1-q011",
+      "question": "A user needs to analyze a 400-page research document, extract key findings, and generate a summary report. Which Claude interface would be most appropriate, and why?",
+      "options": [
+        "Claude Code, because it can directly edit files and run commands",
+        "Claude for Excel, because it specializes in spreadsheet analysis",
+        "Claude.ai, because its large context window can ingest 200K+ tokens (approximately 500 pages), allowing comprehensive document analysis in a single conversation",
+        "Claude and Slack, because it integrates with team communication tools"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Claude.ai is ideal for this task because it can handle the 400-page document within its 200K+ token context window (approximately 500 pages of text). This allows Claude to analyze the entire document, extract findings, and generate a summary in a single conversation without requiring multiple interactions. While Claude Code and Claude for Excel serve specific purposes, they're not optimized for document analysis and summarization. Claude and Slack is designed for team communication, not document research.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude.ai",
+        "context window",
+        "practical application"
+      ]
+    },
+    {
+      "id": "claude-101-s1c1-q012",
+      "question": "How do Claude's design principles (helpful, harmless, and honest) and its steerable nature work together to create a superior user experience?",
+      "options": [
+        "They are contradictory—being steerable makes Claude less honest",
+        "Constitutional AI ensures Claude maintains ethical boundaries while steerability allows users to customize outputs within those boundaries, reducing harmful outputs while enabling personalized, effective interactions",
+        "They only apply to enterprise users, not free plan users",
+        "Steerability means Claude can be directed to ignore its ethical guidelines if the user requests it"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude's design principles and steerable nature are complementary. Constitutional AI provides the ethical foundation that prevents harmful outputs and ensures honesty, while steerability allows users to customize Claude's personality, tone, and behavior within those ethical boundaries. This combination means users can get personalized, effective assistance without compromising on safety or integrity. The other options misunderstand how these principles interact—steerability does not override ethical guidelines, and these principles apply across all plan types.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Constitutional AI",
+        "steerable design",
+        "Claude principles"
       ]
     }
   ]
