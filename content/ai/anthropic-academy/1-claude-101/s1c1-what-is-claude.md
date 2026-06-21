@@ -38,8 +38,6 @@ Where do you go from here, and how do you earn your certificate?
 
 ## What is Claude?
 
-*(10 minutes)*
-
 Claude is more than a chatbot—it's an AI assistant designed to be your thinking partner. In this lesson you'll learn what makes Claude different from other AI tools and see how it can help with a wide variety of work tasks.
 
 ## Key takeaways
