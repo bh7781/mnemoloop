@@ -6,7 +6,7 @@ export type QuizQuestion = {
   id: string;
   question: string;
   options: string[];
-  correctOptionIndex: number;
+  correctOptionIndexes: number[];
   explanation: string;
 };
 

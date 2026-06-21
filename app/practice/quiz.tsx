@@ -10,14 +10,15 @@ type QuizProps = {
 
 type AnsweredQuestion = {
   questionId: string;
-  selectedOptionIndex: number;
+  selectedOptionIndexes: number[];
 };
 
 export default function Quiz({ quiz }: QuizProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(
-    null,
+  const [selectedOptionIndexes, setSelectedOptionIndexes] = useState<number[]>(
+    [],
   );
+  const [hasSubmitted, setHasSubmitted] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
   const [answeredQuestions, setAnsweredQuestions] = useState<
     AnsweredQuestion[]
@@ -25,25 +26,46 @@ export default function Quiz({ quiz }: QuizProps) {
   const [isComplete, setIsComplete] = useState(false);
 
   const currentQuestion = quiz.questions[currentQuestionIndex];
-  const hasAnswered = selectedOptionIndex !== null;
-  const isCorrect =
-    hasAnswered && selectedOptionIndex === currentQuestion.correctOptionIndex;
+  const isMultipleAnswer = currentQuestion.correctOptionIndexes.length > 1;
+  const hasSelectedAnswer = selectedOptionIndexes.length > 0;
+  const isCorrect = areOptionIndexesEqual(
+    selectedOptionIndexes,
+    currentQuestion.correctOptionIndexes,
+  );
 
   function selectOption(optionIndex: number) {
-    if (hasAnswered) {
+    if (hasSubmitted) {
       return;
     }
 
-    setSelectedOptionIndex(optionIndex);
+    setSelectedOptionIndexes((indexes) => {
+      if (!isMultipleAnswer) {
+        return [optionIndex];
+      }
+
+      if (indexes.includes(optionIndex)) {
+        return indexes.filter((index) => index !== optionIndex);
+      }
+
+      return [...indexes, optionIndex];
+    });
+  }
+
+  function submitAnswer() {
+    if (!hasSelectedAnswer || hasSubmitted) {
+      return;
+    }
+
+    setHasSubmitted(true);
     setAnsweredQuestions((answers) => [
       ...answers,
       {
         questionId: currentQuestion.id,
-        selectedOptionIndex: optionIndex,
+        selectedOptionIndexes,
       },
     ]);
 
-    if (optionIndex === currentQuestion.correctOptionIndex) {
+    if (isCorrect) {
       setCorrectCount((count) => count + 1);
     }
   }
@@ -55,12 +77,14 @@ export default function Quiz({ quiz }: QuizProps) {
     }
 
     setCurrentQuestionIndex((index) => index + 1);
-    setSelectedOptionIndex(null);
+    setSelectedOptionIndexes([]);
+    setHasSubmitted(false);
   }
 
   function restartQuiz() {
     setCurrentQuestionIndex(0);
-    setSelectedOptionIndex(null);
+    setSelectedOptionIndexes([]);
+    setHasSubmitted(false);
     setCorrectCount(0);
     setAnsweredQuestions([]);
     setIsComplete(false);
@@ -118,11 +142,18 @@ export default function Quiz({ quiz }: QuizProps) {
               const userSelectedAnswer =
                 answer === undefined
                   ? "No answer selected"
-                  : question.options[answer.selectedOptionIndex];
-              const correctAnswer =
-                question.options[question.correctOptionIndex];
-              const answeredCorrectly =
-                answer?.selectedOptionIndex === question.correctOptionIndex;
+                  : formatOptionAnswers(
+                      question.options,
+                      answer.selectedOptionIndexes,
+                    );
+              const correctAnswer = formatOptionAnswers(
+                question.options,
+                question.correctOptionIndexes,
+              );
+              const answeredCorrectly = areOptionIndexesEqual(
+                answer?.selectedOptionIndexes ?? [],
+                question.correctOptionIndexes,
+              );
 
               return (
                 <li
@@ -157,12 +188,20 @@ export default function Quiz({ quiz }: QuizProps) {
 
                   <div className="mt-5 grid gap-3">
                     <AnswerLine
-                      label="Your answer"
+                      label={
+                        question.correctOptionIndexes.length > 1
+                          ? "Your answers"
+                          : "Your answer"
+                      }
                       value={userSelectedAnswer}
                       tone={answeredCorrectly ? "correct" : "incorrect"}
                     />
                     <AnswerLine
-                      label="Correct answer"
+                      label={
+                        question.correctOptionIndexes.length > 1
+                          ? "Correct answers"
+                          : "Correct answer"
+                      }
                       value={correctAnswer}
                       tone="correct"
                     />
@@ -196,20 +235,29 @@ export default function Quiz({ quiz }: QuizProps) {
         <h1 className="mt-3 text-2xl font-semibold tracking-normal text-slate-950 sm:text-3xl">
           {currentQuestion.question}
         </h1>
+        <p className="mt-3 text-sm font-medium text-slate-500">
+          {isMultipleAnswer ? "Select all that apply." : "Select one answer."}
+        </p>
 
         <div className="mt-8 grid gap-3">
           {currentQuestion.options.map((option, optionIndex) => {
-            const isSelected = selectedOptionIndex === optionIndex;
+            const isSelected = selectedOptionIndexes.includes(optionIndex);
+            const isCorrectOption =
+              currentQuestion.correctOptionIndexes.includes(optionIndex);
 
             return (
               <button
-                key={option}
+                key={`${option}-${optionIndex}`}
                 type="button"
                 onClick={() => selectOption(optionIndex)}
-                disabled={hasAnswered}
+                aria-pressed={isSelected}
                 className={[
                   "rounded-md border px-4 py-3 text-left text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 sm:text-base",
-                  getOptionClassName({ hasAnswered, isSelected }),
+                  getOptionClassName({
+                    hasSubmitted,
+                    isCorrectOption,
+                    isSelected,
+                  }),
                 ].join(" ")}
               >
                 {option}
@@ -218,7 +266,16 @@ export default function Quiz({ quiz }: QuizProps) {
           })}
         </div>
 
-        {hasAnswered ? (
+        {!hasSubmitted ? (
+          <button
+            type="button"
+            onClick={submitAnswer}
+            disabled={!hasSelectedAnswer}
+            className="mt-6 rounded-md bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600"
+          >
+            Submit Answer
+          </button>
+        ) : (
           <div className="mt-8 rounded-md border border-slate-200 bg-slate-50 p-5">
             <p
               className={[
@@ -231,6 +288,20 @@ export default function Quiz({ quiz }: QuizProps) {
             <p className="mt-2 text-base leading-7 text-slate-700">
               {currentQuestion.explanation}
             </p>
+            <div className="mt-5">
+              <AnswerLine
+                label={
+                  currentQuestion.correctOptionIndexes.length > 1
+                    ? "Correct answers"
+                    : "Correct answer"
+                }
+                value={formatOptionAnswers(
+                  currentQuestion.options,
+                  currentQuestion.correctOptionIndexes,
+                )}
+                tone="correct"
+              />
+            </div>
             <button
               type="button"
               onClick={goToNextQuestion}
@@ -239,7 +310,7 @@ export default function Quiz({ quiz }: QuizProps) {
               Next question
             </button>
           </div>
-        ) : null}
+        )}
       </div>
     </section>
   );
@@ -306,19 +377,51 @@ function QuizHeader({ quiz }: QuizProps) {
 }
 
 function getOptionClassName({
-  hasAnswered,
+  hasSubmitted,
+  isCorrectOption,
   isSelected,
 }: {
-  hasAnswered: boolean;
+  hasSubmitted: boolean;
+  isCorrectOption: boolean;
   isSelected: boolean;
 }) {
-  if (!hasAnswered) {
-    return "border-slate-200 bg-white text-slate-800 hover:border-teal-700 hover:bg-teal-50";
-  }
-
-  if (isSelected) {
+  if (!hasSubmitted && isSelected) {
     return "border-teal-700 bg-teal-50 text-teal-950";
   }
 
+  if (!hasSubmitted) {
+    return "border-slate-200 bg-white text-slate-800 hover:border-teal-700 hover:bg-teal-50";
+  }
+
+  if (isCorrectOption) {
+    return "border-teal-700 bg-teal-50 text-teal-950";
+  }
+
+  if (isSelected) {
+    return "border-red-700 bg-red-50 text-red-950";
+  }
+
   return "border-slate-200 bg-white text-slate-500";
+}
+
+function areOptionIndexesEqual(left: number[], right: number[]) {
+  if (left.length !== right.length) {
+    return false;
+  }
+
+  const sortedLeft = [...left].sort((a, b) => a - b);
+  const sortedRight = [...right].sort((a, b) => a - b);
+
+  return sortedLeft.every((index, position) => index === sortedRight[position]);
+}
+
+function formatOptionAnswers(options: string[], optionIndexes: number[]) {
+  if (optionIndexes.length === 0) {
+    return "No answer selected";
+  }
+
+  return [...optionIndexes]
+    .sort((a, b) => a - b)
+    .map((optionIndex) => options[optionIndex])
+    .join("; ");
 }

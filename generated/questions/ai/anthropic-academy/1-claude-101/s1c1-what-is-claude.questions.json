@@ -13,7 +13,7 @@
         "To store files permanently in the cloud",
         "To create databases automatically"
       ],
-      "correctOptionIndex": 1,
+      "correctOptionIndexes": [1],
       "explanation": "Claude is an AI assistant designed to help users with language, reasoning, coding, analysis, and related knowledge work tasks.",
       "difficulty": "easy",
       "questionType": "conceptual",
@@ -31,7 +31,7 @@
         "Practicing recall repeatedly so knowledge becomes easier to remember",
         "Only highlighting important sentences"
       ],
-      "correctOptionIndex": 2,
+      "correctOptionIndexes": [2],
       "explanation": "Mnemoloop is built around active recall and reinforcement, so repeated practice is more important than passive reading.",
       "difficulty": "easy",
       "questionType": "application",

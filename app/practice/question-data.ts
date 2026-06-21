@@ -57,8 +57,37 @@ export async function getQuiz(relativeQuestionPath = sampleQuestionRelativePath)
   try {
     const file = await readFile(questionPath, "utf8");
 
-    return JSON.parse(file) as QuizData;
+    return normalizeQuiz(JSON.parse(file));
   } catch {
     return null;
   }
+}
+
+type RawQuizQuestion = Omit<QuizData["questions"][number], "correctOptionIndexes"> & {
+  correctOptionIndex?: number;
+  correctOptionIndexes?: number[];
+};
+
+type RawQuizData = Omit<QuizData, "questions"> & {
+  questions: RawQuizQuestion[];
+};
+
+function normalizeQuiz(rawQuiz: RawQuizData): QuizData {
+  return {
+    ...rawQuiz,
+    questions: rawQuiz.questions.map((question) => {
+      const correctOptionIndexes = Array.isArray(question.correctOptionIndexes)
+        ? question.correctOptionIndexes
+        : [question.correctOptionIndex].filter(
+            (index): index is number => typeof index === "number",
+          );
+      const normalizedQuestion = { ...question };
+      delete normalizedQuestion.correctOptionIndex;
+
+      return {
+        ...normalizedQuestion,
+        correctOptionIndexes,
+      };
+    }),
+  };
 }
