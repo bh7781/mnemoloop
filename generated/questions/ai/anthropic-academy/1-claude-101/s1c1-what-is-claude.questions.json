@@ -1,0 +1,44 @@
+{
+  "chapterId": "claude-101-s1c1",
+  "chapterTitle": "What is Claude?",
+  "course": "Claude 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-101-s1c1-q001",
+      "question": "What is the main purpose of Claude?",
+      "options": [
+        "To replace all software development tools",
+        "To act as an AI assistant that helps with tasks such as writing, reasoning, coding, and analysis",
+        "To store files permanently in the cloud",
+        "To create databases automatically"
+      ],
+      "correctOptionIndex": 1,
+      "explanation": "Claude is an AI assistant designed to help users with language, reasoning, coding, analysis, and related knowledge work tasks.",
+      "difficulty": "easy",
+      "questionType": "conceptual",
+      "concepts": [
+        "claude",
+        "ai-assistant"
+      ]
+    },
+    {
+      "id": "claude-101-s1c1-q002",
+      "question": "Which learning activity best matches the purpose of Mnemoloop?",
+      "options": [
+        "Reading notes once and moving on",
+        "Saving files without reviewing them",
+        "Practicing recall repeatedly so knowledge becomes easier to remember",
+        "Only highlighting important sentences"
+      ],
+      "correctOptionIndex": 2,
+      "explanation": "Mnemoloop is built around active recall and reinforcement, so repeated practice is more important than passive reading.",
+      "difficulty": "easy",
+      "questionType": "application",
+      "concepts": [
+        "active-recall",
+        "knowledge-retention"
+      ]
+    }
+  ]
+}
