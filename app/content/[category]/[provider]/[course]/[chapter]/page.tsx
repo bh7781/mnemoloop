@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { getChapterByPath } from "../../../../content-data";
+import { questionFileExists } from "../../../../../practice/question-data";
 
 export const dynamic = "force-dynamic";
 
@@ -20,10 +21,19 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
   const coursePath = [category, provider, courseSlug];
   const chapterDetail = await getChapterByPath(coursePath, chapter);
   const courseHref = `/content/${coursePath.join("/")}`;
+  const questionRelativePath = [
+    ...coursePath,
+    `${chapter}.questions.json`,
+  ].join("/");
 
   if (!chapterDetail) {
     notFound();
   }
+
+  const hasQuestions = await questionFileExists(questionRelativePath);
+  const practiceHref = `/practice?questions=${encodeURIComponent(
+    questionRelativePath,
+  )}`;
 
   return (
     <main className="min-h-screen bg-white px-6 py-16 text-slate-950">
@@ -47,6 +57,20 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
           <h1 className="mt-3 text-4xl font-semibold tracking-normal sm:text-5xl">
             {chapterDetail.title}
           </h1>
+          <div className="mt-6">
+            {hasQuestions ? (
+              <Link
+                href={practiceHref}
+                className="inline-flex rounded-md bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2"
+              >
+                Practice this chapter
+              </Link>
+            ) : (
+              <p className="rounded-md border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-600">
+                Questions are not generated for this chapter yet.
+              </p>
+            )}
+          </div>
         </header>
 
         <div className="mt-10">
