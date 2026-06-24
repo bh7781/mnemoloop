@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import type { QuizData, QuizQuestion } from "./page";
 
@@ -27,6 +28,7 @@ type ReviewedQuestion = {
 };
 
 export default function Quiz({ quiz }: QuizProps) {
+  const router = useRouter();
   const totalAvailableQuestions = quiz.questions.length;
   const [setup, setSetup] = useState<QuizSetup>({
     count: Math.min(10, Math.max(5, totalAvailableQuestions)),
@@ -41,7 +43,10 @@ export default function Quiz({ quiz }: QuizProps) {
   const [markedQuestionIds, setMarkedQuestionIds] = useState<string[]>([]);
   const [isComplete, setIsComplete] = useState(false);
   const [reviewFilter, setReviewFilter] = useState<ReviewFilter>("incorrect");
+  const [isAbortModalOpen, setIsAbortModalOpen] = useState(false);
+  const [pendingAbortHref, setPendingAbortHref] = useState("/practice");
 
+  const isAttemptActive = activeQuiz !== null && !isComplete;
   const questionCountForSetup = setup.isAllQuestions
     ? totalAvailableQuestions
     : setup.count;
@@ -76,6 +81,63 @@ export default function Quiz({ quiz }: QuizProps) {
 
     return () => window.clearTimeout(timerId);
   }, [activeQuiz, isComplete, remainingSeconds, setup.isTimed]);
+
+  useEffect(() => {
+    if (!isAttemptActive) {
+      return;
+    }
+
+    function interceptGlobalNavigation(event: MouseEvent) {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.altKey ||
+        event.ctrlKey ||
+        event.shiftKey
+      ) {
+        return;
+      }
+
+      const target = event.target;
+
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      const anchor = target.closest("a");
+
+      if (!anchor || anchor.target) {
+        return;
+      }
+
+      const href = anchor.getAttribute("href");
+
+      if (!href) {
+        return;
+      }
+
+      const url = new URL(href, window.location.href);
+      const isSameOrigin = url.origin === window.location.origin;
+      const isGlobalNavPath =
+        url.pathname === "/" ||
+        url.pathname === "/content" ||
+        url.pathname === "/practice";
+
+      if (!isSameOrigin || !isGlobalNavPath) {
+        return;
+      }
+
+      event.preventDefault();
+      requestAbortConfirmation(`${url.pathname}${url.search}${url.hash}`);
+    }
+
+    document.addEventListener("click", interceptGlobalNavigation, true);
+
+    return () => {
+      document.removeEventListener("click", interceptGlobalNavigation, true);
+    };
+  }, [isAttemptActive]);
 
   if (totalAvailableQuestions === 0) {
     return (
@@ -145,6 +207,27 @@ export default function Quiz({ quiz }: QuizProps) {
     setReviewFilter("incorrect");
     setIsComplete(true);
     setRemainingSeconds(null);
+  }
+
+  function requestAbortConfirmation(href = "/practice") {
+    setPendingAbortHref(href);
+    setIsAbortModalOpen(true);
+  }
+
+  function continueTest() {
+    setIsAbortModalOpen(false);
+  }
+
+  function abortAttempt() {
+    setIsAbortModalOpen(false);
+    setActiveQuiz(null);
+    setRemainingSeconds(null);
+    setCurrentQuestionIndex(0);
+    setAnswersByQuestionId({});
+    setMarkedQuestionIds([]);
+    setIsComplete(false);
+    setReviewFilter("incorrect");
+    router.push(pendingAbortHref);
   }
 
   function selectOption(optionIndex: number) {
@@ -309,67 +392,75 @@ export default function Quiz({ quiz }: QuizProps) {
   }
 
   return (
-    <section className="mx-auto grid w-full max-w-7xl gap-5 lg:h-[min(760px,calc(100vh-7rem))] lg:min-h-[620px] lg:grid-cols-[280px_1fr]">
-      <aside className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm lg:flex lg:min-h-0 lg:flex-col">
-        <QuizHeader quiz={runningQuiz} compact />
-        <div className="mt-5 rounded-md border border-slate-200 bg-slate-50 p-4">
-          <div className="flex items-end justify-between gap-3">
-            <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700">
-              {runningQuiz.practiceMode === "course" ? "Course Test" : "Chapter Practice"}
-            </p>
-              <p className="mt-1 text-2xl font-semibold tracking-normal text-slate-950">
-                {runningQuiz.questions.length}
+    <>
+      <section className="mx-auto grid w-full max-w-7xl gap-5 lg:h-[min(760px,calc(100vh-7rem))] lg:min-h-[620px] lg:grid-cols-[280px_1fr]">
+        <aside className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm lg:flex lg:min-h-0 lg:flex-col">
+          <QuizHeader quiz={runningQuiz} compact />
+          <div className="mt-5 rounded-md border border-slate-200 bg-slate-50 p-4">
+            <div className="flex items-end justify-between gap-3">
+              <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700">
+                {runningQuiz.practiceMode === "course" ? "Course Test" : "Chapter Practice"}
+              </p>
+                <p className="mt-1 text-2xl font-semibold tracking-normal text-slate-950">
+                  {runningQuiz.questions.length}
+                </p>
+              </div>
+              <p className="pb-1 text-sm font-medium text-slate-500">
+                total questions
               </p>
             </div>
-            <p className="pb-1 text-sm font-medium text-slate-500">
-              total questions
-            </p>
           </div>
-        </div>
-        <div className="mt-5 flex-1 border-t border-slate-200 pt-5 lg:min-h-0">
-          <div className="flex items-center justify-between gap-3">
-            <p className="text-sm font-semibold text-slate-800">
-              Question navigator
-            </p>
-            <p className="text-xs font-medium text-slate-500">
-              {currentQuestionIndex + 1} / {runningQuiz.questions.length}
-            </p>
-          </div>
-          <div className="mt-4 grid grid-cols-6 gap-2 lg:max-h-[360px] lg:grid-cols-5 lg:overflow-y-auto lg:pr-1">
-            {runningQuiz.questions.map((question, questionIndex) => {
-              const isCurrent = questionIndex === currentQuestionIndex;
-              const isAnswered =
-                getSelectedOptionIndexes(answersByQuestionId, question.id)
-                  .length > 0;
-              const isMarked = markedQuestionIds.includes(question.id);
+          <button
+            type="button"
+            onClick={() => requestAbortConfirmation("/practice")}
+            className="mt-4 h-11 w-full rounded-md border border-red-200 bg-red-50 px-4 text-sm font-semibold text-red-700 transition hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300 dark:hover:bg-red-950"
+          >
+            Abort Test
+          </button>
+          <div className="mt-5 flex-1 border-t border-slate-200 pt-5 lg:min-h-0">
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-sm font-semibold text-slate-800">
+                Question navigator
+              </p>
+              <p className="text-xs font-medium text-slate-500">
+                {currentQuestionIndex + 1} / {runningQuiz.questions.length}
+              </p>
+            </div>
+            <div className="mt-4 grid grid-cols-6 gap-2 lg:max-h-[360px] lg:grid-cols-5 lg:overflow-y-auto lg:pr-1">
+              {runningQuiz.questions.map((question, questionIndex) => {
+                const isCurrent = questionIndex === currentQuestionIndex;
+                const isAnswered =
+                  getSelectedOptionIndexes(answersByQuestionId, question.id)
+                    .length > 0;
+                const isMarked = markedQuestionIds.includes(question.id);
 
-              return (
-                <button
-                  key={question.id}
-                  type="button"
-                  onClick={() => goToQuestion(questionIndex)}
-                  aria-current={isCurrent ? "step" : undefined}
-                  className={getQuestionNavClassName({
-                    isAnswered,
-                    isCurrent,
-                    isMarked,
-                  })}
-                >
-                  {questionIndex + 1}
-                </button>
-              );
-            })}
+                return (
+                  <button
+                    key={question.id}
+                    type="button"
+                    onClick={() => goToQuestion(questionIndex)}
+                    aria-current={isCurrent ? "step" : undefined}
+                    className={getQuestionNavClassName({
+                      isAnswered,
+                      isCurrent,
+                      isMarked,
+                    })}
+                  >
+                    {questionIndex + 1}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="mt-5 grid grid-cols-3 gap-2 text-xs font-medium text-slate-600 lg:grid-cols-1">
+              <LegendItem className="border-slate-950 bg-slate-950" label="Current" />
+              <LegendItem className="border-teal-600 bg-teal-100" label="Answered" />
+              <LegendItem className="border-amber-500 bg-amber-100" label="Marked" />
+            </div>
           </div>
-          <div className="mt-5 grid grid-cols-3 gap-2 text-xs font-medium text-slate-600 lg:grid-cols-1">
-            <LegendItem className="border-slate-950 bg-slate-950" label="Current" />
-            <LegendItem className="border-teal-600 bg-teal-100" label="Answered" />
-            <LegendItem className="border-amber-500 bg-amber-100" label="Marked" />
-          </div>
-        </div>
-      </aside>
+        </aside>
 
-      <div className="rounded-lg border border-slate-200 bg-white shadow-sm lg:flex lg:min-h-0 lg:flex-col">
+        <div className="rounded-lg border border-slate-200 bg-white shadow-sm lg:flex lg:min-h-0 lg:flex-col">
         <div className="border-b border-slate-200 px-6 py-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="text-sm font-semibold text-slate-700">
@@ -462,8 +553,14 @@ export default function Quiz({ quiz }: QuizProps) {
             </button>
           )}
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+      <AbortAttemptModal
+        isOpen={isAbortModalOpen}
+        onAbort={abortAttempt}
+        onContinue={continueTest}
+      />
+    </>
   );
 }
 
@@ -660,6 +757,56 @@ function QuizSetupScreen({
         </button>
       </div>
     </section>
+  );
+}
+
+function AbortAttemptModal({
+  isOpen,
+  onAbort,
+  onContinue,
+}: {
+  isOpen: boolean;
+  onAbort: () => void;
+  onContinue: () => void;
+}) {
+  if (!isOpen) {
+    return null;
+  }
+
+  return (
+    <div
+      aria-modal="true"
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-slate-950/60 px-4 backdrop-blur-sm"
+      role="dialog"
+    >
+      <div className="w-full max-w-md rounded-lg border border-slate-200 bg-white p-6 shadow-xl dark:border-slate-800 dark:bg-slate-900">
+        <p className="text-sm font-semibold uppercase tracking-[0.14em] text-red-700 dark:text-red-300">
+          Abort attempt
+        </p>
+        <h2 className="mt-3 text-2xl font-semibold tracking-normal text-slate-950 dark:text-white">
+          Are you sure you want to abort this attempt?
+        </h2>
+        <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+          This attempt will stop immediately and no quiz results will be shown.
+        </p>
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <button
+            type="button"
+            onClick={onContinue}
+            className="h-11 rounded-md border border-slate-300 bg-white px-4 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200 dark:hover:bg-slate-800 dark:focus:ring-slate-200"
+          >
+            Continue Test
+          </button>
+          <button
+            type="button"
+            onClick={onAbort}
+            className="h-11 rounded-md bg-red-700 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 dark:bg-red-600 dark:hover:bg-red-500"
+          >
+            Abort Attempt
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 
