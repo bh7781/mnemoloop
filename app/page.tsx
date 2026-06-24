@@ -29,6 +29,90 @@ const loopStages = [
 
 const recallDots = ["Read", "Recall", "Refine", "Repeat"];
 
+const processSteps = [
+  {
+    step: "01",
+    title: "Add structured notes",
+    description:
+      "Keep markdown notes organized by course, chapter, and concept so review starts from real context.",
+  },
+  {
+    step: "02",
+    title: "Generate question banks",
+    description:
+      "Turn source material into prompts that test understanding instead of recognition.",
+  },
+  {
+    step: "03",
+    title: "Practice with active recall",
+    description:
+      "Answer before looking back, then use feedback to separate strong concepts from fragile ones.",
+  },
+  {
+    step: "04",
+    title: "Review weak areas",
+    description:
+      "Marked misses and uncertain answers become the next set of high-value review targets.",
+  },
+  {
+    step: "05",
+    title: "Reinforce over time",
+    description:
+      "Repeat the loop until ideas move from short-term familiarity into durable memory.",
+  },
+];
+
+const learningPrinciples = [
+  {
+    title: "Active recall",
+    description: "Practice retrieving answers before rereading notes.",
+    accent: "from-cyan-300 to-teal-300",
+  },
+  {
+    title: "Spaced repetition",
+    description: "Bring concepts back after time has made recall harder.",
+    accent: "from-teal-300 to-emerald-300",
+  },
+  {
+    title: "Weak-area detection",
+    description: "Use mistakes and uncertainty to focus the next session.",
+    accent: "from-violet-300 to-fuchsia-300",
+  },
+  {
+    title: "Retrieval practice",
+    description: "Build memory through repeated testing, not passive review.",
+    accent: "from-sky-300 to-violet-300",
+  },
+];
+
+const practiceModes = [
+  {
+    title: "Chapter practice",
+    description: "Focus on one chapter at a time when a topic needs a tight loop.",
+    status: "Available",
+  },
+  {
+    title: "Course tests",
+    description: "Mix questions across a full course for broader retrieval practice.",
+    status: "Available",
+  },
+  {
+    title: "Timed mode",
+    description: "Add pressure for exam-style sessions and faster recall.",
+    status: "Coming soon",
+  },
+  {
+    title: "Weak questions later",
+    description: "Return to missed or uncertain questions without hunting for them.",
+    status: "Coming soon",
+  },
+  {
+    title: "Due reviews later",
+    description: "See which concepts are ready for another memory-strengthening pass.",
+    status: "Coming soon",
+  },
+];
+
 export default function Home() {
   return (
     <main className="relative isolate min-h-[calc(100vh-3rem)] overflow-hidden bg-[#f7fbff] px-6 py-12 text-slate-950 dark:bg-[#050812] dark:text-white sm:py-16">
@@ -195,6 +279,169 @@ export default function Home() {
           <div className="absolute bottom-7 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2 rounded-full border border-slate-200/80 bg-white/75 px-3 py-2 text-xs font-semibold text-slate-700 shadow-lg shadow-slate-950/10 backdrop-blur dark:border-white/10 dark:bg-white/[0.08] dark:text-slate-200">
             <span className="h-2 w-2 rounded-full bg-teal-300 shadow-[0_0_16px_rgba(45,212,191,0.9)]" />
             Next loop: weak concepts return first
+          </div>
+        </div>
+      </section>
+      <section className="mx-auto mt-24 w-full max-w-7xl sm:mt-32">
+        <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-700 dark:text-cyan-300">
+              How Mnemoloop works
+            </p>
+            <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-tight tracking-normal text-slate-950 dark:text-white sm:text-5xl">
+              A learning loop built around retrieval.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300">
+              Mnemoloop moves notes through generated questions, practice tests,
+              weak-area review, and repeated reinforcement so studying has a
+              clear next step.
+            </p>
+          </div>
+          <div className="relative rounded-[1.5rem] border border-slate-200/80 bg-white/55 p-5 shadow-2xl shadow-slate-950/5 backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.045] dark:shadow-cyan-950/25">
+            <div className="absolute inset-x-8 top-1/2 hidden h-px bg-gradient-to-r from-transparent via-cyan-300/70 to-transparent lg:block" />
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              {processSteps.map((item) => (
+                <article
+                  key={item.step}
+                  className="group relative rounded-xl border border-slate-200/80 bg-slate-950/[0.03] p-4 shadow-lg shadow-slate-950/[0.03] transition hover:-translate-y-1 hover:border-cyan-300/60 hover:bg-white/75 dark:border-white/10 dark:bg-white/[0.045] dark:shadow-black/20 dark:hover:border-cyan-200/35 dark:hover:bg-white/[0.07]"
+                >
+                  <div className="mb-5 flex items-center justify-between">
+                    <span className="rounded-full border border-cyan-300/50 bg-cyan-100/70 px-2.5 py-1 text-xs font-semibold text-cyan-800 dark:border-cyan-200/20 dark:bg-cyan-300/10 dark:text-cyan-200">
+                      {item.step}
+                    </span>
+                    <span className="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-cyan-300 to-violet-300 shadow-[0_0_18px_rgba(34,211,238,0.65)]" />
+                  </div>
+                  <h3 className="text-base font-semibold tracking-normal text-slate-950 dark:text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                    {item.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto mt-24 w-full max-w-7xl sm:mt-32">
+        <div className="rounded-[2rem] border border-slate-200/80 bg-slate-950/[0.03] p-6 shadow-2xl shadow-slate-950/5 backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.035] dark:shadow-violet-950/20 sm:p-8 lg:p-10">
+          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
+                Built for durable learning
+              </p>
+              <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-normal text-slate-950 dark:text-white sm:text-5xl">
+                Designed around how memory actually strengthens.
+              </h2>
+              <p className="mt-5 text-base leading-7 text-slate-600 dark:text-slate-300">
+                The product flow nudges you away from passive rereading and
+                toward recall sessions that reveal what needs another loop.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {learningPrinciples.map((principle) => (
+                <article
+                  key={principle.title}
+                  className="relative overflow-hidden rounded-xl border border-slate-200/80 bg-white/65 p-5 shadow-lg shadow-slate-950/[0.04] transition hover:-translate-y-1 dark:border-white/10 dark:bg-[#09111f]/75 dark:shadow-black/20"
+                >
+                  <div
+                    className={`absolute left-0 top-0 h-1 w-full bg-gradient-to-r ${principle.accent}`}
+                  />
+                  <div
+                    className={`mb-5 h-10 w-10 rounded-lg bg-gradient-to-br ${principle.accent} opacity-90 shadow-lg shadow-cyan-500/10`}
+                  />
+                  <h3 className="text-lg font-semibold tracking-normal text-slate-950 dark:text-white">
+                    {principle.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                    {principle.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto mt-24 w-full max-w-7xl sm:mt-32">
+        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-violet-700 dark:text-violet-300">
+              Practice your way
+            </p>
+            <h2 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight tracking-normal text-slate-950 dark:text-white sm:text-5xl">
+              From focused chapters to deeper review sessions.
+            </h2>
+          </div>
+          <p className="max-w-xl text-base leading-7 text-slate-600 dark:text-slate-300">
+            Current modes help you start practicing now. Planned modes extend
+            the same loop into timed tests, weak-question queues, and due
+            reviews.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+          {practiceModes.map((mode) => {
+            const isAvailable = mode.status === "Available";
+
+            return (
+              <article
+                key={mode.title}
+                className="rounded-xl border border-slate-200/80 bg-white/60 p-5 shadow-lg shadow-slate-950/[0.04] transition hover:-translate-y-1 hover:border-violet-300/60 dark:border-white/10 dark:bg-white/[0.045] dark:shadow-black/20 dark:hover:border-violet-200/35"
+              >
+                <span
+                  className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ${
+                    isAvailable
+                      ? "bg-teal-100 text-teal-800 dark:bg-teal-300/10 dark:text-teal-200"
+                      : "bg-violet-100 text-violet-800 dark:bg-violet-300/10 dark:text-violet-200"
+                  }`}
+                >
+                  {mode.status}
+                </span>
+                <h3 className="mt-5 text-lg font-semibold tracking-normal text-slate-950 dark:text-white">
+                  {mode.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                  {mode.description}
+                </p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="mx-auto mt-24 w-full max-w-7xl pb-8 sm:mt-32">
+        <div className="relative overflow-hidden rounded-[2rem] border border-slate-200/80 bg-slate-950 px-6 py-12 text-white shadow-2xl shadow-cyan-950/20 dark:border-white/10 dark:bg-[#07111f] sm:px-10 lg:px-14">
+          <div className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-cyan-300/20 blur-3xl" />
+          <div className="absolute -bottom-28 left-8 h-72 w-72 rounded-full bg-violet-400/20 blur-3xl" />
+          <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-200">
+                Close the loop
+              </p>
+              <h2 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-normal sm:text-5xl">
+                Start building memory loops from your notes.
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-slate-300">
+                Move from reading to recall, then let weak areas guide the next
+                focused practice session.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+              <Link
+                href="/practice"
+                className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 shadow-xl shadow-cyan-400/20 transition hover:-translate-y-0.5 hover:bg-cyan-50 focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+              >
+                Start Practice
+              </Link>
+              <Link
+                href="/content"
+                className="inline-flex items-center justify-center rounded-md border border-white/15 bg-white/[0.07] px-6 py-3.5 text-sm font-semibold text-white shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-cyan-200/40 hover:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+              >
+                Open Content Library
+              </Link>
+            </div>
           </div>
         </div>
       </section>
