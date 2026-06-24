@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import type { QuizData, QuizQuestion } from "./page";
 
 type QuizProps = {
@@ -10,6 +10,12 @@ type QuizProps = {
 type AnswersByQuestionId = Record<string, number[]>;
 
 type ReviewFilter = "incorrect" | "correct" | "all" | "marked";
+
+type QuizSetup = {
+  count: number;
+  isAllQuestions: boolean;
+  isTimed: boolean;
+};
 
 type ReviewedQuestion = {
   answeredCorrectly: boolean;
@@ -21,6 +27,14 @@ type ReviewedQuestion = {
 };
 
 export default function Quiz({ quiz }: QuizProps) {
+  const totalAvailableQuestions = quiz.questions.length;
+  const [setup, setSetup] = useState<QuizSetup>({
+    count: Math.min(10, Math.max(5, totalAvailableQuestions)),
+    isAllQuestions: totalAvailableQuestions < 5,
+    isTimed: false,
+  });
+  const [activeQuiz, setActiveQuiz] = useState<QuizData | null>(null);
+  const [remainingSeconds, setRemainingSeconds] = useState<number | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answersByQuestionId, setAnswersByQuestionId] =
     useState<AnswersByQuestionId>({});
@@ -28,16 +42,110 @@ export default function Quiz({ quiz }: QuizProps) {
   const [isComplete, setIsComplete] = useState(false);
   const [reviewFilter, setReviewFilter] = useState<ReviewFilter>("incorrect");
 
-  const currentQuestion = quiz.questions[currentQuestionIndex];
+  const questionCountForSetup = setup.isAllQuestions
+    ? totalAvailableQuestions
+    : setup.count;
+  const effectiveQuestionCount = Math.min(
+    questionCountForSetup,
+    totalAvailableQuestions,
+  );
+  const selectedQuestionCountLabel = setup.isAllQuestions
+    ? "All questions"
+    : `${setup.count} questions`;
+  const timedDurationMinutes = effectiveQuestionCount * 2;
+
+  useEffect(() => {
+    if (!activeQuiz || !setup.isTimed || isComplete) {
+      return;
+    }
+
+    if (remainingSeconds === null) {
+      return;
+    }
+
+    if (remainingSeconds <= 0) {
+      completeQuiz();
+      return;
+    }
+
+    const timerId = window.setTimeout(() => {
+      setRemainingSeconds((seconds) =>
+        seconds === null ? null : Math.max(0, seconds - 1),
+      );
+    }, 1000);
+
+    return () => window.clearTimeout(timerId);
+  }, [activeQuiz, isComplete, remainingSeconds, setup.isTimed]);
+
+  if (totalAvailableQuestions === 0) {
+    return (
+      <section className="mx-auto w-full max-w-3xl rounded-lg border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+        <p className="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">
+          Practice unavailable
+        </p>
+        <h1 className="mt-3 text-3xl font-semibold tracking-normal text-slate-950 dark:text-white">
+          This question bank is empty.
+        </h1>
+        <p className="mt-3 text-base leading-7 text-slate-600 dark:text-slate-300">
+          Generate questions for this content, then return to practice.
+        </p>
+      </section>
+    );
+  }
+
+  if (!activeQuiz) {
+    return (
+      <QuizSetupScreen
+        effectiveQuestionCount={effectiveQuestionCount}
+        onStart={startQuiz}
+        quiz={quiz}
+        selectedQuestionCountLabel={selectedQuestionCountLabel}
+        setup={setup}
+        timedDurationMinutes={timedDurationMinutes}
+        totalAvailableQuestions={totalAvailableQuestions}
+        updateSetup={setSetup}
+      />
+    );
+  }
+
+  const runningQuiz = activeQuiz;
+  const currentQuestion = runningQuiz.questions[currentQuestionIndex];
   const selectedOptionIndexes = getSelectedOptionIndexes(
     answersByQuestionId,
     currentQuestion.id,
   );
   const isMultipleAnswer = currentQuestion.correctOptionIndexes.length > 1;
-  const isLastQuestion = currentQuestionIndex === quiz.questions.length - 1;
+  const isLastQuestion = currentQuestionIndex === runningQuiz.questions.length - 1;
   const isCurrentQuestionMarked = markedQuestionIds.includes(
     currentQuestion.id,
   );
+
+  function startQuiz() {
+    const sampledQuestions =
+      setup.isAllQuestions || setup.count >= totalAvailableQuestions
+        ? shuffleArray(quiz.questions)
+        : quiz.practiceMode === "course"
+          ? balancedSampleCourseQuestions(quiz.questions, setup.count)
+          : sampleQuestions(quiz.questions, setup.count);
+    const preparedQuestions = sampledQuestions.map(shuffleQuestionOptions);
+
+    setActiveQuiz({
+      ...quiz,
+      questions: preparedQuestions,
+    });
+    setCurrentQuestionIndex(0);
+    setAnswersByQuestionId({});
+    setMarkedQuestionIds([]);
+    setIsComplete(false);
+    setReviewFilter("incorrect");
+    setRemainingSeconds(setup.isTimed ? preparedQuestions.length * 2 * 60 : null);
+  }
+
+  function completeQuiz() {
+    setReviewFilter("incorrect");
+    setIsComplete(true);
+    setRemainingSeconds(null);
+  }
 
   function selectOption(optionIndex: number) {
     setAnswersByQuestionId((answers) => {
@@ -68,7 +176,7 @@ export default function Quiz({ quiz }: QuizProps) {
 
   function goToNextQuestion() {
     setCurrentQuestionIndex((index) =>
-      Math.min(index + 1, quiz.questions.length - 1),
+      Math.min(index + 1, runningQuiz.questions.length - 1),
     );
   }
 
@@ -85,7 +193,7 @@ export default function Quiz({ quiz }: QuizProps) {
   }
 
   function submitTest() {
-    const unansweredCount = getUnansweredCount(quiz, answersByQuestionId);
+    const unansweredCount = getUnansweredCount(runningQuiz, answersByQuestionId);
 
     if (
       unansweredCount > 0 &&
@@ -94,28 +202,23 @@ export default function Quiz({ quiz }: QuizProps) {
       return;
     }
 
-    setReviewFilter("incorrect");
-    setIsComplete(true);
+    completeQuiz();
   }
 
   function restartQuiz() {
-    setCurrentQuestionIndex(0);
-    setAnswersByQuestionId({});
-    setMarkedQuestionIds([]);
-    setIsComplete(false);
-    setReviewFilter("incorrect");
+    startQuiz();
   }
 
   if (isComplete) {
     const reviewedQuestions = getReviewedQuestions({
       answersByQuestionId,
       markedQuestionIds,
-      quiz,
+      quiz: runningQuiz,
     });
     const correctCount = reviewedQuestions.filter(
       (reviewedQuestion) => reviewedQuestion.answeredCorrectly,
     ).length;
-    const totalQuestions = quiz.questions.length;
+    const totalQuestions = runningQuiz.questions.length;
     const incorrectCount = totalQuestions - correctCount;
     const percentageScore = Math.round((correctCount / totalQuestions) * 100);
     const filteredQuestions = getFilteredQuestions(
@@ -125,7 +228,7 @@ export default function Quiz({ quiz }: QuizProps) {
 
     return (
       <section className="mx-auto flex w-full max-w-5xl flex-col gap-8 rounded-lg border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-        <QuizHeader quiz={quiz} />
+        <QuizHeader quiz={runningQuiz} />
         <div className="border-t border-slate-200 pt-8">
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">
             Test complete
@@ -208,15 +311,15 @@ export default function Quiz({ quiz }: QuizProps) {
   return (
     <section className="mx-auto grid w-full max-w-7xl gap-5 lg:h-[min(760px,calc(100vh-7rem))] lg:min-h-[620px] lg:grid-cols-[280px_1fr]">
       <aside className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm lg:flex lg:min-h-0 lg:flex-col">
-        <QuizHeader quiz={quiz} compact />
+        <QuizHeader quiz={runningQuiz} compact />
         <div className="mt-5 rounded-md border border-slate-200 bg-slate-50 p-4">
           <div className="flex items-end justify-between gap-3">
             <div>
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700">
-              {quiz.practiceMode === "course" ? "Course Test" : "Chapter Practice"}
+              {runningQuiz.practiceMode === "course" ? "Course Test" : "Chapter Practice"}
             </p>
               <p className="mt-1 text-2xl font-semibold tracking-normal text-slate-950">
-                {quiz.questions.length}
+                {runningQuiz.questions.length}
               </p>
             </div>
             <p className="pb-1 text-sm font-medium text-slate-500">
@@ -230,11 +333,11 @@ export default function Quiz({ quiz }: QuizProps) {
               Question navigator
             </p>
             <p className="text-xs font-medium text-slate-500">
-              {currentQuestionIndex + 1} / {quiz.questions.length}
+              {currentQuestionIndex + 1} / {runningQuiz.questions.length}
             </p>
           </div>
           <div className="mt-4 grid grid-cols-6 gap-2 lg:max-h-[360px] lg:grid-cols-5 lg:overflow-y-auto lg:pr-1">
-            {quiz.questions.map((question, questionIndex) => {
+            {runningQuiz.questions.map((question, questionIndex) => {
               const isCurrent = questionIndex === currentQuestionIndex;
               const isAnswered =
                 getSelectedOptionIndexes(answersByQuestionId, question.id)
@@ -270,11 +373,18 @@ export default function Quiz({ quiz }: QuizProps) {
         <div className="border-b border-slate-200 px-6 py-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="text-sm font-semibold text-slate-700">
-              Question {currentQuestionIndex + 1} of {quiz.questions.length}
+              Question {currentQuestionIndex + 1} of {runningQuiz.questions.length}
             </p>
-            <p className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-              {isMultipleAnswer ? "Multiple answer" : "Single answer"}
-            </p>
+            <div className="flex flex-wrap items-center gap-2">
+              {remainingSeconds !== null ? (
+                <p className="rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-amber-900">
+                  {formatRemainingTime(remainingSeconds)}
+                </p>
+              ) : null}
+              <p className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                {isMultipleAnswer ? "Multiple answer" : "Single answer"}
+              </p>
+            </div>
           </div>
         </div>
 
@@ -354,6 +464,245 @@ export default function Quiz({ quiz }: QuizProps) {
         </div>
       </div>
     </section>
+  );
+}
+
+function QuizSetupScreen({
+  effectiveQuestionCount,
+  onStart,
+  quiz,
+  selectedQuestionCountLabel,
+  setup,
+  timedDurationMinutes,
+  totalAvailableQuestions,
+  updateSetup,
+}: {
+  effectiveQuestionCount: number;
+  onStart: () => void;
+  quiz: QuizData;
+  selectedQuestionCountLabel: string;
+  setup: QuizSetup;
+  timedDurationMinutes: number;
+  totalAvailableQuestions: number;
+  updateSetup: (setup: QuizSetup | ((setup: QuizSetup) => QuizSetup)) => void;
+}) {
+  const difficultyMix = useMemo(
+    () => getDifficultyMix(quiz.questions),
+    [quiz.questions],
+  );
+  const quickCounts = [5, 10, 20, 30, 50, 60];
+  const shouldUseAllAvailable =
+    setup.isAllQuestions || setup.count > totalAvailableQuestions;
+
+  function setQuestionCount(count: number) {
+    updateSetup((currentSetup) => ({
+      ...currentSetup,
+      count: clampQuestionCount(count),
+      isAllQuestions: false,
+    }));
+  }
+
+  return (
+    <section className="mx-auto grid w-full max-w-5xl gap-6 rounded-lg border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+      <div className="grid gap-6 lg:grid-cols-[1fr_280px] lg:items-start">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.16em] text-teal-700">
+            {quiz.practiceMode === "course" ? "Course Test" : "Chapter Practice"}
+          </p>
+          <p className="mt-3 text-sm font-medium text-slate-500 dark:text-slate-400">
+            {quiz.course}
+          </p>
+          {quiz.practiceMode !== "course" ? (
+            <h1 className="mt-2 text-3xl font-semibold tracking-normal text-slate-950 dark:text-white sm:text-4xl">
+              {quiz.chapterTitle}
+            </h1>
+          ) : (
+            <h1 className="mt-2 text-3xl font-semibold tracking-normal text-slate-950 dark:text-white sm:text-4xl">
+              Course Test
+            </h1>
+          )}
+        </div>
+
+        <div className="rounded-md border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950">
+          <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+            Total available
+          </p>
+          <p className="mt-2 text-3xl font-semibold tracking-normal text-slate-950 dark:text-white">
+            {totalAvailableQuestions}
+          </p>
+        </div>
+      </div>
+
+      <div className="grid gap-3 sm:grid-cols-3">
+        <SetupStat label="easy" value={difficultyMix.easy} />
+        <SetupStat label="moderate" value={difficultyMix.moderate} />
+        <SetupStat label="difficult" value={difficultyMix.difficult} />
+      </div>
+
+      <div className="grid gap-6 border-t border-slate-200 pt-6 dark:border-slate-800 lg:grid-cols-[1fr_280px]">
+        <div>
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <h2 className="text-xl font-semibold tracking-normal text-slate-950 dark:text-white">
+                Question count
+              </h2>
+              <p className="mt-1 text-sm font-medium text-slate-500 dark:text-slate-400">
+                Selected: {selectedQuestionCountLabel}
+              </p>
+            </div>
+            <label className="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
+              <input
+                type="checkbox"
+                checked={setup.isAllQuestions}
+                onChange={(event) =>
+                  updateSetup((currentSetup) => ({
+                    ...currentSetup,
+                    isAllQuestions: event.target.checked,
+                  }))
+                }
+                className="h-4 w-4 accent-teal-700"
+              />
+              Practice all questions
+            </label>
+          </div>
+
+          <div className="mt-5 flex flex-wrap gap-2">
+            {quickCounts.map((count) => (
+              <button
+                key={count}
+                type="button"
+                onClick={() => setQuestionCount(count)}
+                className={[
+                  "h-10 rounded-md border px-4 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2",
+                  !setup.isAllQuestions && setup.count === count
+                    ? "border-slate-950 bg-slate-950 text-white"
+                    : "border-slate-300 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800",
+                ].join(" ")}
+              >
+                {count}
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-5 grid gap-4 sm:grid-cols-[1fr_96px] sm:items-center">
+            <input
+              type="range"
+              min={5}
+              max={60}
+              value={setup.count}
+              onChange={(event) => setQuestionCount(Number(event.target.value))}
+              className="w-full accent-teal-700"
+            />
+            <input
+              type="number"
+              min={5}
+              max={60}
+              value={setup.count}
+              onChange={(event) => setQuestionCount(Number(event.target.value))}
+              className="h-11 rounded-md border border-slate-300 bg-white px-3 text-sm font-semibold text-slate-950 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+            />
+          </div>
+
+          {shouldUseAllAvailable ? (
+            <p className="mt-3 text-sm font-medium text-amber-700 dark:text-amber-300">
+              Only {totalAvailableQuestions} available question
+              {totalAvailableQuestions === 1 ? "" : "s"} will be used.
+            </p>
+          ) : null}
+        </div>
+
+        <div className="rounded-md border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950">
+          <h2 className="text-lg font-semibold tracking-normal text-slate-950 dark:text-white">
+            Test mode
+          </h2>
+          <div className="mt-4 grid gap-2">
+            <ModeButton
+              isActive={!setup.isTimed}
+              label="Practice Mode"
+              meta="untimed"
+              onSelect={() =>
+                updateSetup((currentSetup) => ({
+                  ...currentSetup,
+                  isTimed: false,
+                }))
+              }
+            />
+            <ModeButton
+              isActive={setup.isTimed}
+              label="Timed Test"
+              meta="timed"
+              onSelect={() =>
+                updateSetup((currentSetup) => ({
+                  ...currentSetup,
+                  isTimed: true,
+                }))
+              }
+            />
+          </div>
+          {setup.isTimed ? (
+            <p className="mt-4 rounded-md border border-amber-200 bg-amber-50 p-3 text-sm font-medium text-amber-900">
+              Duration: {timedDurationMinutes} minutes
+            </p>
+          ) : null}
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-3 border-t border-slate-200 pt-6 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+          The quiz will shuffle questions and answer options when it starts.
+        </p>
+        <button
+          type="button"
+          onClick={onStart}
+          className="h-12 rounded-md bg-slate-950 px-6 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200"
+        >
+          Start quiz with {effectiveQuestionCount}
+        </button>
+      </div>
+    </section>
+  );
+}
+
+function SetupStat({ label, value }: { label: string; value: number }) {
+  return (
+    <div className="rounded-md border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950">
+      <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">
+        {label}
+      </p>
+      <p className="mt-2 text-2xl font-semibold tracking-normal text-slate-950 dark:text-white">
+        {value}
+      </p>
+    </div>
+  );
+}
+
+function ModeButton({
+  isActive,
+  label,
+  meta,
+  onSelect,
+}: {
+  isActive: boolean;
+  label: string;
+  meta: string;
+  onSelect: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      className={[
+        "rounded-md border p-3 text-left transition focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2",
+        isActive
+          ? "border-teal-700 bg-teal-50 text-teal-950"
+          : "border-slate-300 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800",
+      ].join(" ")}
+    >
+      <span className="block text-sm font-semibold">{label}</span>
+      <span className="mt-1 block text-xs font-semibold uppercase tracking-[0.12em] opacity-70">
+        {meta}
+      </span>
+    </button>
   );
 }
 
@@ -769,4 +1118,129 @@ function formatOptionAnswers(options: string[], optionIndexes: number[]) {
     .sort((a, b) => a - b)
     .map((optionIndex) => options[optionIndex])
     .join("; ");
+}
+
+function clampQuestionCount(count: number) {
+  if (!Number.isFinite(count)) {
+    return 5;
+  }
+
+  return Math.min(60, Math.max(5, Math.round(count)));
+}
+
+function normalizeDifficulty(difficulty: string | undefined) {
+  if (difficulty === "easy") {
+    return "easy";
+  }
+
+  if (difficulty === "difficult" || difficulty === "hard") {
+    return "difficult";
+  }
+
+  return "moderate";
+}
+
+function getDifficultyMix(questions: QuizQuestion[]) {
+  return questions.reduce(
+    (difficultyMix, question) => {
+      difficultyMix[normalizeDifficulty(question.difficulty)] += 1;
+      return difficultyMix;
+    },
+    {
+      difficult: 0,
+      easy: 0,
+      moderate: 0,
+    },
+  );
+}
+
+function shuffleArray<T>(items: T[]) {
+  const shuffledItems = [...items];
+
+  for (let index = shuffledItems.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffledItems[index], shuffledItems[swapIndex]] = [
+      shuffledItems[swapIndex],
+      shuffledItems[index],
+    ];
+  }
+
+  return shuffledItems;
+}
+
+function shuffleQuestionOptions(question: QuizQuestion): QuizQuestion {
+  const shuffledOptions = shuffleArray(
+    question.options.map((option, originalIndex) => ({
+      isCorrect: question.correctOptionIndexes.includes(originalIndex),
+      option,
+    })),
+  );
+
+  return {
+    ...question,
+    correctOptionIndexes: shuffledOptions.reduce<number[]>(
+      (correctIndexes, option, optionIndex) => {
+        if (option.isCorrect) {
+          correctIndexes.push(optionIndex);
+        }
+
+        return correctIndexes;
+      },
+      [],
+    ),
+    options: shuffledOptions.map((option) => option.option),
+  };
+}
+
+function sampleQuestions(questions: QuizQuestion[], count: number) {
+  return shuffleArray(questions).slice(0, Math.min(count, questions.length));
+}
+
+function balancedSampleCourseQuestions(
+  questions: QuizQuestion[],
+  requestedCount: number,
+) {
+  const groups = new Map<string, QuizQuestion[]>();
+
+  for (const question of questions) {
+    const chapterKey =
+      question.sourceChapterId ?? question.sourceChapterTitle ?? "course";
+    const chapterQuestions = groups.get(chapterKey) ?? [];
+    chapterQuestions.push(question);
+    groups.set(chapterKey, chapterQuestions);
+  }
+
+  const targetCount = Math.min(requestedCount, questions.length);
+  const shuffledGroups = shuffleArray(
+    Array.from(groups.values()).map((groupQuestions) =>
+      shuffleArray(groupQuestions),
+    ),
+  );
+  const selectedQuestions: QuizQuestion[] = [];
+  let groupIndex = 0;
+
+  while (selectedQuestions.length < targetCount && shuffledGroups.length > 0) {
+    const group = shuffledGroups[groupIndex % shuffledGroups.length];
+    const question = group.shift();
+
+    if (question) {
+      selectedQuestions.push(question);
+    }
+
+    if (group.length === 0) {
+      shuffledGroups.splice(groupIndex % shuffledGroups.length, 1);
+      groupIndex = 0;
+    } else {
+      groupIndex += 1;
+    }
+  }
+
+  return shuffleArray(selectedQuestions);
+}
+
+function formatRemainingTime(totalSeconds: number) {
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+
+  return `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }

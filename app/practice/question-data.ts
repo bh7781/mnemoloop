@@ -71,10 +71,16 @@ export async function getQuiz(relativeQuestionPath: string | undefined) {
 
   try {
     const file = await readFile(questionPath, "utf8");
+    const quiz = normalizeQuiz(JSON.parse(file));
 
     return {
-      ...normalizeQuiz(JSON.parse(file)),
+      ...quiz,
       practiceMode: "chapter" as const,
+      questions: quiz.questions.map((question) => ({
+        ...question,
+        sourceChapterId: quiz.chapterId,
+        sourceChapterTitle: quiz.chapterTitle,
+      })),
     };
   } catch {
     return null;
@@ -200,16 +206,22 @@ function getDifficultyMix(quiz: QuizData) {
   };
 
   for (const question of quiz.questions) {
-    if (
-      question.difficulty === "easy" ||
-      question.difficulty === "moderate" ||
-      question.difficulty === "difficult"
-    ) {
-      difficultyMix[question.difficulty] += 1;
-    }
+    difficultyMix[normalizeDifficulty(question.difficulty)] += 1;
   }
 
   return difficultyMix;
+}
+
+function normalizeDifficulty(difficulty: string | undefined) {
+  if (difficulty === "easy") {
+    return "easy";
+  }
+
+  if (difficulty === "difficult" || difficulty === "hard") {
+    return "difficult";
+  }
+
+  return "moderate";
 }
 
 type RawQuizQuestion = Omit<QuizData["questions"][number], "correctOptionIndexes"> & {

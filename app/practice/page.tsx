@@ -14,6 +14,8 @@ export type QuizQuestion = {
   options: string[];
   correctOptionIndexes: number[];
   explanation: string;
+  sourceChapterId?: string;
+  sourceChapterTitle?: string;
 };
 
 export type QuizData = {
@@ -179,13 +181,13 @@ function QuestionBankCard({
             {questionBank.questionCount} questions
           </span>
           <span className="rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-slate-800 dark:bg-slate-900">
-            Easy {questionBank.difficultyMix.easy}
+            easy {questionBank.difficultyMix.easy}
           </span>
           <span className="rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-slate-800 dark:bg-slate-900">
-            Moderate {questionBank.difficultyMix.moderate}
+            moderate {questionBank.difficultyMix.moderate}
           </span>
           <span className="rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-slate-800 dark:bg-slate-900">
-            Difficult {questionBank.difficultyMix.difficult}
+            difficult {questionBank.difficultyMix.difficult}
           </span>
         </div>
       </div>
