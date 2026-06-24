@@ -36,7 +36,7 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
   )}`;
 
   return (
-    <main className="min-h-screen bg-white px-6 pb-16 pt-32 text-slate-950 dark:bg-slate-950 dark:text-white">
+    <main className="min-h-screen bg-white px-6 pb-16 pt-12 text-slate-950 dark:bg-slate-950 dark:text-white">
       <article className="mx-auto w-full max-w-3xl">
         <Link
           href={courseHref}

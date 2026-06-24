@@ -21,7 +21,7 @@ const featureCards = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-50 px-6 pb-16 pt-32 text-slate-950 dark:bg-slate-950 dark:text-white">
+    <main className="min-h-screen bg-slate-50 px-6 pb-16 pt-14 text-slate-950 dark:bg-slate-950 dark:text-white">
       <section className="mx-auto grid w-full max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-400">
