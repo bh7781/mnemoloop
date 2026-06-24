@@ -3,7 +3,7 @@ import ThemeToggle from "./theme-toggle";
 
 export default function SiteNav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 px-4 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/80 sm:px-6">
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 px-4 backdrop-blur-md dark:border-slate-700 dark:bg-[#0b1120]/85 sm:px-6">
       <nav className="mx-auto flex h-14 max-w-7xl items-center justify-between">
         <Link
           href="/"

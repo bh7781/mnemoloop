@@ -7,7 +7,7 @@ export default async function ContentPage() {
   const courses = await getCourses();
 
   return (
-    <main className="min-h-screen bg-white px-6 pb-16 pt-12 text-slate-950 dark:bg-slate-950 dark:text-white">
+    <main className="min-h-screen bg-white px-6 pb-16 pt-12 text-slate-950 dark:bg-[#0b1120] dark:text-white">
       <section className="mx-auto w-full max-w-5xl">
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">
           Mnemoloop

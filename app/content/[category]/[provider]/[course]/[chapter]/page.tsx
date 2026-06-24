@@ -36,22 +36,22 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
   )}`;
 
   return (
-    <main className="min-h-screen bg-white px-6 pb-16 pt-12 text-slate-950 dark:bg-slate-950 dark:text-white">
+    <main className="min-h-screen bg-white px-6 pb-16 pt-12 text-slate-950 dark:bg-[#0b1120] dark:text-white">
       <article className="mx-auto w-full max-w-3xl">
         <Link
           href={courseHref}
-          className="text-sm font-semibold text-teal-700 transition hover:text-teal-900 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2"
+          className="text-sm font-semibold text-teal-700 transition hover:text-teal-900 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 dark:text-teal-300 dark:hover:text-teal-200 dark:focus:ring-slate-200"
         >
           Back to {chapterDetail.course.title}
         </Link>
 
-        <header className="mt-8 border-b border-slate-200 pb-8">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-teal-700">
+        <header className="mt-8 border-b border-slate-200 pb-8 dark:border-slate-700">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-teal-700 dark:text-teal-300">
             <span>{chapterDetail.course.category}</span>
-            <span className="text-slate-300">/</span>
+            <span className="text-slate-300 dark:text-slate-600">/</span>
             <span>{chapterDetail.course.provider}</span>
           </div>
-          <p className="mt-4 text-sm font-medium text-slate-500">
+          <p className="mt-4 text-sm font-medium text-slate-500 dark:text-slate-300">
             {chapterDetail.course.title}
           </p>
           <h1 className="mt-3 text-4xl font-semibold tracking-normal text-slate-950 dark:text-white sm:text-5xl">
@@ -61,12 +61,12 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
             {hasQuestions ? (
               <Link
                 href={practiceHref}
-                className="inline-flex rounded-md bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2"
+                className="inline-flex rounded-md bg-slate-950 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 dark:bg-teal-500 dark:text-slate-950 dark:hover:bg-teal-400 dark:focus:ring-teal-300"
               >
                 Practice this chapter
               </Link>
             ) : (
-              <p className="rounded-md border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-600">
+              <p className="rounded-md border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300">
                 Questions are not generated for this chapter yet.
               </p>
             )}
@@ -78,71 +78,71 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
             remarkPlugins={[remarkGfm]}
             components={{
               h1: ({ children }) => (
-                <h1 className="mt-10 text-3xl font-semibold tracking-normal text-slate-950">
+                <h1 className="mt-10 text-3xl font-semibold tracking-normal text-slate-950 dark:text-white">
                   {children}
                 </h1>
               ),
               h2: ({ children }) => (
-                <h2 className="mt-10 text-2xl font-semibold tracking-normal text-slate-950">
+                <h2 className="mt-10 text-2xl font-semibold tracking-normal text-slate-950 dark:text-slate-50">
                   {children}
                 </h2>
               ),
               h3: ({ children }) => (
-                <h3 className="mt-8 text-xl font-semibold text-slate-950">
+                <h3 className="mt-8 text-xl font-semibold text-slate-950 dark:text-slate-100">
                   {children}
                 </h3>
               ),
               h4: ({ children }) => (
-                <h4 className="mt-6 text-lg font-semibold text-slate-950">
+                <h4 className="mt-6 text-lg font-semibold text-slate-950 dark:text-slate-100">
                   {children}
                 </h4>
               ),
               p: ({ children }) => (
-                <p className="mt-4 text-base leading-8 text-slate-700">
+                <p className="mt-4 text-base leading-8 text-slate-700 dark:text-slate-200">
                   {children}
                 </p>
               ),
               ul: ({ children }) => (
-                <ul className="mt-4 list-disc space-y-2 pl-6 text-base leading-8 text-slate-700">
+                <ul className="mt-4 list-disc space-y-2 pl-6 text-base leading-8 text-slate-700 marker:text-teal-600 dark:text-slate-200 dark:marker:text-teal-300">
                   {children}
                 </ul>
               ),
               ol: ({ children }) => (
-                <ol className="mt-4 list-decimal space-y-2 pl-6 text-base leading-8 text-slate-700">
+                <ol className="mt-4 list-decimal space-y-2 pl-6 text-base leading-8 text-slate-700 marker:text-teal-600 dark:text-slate-200 dark:marker:text-teal-300">
                   {children}
                 </ol>
               ),
               li: ({ children }) => <li className="pl-1">{children}</li>,
               blockquote: ({ children }) => (
-                <blockquote className="mt-6 border-l-4 border-teal-600 bg-teal-50 px-5 py-4 text-slate-700">
+                <blockquote className="mt-6 border-l-4 border-teal-600 bg-teal-50 px-5 py-4 text-slate-700 dark:border-teal-300 dark:bg-teal-950/40 dark:text-slate-100">
                   {children}
                 </blockquote>
               ),
               a: ({ href, children }) => (
                 <a
                   href={href}
-                  className="font-medium text-teal-700 underline decoration-teal-300 underline-offset-4 hover:text-teal-900"
+                  className="font-medium text-teal-700 underline decoration-teal-300 underline-offset-4 hover:text-teal-900 dark:text-teal-300 dark:decoration-teal-500 dark:hover:text-teal-200"
                 >
                   {children}
                 </a>
               ),
               table: ({ children }) => (
-                <table className="mt-6 w-full border-collapse text-left text-sm">
+                <table className="mt-6 w-full border-collapse text-left text-sm text-slate-700 dark:text-slate-200">
                   {children}
                 </table>
               ),
               th: ({ children }) => (
-                <th className="border border-slate-300 bg-slate-100 px-3 py-2 font-semibold text-slate-950">
+                <th className="border border-slate-300 bg-slate-100 px-3 py-2 font-semibold text-slate-950 dark:border-slate-700 dark:bg-slate-800 dark:text-white">
                   {children}
                 </th>
               ),
               td: ({ children }) => (
-                <td className="border border-slate-200 px-3 py-2 text-slate-700">
+                <td className="border border-slate-200 px-3 py-2 text-slate-700 dark:border-slate-700 dark:text-slate-200">
                   {children}
                 </td>
               ),
               pre: ({ children }) => (
-                <pre className="mt-6 overflow-x-auto rounded-lg bg-slate-950 p-4 text-sm leading-7 text-slate-100">
+                <pre className="mt-6 overflow-x-auto rounded-lg bg-slate-950 p-4 text-sm leading-7 text-slate-100 ring-1 ring-slate-800 dark:bg-slate-950 dark:text-slate-100 dark:ring-slate-700">
                   {children}
                 </pre>
               ),
@@ -150,13 +150,13 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
                 <code
                   className={
                     className ||
-                    "rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-900"
+                    "rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-900 dark:bg-slate-800 dark:text-slate-100"
                   }
                 >
                   {children}
                 </code>
               ),
-              hr: () => <hr className="my-10 border-slate-200" />,
+              hr: () => <hr className="my-10 border-slate-200 dark:border-slate-700" />,
             }}
           >
             {chapterDetail.content}

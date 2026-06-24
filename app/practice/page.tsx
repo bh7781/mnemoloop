@@ -43,7 +43,7 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
     const questionBanks = await getQuestionBanks();
 
     return (
-      <main className="min-h-screen bg-slate-50 px-6 pb-10 pt-12 text-slate-950 dark:bg-slate-950 dark:text-white sm:pb-16">
+      <main className="min-h-screen bg-slate-50 px-6 pb-10 pt-12 text-slate-950 dark:bg-[#0b1120] dark:text-white sm:pb-16">
         <PracticeSelection questionBanks={questionBanks} />
       </main>
     );
@@ -54,7 +54,7 @@ export default async function PracticePage({ searchParams }: PracticePageProps) 
     : await getCourseQuiz(courseKey);
 
   return (
-    <main className="min-h-screen bg-slate-50 px-6 pb-10 pt-12 text-slate-950 dark:bg-slate-950 dark:text-white sm:pb-16">
+    <main className="min-h-screen bg-slate-50 px-6 pb-10 pt-12 text-slate-950 dark:bg-[#0b1120] dark:text-white sm:pb-16">
       {quiz ? (
         <Quiz quiz={quiz} />
       ) : (

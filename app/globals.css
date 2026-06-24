@@ -5,6 +5,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --dark-background: #0b1120;
+  --dark-surface: #111827;
+  --dark-surface-muted: #0f172a;
+  --dark-border: #334155;
+  --dark-text: #e5edf7;
+  --dark-text-strong: #f8fafc;
+  --dark-text-muted: #a8b3c7;
 }
 
 @theme inline {
@@ -16,8 +23,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--dark-background);
+    --foreground: var(--dark-text);
   }
 }
 
@@ -25,4 +32,59 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+.dark body {
+  background: var(--dark-background);
+  color: var(--dark-text);
+}
+
+.dark .text-slate-950,
+.dark .text-slate-900 {
+  color: var(--dark-text-strong);
+}
+
+.dark .text-slate-800,
+.dark .text-slate-700,
+.dark .text-slate-600 {
+  color: var(--dark-text);
+}
+
+.dark .text-slate-500,
+.dark .text-slate-400 {
+  color: var(--dark-text-muted);
+}
+
+.dark .text-slate-300 {
+  color: #cbd5e1;
+}
+
+.dark .bg-white,
+.dark .bg-slate-50 {
+  background-color: var(--dark-surface);
+}
+
+.dark .bg-slate-100 {
+  background-color: var(--dark-surface-muted);
+}
+
+.dark .bg-teal-50 {
+  background-color: rgba(20, 184, 166, 0.14);
+}
+
+.dark .bg-red-50 {
+  background-color: rgba(248, 113, 113, 0.14);
+}
+
+.dark .bg-amber-50 {
+  background-color: rgba(251, 191, 36, 0.14);
+}
+
+.dark .border-slate-200,
+.dark .border-slate-300 {
+  border-color: var(--dark-border);
+}
+
+.dark .divide-slate-200 > :not(:last-child) {
+  border-color: var(--dark-border);
 }
