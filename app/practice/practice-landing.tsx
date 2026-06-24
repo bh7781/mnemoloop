@@ -17,8 +17,17 @@ type CourseTestSummary = {
   chapterCount: number;
   course: string;
   courseKey: string;
+  difficultyMix: DifficultyMix;
   questionCount: number;
 };
+
+type DifficultyMix = {
+  difficult: number;
+  easy: number;
+  moderate: number;
+};
+
+type PracticeType = "chapter" | "course";
 
 export default function PracticeLanding({
   knowledgeAreas,
@@ -28,6 +37,9 @@ export default function PracticeLanding({
   const [selectedProviderKey, setSelectedProviderKey] = useState<string | null>(
     null,
   );
+  const [selectedPracticeType, setSelectedPracticeType] =
+    useState<PracticeType | null>(null);
+  const [selectedCourseKey, setSelectedCourseKey] = useState<string | null>(null);
   const selectedArea =
     knowledgeAreas.find((knowledgeArea) => knowledgeArea.key === selectedAreaKey) ??
     null;
@@ -48,16 +60,39 @@ export default function PracticeLanding({
     () => getCourseTests(groupedQuestionBanks),
     [groupedQuestionBanks],
   );
+  const selectedCourseGroup =
+    groupedQuestionBanks.find(
+      ([, banks]) => banks[0]?.courseKey === selectedCourseKey,
+    ) ?? null;
 
   function selectArea(areaKey: string) {
     setSelectedAreaKey(areaKey);
     setSelectedProviderKey(null);
+    setSelectedPracticeType(null);
+    setSelectedCourseKey(null);
   }
 
   function selectProvider(provider: PracticeProviderSummary) {
     setSelectedProviderKey(provider.key);
+    setSelectedPracticeType(null);
+    setSelectedCourseKey(null);
+    scrollToSection("practice-type");
+  }
+
+  function selectPracticeType(practiceType: PracticeType) {
+    setSelectedPracticeType(practiceType);
+    setSelectedCourseKey(null);
+    scrollToSection("available-practice");
+  }
+
+  function selectCourse(courseKey: string) {
+    setSelectedCourseKey(courseKey);
+    scrollToSection("chapter-options");
+  }
+
+  function scrollToSection(sectionId: string) {
     window.setTimeout(() => {
-      document.getElementById("available-practice")?.scrollIntoView({
+      document.getElementById(sectionId)?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -80,6 +115,13 @@ export default function PracticeLanding({
         />
       ) : null}
 
+      {selectedProvider ? (
+        <PracticeTypeSelection
+          onSelectPracticeType={selectPracticeType}
+          selectedPracticeType={selectedPracticeType}
+        />
+      ) : null}
+
       {questionBanks.length === 0 ? (
         <div className="mt-6 rounded-lg border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-8">
           <h2 className="text-2xl font-semibold tracking-normal text-slate-950 dark:text-white">
@@ -89,19 +131,23 @@ export default function PracticeLanding({
             Generate question banks for chapters, then return here to start practice.
           </p>
         </div>
-      ) : selectedProvider ? (
-        <AvailablePracticeOptions
-          courseTests={courseTests}
+      ) : selectedProvider && selectedPracticeType === "course" ? (
+        <CourseTestOptions courseTests={courseTests} provider={selectedProvider} />
+      ) : selectedProvider && selectedPracticeType === "chapter" ? (
+        <ChapterPracticeOptions
           groupedQuestionBanks={groupedQuestionBanks}
+          onSelectCourse={selectCourse}
           provider={selectedProvider}
+          selectedCourseGroup={selectedCourseGroup}
+          selectedCourseKey={selectedCourseKey}
         />
       ) : (
         <div
           id="available-practice"
           className="mt-8 scroll-mt-20 rounded-lg border border-dashed border-slate-300 bg-white/70 p-6 text-sm font-medium text-slate-600 shadow-sm dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-300"
         >
-          Choose a knowledge area and source to reveal matching course and
-          chapter practice options.
+          Choose a knowledge area, source, and practice type to reveal matching
+          course and chapter options.
         </div>
       )}
     </section>
@@ -247,13 +293,95 @@ function ProviderSelection({
   );
 }
 
-function AvailablePracticeOptions({
+function PracticeTypeSelection({
+  onSelectPracticeType,
+  selectedPracticeType,
+}: {
+  onSelectPracticeType: (practiceType: PracticeType) => void;
+  selectedPracticeType: PracticeType | null;
+}) {
+  return (
+    <section
+      id="practice-type"
+      className="mt-8 scroll-mt-20 rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6"
+    >
+      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-700 dark:text-teal-300">
+        Practice type
+      </p>
+      <h2 className="mt-2 text-3xl font-semibold tracking-normal text-slate-950 dark:text-white">
+        How would you like to practice?
+      </h2>
+      <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <PracticeTypeCard
+          description="Take a balanced test across the selected course."
+          isSelected={selectedPracticeType === "course"}
+          label="Full Course Test"
+          onSelect={() => onSelectPracticeType("course")}
+        />
+        <PracticeTypeCard
+          description="Pick a course, then practice one chapter at a time."
+          isSelected={selectedPracticeType === "chapter"}
+          label="Chapter-wise Practice"
+          onSelect={() => onSelectPracticeType("chapter")}
+        />
+        <PracticeTypeCard
+          description="Coming Soon"
+          disabled
+          label="Weak Questions"
+        />
+        <PracticeTypeCard
+          description="Coming Soon"
+          disabled
+          label="Due Review"
+        />
+      </div>
+    </section>
+  );
+}
+
+function PracticeTypeCard({
+  description,
+  disabled = false,
+  isSelected = false,
+  label,
+  onSelect,
+}: {
+  description: string;
+  disabled?: boolean;
+  isSelected?: boolean;
+  label: string;
+  onSelect?: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      disabled={disabled}
+      onClick={onSelect}
+      className={[
+        "rounded-lg border p-5 text-left shadow-sm transition focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 dark:focus:ring-slate-200",
+        disabled
+          ? "cursor-not-allowed border-slate-200 bg-slate-100 text-slate-400 opacity-75 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-500"
+          : "hover:-translate-y-0.5 hover:border-teal-300 hover:bg-white hover:shadow-md dark:hover:border-teal-700 dark:hover:bg-slate-900",
+        isSelected
+          ? "border-teal-300 bg-teal-50 dark:border-teal-700 dark:bg-teal-950/30"
+          : "border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950",
+      ].join(" ")}
+    >
+      <h3 className="text-lg font-semibold tracking-normal text-slate-950 dark:text-white">
+        {label}
+      </h3>
+      <p className="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">
+        {description}
+      </p>
+    </button>
+  );
+}
+
+function CourseTestOptions({
   courseTests,
-  groupedQuestionBanks,
   provider,
 }: {
   courseTests: CourseTestSummary[];
-  groupedQuestionBanks: Array<[string, QuestionBankSummary[]]>;
   provider: PracticeProviderSummary;
 }) {
   return (
@@ -271,8 +399,8 @@ function AvailablePracticeOptions({
           </p>
         ) : null}
         <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300">
-          Start with a full course test or drill into one chapter from this
-          source.
+          Start a full course test from this source. Each course will open the
+          existing quiz setup screen.
         </p>
       </div>
 
@@ -296,29 +424,81 @@ function AvailablePracticeOptions({
           ))}
         </div>
       </section>
+    </div>
+  );
+}
+
+function ChapterPracticeOptions({
+  groupedQuestionBanks,
+  onSelectCourse,
+  provider,
+  selectedCourseGroup,
+  selectedCourseKey,
+}: {
+  groupedQuestionBanks: Array<[string, QuestionBankSummary[]]>;
+  onSelectCourse: (courseKey: string) => void;
+  provider: PracticeProviderSummary;
+  selectedCourseGroup: [string, QuestionBankSummary[]] | null;
+  selectedCourseKey: string | null;
+}) {
+  const courseTests = getCourseTests(groupedQuestionBanks);
+
+  return (
+    <div id="available-practice" className="mt-8 grid scroll-mt-20 gap-8">
+      <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+        <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-700 dark:text-teal-300">
+          Chapter-wise Practice
+        </p>
+        <h2 className="mt-2 text-2xl font-semibold tracking-normal text-slate-950 dark:text-white">
+          {provider.label}
+        </h2>
+        {provider.subtitle ? (
+          <p className="mt-1 text-sm font-semibold text-slate-500 dark:text-slate-400">
+            {provider.subtitle}
+          </p>
+        ) : null}
+        <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600 dark:text-slate-300">
+          Choose a course first, then start practice from an individual chapter.
+        </p>
+      </div>
 
       <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
         <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-700">
-          Chapter Practice
+          Courses
         </p>
         <h2 className="mt-2 text-2xl font-semibold tracking-normal text-slate-950 dark:text-white">
-          Practice one chapter
+          Choose a course
         </h2>
-        <div className="mt-5 grid gap-6">
-          {groupedQuestionBanks.map(([course, banks]) => (
-            <section key={course}>
-              <h3 className="text-lg font-semibold tracking-normal text-slate-900 dark:text-slate-100">
-                {course}
-              </h3>
-              <div className="mt-3 grid gap-4">
-                {banks.map((bank) => (
-                  <QuestionBankCard key={bank.relativePath} questionBank={bank} />
-                ))}
-              </div>
-            </section>
+        <div className="mt-5 grid gap-4 md:grid-cols-2">
+          {courseTests.map((courseTest) => (
+            <CourseSelectionCard
+              courseTest={courseTest}
+              isSelected={selectedCourseKey === courseTest.courseKey}
+              key={courseTest.courseKey}
+              onSelect={() => onSelectCourse(courseTest.courseKey)}
+            />
           ))}
         </div>
       </section>
+
+      {selectedCourseGroup ? (
+        <section
+          id="chapter-options"
+          className="scroll-mt-20 rounded-lg border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6"
+        >
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-teal-700">
+            Chapters
+          </p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-normal text-slate-950 dark:text-white">
+            {selectedCourseGroup[0]}
+          </h2>
+          <div className="mt-5 grid gap-4">
+            {selectedCourseGroup[1].map((bank) => (
+              <QuestionBankCard key={bank.relativePath} questionBank={bank} />
+            ))}
+          </div>
+        </section>
+      ) : null}
     </div>
   );
 }
@@ -375,6 +555,15 @@ function CourseTestCard({ courseTest }: { courseTest: CourseTestSummary }) {
         <span className="rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-slate-800 dark:bg-slate-900">
           {courseTest.questionCount} questions
         </span>
+        <DifficultyPill label="easy" value={courseTest.difficultyMix.easy} />
+        <DifficultyPill
+          label="moderate"
+          value={courseTest.difficultyMix.moderate}
+        />
+        <DifficultyPill
+          label="difficult"
+          value={courseTest.difficultyMix.difficult}
+        />
       </div>
       <Link
         href={`/practice?course=${encodeURIComponent(courseTest.courseKey)}`}
@@ -383,6 +572,58 @@ function CourseTestCard({ courseTest }: { courseTest: CourseTestSummary }) {
         Start Course Test
       </Link>
     </article>
+  );
+}
+
+function CourseSelectionCard({
+  courseTest,
+  isSelected,
+  onSelect,
+}: {
+  courseTest: CourseTestSummary;
+  isSelected: boolean;
+  onSelect: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      className={[
+        "rounded-md border p-5 text-left shadow-sm transition hover:border-teal-200 hover:bg-white hover:shadow-md focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2 dark:hover:border-teal-900 dark:hover:bg-slate-900 dark:focus:ring-slate-200",
+        isSelected
+          ? "border-teal-300 bg-teal-50 dark:border-teal-700 dark:bg-teal-950/30"
+          : "border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-950",
+      ].join(" ")}
+    >
+      <h3 className="text-xl font-semibold tracking-normal text-slate-950 dark:text-white">
+        {courseTest.course}
+      </h3>
+      <div className="mt-3 flex flex-wrap gap-2 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <span className="rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-slate-800 dark:bg-slate-900">
+          {courseTest.chapterCount} chapters
+        </span>
+        <span className="rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-slate-800 dark:bg-slate-900">
+          {courseTest.questionCount} questions
+        </span>
+        <DifficultyPill label="easy" value={courseTest.difficultyMix.easy} />
+        <DifficultyPill
+          label="moderate"
+          value={courseTest.difficultyMix.moderate}
+        />
+        <DifficultyPill
+          label="difficult"
+          value={courseTest.difficultyMix.difficult}
+        />
+      </div>
+    </button>
+  );
+}
+
+function DifficultyPill({ label, value }: { label: string; value: number }) {
+  return (
+    <span className="rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-slate-800 dark:bg-slate-900">
+      {label} {value}
+    </span>
   );
 }
 
@@ -407,6 +648,18 @@ function getCourseTests(
     chapterCount: banks.length,
     course,
     courseKey: banks[0]?.courseKey ?? "",
+    difficultyMix: banks.reduce(
+      (difficultyMix, bank) => ({
+        difficult: difficultyMix.difficult + bank.difficultyMix.difficult,
+        easy: difficultyMix.easy + bank.difficultyMix.easy,
+        moderate: difficultyMix.moderate + bank.difficultyMix.moderate,
+      }),
+      {
+        difficult: 0,
+        easy: 0,
+        moderate: 0,
+      },
+    ),
     questionCount: banks.reduce((total, bank) => total + bank.questionCount, 0),
   }));
 }
