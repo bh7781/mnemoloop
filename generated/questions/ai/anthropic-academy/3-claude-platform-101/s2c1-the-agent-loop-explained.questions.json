@@ -1,0 +1,260 @@
+{
+  "chapterId": "claude-platform-101-s2c1",
+  "chapterTitle": "The agent loop explained",
+  "course": "Claude Platform 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-platform-101-s2c1-q001",
+      "question": "What is the primary characteristic that distinguishes an agent from a single API call?",
+      "options": [
+        "An agent operates in a continuous loop without requiring human intervention after the initial request",
+        "An agent can only be used with the Claude Sonnet model",
+        "An agent requires multiple API keys to function",
+        "An agent automatically generates its own tools without user input"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "An agent is defined as an autonomous version of Claude that operates both sides of the messaging loop without requiring a human after the initial request. A single API call produces a single response, whereas an agent continues reasoning and acting until the task is complete. The other options are either unsupported by the material or incorrect.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "agent definition",
+        "agentic workflow",
+        "autonomous operation"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c1-q002",
+      "question": "Which `stop_reason` value indicates that Claude has completed the task and no further tool calls are needed?",
+      "options": [
+        "tool_use",
+        "end_turn",
+        "complete",
+        "finished"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The agent loop ends when the response `stop_reason` is `end_turn`. This signals that Claude has finished reasoning and generated a final answer. The `tool_use` stop reason indicates Claude needs to call a tool, not that the task is complete.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "stop_reason",
+        "end_turn",
+        "agent loop termination"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c1-q003",
+      "question": "What does the `input_schema` field in a tool definition specify?",
+      "options": [
+        "The programming language required to implement the tool",
+        "The valid inputs for the tool using JSON Schema",
+        "The maximum number of times the tool can be called",
+        "The authentication credentials needed to access the tool"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The `input_schema` field defines valid inputs using JSON Schema. It specifies the structure and types of data that the tool accepts. This allows Claude to understand what parameters are required and how to format them when requesting tool use.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool definition",
+        "input_schema",
+        "JSON Schema"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c1-q004",
+      "question": "In the weather example, why must Claude request the `get_weather` tool rather than providing a clothing recommendation immediately?",
+      "options": [
+        "Claude is programmed to always use tools before answering questions",
+        "Claude does not have access to current weather information and needs the tool to obtain it",
+        "The tool is required by the API and must be called at least once per request",
+        "Claude uses tools to verify that the user's question is valid"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude does not know the current weather conditions, so it must use the `get_weather` tool to retrieve that information before it can make an informed recommendation about what to wear. Tools provide Claude with access to real-time or external data that it cannot generate on its own. Claude uses tools when needed to complete tasks, not automatically or for verification purposes.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool use decision",
+        "information retrieval",
+        "agent reasoning"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c1-q005",
+      "question": "What is the correct sequence of roles in the agent loop interaction pattern?",
+      "options": [
+        "User → Agent → Tool → Agent → Tool → Agent",
+        "User → Tool → Agent → Tool → Agent → Tool",
+        "Agent → User → Tool → Agent → User → Tool",
+        "Tool → Agent → User → Tool → Agent → User"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The interaction alternates between User, Agent, Tool, Agent, Tool, Agent until a final answer is produced. The user initiates the request, Claude (the agent) decides what to do, tools are executed, Claude processes results, and this cycle continues until completion.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "agent loop sequence",
+        "interaction pattern",
+        "message flow"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c1-q006",
+      "question": "When `response.stop_reason == \"tool_use\"`, what must your application do before continuing the agent loop?",
+      "options": [
+        "Immediately exit the loop and return the response to the user",
+        "Find tool-use blocks, execute each tool, collect results, and send those results back to Claude",
+        "Modify the tool definitions and resend them to Claude",
+        "Request a new API key from Anthropic before proceeding"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When Claude requests tool use, your application must find all tool-use blocks in the response, execute each requested tool, collect the results, and send those results back to Claude as part of the message history. This allows Claude to receive the information it needs and continue reasoning. The loop then repeats.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool_use handling",
+        "tool execution",
+        "message flow"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c1-q007",
+      "question": "According to the responsibility model presented, which of the following is owned by your application rather than by Claude?",
+      "options": [
+        "Deciding when to use a tool",
+        "Implementing the agent loop",
+        "Reasoning about the task",
+        "Generating the final answer"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Your application owns the agent loop implementation, tool execution, and tool definitions. Claude owns reasoning and decision-making, including when to use tools and generating the final answer. The responsibility model clarifies that you implement the infrastructure that runs the loop, while Claude handles the intelligent reasoning.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "responsibility model",
+        "agent architecture",
+        "ownership"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c1-q008",
+      "question": "In a production compliance-review agent, what would be the primary difference compared to the weather example?",
+      "options": [
+        "The agent loop structure would need to be completely rewritten",
+        "The underlying loop remains identical, but the tools and surrounding systems would be more sophisticated",
+        "Production agents cannot use the same loop pattern as demo agents",
+        "The tool definitions would be removed and replaced with hardcoded logic"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The exact same loop structure powers both simple demos and sophisticated production systems. What changes is not the loop itself, but the surrounding systems: real databases and APIs instead of mock lookups, distributed services instead of local execution, persistent storage instead of temporary output, and additional capabilities like monitoring and retry handling. The core agent loop remains identical.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "production agents",
+        "loop scalability",
+        "system architecture"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c1-q009",
+      "question": "What is the purpose of including a `description` field in each tool definition?",
+      "options": [
+        "To provide documentation for developers reading the code",
+        "To explain when and why the tool should be used, helping Claude decide whether to call it",
+        "To specify the programming language in which the tool is written",
+        "To limit the number of times Claude can call the tool"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The `description` field explains when and why the tool should be used. This helps Claude understand the tool's purpose and make informed decisions about whether and when to invoke it. While the description also serves as documentation, its primary function in the agent loop is to guide Claude's reasoning about tool selection.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool definition",
+        "description field",
+        "Claude decision-making"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c1-q010",
+      "question": "Consider a scenario where an agent must complete a multi-step task: retrieve user data, validate it against compliance rules, and write results to a database. How would the agent loop handle this?",
+      "options": [
+        "The agent would make three separate API calls, one for each step, without using tools",
+        "The agent would call a single tool that performs all three steps internally",
+        "The agent would iterate through the loop multiple times, requesting different tools as needed, until all steps are complete",
+        "The agent would require manual human intervention between each step"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The agent loop is designed to handle multi-step tasks by iterating multiple times. Claude would reason about the task, request the first tool (retrieve user data), process the result, then request the next tool (validate data), process that result, and finally request the third tool (write to database). The loop continues until Claude signals completion with `end_turn`. This allows Claude to make decisions between steps based on intermediate results.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "multi-step tasks",
+        "iterative reasoning",
+        "loop continuation"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c1-q011",
+      "question": "Why might a developer choose to use managed agents instead of implementing the agent loop themselves?",
+      "options": [
+        "Managed agents provide better reasoning capabilities than self-implemented loops",
+        "Managed agents can only be used with specific Claude models",
+        "To avoid managing loop execution, tool orchestration, scaling, and operational concerns on their own infrastructure",
+        "Managed agents automatically generate tool definitions without requiring developer input"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Managed agents run the same agent loop on Anthropic's infrastructure rather than your own. The primary benefit is that you avoid the operational burden of managing loop execution, tool orchestration, scaling, monitoring, and other infrastructure concerns. The loop logic itself is identical; the difference is where and how it runs. This allows developers to focus on defining tools and tasks rather than infrastructure.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "managed agents",
+        "infrastructure",
+        "operational concerns"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c1-q012",
+      "question": "In the provided code example, after Claude requests `get_weather(city=\"Austin\")`, the tool returns `\"Weather in Austin: 95F, sunny\"`. How is this result communicated back to Claude in the next iteration of the loop?",
+      "options": [
+        "The result is printed to the console and Claude reads it from the terminal output",
+        "The result is appended to the messages array as a tool_result block with the tool_use_id, and the updated messages are sent to Claude in the next API call",
+        "The result is stored in a separate database that Claude queries independently",
+        "The result is sent directly to Claude through a separate API endpoint designed for tool results"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The tool result is packaged as a `tool_result` block containing the `tool_use_id` (linking it to the specific tool call) and the result content. This block is added to the messages array along with the assistant's previous response. When the loop continues, the entire updated messages array is sent to Claude in the next `messages.create()` call. This maintains the conversation context and allows Claude to reason about the result in relation to the original request.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "message history",
+        "tool_result",
+        "context maintenance"
+      ]
+    }
+  ]
+}

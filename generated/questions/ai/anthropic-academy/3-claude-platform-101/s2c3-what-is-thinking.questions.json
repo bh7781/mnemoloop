@@ -1,0 +1,260 @@
+{
+  "chapterId": "claude-platform-101-s2c3",
+  "chapterTitle": "What is thinking?",
+  "course": "Claude Platform 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-platform-101-s2c3-q001",
+      "question": "What is extended thinking in Claude?",
+      "options": [
+        "A capability that allows Claude to perform step-by-step reasoning before generating a final answer",
+        "A feature that speeds up Claude's response time by skipping intermediate analysis",
+        "A method for hiding Claude's internal processing from developers",
+        "A technique that reduces the number of tokens used in API responses"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Extended thinking allows Claude to analyze problems, generate internal reasoning tokens, evaluate intermediate conclusions, and produce a final response. Unlike hidden internal processing, extended thinking exposes the reasoning process in the API response through thinking blocks, tool-use blocks, and final text blocks.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "extended thinking",
+        "chain of thought",
+        "reasoning process"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c3-q002",
+      "question": "Which of the following is a common failure mode that extended thinking helps prevent?",
+      "options": [
+        "The model skipping intermediate steps and producing confident but incorrect answers",
+        "The model taking too long to process simple classification tasks",
+        "The model refusing to use external tools",
+        "The model generating responses that are too detailed"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Without sufficient reasoning, models may skip intermediate steps, miss important constraints, and produce confident but incorrect answers. Extended thinking reduces these errors by giving Claude space to reason through problems before responding.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "failure modes",
+        "reasoning",
+        "multi-step problems"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c3-q003",
+      "question": "In Claude Opus 4.7, how is thinking enabled?",
+      "options": [
+        "By setting thinking={\"type\": \"adaptive\"}",
+        "By setting thinking={\"type\": \"enabled\"}",
+        "By setting output_config={\"thinking\": \"on\"}",
+        "By setting model_config={\"reasoning\": \"adaptive\"}"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Extended thinking in Claude Opus 4.7 is enabled using thinking={\"type\": \"adaptive\"}. This allows Claude to determine whether additional reasoning is needed and how much reasoning is required for the task.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "adaptive thinking",
+        "Opus 4.7",
+        "API configuration"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c3-q004",
+      "question": "Where should the `effort` parameter be placed in the API request?",
+      "options": [
+        "Inside the `thinking` block",
+        "Inside the `output_config` block",
+        "As a top-level parameter in the request",
+        "Inside the `messages` array"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The `effort` parameter belongs inside `output_config`, not inside the `thinking` block. This is an important distinction for correct API configuration. The effort parameter controls the depth of reasoning Claude performs.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "effort parameter",
+        "output_config",
+        "API structure"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c3-q005",
+      "question": "Which of the following is NOT a recommended use case for extended thinking?",
+      "options": [
+        "Straightforward text classification",
+        "Multi-step logic problems",
+        "Code debugging",
+        "Strategic decision-making"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Extended thinking is unnecessary for simple tasks like classification, extraction, routing, boilerplate generation, and straightforward transformations. In these situations, thinking may increase latency, consume additional tokens, and increase cost without providing quality improvement. The rule of thumb is to use thinking for difficult reasoning problems, not routine processing tasks.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "use cases",
+        "when to use thinking",
+        "cost optimization"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c3-q006",
+      "question": "What are the available effort levels for controlling thinking depth?",
+      "options": [
+        "low, medium, high, xhigh, max",
+        "low, standard, high, maximum",
+        "minimal, moderate, deep, extra-deep",
+        "level1, level2, level3, level4, level5"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The available effort levels are low, medium, high, xhigh, and max. These levels allow developers to control the depth of reasoning Claude performs, with high being the default. Each level provides increasingly deeper reasoning for more complex problems.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "effort levels",
+        "reasoning depth",
+        "configuration"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c3-q007",
+      "question": "In the road trip planning example, why would extended thinking be beneficial?",
+      "options": [
+        "Because the task involves balancing multiple trade-offs such as weather, travel time, and destination options",
+        "Because it reduces the number of API calls needed",
+        "Because it eliminates the need for tool use",
+        "Because it guarantees the fastest route"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The road trip planning task is trade-off-heavy, requiring Claude to weigh weather conditions, travel time, and multiple destination options. Extended thinking allows Claude to reason through these competing constraints before producing a final recommendation, making it an ideal use case for this capability.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "trade-offs",
+        "use cases",
+        "reasoning benefits"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c3-q008",
+      "question": "What does adaptive thinking in Opus 4.7 automatically determine?",
+      "options": [
+        "Whether additional reasoning is needed and how much reasoning is required",
+        "Which tools to use and in what order",
+        "The maximum number of tokens to allocate",
+        "The language in which to respond"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "With adaptive thinking, Claude dynamically allocates reasoning effort based on the complexity of the task. Instead of specifying a token budget, you enable thinking and allow Claude to determine whether additional reasoning is needed and how much reasoning is required for that specific problem.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "adaptive thinking",
+        "dynamic allocation",
+        "task complexity"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c3-q009",
+      "question": "What types of blocks can appear in an extended thinking response?",
+      "options": [
+        "Thinking blocks, tool-use blocks, and final text blocks",
+        "Only thinking blocks and final text blocks",
+        "Thinking blocks, tool-use blocks, error blocks, and final text blocks",
+        "Only final text blocks with embedded reasoning"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "When extended thinking is enabled, responses may contain thinking blocks (where Claude reasons through the problem), tool-use blocks (where Claude calls external tools), and final text blocks (the final response). This structure allows developers to inspect how Claude arrived at its conclusion.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "response structure",
+        "thinking blocks",
+        "transparency"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c3-q010",
+      "question": "In a compliance review scenario, why would extended thinking be particularly valuable for identifying cross-document inconsistencies?",
+      "options": [
+        "Because it enables Claude to reason across multiple sources of information and connect findings across different sections, rather than evaluating each finding independently",
+        "Because it automatically extracts all specifications from documents",
+        "Because it eliminates the need to read multiple report sections",
+        "Because it guarantees that no inconsistencies will be missed"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Extended thinking becomes particularly valuable in applications requiring reasoning across multiple sources of information. In compliance review, an agent with adaptive thinking enabled can reason across the entire document, identifying when a specification in one section conflicts with a specification elsewhere. Without extended thinking, the agent may only evaluate findings independently, missing these cross-references that often require deeper reasoning.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "production applications",
+        "cross-reference analysis",
+        "reasoning depth"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c3-q011",
+      "question": "How should a developer decide whether to enable extended thinking for a given task?",
+      "options": [
+        "Enable it for all tasks to ensure maximum quality",
+        "Use it selectively for difficult reasoning problems, not routine processing tasks, considering the trade-offs of latency, token usage, and cost",
+        "Only enable it when the API automatically suggests it",
+        "Enable it only for tasks that use external tools"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Extended thinking should be enabled selectively. The rule of thumb is to use thinking for difficult reasoning problems, not routine processing tasks. Developers must weigh the advantages (improved reasoning quality, better handling of complex tasks, stronger decision-making) against the costs (higher latency, greater token usage, increased API cost). For simple workflows like classification and extraction, thinking often increases cost and latency without improving results.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "decision-making",
+        "cost-benefit analysis",
+        "best practices"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c3-q012",
+      "question": "Which scenario would most benefit from using extended thinking with a high or xhigh effort level?",
+      "options": [
+        "Extracting customer names and email addresses from a list of contacts",
+        "Analyzing a complex regulatory document to identify conflicting requirements across multiple sections and determine compliance implications",
+        "Classifying customer support tickets into predefined categories",
+        "Generating boilerplate code for a standard API endpoint"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Analyzing a complex regulatory document for conflicting requirements across multiple sections requires multi-step analysis, trade-off evaluation, and reasoning across multiple sources of information. This is exactly the type of task where extended thinking with higher effort levels provides significant value. The other options (extraction, classification, boilerplate generation) are routine processing tasks that do not benefit from additional reasoning and would only increase latency and cost.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "use case selection",
+        "effort levels",
+        "task complexity assessment"
+      ]
+    }
+  ]
+}

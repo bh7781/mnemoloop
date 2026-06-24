@@ -1,0 +1,260 @@
+{
+  "chapterId": "claude-platform-101-s1c3",
+  "chapterTitle": "Choosing the right model",
+  "course": "Claude Platform 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-platform-101-s1c3-q001",
+      "question": "Which Claude model tier is optimized for speed and cost efficiency?",
+      "options": [
+        "Claude Haiku",
+        "Claude Sonnet",
+        "Claude Opus",
+        "Claude Fable"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Claude Haiku is explicitly designed as the fastest and least expensive model tier. It is best suited for classification, extraction, routing, simple transformations, and large-scale automation tasks where speed and cost efficiency are priorities.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "model tiers",
+        "Claude Haiku",
+        "cost efficiency"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c3-q002",
+      "question": "What is the primary trade-off when choosing a Claude model?",
+      "options": [
+        "Capability, speed, and cost",
+        "Accuracy and token limit",
+        "Input tokens and output tokens",
+        "API availability and region"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Choosing the right Claude model involves balancing three key factors: capability, speed, and cost. Using the most capable model for every request increases costs unnecessarily, while choosing the cheapest model may reduce output quality. The goal is to find the least expensive model that produces acceptable results.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "model selection",
+        "trade-offs",
+        "cost-quality balance"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c3-q003",
+      "question": "Which Claude model is best suited for deep reasoning and complex analysis?",
+      "options": [
+        "Claude Haiku",
+        "Claude Sonnet",
+        "Claude Opus",
+        "Claude Fable"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Claude Opus is the most capable of the core model families and is best suited for deep reasoning, complex analysis, multi-step coding, and nuanced writing. While it has the highest cost and slowest response times among core tiers, these characteristics make it ideal for tasks requiring maximum intelligence.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude Opus",
+        "model selection",
+        "complex tasks"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c3-q004",
+      "question": "When evaluating models for a production feature, what is a recommended starting evaluation dataset size?",
+      "options": [
+        "5–10 representative examples",
+        "20–30 representative examples",
+        "50–100 representative examples",
+        "200+ representative examples"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "A useful starting point for evaluation is 20–30 representative examples from your expected workload with clear criteria for what constitutes good output. This size is practical for comparing models against actual business requirements without requiring excessive manual review.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "evaluation methodology",
+        "dataset design",
+        "model testing"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c3-q005",
+      "question": "According to the recommended evaluation process, what should you do if Claude Haiku produces insufficient quality?",
+      "options": [
+        "Immediately switch to Claude Fable",
+        "Test Claude Sonnet next",
+        "Rewrite your prompt and retry Haiku",
+        "Use a different API provider"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The recommended evaluation process follows a specific progression: start with Haiku, and if quality is insufficient, test Sonnet next. Only move to Opus when necessary, and consider Fable only when the task genuinely requires the highest available capability. This approach balances cost and quality systematically.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "evaluation process",
+        "model progression",
+        "cost optimization"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c3-q006",
+      "question": "What information does the `response.usage` field provide in the Claude API?",
+      "options": [
+        "Model availability and region information",
+        "Input tokens and output tokens",
+        "Latency and response time metrics",
+        "User authentication and rate limit status"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The `response.usage` field returns input tokens and output tokens consumed by a request. This information is important because API billing is based on token consumption, allowing you to estimate costs and compare the efficiency of different models.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "API usage",
+        "token consumption",
+        "cost estimation"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c3-q007",
+      "question": "Which of the following tasks would be most appropriate to route to Claude Haiku?",
+      "options": [
+        "Drafting a nuanced regulatory response",
+        "Performing file classification",
+        "Analyzing complex financial data",
+        "Generating a detailed RFP response"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude Haiku is optimized for classification, extraction, routing, simple transformations, and large-scale automation. File classification is a straightforward task that benefits from Haiku's speed and cost efficiency. The other options require deeper reasoning and would be better suited to Sonnet or Opus.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "task routing",
+        "model selection",
+        "Claude Haiku use cases"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c3-q008",
+      "question": "What is the key principle behind the rule of thumb for selecting the right model?",
+      "options": [
+        "Always use the most capable model available",
+        "Choose the cheapest model regardless of quality",
+        "Find the least expensive model whose output you would confidently ship",
+        "Rotate between models to distribute costs evenly"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The rule of thumb states that the right model is the cheapest model whose output you would confidently ship. This principle balances cost optimization with quality assurance, ensuring you do not overspend on unnecessary capability while maintaining acceptable output standards.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "model selection principle",
+        "cost-quality optimization",
+        "production readiness"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c3-q009",
+      "question": "In a production application, why might you route different tasks to different Claude models rather than standardizing on a single model?",
+      "options": [
+        "To ensure all models receive equal usage",
+        "To control costs, maintain quality, improve performance, and use each model where it provides the most value",
+        "To avoid vendor lock-in with a single model",
+        "To simplify API integration and reduce code complexity"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Task routing allows applications to control costs by using less expensive models for simple tasks, maintain quality by using more capable models when needed, improve performance through faster responses for simple tasks, and allocate high-capability models where they provide the most value. This approach is more efficient than standardizing on a single model.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "task routing",
+        "production architecture",
+        "resource optimization"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c3-q010",
+      "question": "When comparing Claude Opus and Claude Sonnet for a production workload, which trade-off is most relevant to consider?",
+      "options": [
+        "Opus has higher capability but slower response times and higher cost, while Sonnet offers strong quality with faster responses and moderate cost",
+        "Opus is faster but less capable, while Sonnet is slower but more capable",
+        "Opus is cheaper for high-volume workloads, while Sonnet is better for complex reasoning",
+        "Opus supports more languages, while Sonnet has better token efficiency"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The key trade-off between Opus and Sonnet is capability versus speed and cost. Opus provides the highest intelligence among core tiers but has the slowest response times and highest cost. Sonnet provides strong reasoning ability with fast performance and moderate cost, making it suitable for most production applications. The choice depends on whether the additional capability of Opus justifies its slower speed and higher cost for your specific use case.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "model comparison",
+        "trade-off analysis",
+        "production decisions"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c3-q011",
+      "question": "A company needs to evaluate whether Claude Sonnet or Claude Opus is appropriate for generating RFP responses. What evaluation criteria should they prioritize?",
+      "options": [
+        "Response latency and token consumption only",
+        "Output quality, reasoning soundness, writing quality, and whether the output would be shipped to customers",
+        "Model availability and API rate limits",
+        "Historical performance metrics from other companies"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When evaluating models for RFP response generation, the primary criteria should be output quality metrics: accuracy, reasoning soundness, writing quality, and whether you would confidently ship the output to customers. RFP responses require precision and nuance, making quality the dominant factor. While latency and cost matter, they are secondary to ensuring the response meets regulatory and business standards.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "evaluation criteria",
+        "quality assessment",
+        "production readiness"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c3-q012",
+      "question": "A production system currently uses Claude Opus for all tasks, including simple file classification and data extraction. What is the primary inefficiency with this approach, and how could task routing improve it?",
+      "options": [
+        "Opus is too slow; routing would allow faster responses for all tasks equally",
+        "Opus is unnecessarily expensive for simple tasks; routing would reduce overall API costs while maintaining quality for complex tasks",
+        "Opus has token limits; routing would allow higher token limits for different tasks",
+        "Opus lacks capability; routing would enable access to more capable models for simple tasks"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Using Opus for all tasks is inefficient because Opus is the most expensive core model and is optimized for deep reasoning and complex analysis. Simple tasks like file classification and data extraction can be handled effectively by Claude Haiku at a fraction of the cost. Task routing would direct simple tasks to Haiku and complex tasks to Opus, reducing overall API costs while maintaining appropriate quality levels for each task type. This approach provides faster response times for simple tasks and better resource allocation.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "cost optimization",
+        "task routing",
+        "production efficiency"
+      ]
+    }
+  ]
+}

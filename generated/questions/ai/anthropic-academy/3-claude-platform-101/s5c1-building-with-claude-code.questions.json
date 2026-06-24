@@ -1,0 +1,249 @@
+{
+  "chapterId": "claude-platform-101-s5c1",
+  "chapterTitle": "Building with Claude Code",
+  "course": "Claude Platform 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-platform-101-s5c1-q001",
+      "question": "What is the primary capability of Claude Code?",
+      "options": [
+        "It can edit files, generate code, execute commands, run tests, and fix errors automatically",
+        "It can only generate code without executing it",
+        "It can execute commands but cannot edit files",
+        "It can run tests but requires manual error correction"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Claude Code provides a comprehensive set of capabilities including file editing, code generation, command execution, test running, and automatic error fixing. This makes it a powerful tool for completing API integrations and other development tasks.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude Code capabilities"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s5c1-q002",
+      "question": "What does the tool runner manage automatically?",
+      "options": [
+        "Tool-use loops, stop_reason handling, and tool-result messages",
+        "Only the execution of commands in the terminal",
+        "File editing and code generation",
+        "Installation of marketplace plugins"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The tool runner simplifies agent development by automatically handling tool-use loops, stop_reason handling, and tool-result messages. This eliminates the need to implement these components manually.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Tool runner",
+        "Agent development"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s5c1-q003",
+      "question": "How can you manually invoke the Claude API Skill in Claude Code?",
+      "options": [
+        "Using the /claude-api command",
+        "Using the /skill-api command",
+        "Using the /typescript-sdk command",
+        "Using the /invoke-skill command"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The Claude API Skill can be manually invoked by typing /claude-api. While the Skill loads automatically when the TypeScript SDK is detected, manual invocation is available for explicit control.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude API Skill",
+        "Manual invocation"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s5c1-q004",
+      "question": "When does the Claude API Skill automatically activate in Claude Code?",
+      "options": [
+        "When it detects use of the TypeScript SDK",
+        "When a file is created with a .ts extension",
+        "When the marketplace plugin is installed",
+        "When the tool runner is explicitly called"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The Claude API Skill includes automatic invocation that detects when the TypeScript SDK is being used. This allows the Skill to provide relevant assistance without requiring manual activation in most cases.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude API Skill",
+        "Automatic invocation"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s5c1-q005",
+      "question": "What are the three key elements that should be specified in a prompt to Claude Code for generating an integration?",
+      "options": [
+        "The file to modify, the implementation pattern, and the desired end state",
+        "The file to modify, the programming language, and the testing framework",
+        "The implementation pattern, the desired end state, and the error handling approach",
+        "The file to modify, the tool definition, and the runner configuration"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "An effective prompt for Claude Code should specify: (1) which file should be modified, (2) the implementation approach or pattern to use, and (3) what the completed program should accomplish. This clarity enables Claude Code to generate appropriate solutions.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Prompt structure",
+        "Integration generation"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s5c1-q006",
+      "question": "In the example weather integration, what was the incomplete `getWeather` function responsible for?",
+      "options": [
+        "Accepting a city name and returning temperature and weather conditions",
+        "Managing the tool runner and executing the workflow",
+        "Defining the Zod-based tool for input validation",
+        "Executing commands and running tests"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The `getWeather` function was designed to accept a city name as input and return two pieces of information: the temperature and the weather conditions for that city. This is the core business logic of the weather integration.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Function responsibilities",
+        "Weather integration example"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s5c1-q007",
+      "question": "What is the correct package name for installing the Claude API Skill from the marketplace?",
+      "options": [
+        "AnthropicsSkills",
+        "AnthropicSkill",
+        "AnthropicsAPI",
+        "AnthropicAPI"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The package name is `AnthropicsSkills` with a trailing 's'. This is an important detail because the exact package name is required for successful installation through the marketplace.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Skill installation",
+        "Package naming"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s5c1-q008",
+      "question": "What sequence of steps does Claude Code follow after receiving a prompt to generate an integration?",
+      "options": [
+        "Read project files, examine available types, generate code, execute the program, review errors, apply fixes, and produce output",
+        "Generate code, read project files, execute the program, examine types, review errors, and apply fixes",
+        "Execute the program, read project files, generate code, examine types, review errors, and apply fixes",
+        "Examine available types, generate code, read project files, execute the program, apply fixes, and review errors"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Claude Code follows a methodical process: it first reads the project files to understand the context, examines available types to understand the structure, generates the missing code, executes the program to test it, reviews any errors that occur, applies fixes if necessary, and finally produces working output.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Claude Code workflow",
+        "Integration generation process"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s5c1-q009",
+      "question": "Which of the following best describes the core pattern used in most Claude API applications?",
+      "options": [
+        "Define a tool, pass it to a runner, and return the result",
+        "Create a stub, generate code, and execute commands",
+        "Read project files, examine types, and apply fixes",
+        "Install the Skill, invoke the command, and review the diff"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The core pattern that appears repeatedly across Claude SDK integrations is straightforward: define a tool that performs a task, pass that tool to a runner which manages invocation and loops, and return the final result. This pattern simplifies agent development.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Core pattern",
+        "Claude API applications"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s5c1-q010",
+      "question": "Why would using Claude Code to generate integrations be preferable to manually writing them from scratch?",
+      "options": [
+        "It reduces boilerplate, enables automatic error correction, ensures consistent SDK usage, and accelerates development",
+        "It eliminates the need to understand the Claude SDK entirely",
+        "It guarantees that no code review is necessary before deployment",
+        "It removes the requirement to test the generated code"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Claude Code provides multiple advantages: faster development by automating repetitive tasks, reduced boilerplate code, automatic error correction capabilities, consistent adherence to SDK best practices, and better overall code quality. However, it does not eliminate the need for code review, testing, or SDK understanding.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Benefits of Claude Code",
+        "Development efficiency"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s5c1-q011",
+      "question": "In the context of the weather integration example, what role did the Zod-based tool definition play in the generated code?",
+      "options": [
+        "It provided input parsing and structure validation for the weather tool",
+        "It executed the weather retrieval logic and returned results",
+        "It managed the tool runner configuration and execution flow",
+        "It handled error correction and automatic fixes"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The Zod-based tool definition was part of the generated code and served to parse inputs and validate the structure of data passed to the tool. Zod is a TypeScript-first schema validation library commonly used in Claude SDK integrations for ensuring type safety and input validation.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Tool definition",
+        "Input validation",
+        "Zod schema"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s5c1-q012",
+      "question": "How does the typical Claude Code workflow balance automation with developer oversight?",
+      "options": [
+        "By automating code generation and execution while requiring developers to review the diff and validate changes before committing",
+        "By fully automating all steps including testing and deployment without developer intervention",
+        "By requiring manual implementation of all code before Claude Code can execute it",
+        "By generating code but requiring developers to manually execute and test every step"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The typical workflow demonstrates a balanced approach: Claude Code automates the creation of stubs, implementation, and execution, but developers retain control through code review. The process involves creating a file with stubs, opening it in Claude Code, providing a clear prompt, allowing Claude Code to implement and run the solution, reviewing the generated diff, running validation tests, and then committing. This ensures automation benefits while maintaining quality control.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "Workflow design",
+        "Developer oversight",
+        "Quality assurance"
+      ]
+    }
+  ]
+}

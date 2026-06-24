@@ -1,0 +1,257 @@
+{
+  "chapterId": "claude-platform-101-s1c1",
+  "chapterTitle": "What is the Claude Developer Platform?",
+  "course": "Claude Platform 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-platform-101-s1c1-q001",
+      "question": "What is the primary purpose of the Claude Developer Platform?",
+      "options": [
+        "To provide infrastructure for building with Claude programmatically through APIs, SDKs, and CLIs",
+        "To replace the Claude web interface with a desktop application",
+        "To offer free access to Claude models for all users",
+        "To train custom versions of Claude for specific industries"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The Claude Developer Platform is Anthropic's infrastructure that allows developers to send structured requests from their applications and receive structured responses, rather than chatting with Claude in a browser. It provides fine-grained control over model selection, token usage, tool access, and system instructions.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "platform purpose",
+        "programmatic access"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c1-q002",
+      "question": "Which of the following is a component of the Claude Developer Platform?",
+      "options": [
+        "A REST API that can be called from any programming language",
+        "A proprietary hardware device for running Claude locally",
+        "A blockchain-based token system for API access",
+        "A mandatory annual licensing agreement"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The Claude Developer Platform includes a REST API callable from any programming language, SDKs for multiple languages, CLIs, and a console for managing API keys, monitoring usage, deploying managed agents, and testing prompts. The other options are not part of the platform.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "platform components",
+        "REST API"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c1-q003",
+      "question": "What are the three layers of the Claude Developer Platform?",
+      "options": [
+        "Primitives, Infrastructure, and Controls",
+        "Frontend, Backend, and Database",
+        "Development, Testing, and Production",
+        "Models, APIs, and Dashboards"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The Claude Developer Platform is organized into three layers: Primitives (core Claude building blocks like Messages API and tool use), Infrastructure (systems for scaling like managed agents and prompt caching), and Controls (operational tools for production like dashboards and usage limits).",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "three layers",
+        "platform architecture"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c1-q004",
+      "question": "Which of the following are examples of Primitives in the Claude Developer Platform?",
+      "options": [
+        "Managed agents, retries, and queues",
+        "Messages API, tool use, and files",
+        "Dashboards, evaluations, and workspaces",
+        "Usage limits, spend limits, and request logs"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Primitives are the API building blocks designed specifically for Claude that developers directly call from their code. They include Messages API, tool use, files, web search, code execution, MCP servers, and skills. The other options represent Infrastructure (option A) and Controls (options C and D).",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "primitives",
+        "building blocks"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c1-q005",
+      "question": "What is the primary purpose of the Infrastructure layer in the Claude Developer Platform?",
+      "options": [
+        "To provide operational tools for monitoring and managing deployed systems",
+        "To offer the core API building blocks that developers call directly",
+        "To provide systems needed to move from prototype to production-scale agentic applications",
+        "To enable fine-grained control over which Claude model is used"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The Infrastructure layer provides the systems needed to scale from a prototype to a production-scale agentic application. Examples include managed agents, retries, queues, observability, prompt caching, and memory. These services provide reliability and scalability for larger workloads. Option A describes Controls, option B describes Primitives, and option D is a general platform capability.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "infrastructure layer",
+        "scaling",
+        "production readiness"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c1-q006",
+      "question": "In the help desk example, what is the purpose of the `system` parameter in the `messages.create` call?",
+      "options": [
+        "To specify which Claude model handles the request",
+        "To limit the maximum length of Claude's response",
+        "To define Claude's role and behavior, including company tone and guidelines",
+        "To contain the conversation inputs from the support ticket"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The `system` parameter defines Claude's role and behavior, including company tone and guidelines. In the help desk example, it contains `TONE_AND_GUIDELINES` to ensure the drafted response follows the company's communication standards. The `model` parameter specifies the model, `max_tokens` limits response length, and `messages` contains the conversation inputs.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "messages API",
+        "system parameter",
+        "prompt engineering"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c1-q007",
+      "question": "What key distinction does the Claude Developer Platform enable compared to building a standalone chatbot?",
+      "options": [
+        "It allows developers to use Claude models without paying for API calls",
+        "It enables developers to integrate Claude into existing products and workflows rather than building standalone applications",
+        "It provides the only way to access Claude's most advanced capabilities",
+        "It eliminates the need for developers to understand how Claude works"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The Claude Developer Platform enables developers to add AI-powered features to current applications, automate specific tasks, embed Claude into business workflows, and create agentic systems within products. This is fundamentally different from building a standalone chatbot. The API acts as the connection between Claude's capabilities and the application's user experience.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "platform purpose",
+        "integration",
+        "product development"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c1-q008",
+      "question": "What does the Controls layer provide to teams running applications in production?",
+      "options": [
+        "Core API building blocks like Messages API and tool use",
+        "Systems for reliability and scalability like managed agents and prompt caching",
+        "Operational tools for monitoring, evaluating, and managing deployed systems",
+        "Direct access to Claude's underlying model weights"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The Controls layer consists of operational tools used once applications are running in production, including dashboards, evaluations, workspaces, usage limits, spend limits, and request logs. These tools help teams monitor, evaluate, and manage deployed systems. Options A and B describe Primitives and Infrastructure respectively.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "controls layer",
+        "production management",
+        "monitoring"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c1-q009",
+      "question": "Why might a developer choose Claude Haiku for the help desk drafting task rather than a larger model?",
+      "options": [
+        "Haiku is the only model that supports the Messages API",
+        "Haiku is appropriate for straightforward tasks and is likely more cost-effective",
+        "Larger models cannot process support ticket content",
+        "Haiku automatically enforces company tone and guidelines"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The example uses Claude Haiku because it is appropriate for a straightforward drafting task. Haiku is a smaller, more efficient model that would be cost-effective for this use case. The choice of model depends on the complexity of the task and resource constraints. The system parameter (not the model) defines tone and guidelines, and larger models can process support tickets.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "model selection",
+        "task complexity",
+        "efficiency"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c1-q010",
+      "question": "How do managed agents extend the capabilities of the Claude Developer Platform beyond simple API calls?",
+      "options": [
+        "They allow developers to run agents over longer workflows without managing the operational infrastructure themselves",
+        "They provide the only way to use Claude models in production environments",
+        "They eliminate the need for developers to define system instructions",
+        "They automatically convert all applications into standalone chatbots"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Managed agents allow Anthropic's infrastructure to run and manage agents on behalf of developers, enabling longer-running workflows. This means the platform supplies not only access to Claude models but also the operational systems required to run agent-based applications. Developers don't need to manage the underlying infrastructure themselves, which is a key advantage for sophisticated applications.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "managed agents",
+        "agentic systems",
+        "operational infrastructure"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c1-q011",
+      "question": "A developer is building a customer service application that needs to draft responses, evaluate response quality, and track spending across multiple support channels. Which layers of the Claude Developer Platform would this application require?",
+      "options": [
+        "Only Primitives, since all functionality can be built with the Messages API",
+        "Primitives for drafting, Infrastructure for evaluation, and Controls for spending tracking",
+        "Primitives for drafting and evaluation, Controls for spending tracking, but no Infrastructure needed",
+        "All three layers: Primitives for drafting, Infrastructure for managing the application at scale, and Controls for evaluation and spending tracking"
+      ],
+      "correctOptionIndexes": [
+        3
+      ],
+      "explanation": "This application requires all three layers. Primitives (Messages API) handle the core drafting functionality. Infrastructure components like managed agents and observability support scaling the application across multiple channels. Controls like evaluations and spend limits enable quality assessment and cost management. A complete production application typically leverages all three layers working together.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "three layers",
+        "application architecture",
+        "production systems"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c1-q012",
+      "question": "Which of the following scenarios best demonstrates the distinction between using Claude as a standalone chat interface versus integrating it through the Claude Developer Platform?",
+      "options": [
+        "A user manually typing questions into Claude.com versus a developer embedding Claude into a CRM system to automatically generate customer follow-up emails",
+        "Using Claude with a free account versus using Claude with a paid subscription",
+        "Accessing Claude through a web browser versus accessing Claude through a mobile app",
+        "Asking Claude general knowledge questions versus asking Claude to perform code reviews"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The key distinction is that the Claude Developer Platform enables Claude to become part of an application or product workflow rather than remaining a standalone chat interface. Option A illustrates this: manual chat versus programmatic integration into business processes. Options B and C are about access methods, not integration. Option D is about question types, not platform usage.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "platform purpose",
+        "integration",
+        "product development",
+        "workflow automation"
+      ]
+    }
+  ]
+}

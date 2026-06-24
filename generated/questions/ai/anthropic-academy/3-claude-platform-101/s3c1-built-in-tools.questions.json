@@ -1,0 +1,271 @@
+{
+  "chapterId": "claude-platform-101-s3c1",
+  "chapterTitle": "Built-in tools",
+  "course": "Claude Platform 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-platform-101-s3c1-q001",
+      "question": "What is the primary advantage of using built-in tools instead of custom tools?",
+      "options": [
+        "You do not need to write the implementation or host the infrastructure",
+        "Built-in tools are faster than custom tools",
+        "Built-in tools can only be used with the Claude Opus model",
+        "Built-in tools do not require any API calls"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Built-in tools significantly reduce development effort because Anthropic provides the implementation and manages the infrastructure. You simply declare the tool in your request, and Anthropic executes it on your behalf. This is fundamentally different from custom tools, where you must write and host the implementation yourself.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "built-in tools",
+        "infrastructure management",
+        "tool declaration"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c1-q002",
+      "question": "Which of the following is an example of a server tool?",
+      "options": [
+        "Memory",
+        "Web search",
+        "Bash",
+        "Custom API integration"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Web search is a server tool that runs entirely on Anthropic's infrastructure. Memory and Bash are client tools that execute in your environment. Custom API integrations are custom tools, not built-in tools.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "server tools",
+        "built-in tools",
+        "tool types"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c1-q003",
+      "question": "What is the key difference between server tools and custom tools in terms of execution?",
+      "options": [
+        "Server tools require you to manage an agent loop, while custom tools do not",
+        "Server tools are executed by Anthropic automatically, while custom tools are executed by your application",
+        "Server tools can only be used once per request, while custom tools can be used multiple times",
+        "Server tools require manual tool-result handling, while custom tools do not"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Server tools run entirely on Anthropic's infrastructure and are executed automatically without requiring you to manage an agent loop or handle tool results. Custom tools, by contrast, are executed by your application, and you must manage the agent loop, check the stop reason, and return tool results.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "server tools",
+        "custom tools",
+        "tool execution",
+        "agent loop"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c1-q004",
+      "question": "In the web search example provided, what happens after Claude invokes the search tool?",
+      "options": [
+        "Your application must execute the search and return results to Claude",
+        "Anthropic performs the search and returns results in the same API response",
+        "The search results are cached and reused for future requests",
+        "Claude must validate the search results before they are returned"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When using server tools like web search, Anthropic performs the search automatically and returns the results directly in the same API response. You do not need to execute the search yourself or manage any additional steps. This is a core benefit of server tools—the entire interaction happens within a single API response.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "server tools",
+        "web search",
+        "API response",
+        "tool execution workflow"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c1-q005",
+      "question": "What response block types would you expect to see when using the code execution server tool?",
+      "options": [
+        "Only `text` blocks containing the final explanation",
+        "`server_tool_use`, `bash_code_execution_tool_result`, and `text` blocks",
+        "Only `bash_code_execution_tool_result` blocks with no text response",
+        "`server_tool_use` and `text` blocks, but never `bash_code_execution_tool_result`"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When Claude uses the code execution tool, the response includes multiple block types: a `server_tool_use` block indicating the tool invocation, a `bash_code_execution_tool_result` block containing the code output and stdout, and a `text` block with Claude's final explanation or summary of the results.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "code execution",
+        "response block types",
+        "server tools",
+        "tool results"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c1-q006",
+      "question": "What is the main difference between server tools and client tools in terms of where they execute?",
+      "options": [
+        "Server tools execute in your environment; client tools execute on Anthropic's infrastructure",
+        "Server tools execute on Anthropic's infrastructure; client tools execute in your environment",
+        "Both server and client tools execute on Anthropic's infrastructure",
+        "Both server and client tools execute in your environment"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Server tools run entirely on Anthropic's infrastructure, while client tools execute locally or within your environment. Both types are built-in tools provided by Anthropic, but they differ in execution location. Client tools come with SDK-provided schemas and runners to simplify setup.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "server tools",
+        "client tools",
+        "execution location",
+        "infrastructure"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c1-q007",
+      "question": "Which of the following statements about the agent loop is correct when using server tools?",
+      "options": [
+        "You must manually check the stop_reason and execute tools in a loop",
+        "You must return tool results to Claude after each tool execution",
+        "No agent loop is required; the entire interaction happens within a single API response",
+        "The agent loop is managed by your application but simplified by the SDK"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "A key advantage of server tools is that they eliminate the need for a manual agent loop. Unlike custom tools, where you must check stop_reason, execute tools, and return results, server tools are executed automatically by Anthropic within a single API response. This significantly simplifies your code.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "server tools",
+        "agent loop",
+        "API response",
+        "tool execution"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c1-q008",
+      "question": "In a proposal-review application using web search, what is the primary purpose of invoking the search tool?",
+      "options": [
+        "To replace Claude's analysis with search results",
+        "To verify regulatory claims, numerical statements, and industry references within the proposal",
+        "To automatically correct inaccuracies without human review",
+        "To generate new content based on internet sources"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The proposal-review example demonstrates using web search to verify factual claims within a document. Claude invokes the search tool to check regulatory claims, numerical statements, and industry references. However, the source material includes a warning that information found on the internet is not automatically correct and should still be reviewed and validated.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "web search",
+        "fact checking",
+        "use cases",
+        "verification"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c1-q009",
+      "question": "What is the relationship between built-in tools and the tool interface used by Claude?",
+      "options": [
+        "Built-in tools use a different interface than custom tools",
+        "Built-in tools use the same tool interface as other Claude capabilities",
+        "Built-in tools do not use the tool interface at all",
+        "The tool interface is only available for server tools, not client tools"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Built-in tools integrate consistently with Claude's existing tool interface. This consistency means developers can work with built-in tools using the same patterns and concepts they use with other Claude capabilities, reducing the learning curve and making it easier to combine different tool types in a single application.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "built-in tools",
+        "tool interface",
+        "integration",
+        "consistency"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c1-q010",
+      "question": "Why would a developer choose to use the web fetch server tool instead of building a custom web scraping solution?",
+      "options": [
+        "Web fetch is faster than any custom solution",
+        "Web fetch eliminates the need to build, host, and maintain web scraping infrastructure while providing consistent integration with Claude",
+        "Web fetch can access content that custom solutions cannot",
+        "Web fetch is required for all web-based applications"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The web fetch tool exemplifies the core benefit of built-in tools: reduced infrastructure burden and faster development. Instead of building and maintaining a custom web scraping system, developers can declare the tool and let Anthropic handle execution. This reduces maintenance overhead and allows developers to focus on application logic rather than infrastructure.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "built-in tools",
+        "infrastructure",
+        "development efficiency",
+        "web fetch"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c1-q011",
+      "question": "How would the implementation of a fact-checking application differ if you used custom tools instead of the built-in web search server tool?",
+      "options": [
+        "You would need to build and host a search engine, manage an agent loop, and handle tool results manually",
+        "The application would be identical; the only difference would be performance",
+        "You would use the same API calls but with different parameter names",
+        "Custom tools would allow you to search the internet without Anthropic's involvement"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Using custom tools instead of the built-in web search would require you to: (1) build or integrate a search engine, (2) host the infrastructure, (3) manage an agent loop by checking stop_reason, (4) execute the search manually, and (5) return results to Claude. The built-in server tool eliminates all of this complexity by handling execution automatically within a single API response.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "server tools",
+        "custom tools",
+        "agent loop",
+        "infrastructure",
+        "comparison"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c1-q012",
+      "question": "What architectural insight does the statement 'The same principle of hosted execution scales beyond tools to managed agents' suggest about Anthropic's platform direction?",
+      "options": [
+        "Anthropic plans to discontinue custom tools in favor of only server tools",
+        "Anthropic is extending the concept of hosted execution from individual tools to entire agent workflows, reducing developer infrastructure burden",
+        "Managed agents are only available for enterprise customers",
+        "Hosted execution is a temporary feature that will be removed in future versions"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "This statement indicates that Anthropic's philosophy extends beyond individual built-in tools. The principle of letting Anthropic handle execution and infrastructure management is being applied more broadly to managed agents, where Anthropic runs the entire agent workflow. This suggests a platform direction focused on reducing developer infrastructure burden and complexity across multiple levels of abstraction.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "platform architecture",
+        "hosted execution",
+        "managed agents",
+        "infrastructure abstraction"
+      ]
+    }
+  ]
+}

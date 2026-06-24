@@ -1,0 +1,258 @@
+{
+  "chapterId": "claude-platform-101-s4c1",
+  "chapterTitle": "What are managed agents?",
+  "course": "Claude Platform 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-platform-101-s4c1-q001",
+      "question": "What is the primary responsibility of Anthropic in the Claude Managed Agents platform?",
+      "options": [
+        "Host and operate the agent infrastructure",
+        "Define the agent's tools and personas",
+        "Write the code for each agent implementation",
+        "Monitor user applications for errors"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Anthropic hosts and operates the agent infrastructure, including execution environments, tool orchestration, and session management. Developers define the agent capabilities while Anthropic handles the operational aspects.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "managed agents",
+        "infrastructure",
+        "developer responsibilities"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s4c1-q002",
+      "question": "What does a session represent in the context of managed agents?",
+      "options": [
+        "A reusable agent configuration with tools and personas",
+        "A single execution of an agent",
+        "An isolated execution sandbox with runtime configuration",
+        "A persistent memory store across multiple agent runs"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "A session is a single execution of an agent. Multiple sessions can run simultaneously, each with its own execution state. Examples include processing a support ticket, generating a report, or responding to an incident.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "sessions",
+        "agent execution"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s4c1-q003",
+      "question": "Which of the following is a built-in capability available to managed agents running in isolated environments?",
+      "options": [
+        "Direct database write access to production systems",
+        "File system access and bash execution",
+        "Unrestricted internet access without controls",
+        "Automatic deployment to cloud infrastructure"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Managed agents running in isolated environments have capabilities including file system access, bash execution, web search, tool use, memory, and multi-agent coordination. The other options describe capabilities that are either not provided or are controlled through permissions policies.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "agent capabilities",
+        "isolated environments"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s4c1-q004",
+      "question": "In the traditional agent loop, what happens after Claude requests a tool?",
+      "options": [
+        "Claude immediately decides what to do next",
+        "The tool executes and Claude reads the result",
+        "The session ends and results are stored in memory",
+        "A human reviews the tool request for approval"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The traditional agent loop follows a specific sequence: Claude reasons about the task, requests a tool, the tool executes, Claude reads the result, Claude decides what to do next, and the process repeats. This same loop runs on Anthropic's infrastructure with managed agents.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "agent loop",
+        "tool execution"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s4c1-q005",
+      "question": "What is the primary advantage of using outcomes with rubrics and graders in managed agents?",
+      "options": [
+        "They eliminate the need for human oversight entirely",
+        "They define success criteria and enable iterative improvement through feedback loops",
+        "They automatically deploy completed work to production",
+        "They reduce the computational cost of running agent sessions"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Outcomes use rubrics and graders to establish objective definitions of success. If requirements are not met, feedback is generated and returned to Claude for additional improvements. This creates an iterative improvement cycle that verifies work quality without requiring manual intervention for every step.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "outcomes",
+        "rubrics",
+        "graders",
+        "success criteria"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s4c1-q006",
+      "question": "How does memory function in the context of recurring agent workflows?",
+      "options": [
+        "It stores the agent's code and configuration for reuse",
+        "It enables agents to read prior findings and store new information across sessions",
+        "It caches tool responses to improve performance",
+        "It maintains a log of all user interactions with the agent"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Memory enables persistence between sessions, allowing agents to read prior findings and store new information. This builds long-term context and enables longitudinal analysis. For example, a research agent can compare current pricing to previous weeks instead of reporting static information repeatedly.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "memory",
+        "persistence",
+        "sessions"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s4c1-q007",
+      "question": "In the Kanban board example, what role does the grader play in the optimization workflow?",
+      "options": [
+        "It assigns new tasks to the agent based on priority",
+        "It evaluates whether the work satisfies the rubric and provides feedback if requirements are not met",
+        "It manages the container resources allocated to each session",
+        "It coordinates communication between multiple specialist agents"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The grader operates in its own context window and determines whether the work satisfies the rubric. If requirements are not met, feedback is generated and returned to Claude for additional improvements. This creates a feedback loop that continues until the success criteria are met.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "graders",
+        "outcomes",
+        "feedback loops"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s4c1-q008",
+      "question": "What is the purpose of MCP in the context of managed agents?",
+      "options": [
+        "To provide memory caching and performance optimization",
+        "To connect managed agents to external services and platforms",
+        "To define the personas and behavioral constraints of agents",
+        "To isolate execution environments and manage network access"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "MCP (Model Context Protocol) provides integrations with external services. In the recurring research agent example, MCP servers enable integrations to external services like Slack and Asana. Agents can use built-in tools, custom tools, and MCP-connected services.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP",
+        "integrations",
+        "external services"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s4c1-q009",
+      "question": "In a multi-agent incident response workflow, how do specialist agents typically interact with each other?",
+      "options": [
+        "Each specialist directly modifies the work of other specialists in real time",
+        "Specialists operate independently with their own context windows and share access to a common file system",
+        "All specialists must wait for approval before sharing any information",
+        "Specialists communicate only through a central message queue"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "In multi-agent coordination, specialist agents operate independently, each using its own context window, while sharing access to a common file system. A coordinator agent then combines the findings from all specialists to synthesize a unified result. This allows parallel investigation while maintaining shared access to relevant data.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "multi-agent coordination",
+        "specialist agents",
+        "coordination"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s4c1-q010",
+      "question": "How does the use of memory in incident response improve organizational outcomes beyond the immediate incident?",
+      "options": [
+        "It allows the coordinator to query historical incidents and apply prior context to current investigations",
+        "It automatically prevents similar incidents from occurring in the future",
+        "It eliminates the need for human incident post-mortems",
+        "It reduces the number of specialist agents required for each incident"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Memory-aware incident response allows the coordinator to query memory for historical incidents, enabling the agent to recognize patterns and begin with prior context. This improves investigation speed, diagnostic quality, and organizational learning by leveraging past experiences rather than starting from scratch each time.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "memory",
+        "incident response",
+        "organizational learning"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s4c1-q011",
+      "question": "What architectural advantage does the managed agents platform provide compared to maintaining custom agent infrastructure?",
+      "options": [
+        "It eliminates the need for defining success criteria and evaluation mechanisms",
+        "It removes the need to maintain agent servers, tool orchestration, execution environments, and session management",
+        "It automatically scales to handle unlimited concurrent sessions without any configuration",
+        "It provides built-in machine learning models that improve agent performance over time"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The key advantage of managed agents is that developers focus on defining the agent while Anthropic handles execution. Instead of maintaining agent servers, tool orchestration, execution environments, and session management, developers define the agent's capabilities, tools, personas, and success criteria. Anthropic operates the infrastructure.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "managed infrastructure",
+        "developer focus",
+        "operational burden"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s4c1-q012",
+      "question": "In a scenario where an agent must send a sensitive message to Slack, how does the permissions policy pattern ensure organizational control?",
+      "options": [
+        "The agent automatically drafts the message, a human reviews it, approval is granted, and then the action executes",
+        "The agent sends the message immediately and logs the action for later human review",
+        "The agent requests permission from other agents before proceeding",
+        "The permissions policy prevents the agent from accessing Slack entirely"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Permissions policies support approval workflows for sensitive actions. Before execution, Claude drafts the message, a human reviews it, approval is granted, and then the action executes. This pattern balances automation with human oversight, ensuring that critical communications receive appropriate review before being sent.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "permissions policies",
+        "human approval",
+        "sensitive actions"
+      ]
+    }
+  ]
+}

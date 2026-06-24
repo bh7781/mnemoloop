@@ -1,0 +1,261 @@
+{
+  "chapterId": "claude-platform-101-s3c3",
+  "chapterTitle": "MCP",
+  "course": "Claude Platform 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-platform-101-s3c3-q001",
+      "question": "What is the primary problem that the Model Context Protocol (MCP) addresses?",
+      "options": [
+        "The need to maintain custom API wrappers for third-party services as they change over time",
+        "The inability of Claude to understand natural language instructions",
+        "The lack of authentication mechanisms for internal databases",
+        "The requirement to write custom business logic for proprietary systems"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "MCP shifts the responsibility of maintaining integrations from application developers to service providers. When third-party APIs change, the provider updates their MCP server rather than requiring developers to maintain custom wrappers. The other options describe different problems that are not addressed by MCP.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP purpose",
+        "integration maintenance",
+        "third-party services"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c3-q002",
+      "question": "Which of the following is an example of a third-party service that publishes an MCP server?",
+      "options": [
+        "Your internal database",
+        "Slack",
+        "A proprietary API you built",
+        "A custom business logic workflow"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Slack is a third-party service that publishes an MCP server. The other options represent systems that would use Tools (internal database, proprietary API) or Skills (custom workflows) rather than MCP. MCP is specifically for connecting to external platforms maintained by service providers.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP servers",
+        "third-party services",
+        "external platforms"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c3-q003",
+      "question": "What does the `mcp_servers` configuration section define?",
+      "options": [
+        "Which tools Claude is allowed to use from the MCP server",
+        "The connection details to an MCP server",
+        "The authentication procedures for internal systems",
+        "The workflow processes that Claude should follow"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The `mcp_servers` section specifies how to connect to an MCP server, including the server type, URL, name, and optional authentication token. The `mcp_toolset` section (not `mcp_servers`) controls which tools Claude can access. The other options describe different configuration purposes.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "mcp_servers configuration",
+        "connection details",
+        "MCP setup"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c3-q004",
+      "question": "When an MCP server's underlying API changes, who is responsible for updating the integration?",
+      "options": [
+        "The application developer using the MCP server",
+        "The service provider that publishes the MCP server",
+        "Claude's development team at Anthropic",
+        "A third-party integration maintenance company"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The service provider maintains the MCP server and updates it when their API changes. This is the core benefit of MCP—it shifts maintenance responsibility from application developers to service providers. The application using the MCP server remains unchanged when the provider updates their server.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP maintenance",
+        "service provider responsibility",
+        "integration updates"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c3-q005",
+      "question": "What is the key difference between Tools and MCP?",
+      "options": [
+        "Tools are for teaching Claude workflows, while MCP is for connecting to internal systems",
+        "Tools connect Claude to systems you own, while MCP connects Claude to third-party services maintained by providers",
+        "Tools require authentication, while MCP does not",
+        "Tools are faster than MCP for accessing external services"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Tools are designed to connect Claude to your own systems (internal databases, proprietary APIs), and you maintain them. MCP connects Claude to third-party services, and the service provider maintains the integration. This distinction is fundamental to understanding when to use each approach.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Tools vs MCP",
+        "integration ownership",
+        "maintenance responsibility"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c3-q006",
+      "question": "What is automatic tool discovery in the context of MCP?",
+      "options": [
+        "Claude automatically finds and uses any tool available on the internet",
+        "Claude connects to an MCP server, the server advertises available tools, and Claude reads the schemas automatically without requiring custom tool definitions",
+        "Claude discovers new tools by searching through documentation",
+        "The application automatically creates new tools based on user requests"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "With MCP, developers do not need to manually define tool schemas, names, or descriptions. When Claude connects to an MCP server, the server automatically advertises its available tools and schemas, which Claude can then discover and use. This eliminates the need for custom tool definitions that would be required with traditional integrations.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "automatic tool discovery",
+        "schema advertisement",
+        "MCP benefits"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c3-q007",
+      "question": "In the recommended pattern for restricting MCP tool access, what is the first step?",
+      "options": [
+        "Enable all tools and then disable the dangerous ones",
+        "Ask the user which tools they want to enable",
+        "Disable all tools by default",
+        "Enable only read-only tools"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The recommended best practice is to start with all MCP tools disabled (setting `enabled: False` in `default_config`) and then selectively enable only the specific tools required for the workflow. This approach improves safety, reduces context usage, and simplifies tool selection. Starting with all tools enabled and then disabling dangerous ones is less secure.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool access control",
+        "security best practices",
+        "MCP configuration"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c3-q008",
+      "question": "What is the purpose of Skills in relation to Tools and MCP?",
+      "options": [
+        "Skills connect Claude to third-party services like Slack",
+        "Skills teach Claude processes and workflows specific to your organization",
+        "Skills replace the need for both Tools and MCP",
+        "Skills provide authentication for external APIs"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Skills are instructional and teach Claude how to perform specific processes or workflows, such as status report generation, review procedures, or team-specific standards. Unlike Tools (which connect to systems) and MCP (which connects to external services), Skills are about teaching Claude your organization's procedures and best practices.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "Skills purpose",
+        "workflow instruction",
+        "Tools vs Skills vs MCP"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c3-q009",
+      "question": "Why might a production application want to restrict access to certain MCP tools?",
+      "options": [
+        "To make Claude work faster",
+        "To prevent write operations, reduce context usage, limit risk, and simplify tool selection",
+        "To comply with legal requirements",
+        "To ensure Claude only uses the most popular tools"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Restricting MCP tool access serves multiple practical purposes: preventing unintended write operations, reducing the amount of context used by tool definitions, limiting potential security risks, and making it easier for Claude to select the appropriate tool for a task. These are all legitimate production concerns when integrating with external services.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool access restriction",
+        "production safety",
+        "risk management"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c3-q010",
+      "question": "How does MCP reduce the maintenance burden compared to custom tool development for multiple third-party services?",
+      "options": [
+        "MCP eliminates the need for authentication entirely",
+        "MCP allows developers to write integrations once and reuse them across all applications",
+        "Service providers maintain their own MCP servers, so developers no longer need to maintain custom API wrappers, handle authentication changes, or update code when third-party APIs change",
+        "MCP automatically converts all third-party APIs to a standard format"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The core maintenance benefit of MCP is that service providers take responsibility for maintaining their integrations. When Asana, Slack, or Google update their APIs, they update their MCP servers. Developers using these services no longer need to maintain custom wrappers, handle authentication changes, or update code for API changes. This fundamentally shifts the maintenance burden from application developers to service providers.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "maintenance reduction",
+        "provider responsibility",
+        "MCP architecture"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c3-q011",
+      "question": "Consider a scenario where you need Claude to access both your internal customer database and a Slack workspace. Which approach correctly matches each integration type to its purpose?",
+      "options": [
+        "Use MCP for the internal database and Tools for Slack",
+        "Use Tools for the internal database and MCP for Slack",
+        "Use Skills for both the database and Slack",
+        "Use MCP for both since it handles all external integrations"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Tools are appropriate for your internal systems (the customer database that you own and maintain), while MCP is appropriate for third-party services like Slack (which publishes and maintains its own MCP server). This distinction is central to understanding when to use each integration method. Using MCP for your internal database would be incorrect because you, not a service provider, maintain that system.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "integration selection",
+        "Tools vs MCP",
+        "architectural decisions"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c3-q012",
+      "question": "What architectural advantage does MCP provide when an organization needs to integrate with many external platforms?",
+      "options": [
+        "It allows Claude to access all external services without any configuration",
+        "It provides a consistent interface for connecting to multiple external services while shifting maintenance responsibility to each service provider, reducing integration code and development time",
+        "It eliminates the need for authentication across all platforms",
+        "It automatically converts all external APIs to match Claude's native capabilities"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "MCP's architectural advantage for multi-platform integration is twofold: it provides a consistent, standardized interface across different services, and it shifts maintenance responsibility to each service provider. This means an organization integrating with Linear, Asana, Slack, and GitHub doesn't need to maintain four separate custom integrations—they connect to each provider's MCP server. When APIs change, each provider updates their server, not the organization. This reduces both integration code and long-term maintenance burden.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "MCP architecture",
+        "multi-platform integration",
+        "scalability",
+        "maintenance efficiency"
+      ]
+    }
+  ]
+}

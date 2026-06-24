@@ -1,0 +1,248 @@
+{
+  "chapterId": "claude-platform-101-s1c2",
+  "chapterTitle": "Your first API call",
+  "course": "Claude Platform 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-platform-101-s1c2-q001",
+      "question": "Which method is used to make API calls to Claude?",
+      "options": [
+        "messages.create",
+        "messages.send",
+        "api.request",
+        "claude.chat"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Every API call to Claude uses the messages.create method. This is the foundational method for all interactions with the Claude API, whether in simple scripts or production applications.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "API fundamentals",
+        "messages.create method"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c2-q002",
+      "question": "Where should API keys be stored to keep them secure?",
+      "options": [
+        "In a .env.local file",
+        "Hardcoded in the source code",
+        "In a public configuration file",
+        "In a README file"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "API keys should be stored in a .env.local file rather than hardcoded in source code. Hardcoding keys can expose them through version control systems like GitHub. Environment variables protect secrets from accidental exposure.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "API security",
+        "environment variables"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c2-q003",
+      "question": "What are the three core components required for every API request?",
+      "options": [
+        "A model, a maximum token limit, and a list of messages",
+        "An API key, a model name, and response format",
+        "A system prompt, user input, and output type",
+        "Authentication, endpoint URL, and request headers"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Every API call requires exactly three core components: a model (which Claude model to use), a maximum token limit (max_tokens parameter), and a list of messages (the conversation input). These are the minimum required parameters for messages.create.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "API request structure",
+        "core parameters"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c2-q004",
+      "question": "What is the primary purpose of the system prompt in an API request?",
+      "options": [
+        "To control Claude's behavior and define its role",
+        "To specify which model version to use",
+        "To set the maximum response length",
+        "To authenticate the API request"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The system prompt controls Claude's behavior and role. In the code review example, the system prompt 'You are a terse senior code reviewer. Give feedback in one paragraph.' influences Claude to respond in a concise, focused manner rather than conversationally. The system prompt shapes the style and approach of responses.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "system prompt",
+        "Claude behavior control"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c2-q005",
+      "question": "Why is response.content structured as an array of blocks rather than a single string?",
+      "options": [
+        "To make applications compatible with more advanced Claude capabilities",
+        "To reduce the size of API responses",
+        "To allow multiple API calls in one request",
+        "To simplify error handling"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Response content is returned as an array of blocks to support different content types (text, tool calls, thinking blocks, structured outputs) and to make applications compatible with more advanced Claude capabilities. This design allows applications to handle various response types and scale to more sophisticated features.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "response structure",
+        "content blocks"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c2-q006",
+      "question": "When processing a Claude API response, what should applications always do?",
+      "options": [
+        "Iterate through the response blocks and check each block's type",
+        "Assume the first block is always text content",
+        "Extract only the longest block from the response",
+        "Concatenate all blocks into a single string immediately"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Applications should always iterate through the array of response blocks and check each block's type. This ensures compatibility with different response types and prevents errors when encountering non-text blocks. The example code demonstrates this pattern with a for loop that checks if block.type === 'text'.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "response processing",
+        "block iteration"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c2-q007",
+      "question": "In the code review example, how is the buggy code passed to Claude?",
+      "options": [
+        "Embedded in the user message content",
+        "Sent as a separate system parameter",
+        "Provided through the model parameter",
+        "Included in the max_tokens configuration"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The buggy code is embedded into the user message using template literals: `Review this code:\\n${buggyCode}`. This pattern allows applications to dynamically pass content from users, databases, files, or other systems into the conversation. The user message role carries the actual content to be processed.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "message structure",
+        "user input handling"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c2-q008",
+      "question": "What must be done before an API key can be used for making requests?",
+      "options": [
+        "API credits must be purchased",
+        "The key must be registered with a domain",
+        "A separate authentication token must be obtained",
+        "The key must be validated through email"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Before an API key can be used, API credits must be purchased. The source explicitly notes this requirement, indicating that key creation alone is insufficient—financial setup is necessary to actually make API calls.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "API setup",
+        "account requirements"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c2-q009",
+      "question": "How does the same messages.create pattern scale from simple scripts to production applications?",
+      "options": [
+        "The core API call remains the same; it is wrapped inside application logic like route handlers or services",
+        "Production applications require a completely different API method",
+        "The pattern only works for simple scripts and cannot scale",
+        "Production applications must use multiple API keys and parallel requests"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The messages.create pattern is consistent across all applications. In production, the same core API call is simply wrapped inside application logic such as route handlers, services, or background jobs. The meeting-summary example demonstrates this: retrieve data, call messages.create, process the response, and return results to users. The API call itself doesn't change.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "API scalability",
+        "application architecture"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c2-q010",
+      "question": "In the code review example, what would be the consequence of not iterating through response blocks and instead treating response.content as a single string?",
+      "options": [
+        "The application would fail or produce incorrect output when Claude returns non-text blocks",
+        "The API would automatically convert all blocks to text format",
+        "The system prompt would not be applied to the response",
+        "The max_tokens parameter would be ignored"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Treating response.content as a single string would cause failures when Claude returns non-text blocks (tool calls, thinking blocks, structured outputs). The application would attempt to access properties that don't exist on non-text blocks or would concatenate incompatible data types. Proper iteration and type-checking prevents these errors and ensures compatibility with advanced Claude capabilities.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "response handling",
+        "error prevention"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c2-q011",
+      "question": "Consider a production application that processes user-submitted documents for analysis. Which of the following represents the correct pattern for integrating Claude API calls?",
+      "options": [
+        "Retrieve the document from storage, embed it in a user message, call messages.create with appropriate parameters, iterate through response blocks, and return results to the user interface",
+        "Store the document in the system prompt, hardcode the model name, and return response.content directly without processing",
+        "Create a separate API key for each document, send multiple messages.create calls in parallel, and concatenate all responses",
+        "Use the document as the model parameter, set max_tokens to unlimited, and assume the first response block is always text"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "The correct pattern follows the principles demonstrated in the meeting-summary example: retrieve data from storage, embed it in a user message (not the system prompt), call messages.create with proper parameters (model, max_tokens, messages), iterate through response blocks checking their types, and return processed results. This approach is secure, scalable, and compatible with advanced features. The other options violate API best practices or misunderstand the API structure.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "API integration",
+        "production patterns"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s1c2-q012",
+      "question": "Why is it important to check block.type when processing Claude API responses, even when expecting only text output?",
+      "options": [
+        "Future Claude capabilities may return different block types, and checking type ensures forward compatibility and prevents runtime errors",
+        "Different models return different block types that must be handled separately",
+        "The API randomly returns different block types to test application robustness",
+        "Checking block type is required to decrypt the response content"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Checking block.type ensures applications remain compatible with more advanced Claude capabilities. As Claude evolves, responses may include tool calls, thinking blocks, or other structured outputs beyond simple text. Applications that always check block type will handle these new capabilities gracefully, while applications that assume text-only responses will fail. This defensive programming pattern makes code resilient to API evolution.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "API evolution",
+        "defensive programming"
+      ]
+    }
+  ]
+}

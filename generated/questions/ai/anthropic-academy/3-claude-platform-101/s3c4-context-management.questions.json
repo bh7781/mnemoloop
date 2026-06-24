@@ -1,0 +1,249 @@
+{
+  "chapterId": "claude-platform-101-s3c4",
+  "chapterTitle": "Context management",
+  "course": "Claude Platform 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-platform-101-s3c4-q001",
+      "question": "What happens when a Claude request exceeds the context window limit?",
+      "options": [
+        "The request fails",
+        "Claude automatically summarizes the oldest messages",
+        "The model processes only the most recent messages",
+        "Additional tokens are charged at a premium rate"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "When the context window is exceeded, the request fails entirely. This is a critical constraint that makes context management essential for reliable systems. The other options describe mitigation strategies (compaction, truncation, or pricing adjustments) but do not reflect what actually happens when the limit is breached.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "context window limits",
+        "request failure"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c4-q002",
+      "question": "Which of the following is NOT a component of context that counts toward token usage?",
+      "options": [
+        "System prompt",
+        "Message history",
+        "User's local file system",
+        "Attached files"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "A user's local file system is not part of Claude's context. Context includes only what Claude can see during a request: system prompts, message history, tool definitions, tool results, attached files, skills, and thinking blocks. Information stored locally on the user's machine is not transmitted to or processed by Claude unless explicitly attached or referenced.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "context components",
+        "token consumption"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c4-q003",
+      "question": "What is the primary objective of context management?",
+      "options": [
+        "To include as much information as possible in every request",
+        "To include only the right information while staying within limits and controlling costs",
+        "To eliminate all tool calls from conversations",
+        "To prevent Claude from using the thinking feature"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Context management is about strategic inclusion of relevant information, not comprehensive inclusion. The goal is to keep the most important information available while respecting context limits and managing costs. Including everything would waste tokens and increase costs without improving performance.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "context management principles",
+        "cost optimization"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c4-q004",
+      "question": "In the just-in-time context pattern, when should information be provided to Claude?",
+      "options": [
+        "All at once in the system prompt before any conversation begins",
+        "Only when Claude requests it through tool calls",
+        "In equal portions across each message in the conversation",
+        "After the conversation has ended, for future reference"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Just-in-time context is a design strategy where information is provided on demand rather than upfront. Instead of loading everything into the system prompt, you provide tools that allow Claude to retrieve specific information when needed. This reduces initial context size and costs while maintaining access to necessary data.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "just-in-time context",
+        "tool-based retrieval"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c4-q005",
+      "question": "How does server-side compaction help manage context in long-running conversations?",
+      "options": [
+        "It deletes old messages to make room for new ones",
+        "It summarizes older turns and replaces them with summaries to reduce context usage",
+        "It prevents users from sending messages longer than a certain token count",
+        "It splits conversations into separate sessions automatically"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Server-side compaction automatically summarizes older conversation turns and replaces the original content with those summaries. This preserves important information while reducing context consumption. The process is automatic once enabled and does not delete information—it compresses it intelligently.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "server-side compaction",
+        "conversation management"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c4-q006",
+      "question": "Which context management pattern is most appropriate for reducing costs when the same system prompt is used across 100 requests per hour?",
+      "options": [
+        "Just-in-time context",
+        "Server-side compaction",
+        "Prompt caching",
+        "Memory"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "Prompt caching is designed for exactly this scenario. When stable content like system prompts, tool definitions, or reference documents are reused across multiple requests, caching allows them to be processed once and referenced in future requests at a fraction of the normal token cost. This directly reduces operational expenses for high-frequency applications.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "prompt caching",
+        "cost reduction"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c4-q007",
+      "question": "What is the key difference between prompt caching and memory as context management patterns?",
+      "options": [
+        "Prompt caching works only with system prompts, while memory works with any content",
+        "Prompt caching reduces costs for reusable content within requests, while memory persists information across sessions",
+        "Memory is automatic, while prompt caching requires manual configuration",
+        "Prompt caching stores data in the cloud, while memory stores data locally"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Prompt caching optimizes repeated requests by reusing stable content at lower cost within a single application session. Memory, by contrast, persists information across different sessions and conversations, allowing Claude to access user preferences, project history, and previous decisions. They solve different problems: caching addresses cost within sessions, while memory addresses continuity across sessions.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "prompt caching",
+        "memory",
+        "session persistence"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c4-q008",
+      "question": "In the memory pattern, who is responsible for controlling the storage backend?",
+      "options": [
+        "Anthropic automatically manages all memory storage",
+        "Claude decides where to store memory data",
+        "The application developer controls the storage backend",
+        "The memory tool automatically selects the optimal storage service"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "The memory pattern gives you full control over the storage backend. You decide whether to use file systems, databases, encrypted storage, or cloud services. Claude reads and writes memory through tool calls, but your application is responsible for implementing and managing the actual storage infrastructure.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "memory pattern",
+        "storage ownership"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c4-q009",
+      "question": "What does Anthropic automatically inject into the system instructions for the memory pattern?",
+      "options": [
+        "Instructions to delete old memories after each session",
+        "Instructions directing Claude to check memory before starting work",
+        "Instructions to encrypt all memory data",
+        "Instructions to limit memory usage to a specific token count"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Anthropic automatically injects a system instruction that directs Claude to check memory before starting work. This encourages Claude to retrieve relevant information from previous sessions before performing tasks, improving continuity and personalization without requiring manual prompting.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "memory pattern",
+        "automatic instructions"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c4-q010",
+      "question": "A compliance review agent needs to handle lengthy conversations, access a large building code library, and remember decisions from previous projects. Which combination of context management patterns would be most appropriate?",
+      "options": [
+        "Just just-in-time context and memory",
+        "Only prompt caching and server-side compaction",
+        "Prompt caching for system prompts, just-in-time context for building codes, compaction for conversations, and memory for historical decisions",
+        "Memory alone, since it can handle all persistence requirements"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "This scenario requires multiple patterns working together. Prompt caching reduces costs for reusable system prompts and tool definitions. Just-in-time context retrieves building code sections on demand rather than loading everything upfront. Server-side compaction manages lengthy conversation history automatically. Memory preserves findings and decisions across sessions. Each pattern addresses a specific challenge, and combining them creates a robust solution.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "layering patterns",
+        "multi-pattern architecture"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c4-q011",
+      "question": "An application experiences context window exhaustion errors and excessive token costs. Which two patterns would most directly address these specific problems?",
+      "options": [
+        "Just-in-time context and memory",
+        "Server-side compaction and prompt caching",
+        "Memory and just-in-time context",
+        "Prompt caching and memory"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Server-side compaction directly addresses context window exhaustion by automatically summarizing older conversation turns, preventing the context from growing beyond limits. Prompt caching directly addresses excessive token costs by reusing stable content at reduced cost. Just-in-time context and memory address different problems (information loading and persistence), while these two patterns target the specific issues mentioned.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "pattern selection",
+        "problem diagnosis"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s3c4-q012",
+      "question": "Why is just-in-time context described as a design strategy rather than a dedicated API feature?",
+      "options": [
+        "Because it requires manual implementation through tool design and retrieval logic rather than being a built-in API capability",
+        "Because Anthropic has not yet developed the API infrastructure to support it",
+        "Because it only works with certain models and not others",
+        "Because it is deprecated in favor of the memory pattern"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "Just-in-time context is a design pattern you implement by architecting your system to provide tools that retrieve information on demand. It is not a specific API feature like prompt caching or compaction. Instead, it is a strategic approach to how you structure your application—deciding what information to provide upfront versus what to make available through tool calls. This flexibility allows you to apply the pattern across different use cases.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "design patterns",
+        "architectural decisions"
+      ]
+    }
+  ]
+}

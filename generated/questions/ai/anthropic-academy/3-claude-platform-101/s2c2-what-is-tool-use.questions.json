@@ -1,0 +1,257 @@
+{
+  "chapterId": "claude-platform-101-s2c2",
+  "chapterTitle": "What is tool use?",
+  "course": "Claude Platform 101",
+  "provider": "Anthropic Academy",
+  "questions": [
+    {
+      "id": "claude-platform-101-s2c2-q001",
+      "question": "What is a tool in the context of Claude's capabilities?",
+      "options": [
+        "A function that you define and expose to Claude",
+        "A built-in feature that Claude uses to access the internet",
+        "A pre-trained model that Claude uses for specific tasks",
+        "A database that stores information Claude can query directly"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "A tool is a function that you define and expose to Claude. It allows Claude to request actions, but your application is responsible for executing the tool and returning results. Tools are not built-in features or pre-trained models—they are custom functions you create to bridge Claude and your external systems.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool definition",
+        "tool purpose"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c2-q002",
+      "question": "Who is responsible for executing a tool when Claude requests it?",
+      "options": [
+        "Claude executes the tool internally",
+        "Your application executes the tool",
+        "The tool runner executes the tool automatically",
+        "The external system executes the tool directly"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "A critical concept in tool use is that Claude does not execute tools—your application does. Claude decides when a tool should be used and requests it, but your code is responsible for running the tool and returning the result back to Claude. This separation of concerns is fundamental to how tool use works.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool execution",
+        "tool use flow"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c2-q003",
+      "question": "Which of the following is NOT one of the three required parts of a tool definition?",
+      "options": [
+        "Name",
+        "Description",
+        "Input schema",
+        "Output format"
+      ],
+      "correctOptionIndexes": [
+        3
+      ],
+      "explanation": "A tool definition consists of exactly three parts: name (unique identifier), description (explains what the tool does), and input_schema (defines accepted inputs using JSON Schema). Output format is not a required part of the tool definition itself, though the tool will produce results that are returned to Claude.",
+      "difficulty": "easy",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool definition",
+        "tool structure"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c2-q004",
+      "question": "Why are tool descriptions particularly important for effective tool use?",
+      "options": [
+        "They are required by the API specification",
+        "Claude reads the description when deciding whether to use a tool",
+        "They help other developers understand the tool's purpose",
+        "They determine how quickly the tool executes"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude reads the tool description when deciding whether to use a tool. Poor or vague descriptions lead to poor tool selection, which is one of the most common reasons agents fail to use available tools correctly. A strong description should clearly explain what the tool does, what information it returns, and when Claude should use it.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool description",
+        "tool selection",
+        "agent reliability"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c2-q005",
+      "question": "What does a `stop_reason` value of `tool_use` indicate in Claude's API response?",
+      "options": [
+        "Claude has finished processing and produced a final answer",
+        "Claude is requesting that a tool be executed",
+        "Claude encountered an error and stopped processing",
+        "Claude is waiting for user input before continuing"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "When Claude's response includes `stop_reason: \"tool_use\"`, it means Claude is requesting that a tool be executed. The response will contain a `tool_use` block specifying which tool to call and what inputs to provide. This is the signal that your application should execute the requested tool and return the result.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool use flow",
+        "API response",
+        "stop reason"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c2-q006",
+      "question": "In the tool use workflow, what happens after your application executes a tool?",
+      "options": [
+        "The tool result is sent back to Claude as a tool_result block",
+        "Claude automatically makes the next API call",
+        "The application displays the result to the user",
+        "The tool execution loop terminates"
+      ],
+      "correctOptionIndexes": [
+        0
+      ],
+      "explanation": "After your application executes a tool, the result is sent back to Claude as a `tool_result` block, which includes the tool_use_id linking it to the original tool call and the content (the actual result). Claude then receives this result and continues reasoning, which may lead to a final answer, another tool request, or multiple additional tool requests.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool use flow",
+        "tool result",
+        "agent loop"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c2-q007",
+      "question": "When multiple tools are available to Claude, how does it decide which tool to use?",
+      "options": [
+        "It uses the tool that appears first in the tools array",
+        "It randomly selects from the available tools",
+        "The decision is based largely on the tool descriptions",
+        "It always uses all available tools in sequence"
+      ],
+      "correctOptionIndexes": [
+        2
+      ],
+      "explanation": "When multiple tools are available, Claude evaluates the request and determines which tool or tools best fit the task based largely on the tool descriptions. This is why clear, specific descriptions are critical—they directly influence which tools Claude selects. Claude may call one tool at a time over multiple turns or call multiple tools in a single turn, depending on what the descriptions and the user's request suggest.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "multiple tools",
+        "tool selection",
+        "tool description"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c2-q008",
+      "question": "What is the primary benefit of using the SDK's tool runner instead of manually implementing the agent loop?",
+      "options": [
+        "It allows Claude to access external systems directly",
+        "It automatically builds schemas, handles tool execution loops, and manages tool-result messages",
+        "It increases the speed at which tools are executed",
+        "It eliminates the need to define tool descriptions"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The tool runner automates several repetitive tasks: building schemas automatically from functions, handling the agent loop internally, managing tool-result messages, and simplifying application code. Without the tool runner, you would need to manually write a while loop, handle stop_reason checks, create schemas, and manage tool-result message formatting. The tool runner reduces boilerplate significantly.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool runner",
+        "SDK features",
+        "automation"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c2-q009",
+      "question": "How do most production tools relate to existing application functionality?",
+      "options": [
+        "They replace existing systems with new Claude-specific implementations",
+        "They are thin wrappers around existing application functionality",
+        "They operate independently without connecting to other systems",
+        "They create new databases specifically for Claude to access"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Most production tools are thin wrappers around existing application functionality. Rather than creating new systems specifically for Claude, tools typically expose functionality that already exists within the application—such as internal code databases, search services, CRM systems, help desk platforms, or billing services. This approach leverages existing infrastructure and reduces development overhead.",
+      "difficulty": "moderate",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool implementation",
+        "system integration",
+        "production tools"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c2-q010",
+      "question": "Consider a scenario where Claude receives a user request that could potentially use multiple available tools. What factors would primarily influence whether Claude calls all tools simultaneously or sequentially over multiple turns?",
+      "options": [
+        "The processing speed of each tool and the size of the API response",
+        "The tool descriptions and Claude's reasoning about what information is needed",
+        "The order in which tools are defined in the tools array",
+        "The maximum token limit set for the API call"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Claude's decision to call tools simultaneously or sequentially is based on its reasoning about what information is needed to answer the user's question, which is informed by the tool descriptions. If Claude determines that both pieces of information are needed upfront, it may call both tools in one turn. If it determines that the result of one tool should inform which other tool to call, it will call them sequentially. The tool descriptions directly influence this reasoning process.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool selection strategy",
+        "agent reasoning",
+        "tool descriptions"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c2-q011",
+      "question": "A developer creates a tool with a vague description: 'Get information about a building.' What problems might this cause in a compliance-review agent that has access to multiple building-related tools?",
+      "options": [
+        "The tool will execute more slowly than tools with detailed descriptions",
+        "Claude may struggle to distinguish when to use this tool versus other building-related tools, leading to incorrect tool selection",
+        "The tool will be unable to accept input parameters",
+        "The API will reject the tool definition as invalid"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "Vague tool descriptions are one of the most common reasons agents fail to use available tools correctly. If a tool description is unclear, Claude cannot effectively determine when to use it, especially when multiple similar tools are available. A strong description should clearly explain what the tool does, what information it returns, and when Claude should use it. For example, distinguishing between 'lookup_building_code' (retrieve a specific code section) and 'search_building_code' (search for relevant regulations) requires clear, specific descriptions.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool description quality",
+        "agent failure modes",
+        "tool selection"
+      ]
+    },
+    {
+      "id": "claude-platform-101-s2c2-q012",
+      "question": "In a tool runner implementation, when you pass existing functions directly to the tools parameter, what does the tool runner do with those functions?",
+      "options": [
+        "It executes the functions immediately to validate they work correctly",
+        "It converts them into tool definitions by automatically building schemas and handling the agent loop",
+        "It stores them in a database for later retrieval",
+        "It requires you to manually convert them to JSON schema format first"
+      ],
+      "correctOptionIndexes": [
+        1
+      ],
+      "explanation": "The tool runner automates the process of converting existing functions into tool definitions. Instead of manually creating JSON schemas and writing dispatch logic, you can pass functions directly to the tool runner, and it automatically builds the schemas and handles the agent loop internally. This is a key benefit of using the tool runner—it eliminates boilerplate by treating functions as tools without requiring manual schema creation or loop management.",
+      "difficulty": "difficult",
+      "questionType": "single-correct",
+      "concepts": [
+        "tool runner",
+        "function conversion",
+        "schema automation"
+      ]
+    }
+  ]
+}
