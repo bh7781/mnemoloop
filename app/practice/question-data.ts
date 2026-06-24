@@ -27,6 +27,13 @@ export type QuestionBankSummary = {
 export type KnowledgeAreaSummary = {
   key: string;
   label: string;
+  providers: PracticeProviderSummary[];
+};
+
+export type PracticeProviderSummary = {
+  key: string;
+  label: string;
+  subtitle?: string;
 };
 
 function getSafeQuestionPath(relativeQuestionPath: string) {
@@ -57,12 +64,43 @@ export async function getKnowledgeAreas() {
     return [];
   }
 
-  return entries
+  const areaDirectories = entries
     .filter((entry) => entry.isDirectory())
-    .map((entry) => ({
+    .sort((left, right) => left.name.localeCompare(right.name));
+
+  const knowledgeAreas = await Promise.all(
+    areaDirectories.map(async (entry) => ({
       key: entry.name,
       label: formatKnowledgeAreaLabel(entry.name),
-    }))
+      providers: await getPracticeProviders(entry.name),
+    })),
+  );
+
+  return knowledgeAreas
+    .sort((left, right) => left.label.localeCompare(right.label));
+}
+
+async function getPracticeProviders(areaKey: string) {
+  const areaPath = path.join(questionsDirectory, areaKey);
+  let entries;
+
+  try {
+    entries = await readdir(areaPath, { withFileTypes: true });
+  } catch {
+    return [];
+  }
+
+  return entries
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => {
+      const providerDisplay = formatPracticeProviderDisplay(entry.name);
+
+      return {
+        key: `${areaKey}/${entry.name}`,
+        label: providerDisplay.label,
+        subtitle: providerDisplay.subtitle,
+      };
+    })
     .sort((left, right) => left.label.localeCompare(right.label));
 }
 
@@ -257,6 +295,19 @@ function formatKnowledgeAreaLabel(folderName: string) {
     .filter(Boolean)
     .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
     .join(" ");
+}
+
+function formatPracticeProviderDisplay(folderName: string) {
+  if (folderName === "anthropic-academy") {
+    return {
+      label: "CCA-F Certification Practice",
+      subtitle: "Anthropic Academy",
+    };
+  }
+
+  return {
+    label: formatKnowledgeAreaLabel(folderName),
+  };
 }
 
 type RawQuizQuestion = Omit<QuizData["questions"][number], "correctOptionIndexes"> & {
