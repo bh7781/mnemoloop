@@ -24,6 +24,11 @@ export type QuestionBankSummary = {
   relativePath: string;
 };
 
+export type KnowledgeAreaSummary = {
+  key: string;
+  label: string;
+};
+
 function getSafeQuestionPath(relativeQuestionPath: string) {
   const segments = relativeQuestionPath.split("/");
 
@@ -41,6 +46,24 @@ function getSafeQuestionPath(relativeQuestionPath: string) {
   }
 
   return questionPath;
+}
+
+export async function getKnowledgeAreas() {
+  let entries;
+
+  try {
+    entries = await readdir(questionsDirectory, { withFileTypes: true });
+  } catch {
+    return [];
+  }
+
+  return entries
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => ({
+      key: entry.name,
+      label: formatKnowledgeAreaLabel(entry.name),
+    }))
+    .sort((left, right) => left.label.localeCompare(right.label));
 }
 
 export async function questionFileExists(relativeQuestionPath: string) {
@@ -222,6 +245,18 @@ function normalizeDifficulty(difficulty: string | undefined) {
   }
 
   return "moderate";
+}
+
+function formatKnowledgeAreaLabel(folderName: string) {
+  if (folderName.length <= 3) {
+    return folderName.toUpperCase();
+  }
+
+  return folderName
+    .split(/[-_\s]+/)
+    .filter(Boolean)
+    .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1)}`)
+    .join(" ");
 }
 
 type RawQuizQuestion = Omit<QuizData["questions"][number], "correctOptionIndexes"> & {
