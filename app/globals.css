@@ -59,6 +59,41 @@ body {
   color: #cbd5e1;
 }
 
+.dark .text-cyan-950,
+.dark .text-cyan-900,
+.dark .text-cyan-800,
+.dark .text-cyan-700 {
+  color: #bae6fd;
+}
+
+.dark .text-teal-950,
+.dark .text-teal-900,
+.dark .text-teal-800,
+.dark .text-teal-700 {
+  color: #99f6e4;
+}
+
+.dark .text-violet-950,
+.dark .text-violet-900,
+.dark .text-violet-800,
+.dark .text-violet-700 {
+  color: #ddd6fe;
+}
+
+.dark .text-red-950,
+.dark .text-red-900,
+.dark .text-red-800,
+.dark .text-red-700 {
+  color: #fecaca;
+}
+
+.dark .text-amber-950,
+.dark .text-amber-900,
+.dark .text-amber-800,
+.dark .text-amber-700 {
+  color: #fde68a;
+}
+
 .dark .bg-white,
 .dark .bg-slate-50 {
   background-color: var(--dark-surface);
@@ -68,8 +103,16 @@ body {
   background-color: var(--dark-surface-muted);
 }
 
+.dark .bg-cyan-50 {
+  background-color: rgba(34, 211, 238, 0.14);
+}
+
 .dark .bg-teal-50 {
   background-color: rgba(20, 184, 166, 0.14);
+}
+
+.dark .bg-violet-50 {
+  background-color: rgba(167, 139, 250, 0.14);
 }
 
 .dark .bg-red-50 {
